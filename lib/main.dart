@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:majorproject/student_main_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,6 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: LoginPage(),
     );
   }
@@ -27,7 +29,7 @@ class LoginPage extends StatelessWidget {
           children: [
             // Logo
             Image.asset(
-              'images/1571228138php75C2CR.jpg', // replace with the path to your logo image
+              'images/1571228138php75C2CR.jpg',
               height: 100,
               width: 100,
             ),
@@ -55,7 +57,10 @@ class LoginPage extends StatelessWidget {
             // Login Button
             ElevatedButton(
               onPressed: () {
-                // Add your login logic here
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => StudentMainScreen()),
+                );
               },
               child: Text('Login'),
             ),
