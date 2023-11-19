@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:majorproject/academic_activity_screen.dart';
 
 class StudentMainScreen extends StatelessWidget {
   @override
@@ -29,7 +30,7 @@ class StudentMainScreen extends StatelessWidget {
               Text(
                 'Student',
                 style: GoogleFonts.marcellus(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                 ),
@@ -41,7 +42,10 @@ class StudentMainScreen extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AcademicScreen()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.black, backgroundColor: Color(0xff1E94FF),
