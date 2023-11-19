@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:majorproject/student_main_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:majorproject/firebase_options.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
