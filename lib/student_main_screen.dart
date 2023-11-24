@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
+import 'package:majorproject/student_data_sheet_screen.dart';
 
 class StudentSelectionScreen extends StatefulWidget {
   @override
@@ -206,11 +207,16 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                         ),
                       );
                     } else if (selectedButton == 'Button 3') {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => AcademicScreen(),
+                      //   ),
+                      // );
+
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => AcademicScreen(),
-                        ),
+                        MaterialPageRoute(builder: (context) => studentDataSheet()),
                       );
                     } else if (selectedButton == 'Button 4') {
                       Navigator.push(
