@@ -231,7 +231,8 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                     print('Please select a button.');
                   }
                 },
-                child: Text('Next',style: GoogleFonts.kufam(color: Color(0xff1E192E),fontSize: 20,fontWeight: FontWeight.w500),),
+                child: Text('Next',style: GoogleFonts.kufam(color: Color(0xff1E192E),fontSize: 20,fontWeight: FontWeight.w500),
+                ),
               ),
 
             ],

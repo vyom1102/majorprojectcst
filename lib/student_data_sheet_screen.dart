@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 
+
 class studentDataSheet extends StatefulWidget {
   @override
   _studentDataSheetState createState() => _studentDataSheetState();
@@ -128,9 +129,18 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white)),
                               SizedBox(height: 5),
-                              TextField(
+                              TextFormField(
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'This field is required';
+                                  }
+                                  return null;
+                                },
                                   decoration: InputDecoration(
                                 hintText: 'Shreya',
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                    ),
                                 hintStyle: GoogleFonts.kufam(
                                     color: Colors.white.withOpacity(0.5)),
                                 contentPadding: const EdgeInsets.symmetric(
@@ -138,7 +148,8 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 border: OutlineInputBorder(),
                                 fillColor: Color(0xff141318),
                                 filled: true,
-                              )),
+                              ),
+                                style: TextStyle(color: Colors.white),),
                               SizedBox(
                                 height: 20,
                               ),
@@ -151,6 +162,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                               TextField(
                                 decoration: InputDecoration(
                                   hintText: 'shreya@gamil.com',
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
                                   hintStyle: GoogleFonts.kufam(
                                       color: Colors.white.withOpacity(0.5)),
                                   contentPadding: const EdgeInsets.symmetric(
@@ -159,6 +173,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   fillColor: Color(0xff141318),
                                   filled: true,
                                 ),
+                                style: TextStyle(color: Colors.white),
                               ),
                               SizedBox(
                                 height: 20,
@@ -172,6 +187,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                               TextField(
                                 decoration: InputDecoration(
                                   hintText: '98753',
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
                                   hintStyle: GoogleFonts.kufam(
                                       color: Colors.white.withOpacity(0.5)),
                                   contentPadding: const EdgeInsets.symmetric(
@@ -180,6 +198,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   fillColor: Color(0xff141318),
                                   filled: true,
                                 ),
+                                style: TextStyle(color: Colors.white),
                               ),
                               SizedBox(
                                 height: 20,
@@ -193,6 +212,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                               TextField(
                                 decoration: InputDecoration(
                                   hintText: 'Select a date',
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
                                   hintStyle: GoogleFonts.kufam(
                                       color: Colors.white.withOpacity(0.5)),
                                   contentPadding: const EdgeInsets.symmetric(
@@ -201,6 +223,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   fillColor: Color(0xff141318),
                                   filled: true,
                                 ),
+                                style: TextStyle(color: Colors.white),
                               ),
                               SizedBox(
                                 height: 20,
@@ -214,6 +237,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                               TextField(
                                 decoration: InputDecoration(
                                   hintText: 'Enter permanent address',
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
                                   hintStyle: GoogleFonts.kufam(
                                       color: Colors.white.withOpacity(0.5)),
                                   contentPadding: const EdgeInsets.symmetric(
@@ -222,6 +248,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   fillColor: Color(0xff141318),
                                   filled: true,
                                 ),
+                                style: TextStyle(color: Colors.white),
                               ),
                               SizedBox(
                                 height: 20,
@@ -235,6 +262,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                               TextField(
                                 decoration: InputDecoration(
                                   hintText: 'Select',
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
                                   hintStyle: GoogleFonts.kufam(
                                       color: Colors.white.withOpacity(0.5)),
                                   contentPadding: const EdgeInsets.symmetric(
@@ -243,6 +273,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   fillColor: Color(0xff141318),
                                   filled: true,
                                 ),
+                                style: TextStyle(color: Colors.white),
                               ),
                               SizedBox(
                                 height: 20,
@@ -256,6 +287,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                               TextField(
                                 decoration: InputDecoration(
                                   hintText: '54728',
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
                                   hintStyle: GoogleFonts.kufam(
                                       color: Colors.white.withOpacity(0.5)),
                                   contentPadding: const EdgeInsets.symmetric(
@@ -264,6 +298,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   fillColor: Color(0xff141318),
                                   filled: true,
                                 ),
+                                style: TextStyle(color: Colors.white),
                               ),
                               SizedBox(
                                 height: 20,
@@ -277,6 +312,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                               TextField(
                                 decoration: InputDecoration(
                                   hintText: '98765XXXXX',
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
                                   hintStyle: GoogleFonts.kufam(
                                       color: Colors.white.withOpacity(0.5)),
                                   contentPadding: const EdgeInsets.symmetric(
@@ -285,6 +323,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   fillColor: Color(0xff141318),
                                   filled: true,
                                 ),
+                                style: TextStyle(color: Colors.white),
                               ),
                               SizedBox(
                                 height: 20,
@@ -298,6 +337,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                               TextField(
                                 decoration: InputDecoration(
                                   hintText: 'Browse',
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
                                   hintStyle: GoogleFonts.kufam(
                                       color: Colors.white.withOpacity(0.5)),
                                   contentPadding: const EdgeInsets.symmetric(
@@ -305,6 +347,26 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   border: OutlineInputBorder(),
                                   fillColor: Color(0xff141318),
                                   filled: true,
+                                ),
+                                style: TextStyle(color: Colors.white),
+                              ),
+
+                              SizedBox(height: 20),
+
+                              ElevatedButton(
+                                onPressed: () {
+
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0xFF13E9DC),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                                ),
+                                child: Text(
+                                  'Next',
+                                  style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
                                 ),
                               ),
                             ],
@@ -334,6 +396,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 TextField(
                                     decoration: InputDecoration(
                                   hintText: 'Name',
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                      ),
                                   hintStyle: GoogleFonts.kufam(
                                       color: Colors.white.withOpacity(0.5)),
                                   contentPadding: const EdgeInsets.symmetric(
@@ -341,7 +406,8 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   border: OutlineInputBorder(),
                                   fillColor: Color(0xff141318),
                                   filled: true,
-                                )),
+                                ),
+                                  style: TextStyle(color: Colors.white),),
                                 SizedBox(
                                   height: 20,
                                 ),
@@ -354,6 +420,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 TextField(
                                   decoration: InputDecoration(
                                     hintText: 'Business',
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                    ),
                                     hintStyle: GoogleFonts.kufam(
                                         color: Colors.white.withOpacity(0.5)),
                                     contentPadding: const EdgeInsets.symmetric(
@@ -362,6 +431,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     fillColor: Color(0xff141318),
                                     filled: true,
                                   ),
+                                  style: TextStyle(color: Colors.white),
                                 ),
                                 SizedBox(
                                   height: 20,
@@ -375,6 +445,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 TextField(
                                   decoration: InputDecoration(
                                     hintText: 'Enter address',
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                    ),
                                     hintStyle: GoogleFonts.kufam(
                                         color: Colors.white.withOpacity(0.5)),
                                     contentPadding: const EdgeInsets.symmetric(
@@ -383,6 +456,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     fillColor: Color(0xff141318),
                                     filled: true,
                                   ),
+                                  style: TextStyle(color: Colors.white),
                                 ),
                                 SizedBox(
                                   height: 20,
@@ -396,6 +470,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 TextField(
                                   decoration: InputDecoration(
                                     hintText: '98765XXXX',
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                    ),
                                     hintStyle: GoogleFonts.kufam(
                                         color: Colors.white.withOpacity(0.5)),
                                     contentPadding: const EdgeInsets.symmetric(
@@ -404,6 +481,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     fillColor: Color(0xff141318),
                                     filled: true,
                                   ),
+                                  style: TextStyle(color: Colors.white),
                                 ),
                                 SizedBox(
                                   height: 20,
@@ -423,6 +501,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 TextField(
                                   decoration: InputDecoration(
                                     hintText: 'Name',
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                    ),
                                     hintStyle: GoogleFonts.kufam(
                                         color: Colors.white.withOpacity(0.5)),
                                     contentPadding: const EdgeInsets.symmetric(
@@ -431,6 +512,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     fillColor: Color(0xff141318),
                                     filled: true,
                                   ),
+                                  style: TextStyle(color: Colors.white),
                                 ),
                                 SizedBox(
                                   height: 20,
@@ -444,6 +526,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 TextField(
                                   decoration: InputDecoration(
                                     hintText: 'Business',
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                    ),
                                     hintStyle: GoogleFonts.kufam(
                                         color: Colors.white.withOpacity(0.5)),
                                     contentPadding: const EdgeInsets.symmetric(
@@ -452,6 +537,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     fillColor: Color(0xff141318),
                                     filled: true,
                                   ),
+                                  style: TextStyle(color: Colors.white),
                                 ),
                                 SizedBox(
                                   height: 20,
@@ -465,6 +551,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 TextField(
                                   decoration: InputDecoration(
                                     hintText: 'Enter address',
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                    ),
                                     hintStyle: GoogleFonts.kufam(
                                         color: Colors.white.withOpacity(0.5)),
                                     contentPadding: const EdgeInsets.symmetric(
@@ -473,6 +562,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     fillColor: Color(0xff141318),
                                     filled: true,
                                   ),
+                                  style: TextStyle(color: Colors.white),
                                 ),
                                 SizedBox(
                                   height: 20,
@@ -486,6 +576,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 TextField(
                                   decoration: InputDecoration(
                                     hintText: '98765XXXXX',
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                    ),
                                     hintStyle: GoogleFonts.kufam(
                                         color: Colors.white.withOpacity(0.5)),
                                     contentPadding: const EdgeInsets.symmetric(
@@ -494,12 +587,33 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     fillColor: Color(0xff141318),
                                     filled: true,
                                   ),
+                                  style: TextStyle(color: Colors.white),
+                                ),
+
+                                SizedBox(height: 20),
+
+                                ElevatedButton(
+                                  onPressed: () {
+
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Color(0xFF13E9DC),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                    minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                                  ),
+                                  child: Text(
+                                    'Next',
+                                    style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
+                                  ),
                                 ),
                               ],
                             ),
                           ),
                         ],
                       ),
+
                     ],
                   ),
                 ),
@@ -509,3 +623,5 @@ class _studentDataSheetState extends State<studentDataSheet> {
     );
   }
 }
+
+
