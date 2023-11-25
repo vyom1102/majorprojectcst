@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
+import 'package:majorproject/main.dart';
+import 'package:majorproject/teacher_data_sheet_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'package:majorproject/student_data_sheet_screen.dart';
 
@@ -12,13 +13,13 @@ class StudentSelectionScreen extends StatefulWidget {
 
 class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
   String selectedButton = '';
-
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Color(0xff141318),
       body: Stack(
-
         children: [
           Positioned(
             bottom: 0,
@@ -28,18 +29,43 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
               'images/bottom_container.png',
               fit: BoxFit.cover,
               height: 200,
-              width: MediaQuery.sizeOf(context).width,// Adjust the height as needed
+              width: MediaQuery.sizeOf(context)
+                  .width, // Adjust the height as needed
             ),
           ),
           Column(
-
             children: [
-              SizedBox(height: 100,),
-              Text('STUDENT',style: GoogleFonts.kufam(fontWeight: FontWeight.w600,fontSize: 26,color: Color(0xff0CECDA)),),
-             SizedBox(height: 20,),
-              Center(child: Image.asset('images/student.png', scale: 3, )),
-              SizedBox(height: 20),
+              SizedBox(
+                height: 100,
+              ),
+              Row(
 
+                children: [
+                  IconButton(
+                    icon: Image.asset('images/drawer.png'),
+                    onPressed: () {
+                      _scaffoldKey.currentState?.openDrawer();
+                    },
+                  ),
+                  SizedBox(width: 80,),
+                  Text(
+                    'STUDENT',
+                    style: GoogleFonts.kufam(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 26,
+                        color: Color(0xff0CECDA)),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Center(
+                  child: Image.asset(
+                'images/student.png',
+                scale: 3,
+              )),
+              SizedBox(height: 20),
 
               // Buttons
               ElevatedButton(
@@ -48,17 +74,17 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                     selectedButton = 'Button 1';
                   });
                 },
-
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all(
                     Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                   ),
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) {
+                    (Set<MaterialState> states) {
                       if (states.contains(MaterialState.pressed)) {
                         // Pressed color
                         return Color(0xFF0CECDA);
-                      } else if (states.contains(MaterialState.selected) || selectedButton == 'Button 1') {
+                      } else if (states.contains(MaterialState.selected) ||
+                          selectedButton == 'Button 1') {
                         // Selected color
                         return Color(0xFF0CECDA);
                       } else {
@@ -69,14 +95,18 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                   ),
                   shape: MaterialStateProperty.all<OutlinedBorder>(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0), // Set the border radius
-                      side: BorderSide(color: Color(0xFF0CECDA)), // Set the border color
+                      borderRadius:
+                          BorderRadius.circular(8.0), // Set the border radius
+                      side: BorderSide(
+                          color: Color(0xFF0CECDA)), // Set the border color
                     ),
                   ),
                 ),
                 child: Text('Academic Activity'),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               ElevatedButton(
                 onPressed: () {
                   setState(() {
@@ -88,11 +118,12 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                     Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                   ),
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) {
+                    (Set<MaterialState> states) {
                       if (states.contains(MaterialState.pressed)) {
                         // Pressed color
                         return Color(0xFF0CECDA);
-                      } else if (states.contains(MaterialState.selected) || selectedButton == 'Button 2') {
+                      } else if (states.contains(MaterialState.selected) ||
+                          selectedButton == 'Button 2') {
                         // Selected color
                         return Color(0xFF0CECDA);
                       } else {
@@ -103,14 +134,18 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                   ),
                   shape: MaterialStateProperty.all<OutlinedBorder>(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0), // Set the border radius
-                      side: BorderSide(color: Color(0xFF0CECDA)), // Set the border color
+                      borderRadius:
+                          BorderRadius.circular(8.0), // Set the border radius
+                      side: BorderSide(
+                          color: Color(0xFF0CECDA)), // Set the border color
                     ),
                   ),
                 ),
                 child: Text('Co-curricular Activity'),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               ElevatedButton(
                 onPressed: () {
                   setState(() {
@@ -122,11 +157,12 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                     Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                   ),
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) {
+                    (Set<MaterialState> states) {
                       if (states.contains(MaterialState.pressed)) {
                         // Pressed color
                         return Color(0xFF0CECDA);
-                      } else if (states.contains(MaterialState.selected) || selectedButton == 'Button 3') {
+                      } else if (states.contains(MaterialState.selected) ||
+                          selectedButton == 'Button 3') {
                         // Selected color
                         return Color(0xFF0CECDA);
                       } else {
@@ -137,19 +173,23 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                   ),
                   shape: MaterialStateProperty.all<OutlinedBorder>(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0), // Set the border radius
-                      side: BorderSide(color: Color(0xFF0CECDA)), // Set the border color
+                      borderRadius:
+                          BorderRadius.circular(8.0), // Set the border radius
+                      side: BorderSide(
+                          color: Color(0xFF0CECDA)), // Set the border color
                     ),
                   ),
                 ),
                 child: Text('Sports'),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
 
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    selectedButton = 'NCC/NSS';
+                    selectedButton = 'button 4';
                   });
                 },
                 style: ButtonStyle(
@@ -157,8 +197,9 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                     Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                   ),
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.pressed) || selectedButton == 'NCC/NSS') {
+                    (Set<MaterialState> states) {
+                      if (states.contains(MaterialState.pressed) ||
+                          selectedButton == 'button 4') {
                         // Pressed or selected color
                         return Color(0xFF0CECDA);
                       } else {
@@ -169,7 +210,8 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                   ),
                   shape: MaterialStateProperty.all<OutlinedBorder>(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0), // Set the border radius
+                      borderRadius:
+                          BorderRadius.circular(8.0), // Set the border radius
                       side: BorderSide(color: Color(0xFF0CECDA)),
                     ),
                   ),
@@ -177,10 +219,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                 child: Text('NCC/NSS'),
               ),
 
-
-
-              SizedBox(height: MediaQuery.sizeOf(context).height*0.08),
-
+              SizedBox(height: MediaQuery.sizeOf(context).height * 0.08),
 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -188,7 +227,8 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
-                  minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                  minimumSize:
+                      Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                 ),
                 onPressed: () {
                   if (selectedButton.isNotEmpty) {
@@ -216,13 +256,14 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
 
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => studentDataSheet()),
+                        MaterialPageRoute(
+                            builder: (context) => studentDataSheet()),
                       );
-                    } else if (selectedButton == 'Button 4') {
+                    } else if (selectedButton == 'button 4') {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AcademicScreen(),
+                          builder: (context) => TeacherDataSheet(),
                         ),
                       );
                     }
@@ -231,13 +272,69 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                     print('Please select a button.');
                   }
                 },
-                child: Text('Next',style: GoogleFonts.kufam(color: Color(0xff1E192E),fontSize: 20,fontWeight: FontWeight.w500),
+                child: Text(
+                  'Next',
+                  style: GoogleFonts.kufam(
+                      color: Color(0xff1E192E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
                 ),
               ),
-
             ],
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: Container(
+          color: Colors.white, // Set the drawer background color to grey
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text(
+                  'Your Name',
+                  style: TextStyle(color: Colors.black),
+                ),
+                accountEmail: Text(
+                  'your.email@example.com',
+                  style: TextStyle(color: Colors.black),
+                ),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage:
+                      AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.grey, // Set the header background color to grey
+                ),
+              ),
+              SizedBox(height: MediaQuery.sizeOf(context).height*0.65,),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF13E9DC),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  minimumSize:
+                      Size(70, 40.0),
+                ),
+                onPressed: () {
+                  Navigator.pop(context); // Close the drawer
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+                child: Text(
+                  'Log out',
+                  style: GoogleFonts.kufam(
+                      color: Color(0xff1E192E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

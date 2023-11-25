@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
+import 'package:majorproject/main.dart';
 
 class TeacherSelectionScreen extends StatefulWidget {
   @override
@@ -10,10 +11,11 @@ class TeacherSelectionScreen extends StatefulWidget {
 
 class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
   String selectedButton = '';
-
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Color(0xff141318),
       body: Stack(
 
@@ -33,7 +35,19 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
 
             children: [
               SizedBox(height: 100,),
-              Text('TEACHER',style: GoogleFonts.kufam(fontWeight: FontWeight.w600,fontSize: 26,color: Color(0xff0CECDA)),),
+              Row(
+
+                children: [
+                  IconButton(
+                    icon: Image.asset('images/drawer.png'),
+                    onPressed: () {
+                      _scaffoldKey.currentState?.openDrawer();
+                    },
+                  ),
+                  SizedBox(width: 80,),
+                  Text('TEACHER',style: GoogleFonts.kufam(fontWeight: FontWeight.w600,fontSize: 26,color: Color(0xff0CECDA)),),
+                ],
+              ),
               SizedBox(height: 20,),
               Center(child: Image.asset('images/teacher.png', scale: 3, )),
               SizedBox(height: 20),
@@ -227,7 +241,60 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
 
             ],
           ),
+
         ],
+      ),
+      drawer: Drawer(
+        child: Container(
+          color: Colors.white, // Set the drawer background color to grey
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text(
+                  'Your Name',
+                  style: TextStyle(color: Colors.black),
+                ),
+                accountEmail: Text(
+                  'your.email@example.com',
+                  style: TextStyle(color: Colors.black),
+                ),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage:
+                  AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.grey, // Set the header background color to grey
+                ),
+              ),
+              SizedBox(height: MediaQuery.sizeOf(context).height*0.65,),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF13E9DC),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  minimumSize:
+                  Size(70, 40.0),
+                ),
+                onPressed: () {
+                  Navigator.pop(context); // Close the drawer
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+                child: Text(
+                  'Log out',
+                  style: GoogleFonts.kufam(
+                      color: Color(0xff1E192E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
