@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
+import 'package:image_picker/image_picker.dart';
 
 
 class studentDataSheet extends StatefulWidget {
@@ -10,8 +11,80 @@ class studentDataSheet extends StatefulWidget {
 }
 
 class _studentDataSheetState extends State<studentDataSheet> {
+
+  TextEditingController _imageController = TextEditingController();
+  String _selectedImage='';
+
+  String selectedYearofAdmission ='';
+  List<String> years = List.generate(25, (index) => (2000 + index).toString());
+
+  TextEditingController _yearController = TextEditingController();
   PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 0;
+
+  DateTime selectedDate = DateTime.now();
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
+  }
+
+
+  void showYearPicker(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext builder) {
+        return Container(
+          height: 200,
+          child: ListWheelScrollView(
+            itemExtent: 40,
+            children: years.map((String year) {
+              return ListTile(
+                title: Center(
+                  child: Text(
+                    year,
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+                onTap: () {
+                  setState(() {
+                    selectedYearofAdmission = year;
+                    _yearController.text = selectedYearofAdmission; // Set the text in the controller
+                  });
+                  Navigator.of(context).pop();
+                },
+              );
+            }).toList(),
+          ),
+        );
+      },
+    );
+  }
+
+
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      setState(() {
+        _selectedImage = pickedFile.path;
+        _imageController.text = _selectedImage;
+      });
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -194,32 +267,47 @@ class _studentDataSheetState extends State<studentDataSheet> {
                               SizedBox(
                                 height: 20,
                               ),
+
                               Text('Date of Birth',
                                 style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
-                              TextField(
-                                decoration: InputDecoration(
-                                  hintText: 'Select a date',
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: TextFormField(
+                                      readOnly: true, // Disable manual editing
+                                      onTap: () => _selectDate(context),
+                                      decoration: InputDecoration(
+                                        hintText: 'Select a date',
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                        ),
+                                        hintStyle: TextStyle(
+                                          color: Colors.white.withOpacity(0.5),
+                                        ),
+                                        contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 20.0,
+                                          horizontal: 15.0,
+                                        ),
+                                        border: OutlineInputBorder(),
+                                        fillColor: Color(0xff141318),
+                                        filled: true,
+                                      ),
+                                      style: TextStyle(color: Colors.white),
+                                      controller: TextEditingController(
+                                        text: "${selectedDate.toLocal()}".split(' ')[0],
+                                      ),
+                                    ),
                                   ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
-                                ),
-                                style: TextStyle(color: Colors.white),
+                                  IconButton(
+                                    icon: Icon(Icons.calendar_today),
+                                    onPressed: () => _selectDate(context),
+                                    color: Colors.white,
+                                  ),
+                                ],
                               ),
-                              // IconButton(
-                              //   icon: Icon(Icons.calendar_today),
-                              //   onPressed: () {}
-                              //   // =>
-                              //       // _selectDate(context),
-                              //   // color: Colors.white,
-                              // ),
+
                               SizedBox(
                                 height: 20,
                               ),
@@ -248,22 +336,37 @@ class _studentDataSheetState extends State<studentDataSheet> {
                               Text('Year of admission',
                                 style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
-                              TextField(
-                                decoration: InputDecoration(
-                                  hintText: 'Select',
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+
+
+                              Padding(
+                                padding: const EdgeInsets.all(0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                      showYearPicker(context);
+                                      },
+                                child: AbsorbPointer(
+                                  child: TextField(
+                                    readOnly: true,
+                                    controller: TextEditingController(text: selectedYearofAdmission),
+                                    decoration: InputDecoration(
+                                      hintText: 'Select',
+                                      suffixIcon: Icon(Icons.arrow_drop_down,
+                                      size: 40.0,),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                      ),
+                                      hintStyle: GoogleFonts.kufam(
+                                          color: Colors.white.withOpacity(0.5)),
+                                      contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 20.0, horizontal: 15.0),
+                                      border: OutlineInputBorder(),
+                                      fillColor: Color(0xff141318),
+                                      filled: true,
+                                    ),
+                                    style: TextStyle(color: Colors.white),
                                   ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
                                 ),
-                                style: TextStyle(color: Colors.white),
-                              ),
+                              ),),
                               SizedBox(
                                 height: 20,
                               ),
@@ -314,21 +417,46 @@ class _studentDataSheetState extends State<studentDataSheet> {
                               Text('Upload Photograph',
                                 style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
-                              TextField(
-                                decoration: InputDecoration(
-                                  hintText: 'Browse',
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                  ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
+                              Padding(
+                                padding: const EdgeInsets.all(0.0),
+                                child:
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children:[
+                                    Stack(
+                                      children:[ TextField(
+                                        controller: _imageController,
+                                      readOnly: true,
+                                      decoration: InputDecoration(
+                                        hintText: 'Browse',
+                                          suffixIcon: IconButton(
+                                              icon: Icon(Icons.add, size: 25.0,),
+                                            onPressed: () {
+                                              _pickImage();
+                                            },),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                        ),
+                                        hintStyle: GoogleFonts.kufam(
+                                            color: Colors.white.withOpacity(0.5)),
+                                        contentPadding: const EdgeInsets.symmetric(
+                                            vertical: 20.0, horizontal: 15.0),
+                                        border: OutlineInputBorder(),
+                                        fillColor: Color(0xff141318),
+                                        filled: true,
+                                      ),
+                                      style: TextStyle(color: Colors.white),
+
+                                                                        ),
+                              ]
+                                    //     if (_selectedImage != null)
+                                    // Image.file(
+                                    //   File(_selectedImage),
+                                    //   height: 100,
+                                    //   width: 100,
+
+                                    ),]
                                 ),
-                                style: TextStyle(color: Colors.white),
                               ),
 
                               SizedBox(height: 20),

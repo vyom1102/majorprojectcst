@@ -137,12 +137,6 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => TrainingScreen(),
-                      ),
-                    );
                     setState(() {
                       selectedButton = 'Button 1';
                     });
@@ -190,12 +184,6 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ResultScreen(),
-                      ),
-                    );
                     setState(() {
                       selectedButton = 'Button 2';
                     });
@@ -243,12 +231,6 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CoursesScreen(),
-                      ),
-                    );
                     setState(() {
                       selectedButton = 'Button 3';
                     });
@@ -296,12 +278,6 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SeminarScreen(),
-                      ),
-                    );
                     setState(() {
                       selectedButton = 'Button 4';
                       // selectedButton = 'NCC/NSS';
@@ -354,12 +330,6 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CompetitionScreen(),
-                      ),
-                    );
                     setState(() {
                       selectedButton = 'Button 5';
                     });
@@ -407,12 +377,6 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HigherStudiesScreen(),
-                      ),
-                    );
                     setState(() {
                       selectedButton = 'Button 6';
                     });
@@ -460,12 +424,6 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => StartupScreen(),
-                      ),
-                    );
                     setState(() {
                       selectedButton = 'Button 7';
                     });
@@ -513,12 +471,6 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PlacementScreen(),
-                      ),
-                    );
                     setState(() {
                       selectedButton = 'Button 8';
                     });
@@ -587,34 +539,57 @@ class _AcademicScreenState extends State<AcademicScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AcademicScreen(),
+                          builder: (context) => TrainingScreen(),
                         ),
                       );
                     } else if (selectedButton == 'Button 2') {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TeacherSelectionScreen(),
+                          builder: (context) => ResultScreen(),
                         ),
                       );
                     } else if (selectedButton == 'Button 3') {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => AcademicScreen(),
-                      //   ),
-                      // );
-
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => studentDataSheet()),
+                          builder: (context) => CoursesScreen(),
+                        ),
                       );
-                    } else if (selectedButton == 'Button 4') {
+                    }
+                    else if (selectedButton == 'Button 4') {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AcademicScreen(),
+                          builder: (context) => SeminarScreen(),
+                        ),
+                      );
+                    }else if (selectedButton == 'Button 5') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SeminarScreen(),
+                        ),
+                      );
+                    }else if (selectedButton == 'Button 6') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CompetitionScreen(),
+                        ),
+                      );
+                    }else if (selectedButton == 'Button 7') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => StartupScreen(),
+                        ),
+                      );
+                    }else if (selectedButton == 'Button 8') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PlacementScreen(),
                         ),
                       );
                     }
