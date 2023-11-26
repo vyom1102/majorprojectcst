@@ -39,7 +39,9 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
 
                 children: [
                   IconButton(
-                    icon: Image.asset('images/drawer.png'),
+                    icon: Image.asset('images/drawer.png',
+                      width: 30.0,
+                      height: 30.0,),
                     onPressed: () {
                       _scaffoldKey.currentState?.openDrawer();
                     },
@@ -69,10 +71,10 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                         (Set<MaterialState> states) {
                       if (states.contains(MaterialState.pressed)) {
                         // Pressed color
-                        return Color(0xFF0CECDA);
+                        return Color.fromRGBO(12, 236, 218, 0.5);
                       } else if (states.contains(MaterialState.selected) || selectedButton == 'Button 1') {
                         // Selected color
-                        return Color(0xFF0CECDA);
+                        return Color.fromRGBO(12, 236, 218, 0.5);
                       } else {
                         // Default color
                         return Colors.black;
@@ -86,7 +88,8 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                     ),
                   ),
                 ),
-                child: Text('Event Attended'),
+                child: Text('Event Attended',
+                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
               ),
               SizedBox(height: 20,),
               ElevatedButton(
@@ -103,10 +106,10 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                         (Set<MaterialState> states) {
                       if (states.contains(MaterialState.pressed)) {
                         // Pressed color
-                        return Color(0xFF0CECDA);
+                        return Color.fromRGBO(12, 236, 218, 0.5);
                       } else if (states.contains(MaterialState.selected) || selectedButton == 'Button 2') {
                         // Selected color
-                        return Color(0xFF0CECDA);
+                        return Color.fromRGBO(12, 236, 218, 0.5);
                       } else {
                         // Default color
                         return Colors.black;
@@ -120,7 +123,8 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                     ),
                   ),
                 ),
-                child: Text('Event Organized'),
+                child: Text('Event Organized',
+                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
               ),
               SizedBox(height: 20,),
               ElevatedButton(
@@ -137,10 +141,10 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                         (Set<MaterialState> states) {
                       if (states.contains(MaterialState.pressed) || selectedButton == 'Button 3') {
                         // Pressed color
-                        return Color(0xFF0CECDA);
+                        return Color.fromRGBO(12, 236, 218, 0.5);
                       } else if (states.contains(MaterialState.selected)) {
                         // Selected color
-                        return Color(0xFF0CECDA);
+                        return Color.fromRGBO(12, 236, 218, 0.5);
                       } else {
                         // Default color
                         return Colors.black;
@@ -154,7 +158,8 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                     ),
                   ),
                 ),
-                child: Text('Courses Completed'),
+                child: Text('Courses Completed',
+                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
               ),
               SizedBox(height: 20,),
 
@@ -172,7 +177,7 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                         (Set<MaterialState> states) {
                       if (states.contains(MaterialState.pressed) || selectedButton == 'NCC/NSS') {
                         // Pressed or selected color
-                        return Color(0xFF0CECDA);
+                        return Color.fromRGBO(12, 236, 218, 0.5);
                       } else {
                         // Default color
                         return Colors.black;
@@ -186,7 +191,8 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                     ),
                   ),
                 ),
-                child: Text('Publication'),
+                child: Text('Publication',
+                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
               ),
 
               SizedBox(height: MediaQuery.sizeOf(context).height*0.08),

@@ -159,7 +159,7 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                           TextField(
                             controller: _emailAddressController,
                             decoration: InputDecoration(
-                              hintText: 'shreya@gamil.com',
+                              hintText: 'shreya@gmail.com',
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
                               ),

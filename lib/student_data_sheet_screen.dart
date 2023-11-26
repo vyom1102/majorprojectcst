@@ -123,11 +123,8 @@ class _studentDataSheetState extends State<studentDataSheet> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Name',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              Text('Full Name',
+                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextFormField(
                                 validator: (value) {
@@ -154,14 +151,11 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 height: 20,
                               ),
                               Text('Email Address',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextField(
                                 decoration: InputDecoration(
-                                  hintText: 'shreya@gamil.com',
+                                  hintText: 'shreya@gmail.com',
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff0CECDA)),
                                   ),
@@ -179,10 +173,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 height: 20,
                               ),
                               Text('Roll No.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextField(
                                 decoration: InputDecoration(
@@ -204,10 +195,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 height: 20,
                               ),
                               Text('Date of Birth',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextField(
                                 decoration: InputDecoration(
@@ -225,14 +213,18 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 ),
                                 style: TextStyle(color: Colors.white),
                               ),
+                              // IconButton(
+                              //   icon: Icon(Icons.calendar_today),
+                              //   onPressed: () {}
+                              //   // =>
+                              //       // _selectDate(context),
+                              //   // color: Colors.white,
+                              // ),
                               SizedBox(
                                 height: 20,
                               ),
                               Text('Address',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextField(
                                 decoration: InputDecoration(
@@ -254,10 +246,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 height: 20,
                               ),
                               Text('Year of admission',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextField(
                                 decoration: InputDecoration(
@@ -279,10 +268,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 height: 20,
                               ),
                               Text('JEE Rank',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextField(
                                 decoration: InputDecoration(
@@ -304,10 +290,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 height: 20,
                               ),
                               Text('Mobile No.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextField(
                                 decoration: InputDecoration(
@@ -329,10 +312,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 height: 20,
                               ),
                               Text('Upload Photograph',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextField(
                                 decoration: InputDecoration(
@@ -383,15 +363,10 @@ class _studentDataSheetState extends State<studentDataSheet> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text('Father Details',
-                                    style: TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xffFFFFFF))),
+                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w700,fontSize: 16,color: Colors.white),),
+                                SizedBox(height: 5),
                                 Text('Father’s Name',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
+                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
                                     decoration: InputDecoration(
@@ -412,10 +387,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
                                 Text('Occupation',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
+                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
                                   decoration: InputDecoration(
@@ -437,10 +409,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
                                 Text('Office Address',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
+                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
                                   decoration: InputDecoration(
@@ -462,10 +431,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
                                 Text('Official Phone No.',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
+                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
                                   decoration: InputDecoration(
@@ -487,16 +453,10 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
                                 Text('Mother Details',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
+                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w700,fontSize: 16,color: Colors.white),),
                                 SizedBox(height: 5),
                                 Text('Mother’s Name',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
+                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
                                   decoration: InputDecoration(
@@ -518,10 +478,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
                                 Text('Occupation',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
+                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
                                   decoration: InputDecoration(
@@ -543,10 +500,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
                                 Text('Office Address',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
+                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
                                   decoration: InputDecoration(
@@ -568,10 +522,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
                                 Text('Official Phone No.',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
+                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
                                   decoration: InputDecoration(

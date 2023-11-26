@@ -79,8 +79,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
+import 'package:majorproject/academic_folder/competition_screen.dart';
+import 'package:majorproject/academic_folder/courses_screen.dart';
+import 'package:majorproject/academic_folder/higher_studies_screen.dart';
+import 'package:majorproject/academic_folder/placement_screen.dart';
+import 'package:majorproject/academic_folder/result_screen.dart';
+import 'package:majorproject/academic_folder/seminar_screen.dart';
+import 'package:majorproject/academic_folder/startup_screen.dart';
+import 'package:majorproject/academic_folder/training_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'package:majorproject/student_data_sheet_screen.dart';
+import 'package:majorproject/academic_folder/training_screen.dart';
 
 class AcademicScreen extends StatefulWidget {
   @override
@@ -95,50 +104,62 @@ class _AcademicScreenState extends State<AcademicScreen> {
     return Scaffold(
       backgroundColor: Color(0xff141318),
       body: Stack(
-
         children: [
           Positioned(
             bottom: 0,
             child: Image.asset(
-
-
               'images/bottom_container.png',
               fit: BoxFit.cover,
-              height:150,
-              width: MediaQuery.sizeOf(context).width,// Adjust the height as needed
+              height: 150,
+              width: MediaQuery.sizeOf(context)
+                  .width, // Adjust the height as needed
             ),
           ),
           Column(
-
-
             children: [
-              SizedBox(height: 60,),
-              Text('Academic Activity',style: GoogleFonts.kufam(fontWeight: FontWeight.w600,fontSize: 26,color: Color(0xff0CECDA)),),
+              SizedBox(
+                height: 60,
+              ),
+              Text(
+                'Academic Activity',
+                style: GoogleFonts.kufam(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 26,
+                    color: Color(0xff0CECDA)),
+              ),
 
-
-            SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               // Buttons
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TrainingScreen(),
+                      ),
+                    );
                     setState(() {
                       selectedButton = 'Button 1';
                     });
                   },
-
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(
                       Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                     ),
                     backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
+                      (Set<MaterialState> states) {
                         if (states.contains(MaterialState.pressed)) {
                           // Pressed color
-                          return Color(0xFF0CECDA);
-                        } else if (states.contains(MaterialState.selected) || selectedButton == 'Button 1') {
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else if (states.contains(MaterialState.selected) ||
+                            selectedButton == 'Button 1') {
                           // Selected color
-                          return Color(0xFF0CECDA);
+                          return Color.fromRGBO(12, 236, 218, 0.5);
                         } else {
                           // Default color
                           return Colors.black;
@@ -147,19 +168,34 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     ),
                     shape: MaterialStateProperty.all<OutlinedBorder>(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0), // Set the border radius
-                        side: BorderSide(color: Color(0xFF0CECDA)), // Set the border color
+                        borderRadius:
+                            BorderRadius.circular(8.0), // Set the border radius
+                        side: BorderSide(
+                            color: Color(0xFF0CECDA)), // Set the border color
                       ),
                     ),
                   ),
-                  child: Text('Training'),
+                  child: Text(
+                    'Training',
+                    style: GoogleFonts.kufam(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        color: Colors.white),
+                  ),
                 ),
               ),
 
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResultScreen(),
+                      ),
+                    );
                     setState(() {
                       selectedButton = 'Button 2';
                     });
@@ -169,13 +205,14 @@ class _AcademicScreenState extends State<AcademicScreen> {
                       Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                     ),
                     backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
+                      (Set<MaterialState> states) {
                         if (states.contains(MaterialState.pressed)) {
                           // Pressed color
-                          return Color(0xFF0CECDA);
-                        } else if (states.contains(MaterialState.selected) || selectedButton == 'Button 2') {
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else if (states.contains(MaterialState.selected) ||
+                            selectedButton == 'Button 2') {
                           // Selected color
-                          return Color(0xFF0CECDA);
+                          return Color.fromRGBO(12, 236, 218, 0.5);
                         } else {
                           // Default color
                           return Colors.black;
@@ -184,19 +221,34 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     ),
                     shape: MaterialStateProperty.all<OutlinedBorder>(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0), // Set the border radius
-                        side: BorderSide(color: Color(0xFF0CECDA)), // Set the border color
+                        borderRadius:
+                            BorderRadius.circular(8.0), // Set the border radius
+                        side: BorderSide(
+                            color: Color(0xFF0CECDA)), // Set the border color
                       ),
                     ),
                   ),
-                  child: Text('Result'),
+                  child: Text(
+                    'Result',
+                    style: GoogleFonts.kufam(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        color: Colors.white),
+                  ),
                 ),
               ),
 
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CoursesScreen(),
+                      ),
+                    );
                     setState(() {
                       selectedButton = 'Button 3';
                     });
@@ -206,13 +258,14 @@ class _AcademicScreenState extends State<AcademicScreen> {
                       Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                     ),
                     backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
+                      (Set<MaterialState> states) {
                         if (states.contains(MaterialState.pressed)) {
                           // Pressed color
-                          return Color(0xFF0CECDA);
-                        } else if (states.contains(MaterialState.selected) || selectedButton == 'Button 3') {
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else if (states.contains(MaterialState.selected) ||
+                            selectedButton == 'Button 3') {
                           // Selected color
-                          return Color(0xFF0CECDA);
+                          return Color.fromRGBO(12, 236, 218, 0.5);
                         } else {
                           // Default color
                           return Colors.black;
@@ -221,22 +274,37 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     ),
                     shape: MaterialStateProperty.all<OutlinedBorder>(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0), // Set the border radius
-                        side: BorderSide(color: Color(0xFF0CECDA)), // Set the border color
+                        borderRadius:
+                            BorderRadius.circular(8.0), // Set the border radius
+                        side: BorderSide(
+                            color: Color(0xFF0CECDA)), // Set the border color
                       ),
                     ),
                   ),
-                  child: Text('Courses'),
+                  child: Text(
+                    'Courses',
+                    style: GoogleFonts.kufam(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        color: Colors.white),
+                  ),
                 ),
               ),
 
-
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SeminarScreen(),
+                      ),
+                    );
                     setState(() {
-                      selectedButton = 'NCC/NSS';
+                      selectedButton = 'Button 4';
+                      // selectedButton = 'NCC/NSS';
                     });
                   },
                   style: ButtonStyle(
@@ -244,47 +312,71 @@ class _AcademicScreenState extends State<AcademicScreen> {
                       Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                     ),
                     backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.pressed) || selectedButton == 'NCC/NSS') {
-                          // Pressed or selected color
-                          return Color(0xFF0CECDA);
+                      (Set<MaterialState> states) {
+                        if (states.contains(MaterialState.pressed)) {
+                          // Pressed color
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else if (states.contains(MaterialState.selected) ||
+                            selectedButton == 'Button 4') {
+                          // Selected color
+                          return Color.fromRGBO(12, 236, 218, 0.5);
                         } else {
                           // Default color
                           return Colors.black;
+                          // if (states.contains(MaterialState.pressed) || selectedButton == 'NCC/NSS') {
+                          //   // Pressed or selected color
+                          //   return Color(0xFF0CECDA);
+                          // } else {
+                          //   // Default color
+                          //   return Colors.black;
                         }
                       },
                     ),
                     shape: MaterialStateProperty.all<OutlinedBorder>(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0), // Set the border radius
+                        borderRadius:
+                            BorderRadius.circular(8.0), // Set the border radius
                         side: BorderSide(color: Color(0xFF0CECDA)),
                       ),
                     ),
                   ),
-                  child: Text('Seminar'),
+                  child: Text(
+                    'Seminar',
+                    style: GoogleFonts.kufam(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        color: Colors.white),
+                  ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CompetitionScreen(),
+                      ),
+                    );
                     setState(() {
                       selectedButton = 'Button 5';
                     });
                   },
-
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(
                       Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                     ),
                     backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
+                      (Set<MaterialState> states) {
                         if (states.contains(MaterialState.pressed)) {
                           // Pressed color
-                          return Color(0xFF0CECDA);
-                        } else if (states.contains(MaterialState.selected) || selectedButton == 'Button 5') {
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else if (states.contains(MaterialState.selected) ||
+                            selectedButton == 'Button 5') {
                           // Selected color
-                          return Color(0xFF0CECDA);
+                          return Color.fromRGBO(12, 236, 218, 0.5);
                         } else {
                           // Default color
                           return Colors.black;
@@ -293,19 +385,34 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     ),
                     shape: MaterialStateProperty.all<OutlinedBorder>(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0), // Set the border radius
-                        side: BorderSide(color: Color(0xFF0CECDA)), // Set the border color
+                        borderRadius:
+                            BorderRadius.circular(8.0), // Set the border radius
+                        side: BorderSide(
+                            color: Color(0xFF0CECDA)), // Set the border color
                       ),
                     ),
                   ),
-                  child: Text('Competition'),
+                  child: Text(
+                    'Competition',
+                    style: GoogleFonts.kufam(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        color: Colors.white),
+                  ),
                 ),
               ),
 
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HigherStudiesScreen(),
+                      ),
+                    );
                     setState(() {
                       selectedButton = 'Button 6';
                     });
@@ -315,13 +422,14 @@ class _AcademicScreenState extends State<AcademicScreen> {
                       Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                     ),
                     backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
+                      (Set<MaterialState> states) {
                         if (states.contains(MaterialState.pressed)) {
                           // Pressed color
-                          return Color(0xFF0CECDA);
-                        } else if (states.contains(MaterialState.selected) || selectedButton == 'Button 6') {
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else if (states.contains(MaterialState.selected) ||
+                            selectedButton == 'Button 6') {
                           // Selected color
-                          return Color(0xFF0CECDA);
+                          return Color.fromRGBO(12, 236, 218, 0.5);
                         } else {
                           // Default color
                           return Colors.black;
@@ -330,19 +438,34 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     ),
                     shape: MaterialStateProperty.all<OutlinedBorder>(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0), // Set the border radius
-                        side: BorderSide(color: Color(0xFF0CECDA)), // Set the border color
+                        borderRadius:
+                            BorderRadius.circular(8.0), // Set the border radius
+                        side: BorderSide(
+                            color: Color(0xFF0CECDA)), // Set the border color
                       ),
                     ),
                   ),
-                  child: Text('Higher Studies'),
+                  child: Text(
+                    'Higher Studies',
+                    style: GoogleFonts.kufam(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        color: Colors.white),
+                  ),
                 ),
               ),
 
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => StartupScreen(),
+                      ),
+                    );
                     setState(() {
                       selectedButton = 'Button 7';
                     });
@@ -352,13 +475,14 @@ class _AcademicScreenState extends State<AcademicScreen> {
                       Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                     ),
                     backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
+                      (Set<MaterialState> states) {
                         if (states.contains(MaterialState.pressed)) {
                           // Pressed color
-                          return Color(0xFF0CECDA);
-                        } else if (states.contains(MaterialState.selected) || selectedButton == 'Button 7') {
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else if (states.contains(MaterialState.selected) ||
+                            selectedButton == 'Button 7') {
                           // Selected color
-                          return Color(0xFF0CECDA);
+                          return Color.fromRGBO(12, 236, 218, 0.5);
                         } else {
                           // Default color
                           return Colors.black;
@@ -367,20 +491,34 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     ),
                     shape: MaterialStateProperty.all<OutlinedBorder>(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0), // Set the border radius
-                        side: BorderSide(color: Color(0xFF0CECDA)), // Set the border color
+                        borderRadius:
+                            BorderRadius.circular(8.0), // Set the border radius
+                        side: BorderSide(
+                            color: Color(0xFF0CECDA)), // Set the border color
                       ),
                     ),
                   ),
-                  child: Text('Startup'),
+                  child: Text(
+                    'Startup',
+                    style: GoogleFonts.kufam(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        color: Colors.white),
+                  ),
                 ),
               ),
 
-
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PlacementScreen(),
+                      ),
+                    );
                     setState(() {
                       selectedButton = 'Button 8';
                     });
@@ -390,31 +528,49 @@ class _AcademicScreenState extends State<AcademicScreen> {
                       Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                     ),
                     backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.pressed) || selectedButton == 'Button 8') {
-                          // Pressed or selected color
-                          return Color(0xFF0CECDA);
+                      (Set<MaterialState> states) {
+                        if (states.contains(MaterialState.pressed)) {
+                          // Pressed color
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else if (states.contains(MaterialState.selected) ||
+                            selectedButton == 'Button 8') {
+                          // Selected color
+                          return Color.fromRGBO(12, 236, 218, 0.5);
                         } else {
                           // Default color
                           return Colors.black;
                         }
+                        // if (states.contains(MaterialState.pressed)) {
+                        // // Pressed color
+                        // return Color.fromRGBO(12, 236, 218, 0.5);
+                        //                     else if (states.contains(MaterialState.pressed) || selectedButton == 'Button 8') {
+                        //                       // Pressed or selected color
+                        //                       return Color.fromRGBO(12, 236, 218, 0.5);
+                        //                     } else {
+                        //                       // Default color
+                        //                       return Colors.black;
+                        //                     }
                       },
                     ),
                     shape: MaterialStateProperty.all<OutlinedBorder>(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0), // Set the border radius
+                        borderRadius:
+                            BorderRadius.circular(8.0), // Set the border radius
                         side: BorderSide(color: Color(0xFF0CECDA)),
                       ),
                     ),
                   ),
-                  child: Text('Placement'),
+                  child: Text(
+                    'Placement',
+                    style: GoogleFonts.kufam(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        color: Colors.white),
+                  ),
                 ),
               ),
 
-
-
-              SizedBox(height: MediaQuery.sizeOf(context).height*0.08),
-
+              SizedBox(height: MediaQuery.sizeOf(context).height * 0.08),
 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -422,7 +578,8 @@ class _AcademicScreenState extends State<AcademicScreen> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
-                  minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                  minimumSize:
+                      Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                 ),
                 onPressed: () {
                   if (selectedButton.isNotEmpty) {
@@ -450,7 +607,8 @@ class _AcademicScreenState extends State<AcademicScreen> {
 
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => studentDataSheet()),
+                        MaterialPageRoute(
+                            builder: (context) => studentDataSheet()),
                       );
                     } else if (selectedButton == 'Button 4') {
                       Navigator.push(
@@ -465,10 +623,14 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     print('Please select a button.');
                   }
                 },
-                child: Text('Next',style: GoogleFonts.kufam(color: Color(0xff1E192E),fontSize: 20,fontWeight: FontWeight.w500),
+                child: Text(
+                  'Next',
+                  style: GoogleFonts.kufam(
+                      color: Color(0xff1E192E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
                 ),
               ),
-
             ],
           ),
         ],
