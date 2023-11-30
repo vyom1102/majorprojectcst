@@ -23,7 +23,7 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
       lastDate: DateTime.now(),
     );
 
-    if (picked != null && picked != selectedDate) {
+    if (picked != null && picked != selectedDate){
       setState(() {
         selectedDate = picked;
       });
@@ -135,6 +135,9 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                             },
                             decoration: InputDecoration(
                               hintText: 'Shreya',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
                               ),
@@ -160,6 +163,9 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                             controller: _emailAddressController,
                             decoration: InputDecoration(
                               hintText: 'shreya@gmail.com',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
                               ),
@@ -186,6 +192,9 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                             controller: _employeeIdController,
                             decoration: InputDecoration(
                               hintText: '98753',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
                               ),
@@ -217,6 +226,9 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                                   onTap: () => _selectDate(context),
                                   decoration: InputDecoration(
                                     hintText: 'Select a date',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                    ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff0CECDA)),
                                     ),
@@ -262,6 +274,9 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                                   onTap: () => _joiningDate(context),
                                   decoration: InputDecoration(
                                     hintText: 'Select a date',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                    ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff0CECDA)),
                                     ),
@@ -302,6 +317,9 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                             controller: _permanentAddressController,
                             decoration: InputDecoration(
                               hintText: 'Enter permanent address',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
                               ),
@@ -328,6 +346,9 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                             controller: _fatherHusbandNameController,
                             decoration: InputDecoration(
                               hintText: 'Enter Name',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
                               ),
@@ -354,6 +375,9 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                             controller: _highestQualificationController,
                             decoration: InputDecoration(
                               hintText: 'Diploma/Degree',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
                               ),
@@ -380,6 +404,9 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                             controller: _mobileNumberController,
                             decoration: InputDecoration(
                               hintText: '98765XXXXX',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
                               ),
@@ -406,6 +433,9 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                             controller: _currentDesignationController,
                             decoration: InputDecoration(
                               hintText: 'Enter Designation',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
                               ),
@@ -431,6 +461,9 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                             controller: _departmentController,
                             decoration: InputDecoration(
                               hintText: 'CST/CSE',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
                               ),

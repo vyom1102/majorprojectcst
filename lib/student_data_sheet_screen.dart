@@ -1,8 +1,10 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'package:image_picker/image_picker.dart';
+// import 'package:firebase_core/firebase_core.dart';
 
 
 class studentDataSheet extends StatefulWidget {
@@ -12,17 +14,20 @@ class studentDataSheet extends StatefulWidget {
 
 class _studentDataSheetState extends State<studentDataSheet> {
 
-  TextEditingController _imageController = TextEditingController();
-  String _selectedImage='';
+  final DatabaseReference _studentRef =
+  FirebaseDatabase.instance.ref().child('student');
 
+  String _selectedImage='';
   String selectedYearofAdmission ='';
   List<String> years = List.generate(25, (index) => (2000 + index).toString());
 
-  TextEditingController _yearController = TextEditingController();
+
   PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 0;
 
   DateTime selectedDate = DateTime.now();
+
+
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -83,6 +88,54 @@ class _studentDataSheetState extends State<studentDataSheet> {
       });
     }
   }
+
+  Future<void> _saveStudentData() async {
+    try {
+      await _studentRef.child('id').child(_rollNumberController.text).set({
+        'fullName': _fullNameController.text,
+        'emailAddress': _emailAddressController.text,
+        'rollNumber': _rollNumberController.text,
+        'dateOfBirth': selectedDate.toLocal().toString(),
+        'permanentAddress': _permanentAddressController.text,
+        'jeeRank': _jeeRankController.text,
+        'mobileNumber': _mobileNumberController.text,
+        'image': _imageController.text,
+        'year': _yearController.text,
+        'fatherName': _fatherNameController.text,
+        'fatherOccupation': _fatherOccupationController.text,
+        'fatherOfficeAddress': _fatherOfficeAddressController.text,
+        'fatherPhoneNumber': _fatherPhoneNumberController.text,
+        'motherName': _motherNameController.text,
+        'motherOccupation': _motherOccupationController.text,
+        'motherOfficeAddress': _motherOfficeAddressController.text,
+        'motherPhoneNumber': _motherPhoneNumberController.text,
+
+      });
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
+
+
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _emailAddressController = TextEditingController();
+  final TextEditingController _rollNumberController = TextEditingController();
+  final TextEditingController _permanentAddressController = TextEditingController();
+  final TextEditingController _jeeRankController = TextEditingController();
+  final TextEditingController _mobileNumberController = TextEditingController();
+  TextEditingController _imageController = TextEditingController();
+  TextEditingController _yearController = TextEditingController();
+
+  final TextEditingController _fatherNameController = TextEditingController();
+  final TextEditingController _fatherOccupationController = TextEditingController();
+  final TextEditingController _fatherOfficeAddressController = TextEditingController();
+  final TextEditingController _fatherPhoneNumberController = TextEditingController();
+
+  final TextEditingController _motherNameController = TextEditingController();
+  final TextEditingController _motherOccupationController = TextEditingController();
+  final TextEditingController _motherOfficeAddressController = TextEditingController();
+  final TextEditingController _motherPhoneNumberController = TextEditingController();
 
 
   @override
@@ -196,10 +249,13 @@ class _studentDataSheetState extends State<studentDataSheet> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Full Name',
+                              Text(
+                                // controller: _fullNameController,
+                                'Full Name',
                                 style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextFormField(
+                                controller: _fullNameController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -208,6 +264,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 },
                                   decoration: InputDecoration(
                                 hintText: 'Shreya',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                    ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff0CECDA)),
                                     ),
@@ -227,8 +286,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextField(
+                                controller: _emailAddressController,
                                 decoration: InputDecoration(
                                   hintText: 'shreya@gmail.com',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff0CECDA)),
                                   ),
@@ -249,8 +312,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextField(
+                                controller: _rollNumberController,
                                 decoration: InputDecoration(
                                   hintText: '98753',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff0CECDA)),
                                   ),
@@ -280,6 +347,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                       onTap: () => _selectDate(context),
                                       decoration: InputDecoration(
                                         hintText: 'Select a date',
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                        ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(color: Color(0xff0CECDA)),
                                         ),
@@ -315,8 +385,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextField(
+                                controller: _permanentAddressController,
                                 decoration: InputDecoration(
                                   hintText: 'Enter permanent address',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff0CECDA)),
                                   ),
@@ -350,6 +424,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     controller: TextEditingController(text: selectedYearofAdmission),
                                     decoration: InputDecoration(
                                       hintText: 'Select',
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                      ),
                                       suffixIcon: Icon(Icons.arrow_drop_down,
                                       size: 40.0,),
                                       focusedBorder: OutlineInputBorder(
@@ -374,8 +451,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextField(
+                                controller: _jeeRankController,
                                 decoration: InputDecoration(
                                   hintText: '54728',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff0CECDA)),
                                   ),
@@ -396,8 +477,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               TextField(
+                                controller: _mobileNumberController,
                                 decoration: InputDecoration(
                                   hintText: '98765XXXXX',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff0CECDA)),
                                   ),
@@ -434,6 +519,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                             onPressed: () {
                                               _pickImage();
                                             },),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                        ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(color: Color(0xff0CECDA)),
                                         ),
@@ -497,8 +585,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
+                                  controller: _fatherNameController,
                                     decoration: InputDecoration(
                                   hintText: 'Name',
+                                      enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                    ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(color: Color(0xff0CECDA)),
                                       ),
@@ -518,8 +610,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
+                                  controller:_fatherOccupationController ,
                                   decoration: InputDecoration(
                                     hintText: 'Business',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                    ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff0CECDA)),
                                     ),
@@ -540,8 +636,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
+                                  controller: _fatherOfficeAddressController,
                                   decoration: InputDecoration(
                                     hintText: 'Enter address',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                    ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff0CECDA)),
                                     ),
@@ -562,8 +662,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
+                                  controller: _fatherPhoneNumberController,
                                   decoration: InputDecoration(
                                     hintText: '98765XXXX',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                    ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff0CECDA)),
                                     ),
@@ -587,8 +691,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
+                                  controller: _motherNameController,
                                   decoration: InputDecoration(
                                     hintText: 'Name',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                    ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff0CECDA)),
                                     ),
@@ -609,8 +717,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
+                                  controller: _motherOccupationController,
                                   decoration: InputDecoration(
                                     hintText: 'Business',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                    ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff0CECDA)),
                                     ),
@@ -631,8 +743,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
+                                  controller: _motherOfficeAddressController,
                                   decoration: InputDecoration(
                                     hintText: 'Enter address',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                    ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff0CECDA)),
                                     ),
@@ -653,8 +769,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextField(
+                                  controller: _motherPhoneNumberController,
                                   decoration: InputDecoration(
                                     hintText: '98765XXXXX',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                    ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff0CECDA)),
                                     ),
