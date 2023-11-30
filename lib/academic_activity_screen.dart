@@ -568,14 +568,14 @@ class _AcademicScreenState extends State<AcademicScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SeminarScreen(),
+                          builder: (context) => CompetitionScreen(),
                         ),
                       );
                     }else if (selectedButton == 'Button 6') {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => CompetitionScreen(),
+                          builder: (context) => HigherStudiesScreen(),
                         ),
                       );
                     }else if (selectedButton == 'Button 7') {
