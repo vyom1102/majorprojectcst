@@ -30,7 +30,7 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
     }
   }
 
-  Future<void> _joiningDate(BuildContext context) async {
+  Future <void> _joiningDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: joiningDate,
@@ -256,9 +256,11 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                               ),
                             ],
                           ),
+
                           SizedBox(
                             height: 20,
                           ),
+
                           Text('Date of Joining',
                               style: TextStyle(
                                   fontSize: 14.0,
