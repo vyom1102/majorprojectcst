@@ -492,16 +492,8 @@ class _AcademicScreenState extends State<AcademicScreen> {
                           // Default color
                           return Colors.black;
                         }
-                        // if (states.contains(MaterialState.pressed)) {
-                        // // Pressed color
-                        // return Color.fromRGBO(12, 236, 218, 0.5);
-                        //                     else if (states.contains(MaterialState.pressed) || selectedButton == 'Button 8') {
-                        //                       // Pressed or selected color
-                        //                       return Color.fromRGBO(12, 236, 218, 0.5);
-                        //                     } else {
-                        //                       // Default color
-                        //                       return Colors.black;
-                        //                     }
+
+
                       },
                     ),
                     shape: MaterialStateProperty.all<OutlinedBorder>(

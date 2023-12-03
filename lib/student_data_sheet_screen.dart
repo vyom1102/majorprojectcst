@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
+import 'package:majorproject/student_main_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'package:image_picker/image_picker.dart';
 // import 'package:firebase_core/firebase_core.dart';
@@ -551,7 +552,11 @@ class _studentDataSheetState extends State<studentDataSheet> {
 
                               ElevatedButton(
                                 onPressed: () {
-
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
+                                  );
+                                  _saveStudentData();
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xFF13E9DC),
