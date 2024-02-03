@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
+import 'package:majorproject/teachers_activity_folder/courses_completed_screen.dart';
+import 'package:majorproject/teachers_activity_folder/event_attended_screen.dart';
+import 'package:majorproject/teachers_activity_folder/event_organised_screen.dart';
+import 'package:majorproject/teachers_activity_folder/publications_screen.dart';
 
 class TeacherSelectionScreen extends StatefulWidget {
   @override
@@ -166,7 +170,7 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    selectedButton = 'NCC/NSS';
+                    selectedButton = 'Button 4';
                   });
                 },
                 style: ButtonStyle(
@@ -175,7 +179,7 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                   ),
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
                         (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.pressed) || selectedButton == 'NCC/NSS') {
+                      if (states.contains(MaterialState.pressed) || selectedButton == 'Button 4') {
                         // Pressed or selected color
                         return Color.fromRGBO(12, 236, 218, 0.5);
                       } else {
@@ -212,28 +216,28 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AcademicScreen(),
+                          builder: (context) => EventAttendedScreen(),
                         ),
                       );
                     } else if (selectedButton == 'Button 2') {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AcademicScreen(),
+                          builder: (context) => EventOrganisedScreen(),
                         ),
                       );
                     } else if (selectedButton == 'Button 3') {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AcademicScreen(),
+                          builder: (context) => CourseCompletedScreen(),
                         ),
                       );
                     } else if (selectedButton == 'Button 4') {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AcademicScreen(),
+                          builder: (context) => PublicationScreen(),
                         ),
                       );
                     }
