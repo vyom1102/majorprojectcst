@@ -16,15 +16,17 @@ class _PublicationScreenState extends State<PublicationScreen> {
   bool _showPapersPublishedTextField = false;
   bool _showBooksPublishedTextField = false;
   String selectedButton = '';
-  String selectedYear = '';
-  String selectedMonth = '';
+  String selectedYearOfPapers = '';
+  String selectedMonthOfPapers = '';
+  String selectedYearOfBooks = '';
+  String selectedMonthOfBooks = '';
   List<String> years = List.generate(25, (index) => (2000 + index).toString());
   List<String> months = DateFormat().dateSymbols.MONTHS; // Get month names
 
   TextEditingController _yearController = TextEditingController();
   TextEditingController _monthController = TextEditingController();
 
-  void showYearPicker(BuildContext context) {
+  void showYearPickerOfPapers(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext builder) {
@@ -42,8 +44,8 @@ class _PublicationScreenState extends State<PublicationScreen> {
                 ),
                 onTap: () {
                   setState(() {
-                    selectedYear = year;
-                    _yearController.text = selectedYear; // Set the text in the controller
+                    selectedYearOfPapers = year;
+                    _yearController.text = selectedYearOfPapers; // Set the text in the controller
                   });
                   Navigator.of(context).pop();
                 },
@@ -55,7 +57,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
     );
   }
 
-  void showMonthPicker(BuildContext context) {
+  void showMonthPickerOfPapers(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext builder) {
@@ -73,8 +75,70 @@ class _PublicationScreenState extends State<PublicationScreen> {
                 ),
                 onTap: () {
                   setState(() {
-                    selectedMonth = month;
-                    _monthController.text = selectedMonth; // Set the text in the controller
+                    selectedMonthOfPapers = month;
+                    _monthController.text = selectedMonthOfPapers; // Set the text in the controller
+                  });
+                  Navigator.of(context).pop();
+                },
+              );
+            }).toList(),
+          ),
+        );
+      },
+    );
+  }
+
+  void showYearPickerOfBook(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext builder) {
+        return Container(
+          height: 200,
+          child: ListWheelScrollView(
+            itemExtent: 40,
+            children: years.map((String year) {
+              return ListTile(
+                title: Center(
+                  child: Text(
+                    year,
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+                onTap: () {
+                  setState(() {
+                    selectedYearOfBooks = year;
+                    _yearController.text = selectedYearOfBooks; // Set the text in the controller
+                  });
+                  Navigator.of(context).pop();
+                },
+              );
+            }).toList(),
+          ),
+        );
+      },
+    );
+  }
+
+  void showMonthPickerOfBook(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext builder) {
+        return Container(
+          height: 200,
+          child: ListWheelScrollView(
+            itemExtent: 40,
+            children: months.map((String month) {
+              return ListTile(
+                title: Center(
+                  child: Text(
+                    month,
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+                onTap: () {
+                  setState(() {
+                    selectedMonthOfBooks = month;
+                    _monthController.text = selectedMonthOfBooks; // Set the text in the controller
                   });
                   Navigator.of(context).pop();
                 },
@@ -278,7 +342,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                               SizedBox(height: 5),
                               GestureDetector(
                                 onTap: () {
-                                  showMonthPicker(context);
+                                  showMonthPickerOfPapers(context);
                                 },
                                 child: AbsorbPointer(
                                   child: TextField(
@@ -299,7 +363,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                       filled: true,
                                     ),
                                     style: TextStyle(color: Colors.white),
-                                    controller: _monthController,
+                                    controller: TextEditingController(text: selectedMonthOfPapers),
                                   ),
                                 ),
                               ),
@@ -315,12 +379,12 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                 padding: const EdgeInsets.all(0),
                                 child: GestureDetector(
                                   onTap: () {
-                                    showYearPicker(context);
+                                    showYearPickerOfPapers(context);
                                   },
                                   child: AbsorbPointer(
                                     child: TextField(
                                       readOnly: true,
-                                      // controller: TextEditingController(text: selectedYearofAdmission),
+                                      controller: TextEditingController(text: selectedYearOfPapers),
                                       decoration: InputDecoration(
                                         hintText: 'Select',
                                         enabledBorder: OutlineInputBorder(
@@ -372,30 +436,6 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                   filled: true,
                                 ),
                                 style: TextStyle(color: Colors.white),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => PublicationScreen()),
-                                  );
-                                  // _saveTeacherData();
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color(0xFF13E9DC),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                  minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
-                                ),
-                                child: Text(
-                                  'Next',
-                                  style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
-                                ),
                               ),
                             ],
                           ),
@@ -645,7 +685,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                               SizedBox(height: 5),
                               GestureDetector(
                                 onTap: () {
-                                  showMonthPicker(context);
+                                  showMonthPickerOfBook(context);
                                 },
                                 child: AbsorbPointer(
                                   child: TextField(
@@ -666,7 +706,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                       filled: true,
                                     ),
                                     style: TextStyle(color: Colors.white),
-                                    controller: _monthController,
+                                    controller: TextEditingController(text: selectedMonthOfBooks),
                                   ),
                                 ),
                               ),
@@ -682,12 +722,12 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                 padding: const EdgeInsets.all(0),
                                 child: GestureDetector(
                                   onTap: () {
-                                    showYearPicker(context);
+                                    showYearPickerOfBook(context);
                                   },
                                   child: AbsorbPointer(
                                     child: TextField(
                                       readOnly: true,
-                                      // controller: TextEditingController(text: selectedYearofAdmission),
+                                      controller: TextEditingController(text: selectedYearOfBooks),
                                       decoration: InputDecoration(
                                         hintText: 'Select',
                                         enabledBorder: OutlineInputBorder(

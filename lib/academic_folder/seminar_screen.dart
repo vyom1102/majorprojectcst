@@ -79,9 +79,7 @@ class _SeminarScreenState extends State<SeminarScreen> {
                         fontSize: 26,
                         color: Color(0xff0CECDA)),
                   ),
-                  // SizedBox(
-                  //   height: 20,
-                  // ),
+
                   Expanded(
                     child: ListView(children: [
                       Container(
@@ -280,47 +278,6 @@ class _SeminarScreenState extends State<SeminarScreen> {
                               ),
                               style: TextStyle(color: Colors.white),
                             ),
-                            // SizedBox(
-                            //   height: 20,
-                            // ),
-
-                            // Text('Year',
-                            //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                            // SizedBox(height: 5),
-                            //
-                            //
-                            // Padding(
-                            //   padding: const EdgeInsets.all(0),
-                            //   child: GestureDetector(
-                            //     // onTap: () {
-                            //     //   showYearPicker(context);
-                            //     // },
-                            //     child: AbsorbPointer(
-                            //       child: TextField(
-                            //         readOnly: true,
-                            //         // controller: TextEditingController(text: selectedYearofAdmission),
-                            //         decoration: InputDecoration(
-                            //           hintText: 'Select',
-                            //           enabledBorder: OutlineInputBorder(
-                            //             borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                            //           ),
-                            //           suffixIcon: Icon(Icons.arrow_drop_down,
-                            //             size: 40.0,),
-                            //           focusedBorder: OutlineInputBorder(
-                            //             borderSide: BorderSide(color: Color(0xff0CECDA)),
-                            //           ),
-                            //           hintStyle: GoogleFonts.kufam(
-                            //               color: Colors.white.withOpacity(0.5)),
-                            //           contentPadding: const EdgeInsets.symmetric(
-                            //               vertical: 20.0, horizontal: 15.0),
-                            //           border: OutlineInputBorder(),
-                            //           fillColor: Color(0xff141318),
-                            //           filled: true,
-                            //         ),
-                            //         style: TextStyle(color: Colors.white),
-                            //       ),
-                            //     ),
-                            //   ),),
 
                             SizedBox(
                               height: 20,
@@ -354,35 +311,6 @@ class _SeminarScreenState extends State<SeminarScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            // Text('Field',
-                            //     style: TextStyle(
-                            //         fontSize: 14.0,
-                            //         fontWeight: FontWeight.bold,
-                            //         color: Colors.white)),
-                            // SizedBox(height: 5),
-                            // TextField(
-                            //   // controller: _fatherHusbandNameController,
-                            //   decoration: InputDecoration(
-                            //     hintText: 'Software development',
-                            //     enabledBorder: OutlineInputBorder(
-                            //       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                            //     ),
-                            //     focusedBorder: OutlineInputBorder(
-                            //       borderSide: BorderSide(color: Color(0xff0CECDA)),
-                            //     ),
-                            //     hintStyle: GoogleFonts.kufam(
-                            //         color: Colors.white.withOpacity(0.5)),
-                            //     contentPadding: const EdgeInsets.symmetric(
-                            //         vertical: 20.0, horizontal: 15.0),
-                            //     border: OutlineInputBorder(),
-                            //     fillColor: Color(0xff141318),
-                            //     filled: true,
-                            //   ),
-                            //   style: TextStyle(color: Colors.white),
-                            // ),
-                            // SizedBox(
-                            //   height: 20,
-                            // ),
 
                             ElevatedButton(
                               onPressed: () {
@@ -390,7 +318,6 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                   context,
                                   MaterialPageRoute(builder: (context) => SeminarScreen()),
                                 );
-                                // _saveTeacherData();
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Color(0xFF13E9DC),
@@ -407,12 +334,8 @@ class _SeminarScreenState extends State<SeminarScreen> {
                           ],
                         ),
                       ),
-
-                    ],
-                    ),
-                  ),
-                ]),
-          ]
+                    ],),),
+                ]),]
       ),);
   }
 }

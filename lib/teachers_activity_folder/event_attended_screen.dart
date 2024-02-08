@@ -17,35 +17,139 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
   bool _showSeminarAttendedTextField = false; // Variable to toggle visibility of text fields
   bool _showFDPAttendedTextField = false; // Variable to toggle visibility of text fields
   String selectedButton = '';
-  DateTime selectedDate = DateTime.now();
-  DateTime joiningDate = DateTime.now();
+  DateTime WorkshopHeldFromDate = DateTime.now();
+  DateTime WorkshopHeldToDate = DateTime.now();
 
-  Future<void> _selectDate(BuildContext context) async {
+  DateTime ConferenceHeldFromDate = DateTime.now();
+  DateTime ConferenceHeldToDate = DateTime.now();
+
+  DateTime SeminarHeldFromDate = DateTime.now();
+  DateTime SeminarHeldToDate = DateTime.now();
+
+  DateTime FDPHeldFromDate = DateTime.now();
+  DateTime FDPHeldToDate = DateTime.now();
+
+  //Workshop Attended
+  Future<void> _workshopHeldFromDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: selectedDate,
+      initialDate: WorkshopHeldFromDate,
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
 
-    if (picked != null && picked != selectedDate) {
+    if (picked != null && picked != WorkshopHeldFromDate) {
       setState(() {
-        selectedDate = picked;
+        WorkshopHeldFromDate = picked;
       });
     }
   }
 
-  Future<void> _joiningDate(BuildContext context) async {
+  Future<void> _workshopHeldToDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: joiningDate,
+      initialDate: WorkshopHeldToDate,
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
 
-    if (picked != null && picked != joiningDate) {
+    if (picked != null && picked != WorkshopHeldToDate) {
       setState(() {
-        joiningDate = picked;
+        WorkshopHeldToDate = picked;
+      });
+    }
+  }
+
+  //Conference attended
+  Future<void> _conferenceHeldFromDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: ConferenceHeldFromDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (picked != null && picked != ConferenceHeldFromDate) {
+      setState(() {
+        ConferenceHeldFromDate = picked;
+      });
+    }
+  }
+
+  Future<void> _conferenceHeldToDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: ConferenceHeldToDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (picked != null && picked != ConferenceHeldToDate) {
+      setState(() {
+        ConferenceHeldToDate = picked;
+      });
+    }
+  }
+
+  //Seminar Attended
+  Future<void> _seminarHeldFromDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: SeminarHeldFromDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (picked != null && picked != SeminarHeldFromDate) {
+      setState(() {
+        SeminarHeldFromDate = picked;
+      });
+    }
+  }
+
+  Future<void> _seminarHeldToDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: SeminarHeldToDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (picked != null && picked != SeminarHeldToDate) {
+      setState(() {
+        SeminarHeldToDate = picked;
+      });
+    }
+  }
+
+  //Fdp attended
+
+  Future<void> _fDPHeldFromDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: FDPHeldFromDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (picked != null && picked != FDPHeldFromDate) {
+      setState(() {
+        FDPHeldFromDate = picked;
+      });
+    }
+  }
+
+  Future<void> _fDPHeldToDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: FDPHeldToDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (picked != null && picked != FDPHeldToDate) {
+      setState(() {
+        FDPHeldToDate = picked;
       });
     }
   }
@@ -220,7 +324,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _selectDate(context),
+                                    onTap: () => _workshopHeldFromDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -242,13 +346,13 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${selectedDate.toLocal()}".split(' ')[0],
+                                      text: "${WorkshopHeldFromDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
-                                  onPressed: () => _selectDate(context),
+                                  onPressed: () => _workshopHeldFromDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -268,7 +372,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _joiningDate(context),
+                                    onTap: () => _workshopHeldToDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -290,14 +394,14 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${joiningDate.toLocal()}".split(' ')[0],
+                                      text: "${WorkshopHeldToDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
                                   onPressed: () =>
-                                      _joiningDate(context),
+                                      _workshopHeldToDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -504,7 +608,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _selectDate(context),
+                                    onTap: () => _conferenceHeldFromDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -526,13 +630,13 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${selectedDate.toLocal()}".split(' ')[0],
+                                      text: "${ConferenceHeldFromDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
-                                  onPressed: () => _selectDate(context),
+                                  onPressed: () => _conferenceHeldFromDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -552,7 +656,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _joiningDate(context),
+                                    onTap: () => _conferenceHeldToDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -574,14 +678,14 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${joiningDate.toLocal()}".split(' ')[0],
+                                      text: "${ConferenceHeldToDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
                                   onPressed: () =>
-                                      _joiningDate(context),
+                                      _conferenceHeldToDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -788,7 +892,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _selectDate(context),
+                                    onTap: () => _seminarHeldFromDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -810,13 +914,13 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${selectedDate.toLocal()}".split(' ')[0],
+                                      text: "${SeminarHeldFromDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
-                                  onPressed: () => _selectDate(context),
+                                  onPressed: () => _seminarHeldFromDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -836,7 +940,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _joiningDate(context),
+                                    onTap: () => _seminarHeldToDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -858,14 +962,14 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${joiningDate.toLocal()}".split(' ')[0],
+                                      text: "${SeminarHeldToDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
                                   onPressed: () =>
-                                      _joiningDate(context),
+                                      _seminarHeldToDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -1072,7 +1176,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _selectDate(context),
+                                    onTap: () => _fDPHeldFromDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -1094,13 +1198,13 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${selectedDate.toLocal()}".split(' ')[0],
+                                      text: "${FDPHeldFromDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
-                                  onPressed: () => _selectDate(context),
+                                  onPressed: () => _fDPHeldFromDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -1120,7 +1224,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _joiningDate(context),
+                                    onTap: () => _fDPHeldToDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -1142,14 +1246,14 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${joiningDate.toLocal()}".split(' ')[0],
+                                      text: "${FDPHeldToDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
                                   onPressed: () =>
-                                      _joiningDate(context),
+                                      _fDPHeldToDate(context),
                                   color: Colors.white,
                                 ),
                               ],
