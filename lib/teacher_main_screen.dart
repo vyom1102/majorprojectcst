@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
+import 'package:majorproject/student_detail.dart';
 import 'package:majorproject/teachers_activity_folder/courses_completed_screen.dart';
 import 'package:majorproject/teachers_activity_folder/event_attended_screen.dart';
 import 'package:majorproject/teachers_activity_folder/event_organised_screen.dart';
@@ -38,7 +39,7 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
           Column(
 
             children: [
-              SizedBox(height: 100,),
+              SizedBox(height: 50,),
               Row(
 
                 children: [
@@ -199,9 +200,38 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
               ),
 
+
               SizedBox(height: MediaQuery.sizeOf(context).height*0.08),
 
+              ElevatedButton(
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(
+                      Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                    ),
+                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                          (Set<MaterialState> states) {
 
+                          return Colors.black;
+
+                      },
+                    ),
+                    shape: MaterialStateProperty.all<OutlinedBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0), // Set the border radius
+                        side: BorderSide(color: Color(0xFF0CECDA)), // Set the border color
+                      ),
+                    ),
+                  ),
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => StudentList(),
+                    ),
+                  );
+                },
+                child: Text('Go to student details ->' ,style: GoogleFonts.kufam(color: Color(0xFF0CECDA),fontSize: 16,fontWeight: FontWeight.w500),),),
+              SizedBox(height: 20,),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF13E9DC),

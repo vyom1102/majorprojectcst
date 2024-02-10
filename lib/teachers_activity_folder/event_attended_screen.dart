@@ -1330,33 +1330,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                   ],
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => EventAttendedScreen()),
-                  );
-                  // _saveTeacherData();
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF13E9DC),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  minimumSize: Size(
-                    0.9 * MediaQuery.of(context).size.width,
-                    48.0,
-                  ),
-                ),
-                child: Text(
-                  'Next',
-                  style: GoogleFonts.kufam(
-                    fontSize: 18,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
+
             ],
 
           ),
