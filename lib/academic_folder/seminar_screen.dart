@@ -12,6 +12,7 @@ class SeminarScreen extends StatefulWidget {
 }
 
 class _SeminarScreenState extends State<SeminarScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String selectedButton = '';
   DateTime selectedDate = DateTime.now();
   DateTime joiningDate = DateTime.now();
@@ -67,275 +68,293 @@ class _SeminarScreenState extends State<SeminarScreen> {
                     .width, // Adjust the height as needed
               ),
             ),
-            Column(
-                children: [
-                  SizedBox(
-                    height: 70,
-                  ),
-                  Text(
-                    'Seminar',
-                    style: GoogleFonts.kufam(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 26,
-                        color: Color(0xff0CECDA)),
-                  ),
+            Form(
+              key: _formKey,
+              child: Column(
+                  children: [
+                    SizedBox(
+                      height: 70,
+                    ),
+                    Text(
+                      'Seminar',
+                      style: GoogleFonts.kufam(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 26,
+                          color: Color(0xff0CECDA)),
+                    ),
 
-                  Expanded(
-                    child: ListView(children: [
-                      Container(
-                        padding: EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Name of the Faculty Member',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
-                            TextFormField(
-                              // controller: _fullNameController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'This field is required';
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                hintText: 'Shreya',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                    Expanded(
+                      child: ListView(children: [
+                        Container(
+                          padding: EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Name of the Faculty Member',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              SizedBox(height: 5),
+                              TextFormField(
+                                // controller: _fullNameController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'This field is required';
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  hintText: 'Shreya',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
+                                  hintStyle: GoogleFonts.kufam(
+                                      color: Colors.white.withOpacity(0.5)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 20.0, horizontal: 15.0),
+                                  border: OutlineInputBorder(),
+                                  fillColor: Color(0xff141318),
+                                  filled: true,
                                 ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                ),
-                                hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
+                                style: TextStyle(color: Colors.white),),
+                              SizedBox(
+                                height: 20,
                               ),
-                              style: TextStyle(color: Colors.white),),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text('Details of the Seminar Attennded',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
-                            TextFormField(
-                              // controller: _fullNameController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'This field is required';
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                hintText: 'Abc ',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                ),
-                                hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
-                              ),
-                              style: TextStyle(color: Colors.white),),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text('Seminar held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
 
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: TextFormField(
-                                    readOnly: true, // Disable manual editing
-                                    onTap: () => _selectDate(context),
-                                    decoration: InputDecoration(
-                                      hintText: 'Select a date',
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              Text('Details of the Seminar Attended',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              SizedBox(height: 5),
+                              TextFormField(
+                                // controller: _fullNameController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'This field is required';
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  hintText: 'Abc ',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
+                                  hintStyle: GoogleFonts.kufam(
+                                      color: Colors.white.withOpacity(0.5)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 20.0, horizontal: 15.0),
+                                  border: OutlineInputBorder(),
+                                  fillColor: Color(0xff141318),
+                                  filled: true,
+                                ),
+                                style: TextStyle(color: Colors.white),),
+                              SizedBox(
+                                height: 20,
+                              ),
+
+                              Text('Seminar held from',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              SizedBox(height: 5),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: TextFormField(
+                                      readOnly: true, // Disable manual editing
+                                      onTap: () => _selectDate(context),
+                                      decoration: InputDecoration(
+                                        hintText: 'Select a date',
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                        ),
+                                        hintStyle: TextStyle(
+                                          color: Colors.white.withOpacity(0.5),
+                                        ),
+                                        contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 20.0,
+                                          horizontal: 15.0,
+                                        ),
+                                        border: OutlineInputBorder(),
+                                        fillColor: Color(0xff141318),
+                                        filled: true,
                                       ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                      style: TextStyle(color: Colors.white),
+                                      controller: TextEditingController(
+                                        text: "${selectedDate.toLocal()}".split(' ')[0],
                                       ),
-                                      hintStyle: TextStyle(
-                                        color: Colors.white.withOpacity(0.5),
-                                      ),
-                                      contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 20.0,
-                                        horizontal: 15.0,
-                                      ),
-                                      border: OutlineInputBorder(),
-                                      fillColor: Color(0xff141318),
-                                      filled: true,
-                                    ),
-                                    style: TextStyle(color: Colors.white),
-                                    controller: TextEditingController(
-                                      text: "${selectedDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
-                                ),
-                                IconButton(
-                                  icon: Icon(Icons.calendar_today),
-                                  onPressed: () => _selectDate(context),
-                                  color: Colors.white,
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text('Seminar held to',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
+                                  IconButton(
+                                    icon: Icon(Icons.calendar_today),
+                                    onPressed: () => _selectDate(context),
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
 
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: TextFormField(
-                                    readOnly: true, // Disable manual editing
-                                    onTap: () => _joiningDate(context),
-                                    decoration: InputDecoration(
-                                      hintText: 'Select a date',
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              Text('Seminar held to',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              SizedBox(height: 5),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: TextFormField(
+                                      readOnly: true, // Disable manual editing
+                                      onTap: () => _joiningDate(context),
+                                      decoration: InputDecoration(
+                                        hintText: 'Select a date',
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                        ),
+                                        hintStyle: TextStyle(
+                                          color: Colors.white.withOpacity(0.5),
+                                        ),
+                                        contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 20.0,
+                                          horizontal: 15.0,
+                                        ),
+                                        border: OutlineInputBorder(),
+                                        fillColor: Color(0xff141318),
+                                        filled: true,
                                       ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                      style: TextStyle(color: Colors.white),
+                                      controller: TextEditingController(
+                                        text: "${joiningDate.toLocal()}".split(' ')[0],
                                       ),
-                                      hintStyle: TextStyle(
-                                        color: Colors.white.withOpacity(0.5),
-                                      ),
-                                      contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 20.0,
-                                        horizontal: 15.0,
-                                      ),
-                                      border: OutlineInputBorder(),
-                                      fillColor: Color(0xff141318),
-                                      filled: true,
-                                    ),
-                                    style: TextStyle(color: Colors.white),
-                                    controller: TextEditingController(
-                                      text: "${joiningDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
-                                ),
-                                IconButton(
-                                  icon: Icon(Icons.calendar_today),
-                                  onPressed: () =>
-                                      _joiningDate(context),
-                                  color: Colors.white,
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text('Duration of Seminar',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
-                            TextField(
-                              // controller: _emailAddressController,
-                              decoration: InputDecoration(
-                                hintText: '2 months',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                ),
-                                hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
+                                  IconButton(
+                                    icon: Icon(Icons.calendar_today),
+                                    onPressed: () =>
+                                        _joiningDate(context),
+                                    color: Colors.white,
+                                  ),
+                                ],
                               ),
-                              style: TextStyle(color: Colors.white),
-                            ),
+                              SizedBox(
+                                height: 20,
+                              ),
 
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text('Address of the Place where seminar held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
-                            TextField(
-                              // controller: _permanentAddressController,
-                              decoration: InputDecoration(
-                                hintText: 'Enter the Address',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              Text('Duration of Seminar',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              SizedBox(height: 5),
+                              TextFormField(
+                                // controller: _fullNameController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'This field is required';
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  hintText: '2 Months',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
+                                  hintStyle: GoogleFonts.kufam(
+                                      color: Colors.white.withOpacity(0.5)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 20.0, horizontal: 15.0),
+                                  border: OutlineInputBorder(),
+                                  fillColor: Color(0xff141318),
+                                  filled: true,
                                 ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                ),
-                                hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
+                                style: TextStyle(color: Colors.white),),
+                              SizedBox(
+                                height: 20,
                               ),
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
 
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => SeminarScreen()),
-                                );
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFF13E9DC),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0),
+                              Text('Address of the Place where seminar held',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              SizedBox(height: 5),
+                              TextFormField(
+                                // controller: _fullNameController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'This field is required';
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  hintText: 'Enter the Address',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
+                                  hintStyle: GoogleFonts.kufam(
+                                      color: Colors.white.withOpacity(0.5)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 20.0, horizontal: 15.0),
+                                  border: OutlineInputBorder(),
+                                  fillColor: Color(0xff141318),
+                                  filled: true,
                                 ),
-                                minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                                style: TextStyle(color: Colors.white),),
+                              SizedBox(
+                                height: 20,
                               ),
-                              child: Text(
-                                'Next',
-                                style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
+
+                              ElevatedButton(
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate()) {
+                                    // If all fields are valid, navigate to the next screen
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => SeminarScreen()),
+                                    );
+                                  }
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0xFF13E9DC),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                                ),
+                                child: Text(
+                                  'Next',
+                                  style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],),),
-                ]),]
+                      ],),),
+                  ]),
+            ),]
       ),);
   }
 }
