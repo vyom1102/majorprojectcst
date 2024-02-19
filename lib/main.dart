@@ -180,7 +180,8 @@ class _LoginScreenState extends State<LoginScreen> {
       if (userRole == 'student') {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => studentDataSheet()),
+          MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
+              // studentDataSheet()),
         );
       } else if (userRole == 'teacher') {
         Navigator.pushReplacement(

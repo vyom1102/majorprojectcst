@@ -798,7 +798,11 @@ class _studentDataSheetState extends State<studentDataSheet> {
 
                                 ElevatedButton(
                                   onPressed: () {
-
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
+                                    );
+                                    _saveStudentData();
                                   },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Color(0xFF13E9DC),
