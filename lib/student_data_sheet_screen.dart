@@ -15,6 +15,8 @@ class studentDataSheet extends StatefulWidget {
 
 class _studentDataSheetState extends State<studentDataSheet> {
 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   final DatabaseReference _studentRef =
   FirebaseDatabase.instance.ref().child('student');
 
@@ -247,355 +249,29 @@ class _studentDataSheetState extends State<studentDataSheet> {
                       ListView(children: [
                         Container(
                           padding: EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                // controller: _fullNameController,
-                                'Full Name',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                              SizedBox(height: 5),
-                              TextFormField(
-                                controller: _fullNameController,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'This field is required';
-                                  }
-                                  return null;
-                                },
-                                  decoration: InputDecoration(
-                                hintText: 'Shreya',
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                    ),
-                                hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
-                              ),
-                                style: TextStyle(color: Colors.white),),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text('Email Address',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                              SizedBox(height: 5),
-                              TextField(
-                                controller: _emailAddressController,
-                                decoration: InputDecoration(
-                                  hintText: 'shreya@gmail.com',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                  ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
-                                ),
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text('Roll No.',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                              SizedBox(height: 5),
-                              TextField(
-                                controller: _rollNumberController,
-                                decoration: InputDecoration(
-                                  hintText: '98753',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                  ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
-                                ),
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-
-                              Text('Date of Birth',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                              SizedBox(height: 5),
-
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: TextFormField(
-                                      readOnly: true, // Disable manual editing
-                                      onTap: () => _selectDate(context),
-                                      decoration: InputDecoration(
-                                        hintText: 'Select a date',
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                        ),
-                                        hintStyle: TextStyle(
-                                          color: Colors.white.withOpacity(0.5),
-                                        ),
-                                        contentPadding: const EdgeInsets.symmetric(
-                                          vertical: 20.0,
-                                          horizontal: 15.0,
-                                        ),
-                                        border: OutlineInputBorder(),
-                                        fillColor: Color(0xff141318),
-                                        filled: true,
-                                      ),
-                                      style: TextStyle(color: Colors.white),
-                                      controller: TextEditingController(
-                                        text: "${selectedDate.toLocal()}".split(' ')[0],
-                                      ),
-                                    ),
-                                  ),
-                                  IconButton(
-                                    icon: Icon(Icons.calendar_today),
-                                    onPressed: () => _selectDate(context),
-                                    color: Colors.white,
-                                  ),
-                                ],
-                              ),
-
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text('Address',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                              SizedBox(height: 5),
-                              TextField(
-                                controller: _permanentAddressController,
-                                decoration: InputDecoration(
-                                  hintText: 'Enter permanent address',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                  ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
-                                ),
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text('Year of admission',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                              SizedBox(height: 5),
-
-
-                              Padding(
-                                padding: const EdgeInsets.all(0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                      showYearPicker(context);
-                                      },
-                                child: AbsorbPointer(
-                                  child: TextField(
-                                    readOnly: true,
-                                    controller: TextEditingController(text: selectedYearofAdmission),
-                                    decoration: InputDecoration(
-                                      hintText: 'Select',
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                      ),
-                                      suffixIcon: Icon(Icons.arrow_drop_down,
-                                      size: 40.0,),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                      ),
-                                      hintStyle: GoogleFonts.kufam(
-                                          color: Colors.white.withOpacity(0.5)),
-                                      contentPadding: const EdgeInsets.symmetric(
-                                          vertical: 20.0, horizontal: 15.0),
-                                      border: OutlineInputBorder(),
-                                      fillColor: Color(0xff141318),
-                                      filled: true,
-                                    ),
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
-                              ),),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text('JEE Rank',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                              SizedBox(height: 5),
-                              TextField(
-                                controller: _jeeRankController,
-                                decoration: InputDecoration(
-                                  hintText: '54728',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                  ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
-                                ),
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text('Mobile No.',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                              SizedBox(height: 5),
-                              TextField(
-                                controller: _mobileNumberController,
-                                decoration: InputDecoration(
-                                  hintText: '98765XXXXX',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                  ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
-                                ),
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text('Upload Photograph',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                              SizedBox(height: 5),
-                              Padding(
-                                padding: const EdgeInsets.all(0.0),
-                                child:
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children:[
-                                    Stack(
-                                      children:[ TextField(
-                                        controller: _imageController,
-                                      readOnly: true,
-                                      decoration: InputDecoration(
-                                        hintText: 'Browse',
-                                          suffixIcon: IconButton(
-                                              icon: Icon(Icons.add, size: 25.0,),
-                                            onPressed: () {
-                                              _pickImage();
-                                            },),
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                        ),
-                                        hintStyle: GoogleFonts.kufam(
-                                            color: Colors.white.withOpacity(0.5)),
-                                        contentPadding: const EdgeInsets.symmetric(
-                                            vertical: 20.0, horizontal: 15.0),
-                                        border: OutlineInputBorder(),
-                                        fillColor: Color(0xff141318),
-                                        filled: true,
-                                      ),
-                                      style: TextStyle(color: Colors.white),
-
-                                                                        ),
-                              ]
-                                    //     if (_selectedImage != null)
-                                    // Image.file(
-                                    //   File(_selectedImage),
-                                    //   height: 100,
-                                    //   width: 100,
-
-                                    ),]
-                                ),
-                              ),
-
-                              SizedBox(height: 20),
-
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
-                                  );
-                                  _saveStudentData();
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color(0xFF13E9DC),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                  minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
-                                ),
-                                child: Text(
-                                  'Next',
-                                  style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ]),
-
-                      // Teacher Details
-                      ListView(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(16.0),
+                          child: Form(
+                            key: _formKey,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Father Details',
-                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w700,fontSize: 16,color: Colors.white),),
-                                SizedBox(height: 5),
-                                Text('Father’s Name',
+                                Text(
+                                  // controller: _fullNameController,
+                                  'Full Name',
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
-                                TextField(
-                                  controller: _fatherNameController,
+                                TextFormField(
+                                  controller: _fullNameController,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'This field is required';
+                                    }
+                                    return null;
+                                  },
                                     decoration: InputDecoration(
-                                  hintText: 'Name',
+                                  hintText: 'Shreya',
                                       enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                    ),
+                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                      ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(color: Color(0xff0CECDA)),
                                       ),
@@ -611,13 +287,20 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                Text('Occupation',
+
+                                Text('Email Address',
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
-                                TextField(
-                                  controller:_fatherOccupationController ,
+                                TextFormField(
+                                  controller: _emailAddressController,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'This field is required';
+                                    }
+                                    return null;
+                                  },
                                   decoration: InputDecoration(
-                                    hintText: 'Business',
+                                    hintText: 'shreya@gmail.com',
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                     ),
@@ -637,13 +320,20 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                Text('Office Address',
+
+                                Text('Roll No.',
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
-                                TextField(
-                                  controller: _fatherOfficeAddressController,
+                                TextFormField(
+                                  controller: _rollNumberController,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'This field is required';
+                                    }
+                                    return null;
+                                  },
                                   decoration: InputDecoration(
-                                    hintText: 'Enter address',
+                                    hintText: '98753',
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                     ),
@@ -663,13 +353,65 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                Text('Official Phone No.',
+
+                                Text('Date of Birth',
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
-                                TextField(
-                                  controller: _fatherPhoneNumberController,
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: TextFormField(
+                                        readOnly: true, // Disable manual editing
+                                        onTap: () => _selectDate(context),
+                                        decoration: InputDecoration(
+                                          hintText: 'Select a date',
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                          ),
+                                          hintStyle: TextStyle(
+                                            color: Colors.white.withOpacity(0.5),
+                                          ),
+                                          contentPadding: const EdgeInsets.symmetric(
+                                            vertical: 20.0,
+                                            horizontal: 15.0,
+                                          ),
+                                          border: OutlineInputBorder(),
+                                          fillColor: Color(0xff141318),
+                                          filled: true,
+                                        ),
+                                        style: TextStyle(color: Colors.white),
+                                        controller: TextEditingController(
+                                          text: "${selectedDate.toLocal()}".split(' ')[0],
+                                        ),
+                                      ),
+                                    ),
+                                    IconButton(
+                                      icon: Icon(Icons.calendar_today),
+                                      onPressed: () => _selectDate(context),
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+
+                                Text('Address',
+                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                SizedBox(height: 5),
+                                TextFormField(
+                                  controller: _permanentAddressController,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'This field is required';
+                                    }
+                                    return null;
+                                  },
                                   decoration: InputDecoration(
-                                    hintText: '98765XXXX',
+                                    hintText: 'Enter permanent address',
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                     ),
@@ -679,7 +421,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     hintStyle: GoogleFonts.kufam(
                                         color: Colors.white.withOpacity(0.5)),
                                     contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 20.0, horizontal: 18.0),
+                                        vertical: 20.0, horizontal: 15.0),
                                     border: OutlineInputBorder(),
                                     fillColor: Color(0xff141318),
                                     filled: true,
@@ -689,16 +431,59 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                Text('Mother Details',
-                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w700,fontSize: 16,color: Colors.white),),
-                                SizedBox(height: 5),
-                                Text('Mother’s Name',
+
+                                Text('Year of admission',
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
-                                TextField(
-                                  controller: _motherNameController,
+                                Padding(
+                                  padding: const EdgeInsets.all(0),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                        showYearPicker(context);
+                                        },
+                                  child: AbsorbPointer(
+                                    child: TextField(
+                                      readOnly: true,
+                                      controller: TextEditingController(text: selectedYearofAdmission),
+                                      decoration: InputDecoration(
+                                        hintText: 'Select',
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                        ),
+                                        suffixIcon: Icon(Icons.arrow_drop_down,
+                                        size: 40.0,),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                        ),
+                                        hintStyle: GoogleFonts.kufam(
+                                            color: Colors.white.withOpacity(0.5)),
+                                        contentPadding: const EdgeInsets.symmetric(
+                                            vertical: 20.0, horizontal: 15.0),
+                                        border: OutlineInputBorder(),
+                                        fillColor: Color(0xff141318),
+                                        filled: true,
+                                      ),
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ),),
+                                SizedBox(
+                                  height: 20,
+                                ),
+
+                                Text('JEE Rank',
+                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                SizedBox(height: 5),
+                                TextFormField(
+                                  controller: _jeeRankController,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'This field is required';
+                                    }
+                                    return null;
+                                  },
                                   decoration: InputDecoration(
-                                    hintText: 'Name',
+                                    hintText: '54728',
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                     ),
@@ -708,7 +493,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     hintStyle: GoogleFonts.kufam(
                                         color: Colors.white.withOpacity(0.5)),
                                     contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 20.0, horizontal: 18.0),
+                                        vertical: 20.0, horizontal: 15.0),
                                     border: OutlineInputBorder(),
                                     fillColor: Color(0xff141318),
                                     filled: true,
@@ -718,63 +503,18 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                Text('Occupation',
+
+                                Text('Mobile No.',
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
-                                TextField(
-                                  controller: _motherOccupationController,
-                                  decoration: InputDecoration(
-                                    hintText: 'Business',
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                    ),
-                                    hintStyle: GoogleFonts.kufam(
-                                        color: Colors.white.withOpacity(0.5)),
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 20.0, horizontal: 18.0),
-                                    border: OutlineInputBorder(),
-                                    fillColor: Color(0xff141318),
-                                    filled: true,
-                                  ),
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text('Office Address',
-                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                                SizedBox(height: 5),
-                                TextField(
-                                  controller: _motherOfficeAddressController,
-                                  decoration: InputDecoration(
-                                    hintText: 'Enter address',
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                    ),
-                                    hintStyle: GoogleFonts.kufam(
-                                        color: Colors.white.withOpacity(0.5)),
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 20.0, horizontal: 18.0),
-                                    border: OutlineInputBorder(),
-                                    fillColor: Color(0xff141318),
-                                    filled: true,
-                                  ),
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text('Official Phone No.',
-                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                                SizedBox(height: 5),
-                                TextField(
-                                  controller: _motherPhoneNumberController,
+                                TextFormField(
+                                  controller: _mobileNumberController,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'This field is required';
+                                    }
+                                    return null;
+                                  },
                                   decoration: InputDecoration(
                                     hintText: '98765XXXXX',
                                     enabledBorder: OutlineInputBorder(
@@ -793,16 +533,68 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   ),
                                   style: TextStyle(color: Colors.white),
                                 ),
+                                SizedBox(
+                                  height: 20,
+                                ),
 
+                                Text('Upload Photograph',
+                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                SizedBox(height: 5),
+                                Padding(
+                                  padding: const EdgeInsets.all(0.0),
+                                  child:
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children:[
+                                      Stack(
+                                        children:[ TextField(
+                                          controller: _imageController,
+                                        readOnly: true,
+                                        decoration: InputDecoration(
+                                          hintText: 'Browse',
+                                            suffixIcon: IconButton(
+                                                icon: Icon(Icons.add, size: 25.0,),
+                                              onPressed: () {
+                                                _pickImage();
+                                              },),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                          ),
+                                          hintStyle: GoogleFonts.kufam(
+                                              color: Colors.white.withOpacity(0.5)),
+                                          contentPadding: const EdgeInsets.symmetric(
+                                              vertical: 20.0, horizontal: 15.0),
+                                          border: OutlineInputBorder(),
+                                          fillColor: Color(0xff141318),
+                                          filled: true,
+                                        ),
+                                        style: TextStyle(color: Colors.white),
+
+                                                                          ),
+                                ]
+                                      //     if (_selectedImage != null)
+                                      // Image.file(
+                                      //   File(_selectedImage),
+                                      //   height: 100,
+                                      //   width: 100,
+
+                                      ),]
+                                  ),
+                                ),
                                 SizedBox(height: 20),
 
                                 ElevatedButton(
                                   onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
-                                    );
-                                    _saveStudentData();
+                                    if (_formKey.currentState!.validate()) {
+                                      // If all fields are valid, navigate to the next screen
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
+                                      );
+                                    }
                                   },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Color(0xFF13E9DC),
@@ -817,6 +609,333 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   ),
                                 ),
                               ],
+                            ),
+                          ),
+                        ),
+                      ]),
+
+                      // Teacher Details
+                      ListView(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(16.0),
+                            child: Form(
+                              key: _formKey,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Father Details',
+                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w700,fontSize: 16,color: Colors.white),),
+                                  SizedBox(height: 5),
+
+                                  Text('Father’s Name',
+                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  SizedBox(height: 5),
+                                  TextFormField(
+                                    controller: _fatherNameController,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'This field is required';
+                                      }
+                                      return null;
+                                    },
+                                      decoration: InputDecoration(
+                                    hintText: 'Name',
+                                        enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                      ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                        ),
+                                    hintStyle: GoogleFonts.kufam(
+                                        color: Colors.white.withOpacity(0.5)),
+                                    contentPadding: const EdgeInsets.symmetric(
+                                        vertical: 20.0, horizontal: 15.0),
+                                    border: OutlineInputBorder(),
+                                    fillColor: Color(0xff141318),
+                                    filled: true,
+                                  ),
+                                    style: TextStyle(color: Colors.white),),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+
+                                  Text('Occupation',
+                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  SizedBox(height: 5),
+                                  TextFormField(
+                                    controller:_fatherOccupationController ,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'This field is required';
+                                      }
+                                      return null;
+                                    },
+                                    decoration: InputDecoration(
+                                      hintText: 'Business',
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                      ),
+                                      hintStyle: GoogleFonts.kufam(
+                                          color: Colors.white.withOpacity(0.5)),
+                                      contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 20.0, horizontal: 15.0),
+                                      border: OutlineInputBorder(),
+                                      fillColor: Color(0xff141318),
+                                      filled: true,
+                                    ),
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+
+                                  Text('Office Address',
+                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  SizedBox(height: 5),
+                                  TextFormField(
+                                    controller: _fatherOfficeAddressController,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'This field is required';
+                                      }
+                                      return null;
+                                    },
+                                    decoration: InputDecoration(
+                                      hintText: 'Enter address',
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                      ),
+                                      hintStyle: GoogleFonts.kufam(
+                                          color: Colors.white.withOpacity(0.5)),
+                                      contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 20.0, horizontal: 15.0),
+                                      border: OutlineInputBorder(),
+                                      fillColor: Color(0xff141318),
+                                      filled: true,
+                                    ),
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+
+                                  Text('Official Phone No.',
+                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  SizedBox(height: 5),
+                                  TextFormField(
+                                    controller: _fatherPhoneNumberController,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'This field is required';
+                                      }
+                                      return null;
+                                    },
+                                    decoration: InputDecoration(
+                                      hintText: '98765XXXX',
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                      ),
+                                      hintStyle: GoogleFonts.kufam(
+                                          color: Colors.white.withOpacity(0.5)),
+                                      contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 20.0, horizontal: 18.0),
+                                      border: OutlineInputBorder(),
+                                      fillColor: Color(0xff141318),
+                                      filled: true,
+                                    ),
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Text('Mother Details',
+                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w700,fontSize: 16,color: Colors.white),),
+                                  SizedBox(height: 5),
+
+                                  Text('Mother’s Name',
+                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  SizedBox(height: 5),
+                                  TextFormField(
+                                    controller: _motherNameController,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'This field is required';
+                                      }
+                                      return null;
+                                    },
+                                    decoration: InputDecoration(
+                                      hintText: 'Name',
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                      ),
+                                      hintStyle: GoogleFonts.kufam(
+                                          color: Colors.white.withOpacity(0.5)),
+                                      contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 20.0, horizontal: 18.0),
+                                      border: OutlineInputBorder(),
+                                      fillColor: Color(0xff141318),
+                                      filled: true,
+                                    ),
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+
+                                  Text('Occupation',
+                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  SizedBox(height: 5),
+                                  TextFormField(
+                                    controller: _motherOccupationController,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'This field is required';
+                                      }
+                                      return null;
+                                    },
+                                    decoration: InputDecoration(
+                                      hintText: 'Business',
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                      ),
+                                      hintStyle: GoogleFonts.kufam(
+                                          color: Colors.white.withOpacity(0.5)),
+                                      contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 20.0, horizontal: 18.0),
+                                      border: OutlineInputBorder(),
+                                      fillColor: Color(0xff141318),
+                                      filled: true,
+                                    ),
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+
+                                  Text('Office Address',
+                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  SizedBox(height: 5),
+                                  TextFormField(
+                                    controller: _motherOfficeAddressController,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'This field is required';
+                                      }
+                                      return null;
+                                    },
+                                    decoration: InputDecoration(
+                                      hintText: 'Enter address',
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                      ),
+                                      hintStyle: GoogleFonts.kufam(
+                                          color: Colors.white.withOpacity(0.5)),
+                                      contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 20.0, horizontal: 18.0),
+                                      border: OutlineInputBorder(),
+                                      fillColor: Color(0xff141318),
+                                      filled: true,
+                                    ),
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+
+                                  Text('Official Phone No.',
+                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  SizedBox(height: 5),
+                                  TextFormField(
+                                    controller: _motherPhoneNumberController,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'This field is required';
+                                      }
+                                      return null;
+                                    },
+                                    decoration: InputDecoration(
+                                      hintText: '98765XXXXX',
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                      ),
+                                      hintStyle: GoogleFonts.kufam(
+                                          color: Colors.white.withOpacity(0.5)),
+                                      contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 20.0, horizontal: 15.0),
+                                      border: OutlineInputBorder(),
+                                      fillColor: Color(0xff141318),
+                                      filled: true,
+                                    ),
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  SizedBox(height: 20),
+
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      if (_formKey.currentState!.validate()) {
+                                        // If all fields are valid, navigate to the next screen
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
+                                        );
+                                      }
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Color(0xFF13E9DC),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20.0),
+                                      ),
+                                      minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                                    ),
+                                    child: Text(
+                                      'Next',
+                                      style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
+                                    ),
+                                  ),
+                                  // ElevatedButton(
+                                  //   onPressed: () {
+                                  //     Navigator.push(
+                                  //       context,
+                                  //       MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
+                                  //     );
+                                  //     _saveStudentData();
+                                  //   },
+                                  //   style: ElevatedButton.styleFrom(
+                                  //     backgroundColor: Color(0xFF13E9DC),
+                                  //     shape: RoundedRectangleBorder(
+                                  //       borderRadius: BorderRadius.circular(20.0),
+                                  //     ),
+                                  //     minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                                  //   ),
+                                  //   child: Text(
+                                  //     'Next',
+                                  //     style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
                             ),
                           ),
                         ],

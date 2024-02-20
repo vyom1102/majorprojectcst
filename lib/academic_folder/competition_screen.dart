@@ -539,7 +539,7 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //Software based Project
-                              Text('Other members(junior/oher department) only for hardware projects',
+                              Text('Other members(junior/other department) only for hardware projects',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
