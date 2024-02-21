@@ -79,6 +79,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
     );
   }
 
+
   Future<void> _pickImage() async {
     final picker = ImagePicker();
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
@@ -141,27 +142,6 @@ class _studentDataSheetState extends State<studentDataSheet> {
 
 
   @override
-
-  // void dispose() {
-  //   _fullNameController.dispose();
-  //   _emailAddressController.dispose();
-  //   _rollNumberController.dispose();
-  //   _permanentAddressController.dispose();
-  //   _jeeRankController.dispose();
-  //   _mobileNumberController.dispose();
-  //   _imageController.dispose();
-  //   _yearController.dispose();
-  //   _fatherNameController.dispose();
-  //   _fatherOccupationController.dispose();
-  //   _fatherOfficeAddressController.dispose();
-  //   _fatherPhoneNumberController.dispose();
-  //   _motherNameController.dispose();
-  //   _motherOccupationController.dispose();
-  //   _motherOfficeAddressController.dispose();
-  //   _motherPhoneNumberController.dispose();
-  //   super.dispose();
-  // }
-
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff141318),
@@ -609,7 +589,6 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                 ElevatedButton(
                                   onPressed: () {
                                     if (_formKey.currentState!.validate()) {
-                                      _saveStudentData();
                                       // If all fields are valid, navigate to the next screen
                                       Navigator.push(
                                         context,
@@ -916,7 +895,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   ElevatedButton(
                                     onPressed: () {
                                       if (_formKey.currentState!.validate()) {
-                                        _saveStudentData();
+                                        // If all fields are valid, navigate to the next screen
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(builder: (context) => StudentSelectionScreen()),

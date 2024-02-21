@@ -1,8 +1,10 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
@@ -13,6 +15,13 @@ class PublicationScreen extends StatefulWidget {
 }
 
 class _PublicationScreenState extends State<PublicationScreen> {
+  final DatabaseReference _teacherRef =
+  FirebaseDatabase.instance.ref().child('teacherspaperpublished');
+  @override
+  void initState() {
+    retrievename();
+    super.initState();
+  }
   bool _showPapersPublishedTextField = false;
   bool _showBooksPublishedTextField = false;
   String selectedButton = '';
@@ -22,10 +31,18 @@ class _PublicationScreenState extends State<PublicationScreen> {
   String selectedMonthOfBooks = '';
   List<String> years = List.generate(25, (index) => (2000 + index).toString());
   List<String> months = DateFormat().dateSymbols.MONTHS; // Get month names
+   String storedname ='' ;
 
   TextEditingController _yearController = TextEditingController();
   TextEditingController _monthController = TextEditingController();
 
+
+  Future<void> retrievename() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    String? storedname = prefs.getString('fullName');
+    print('name is $storedname');
+  }
   void showYearPickerOfPapers(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -150,8 +167,32 @@ class _PublicationScreenState extends State<PublicationScreen> {
     );
   }
 
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _titleOfPaperController = TextEditingController();
+  final TextEditingController _journalNameController = TextEditingController();
+  final TextEditingController _isbnNoController = TextEditingController();
 
+  Future<void> _saveTeacherData() async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await _teacherRef.child('id').child(_fullNameController.text).set({
+        'fullName': _fullNameController.text,
+        'tileOfPaper': _titleOfPaperController.text,
+        'journalName': _journalNameController.text,
+        'month': selectedMonthOfPapers.toString(),
+        'year': selectedYearOfPapers.toString(),
+        'isbnNo': _isbnNoController.text,
 
+      });
+      await prefs.setString('fullName', _fullNameController.text);
+      String? storedFullName = prefs.getString('fullName');
+      print('Stored Full Name: $storedFullName');
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -178,7 +219,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                     height: 70,
                   ),
                   Text(
-                    'Publication',
+                    'Publication $storedname',
                     style: GoogleFonts.kufam(
                         fontWeight: FontWeight.w600,
                         fontSize: 26,
@@ -239,7 +280,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                 controller: _fullNameController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -273,7 +314,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                 controller: _titleOfPaperController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -308,7 +349,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
-                                // controller: _emailAddressController,
+                                 controller: _journalNameController,
                                 decoration: InputDecoration(
                                   hintText: 'Abc',
                                   enabledBorder: OutlineInputBorder(
@@ -418,7 +459,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
-                                // controller: _permanentAddressController,
+                                 controller: _isbnNoController,
                                 decoration: InputDecoration(
                                   hintText: '1234',
                                   enabledBorder: OutlineInputBorder(
@@ -798,6 +839,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                         context,
                         MaterialPageRoute(builder: (context) => PublicationScreen()),
                       );
+                      _saveTeacherData();
                       // _saveTeacherData();
                     },
                     style: ElevatedButton.styleFrom(

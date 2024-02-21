@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/teacher_main_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class TeacherDataSheet extends StatefulWidget {
   @override
@@ -47,6 +48,7 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
 
   Future<void> _saveTeacherData() async {
     try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
       await _teacherRef.child('id').child(_employeeIdController.text).set({
         'fullName': _fullNameController.text,
         'emailAddress': _emailAddressController.text,
@@ -60,6 +62,10 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
         'currentDesignation': _currentDesignationController.text,
         'department': _departmentController.text,
       });
+      await prefs.setString('fullName', _fullNameController.text);
+      String? storedFullName = prefs.getString('fullName');
+      print('Stored Full Name: $storedFullName');
+
     } catch (error) {
       // Handle the error
       print('Error saving data: $error');
@@ -489,6 +495,7 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                                 MaterialPageRoute(builder: (context) => TeacherSelectionScreen()),
                               );
                                _saveTeacherData();
+
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Color(0xFF13E9DC),

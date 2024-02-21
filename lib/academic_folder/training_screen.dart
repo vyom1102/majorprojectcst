@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
@@ -16,7 +17,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
   String selectedButton = '';
   DateTime durationFromDate = DateTime.now();
   DateTime durationToDate = DateTime.now();
-
+  String _storedNickname = '';
   String selectedYearofAdmission ='';
   List<String> years = List.generate(4, (index) => (1 + index).toString());
 
@@ -35,6 +36,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
     }
   }
 
+
   Future <void> _selectdurationToDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -48,6 +50,14 @@ class _TrainingScreenState extends State<TrainingScreen> {
         durationToDate = picked;
       });
     }
+  }
+  void retrieveNickname() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final storedNickname = prefs.getString('nickname') ?? ''; // Default value if not found
+    setState(() {
+      _storedNickname = storedNickname;
+      // _nicknameController.text = storedNickname;
+    });
   }
 
   void showYearPicker(BuildContext context) {
@@ -80,6 +90,12 @@ class _TrainingScreenState extends State<TrainingScreen> {
       },
     );
   }
+  @override
+  void initState() {
+    super.initState();
+    retrieveNickname();
+  }
+
 
   TextEditingController _yearController = TextEditingController();
 
@@ -120,6 +136,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
                   SizedBox(
                     height: 20,
                   ),
+                  Text('$_storedNickname',style: TextStyle(color: Colors.white),),
                   Expanded(
                     child: ListView(children: [
                       Container(
@@ -761,46 +778,6 @@ class _TrainingScreenState extends State<TrainingScreen> {
                               height: 20,
                             ),
 
-                            //Year
-                            // Text('Year',
-                            //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                            // SizedBox(height: 5),
-                            // Padding(
-                            //   padding: const EdgeInsets.all(0),
-                            //   child: GestureDetector(
-                            //     onTap: () {
-                            //       showYearPicker(context);
-                            //     },
-                            //     child: AbsorbPointer(
-                            //       child: TextField(
-                            //         readOnly: true,
-                            //         controller: TextEditingController(text: selectedYearofAdmission),
-                            //         decoration: InputDecoration(
-                            //           hintText: 'Select',
-                            //           enabledBorder: OutlineInputBorder(
-                            //             borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                            //           ),
-                            //           suffixIcon: Icon(Icons.arrow_drop_down,
-                            //             size: 40.0,),
-                            //           focusedBorder: OutlineInputBorder(
-                            //             borderSide: BorderSide(color: Color(0xff0CECDA)),
-                            //           ),
-                            //           hintStyle: GoogleFonts.kufam(
-                            //               color: Colors.white.withOpacity(0.5)),
-                            //           contentPadding: const EdgeInsets.symmetric(
-                            //               vertical: 20.0, horizontal: 15.0),
-                            //           border: OutlineInputBorder(),
-                            //           fillColor: Color(0xff141318),
-                            //           filled: true,
-                            //         ),
-                            //         style: TextStyle(color: Colors.white),
-                            //       ),
-                            //     ),
-                            //   ),),
-                            // SizedBox(
-                            //   height: 20,
-                            // ),
-
                             Text('Stipend Amount',
                                 style: TextStyle(
                                     fontSize: 14.0,
@@ -868,24 +845,11 @@ class _TrainingScreenState extends State<TrainingScreen> {
                 ]),
           ),
 
-
         ],
       ),
-
     );
-
 
   }
 }
-
-
-
-// ]
-//     ),);
-//   }
-// }
-
-
-
 
 
