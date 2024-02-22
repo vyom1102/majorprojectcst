@@ -5,6 +5,7 @@ import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
+import 'package:majorproject/globals.dart';
 
 class PlacementScreen extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class PlacementScreen extends StatefulWidget {
 }
 
 class _PlacementScreenState extends State<PlacementScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   String selectedButton = '';
   String selectedYear ='';
   List<String> years = List.generate(25, (index) => (2000 + index).toString());
@@ -70,7 +71,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
               ),
             ),
             Form(
-              key: _formKey,
+              key: formKey,
               child: Column(
                   children: [
                     SizedBox(
@@ -343,7 +344,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                  if (_formKey.currentState!.validate()) {
+                                  if (formKey.currentState!.validate()) {
                                     // If all fields are valid, navigate to the next screen
                                     Navigator.push(
                                       context,

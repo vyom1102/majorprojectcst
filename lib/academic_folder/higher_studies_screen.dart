@@ -6,6 +6,7 @@ import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
+import 'package:majorproject/globals.dart';
 
 class HigherStudiesScreen extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class HigherStudiesScreen extends StatefulWidget {
 }
 
 class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   String selectedButton = '';
   String _selectedImage='';
   DateTime selectedDate = DateTime.now();
@@ -85,7 +86,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
               ),
             ),
             Form(
-              key: _formKey,
+              key: formKey,
               child: Column(
                   children: [
                     SizedBox(
@@ -462,7 +463,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                  if (_formKey.currentState!.validate()) {
+                                  if (formKey.currentState!.validate()) {
                                     // If all fields are valid, navigate to the next screen
                                     Navigator.push(
                                       context,

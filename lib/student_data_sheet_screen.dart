@@ -6,6 +6,7 @@ import 'package:majorproject/student_main_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'package:image_picker/image_picker.dart';
 // import 'package:firebase_core/firebase_core.dart';
+import 'package:majorproject/globals.dart';
 
 
 class studentDataSheet extends StatefulWidget {
@@ -14,8 +15,6 @@ class studentDataSheet extends StatefulWidget {
 }
 
 class _studentDataSheetState extends State<studentDataSheet> {
-
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final DatabaseReference _studentRef =
   FirebaseDatabase.instance.ref().child('student');
@@ -270,7 +269,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                         Container(
                           padding: EdgeInsets.all(16.0),
                           child: Form(
-                            key: _formKey,
+                            key: formKey,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -608,7 +607,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
 
                                 ElevatedButton(
                                   onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
+                                    if (formKey.currentState!.validate()) {
                                       _saveStudentData();
                                       // If all fields are valid, navigate to the next screen
                                       Navigator.push(
@@ -641,7 +640,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                           Container(
                             padding: EdgeInsets.all(16.0),
                             child: Form(
-                              key: _formKey,
+                              key: formKey,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -915,7 +914,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
 
                                   ElevatedButton(
                                     onPressed: () {
-                                      if (_formKey.currentState!.validate()) {
+                                      if (formKey.currentState!.validate()) {
                                         _saveStudentData();
                                         Navigator.push(
                                           context,

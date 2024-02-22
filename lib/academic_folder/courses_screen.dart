@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:majorproject/globals.dart';
 
 class CoursesScreen extends StatefulWidget {
   @override
@@ -7,7 +8,6 @@ class CoursesScreen extends StatefulWidget {
 }
 
 class _CoursesScreenState extends State<CoursesScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Add form key
 
   String selectedButton = '';
   DateTime selectedDate = DateTime.now();
@@ -63,7 +63,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
               ),
             ),
             Form(
-              key: _formKey,
+              key: formKey,
               child: Column(
                   children: [
                     SizedBox(
@@ -153,7 +153,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
                               ),
                               ElevatedButton(
                                 onPressed: () {
-                                  if (_formKey.currentState!.validate()) {
+                                  if (formKey.currentState!.validate()) {
                                     // If all fields are valid, navigate to the next screen
                                     Navigator.push(
                                       context,

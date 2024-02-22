@@ -6,6 +6,7 @@ import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
+import 'package:majorproject/globals.dart';
 
 class CompetitionScreen extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class CompetitionScreen extends StatefulWidget {
 }
 
 class _CompetitionScreenState extends State<CompetitionScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   String selectedButton = '';
   String _selectedImage='';
   DateTime selectedDate = DateTime.now();
@@ -85,7 +86,7 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
               ),
             ),
             Form(
-              key: _formKey,
+              key: formKey,
               child: Column(
                   children: [
                     SizedBox(
@@ -744,7 +745,7 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                  if (_formKey.currentState!.validate()) {
+                                  if (formKey.currentState!.validate()) {
                                     // If all fields are valid, navigate to the next screen
                                     Navigator.push(
                                       context,

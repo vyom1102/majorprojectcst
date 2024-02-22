@@ -5,6 +5,7 @@ import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
+import 'package:majorproject/globals.dart';
 
 class SeminarScreen extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class SeminarScreen extends StatefulWidget {
 }
 
 class _SeminarScreenState extends State<SeminarScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   String selectedButton = '';
   DateTime selectedDate = DateTime.now();
   DateTime joiningDate = DateTime.now();
@@ -69,7 +70,7 @@ class _SeminarScreenState extends State<SeminarScreen> {
               ),
             ),
             Form(
-              key: _formKey,
+              key: formKey,
               child: Column(
                   children: [
                     SizedBox(
@@ -329,7 +330,7 @@ class _SeminarScreenState extends State<SeminarScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                  if (_formKey.currentState!.validate()) {
+                                  if (formKey.currentState!.validate()) {
                                     // If all fields are valid, navigate to the next screen
                                     Navigator.push(
                                       context,

@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:majorproject/globals.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
@@ -13,7 +14,6 @@ class TrainingScreen extends StatefulWidget {
 }
 
 class _TrainingScreenState extends State<TrainingScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String selectedButton = '';
   DateTime durationFromDate = DateTime.now();
   DateTime durationToDate = DateTime.now();
@@ -120,7 +120,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
             ),
           ),
           Form(
-            key: _formKey,
+            key: formKey,
             child: Column(
                 children: [
                   SizedBox(
@@ -815,7 +815,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
 
                             ElevatedButton(
                               onPressed: () {
-                                if (_formKey.currentState!.validate()) {
+                                if (formKey.currentState!.validate()) {
                                   // If all fields are valid, navigate to the next screen
                                   Navigator.push(
                                     context,
