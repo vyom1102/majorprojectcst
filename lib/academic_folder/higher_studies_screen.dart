@@ -6,7 +6,7 @@ import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
-import 'package:majorproject/globals.dart';
+
 
 class HigherStudiesScreen extends StatefulWidget {
   @override
@@ -86,7 +86,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
               ),
             ),
             Form(
-              key: formKey,
+              // key: formKey,
               child: Column(
                   children: [
                     SizedBox(
@@ -463,7 +463,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                  if (formKey.currentState!.validate()) {
+                                  if (Form.of(context)!.validate()) {
                                     // If all fields are valid, navigate to the next screen
                                     Navigator.push(
                                       context,

@@ -6,7 +6,6 @@ import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
-import 'package:majorproject/globals.dart';
 
 class CompetitionScreen extends StatefulWidget {
   @override
@@ -49,22 +48,6 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
     }
   }
 
-
-  Future <void> _joiningDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: joiningDate,
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-
-    if (picked != null && picked != joiningDate) {
-      setState(() {
-        joiningDate = picked;
-      });
-    }
-  }
-
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -86,7 +69,7 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
               ),
             ),
             Form(
-              key: formKey,
+              // key: formKey,
               child: Column(
                   children: [
                     SizedBox(
@@ -745,7 +728,7 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                  if (formKey.currentState!.validate()) {
+                                  if (Form.of(context)!.validate()) {
                                     // If all fields are valid, navigate to the next screen
                                     Navigator.push(
                                       context,

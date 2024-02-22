@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:majorproject/globals.dart';
 
 class CoursesScreen extends StatefulWidget {
   @override
@@ -63,7 +62,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
               ),
             ),
             Form(
-              key: formKey,
+              // key: formKey,
               child: Column(
                   children: [
                     SizedBox(
@@ -153,7 +152,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
                               ),
                               ElevatedButton(
                                 onPressed: () {
-                                  if (formKey.currentState!.validate()) {
+                                  if (Form.of(context)!.validate()) {
                                     // If all fields are valid, navigate to the next screen
                                     Navigator.push(
                                       context,
