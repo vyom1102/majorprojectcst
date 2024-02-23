@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
+import 'package:majorproject/teacher_main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
@@ -17,6 +18,8 @@ class PublicationScreen extends StatefulWidget {
 class _PublicationScreenState extends State<PublicationScreen> {
   final DatabaseReference _teacherRef =
   FirebaseDatabase.instance.ref().child('teacherspaperpublished');
+  final DatabaseReference _teacherRefer =
+  FirebaseDatabase.instance.ref().child('teachersbookpublished');
   @override
   void initState() {
     retrievename();
@@ -166,11 +169,20 @@ class _PublicationScreenState extends State<PublicationScreen> {
       },
     );
   }
-
+// controller research paper wale
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _titleOfPaperController = TextEditingController();
   final TextEditingController _journalNameController = TextEditingController();
   final TextEditingController _isbnNoController = TextEditingController();
+
+  // controllers for book published teachers
+  final TextEditingController _bookNameController = TextEditingController();
+  final TextEditingController _publicationtypeController = TextEditingController();
+  final TextEditingController _authorNameController = TextEditingController();
+  final TextEditingController _detailsOfPublicationController = TextEditingController();
+  final TextEditingController _volumeandIssuenoController = TextEditingController();
+  final TextEditingController _pageNoController = TextEditingController();
+  final TextEditingController _isbnNoBookController = TextEditingController();
 
   Future<void> _saveTeacherData() async {
     try {
@@ -193,11 +205,38 @@ class _PublicationScreenState extends State<PublicationScreen> {
       print('Error saving data: $error');
     }
   }
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+
+  Future<void> _saveTeacherBookPublishedData() async {
+    try {
+      // SharedPreferences prefs = await SharedPreferences.getInstance();
+      await _teacherRefer.child('id').child(_authorNameController.text).set({
+        'bookName': _bookNameController.text,
+        'publicationType': _publicationtypeController.text,
+        'authorName': _authorNameController.text,
+        'month': selectedMonthOfBooks.toString(),
+        'year': selectedYearOfBooks.toString(),
+        'isbnNo': _isbnNoBookController.text,
+        'details': _detailsOfPublicationController.text,
+        'volumeAndIssueNo': _volumeandIssuenoController.text,
+        'pageNO':_pageNoController.text,
+
+
+      });
+      // await prefs.setString('fullName', _fullNameController.text);
+      // String? storedFullName = prefs.getString('fullName');
+      // print('Stored Full Name: $storedFullName');
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
+  // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      // key: _scaffoldKey,
       backgroundColor: Color(0xff141318),
       body: Stack(
           children: [
@@ -219,7 +258,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                     height: 70,
                   ),
                   Text(
-                    'Publication $storedname',
+                    'Publication ',
                     style: GoogleFonts.kufam(
                         fontWeight: FontWeight.w600,
                         fontSize: 26,
@@ -533,7 +572,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                 controller: _bookNameController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -567,7 +606,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                 controller: _publicationtypeController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -602,7 +641,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
-                                // controller: _emailAddressController,
+                                 controller: _authorNameController,
                                 decoration: InputDecoration(
                                   hintText: 'Abc',
                                   enabledBorder: OutlineInputBorder(
@@ -632,7 +671,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
-                                // controller: _emailAddressController,
+                                 controller: _detailsOfPublicationController,
                                 decoration: InputDecoration(
                                   hintText: 'Abc',
                                   enabledBorder: OutlineInputBorder(
@@ -662,7 +701,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
-                                // controller: _emailAddressController,
+                                controller: _volumeandIssuenoController,
                                 decoration: InputDecoration(
                                   hintText: 'Abc',
                                   enabledBorder: OutlineInputBorder(
@@ -692,7 +731,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
-                                // controller: _emailAddressController,
+                                controller: _pageNoController,
                                 decoration: InputDecoration(
                                   hintText: '100',
                                   enabledBorder: OutlineInputBorder(
@@ -802,7 +841,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
-                                // controller: _permanentAddressController,
+                                controller: _isbnNoBookController,
                                 decoration: InputDecoration(
                                   hintText: '1234',
                                   enabledBorder: OutlineInputBorder(
@@ -835,11 +874,22 @@ class _PublicationScreenState extends State<PublicationScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => PublicationScreen()),
-                      );
-                      _saveTeacherData();
+                      if(_fullNameController.text != null ) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => TeacherSelectionScreen()),
+                        );
+                        _saveTeacherData();
+                      }
+                      if(_authorNameController.text !=null){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => TeacherSelectionScreen()),
+                        );
+                        _saveTeacherBookPublishedData();
+                      }
                       // _saveTeacherData();
                     },
                     style: ElevatedButton.styleFrom(

@@ -1,10 +1,10 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
-// import 'package:majorproject/teacher_data_sheet_screen.dart';
-// import 'package:majorproject/teacher_main_screen.dart';
-// import 'package:majorproject/student_data_sheet_screen.dart';
+import 'package:majorproject/teacher_main_screen.dart';
+
 
 class CourseCompletedScreen extends StatefulWidget {
   @override
@@ -12,6 +12,8 @@ class CourseCompletedScreen extends StatefulWidget {
 }
 
 class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
+  final DatabaseReference _teacherRef =
+  FirebaseDatabase.instance.ref().child('teacherscoursecompleted');
   String selectedButton = '';
   DateTime selectedDate = DateTime.now();
   DateTime joiningDate = DateTime.now();
@@ -28,6 +30,30 @@ class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
       setState(() {
         selectedDate = picked;
       });
+    }
+  }
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _detailOfSeminarController = TextEditingController();
+  final TextEditingController _durationController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+
+  Future<void> _saveTeacherData() async {
+    try {
+      // SharedPreferences prefs = await SharedPreferences.getInstance();
+      await _teacherRef.child('id').child(_fullNameController.text).set({
+        'fullName': _fullNameController.text,
+        'detailsOfSeminar': _detailOfSeminarController.text,
+        'duration': _durationController.text,
+        'address': _addressController.text,
+        'StartingDate': selectedDate.toString(),
+        'Endingdate': joiningDate.toString(),
+
+
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
     }
   }
 
@@ -47,11 +73,11 @@ class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
     }
   }
 
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      // key: _scaffoldKey,
       backgroundColor: Color(0xff141318),
       body: Stack(
           children: [
@@ -96,7 +122,7 @@ class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
-                              // controller: _fullNameController,
+                              controller: _fullNameController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -130,7 +156,7 @@ class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
-                              // controller: _fullNameController,
+                              controller: _detailOfSeminarController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -261,7 +287,7 @@ class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
-                              // controller: _emailAddressController,
+                              controller: _durationController,
                               decoration: InputDecoration(
                                 hintText: '2 months',
                                 enabledBorder: OutlineInputBorder(
@@ -280,48 +306,6 @@ class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
                               ),
                               style: TextStyle(color: Colors.white),
                             ),
-                            // SizedBox(
-                            //   height: 20,
-                            // ),
-
-                            // Text('Year',
-                            //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                            // SizedBox(height: 5),
-                            //
-                            //
-                            // Padding(
-                            //   padding: const EdgeInsets.all(0),
-                            //   child: GestureDetector(
-                            //     // onTap: () {
-                            //     //   showYearPicker(context);
-                            //     // },
-                            //     child: AbsorbPointer(
-                            //       child: TextField(
-                            //         readOnly: true,
-                            //         // controller: TextEditingController(text: selectedYearofAdmission),
-                            //         decoration: InputDecoration(
-                            //           hintText: 'Select',
-                            //           enabledBorder: OutlineInputBorder(
-                            //             borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                            //           ),
-                            //           suffixIcon: Icon(Icons.arrow_drop_down,
-                            //             size: 40.0,),
-                            //           focusedBorder: OutlineInputBorder(
-                            //             borderSide: BorderSide(color: Color(0xff0CECDA)),
-                            //           ),
-                            //           hintStyle: GoogleFonts.kufam(
-                            //               color: Colors.white.withOpacity(0.5)),
-                            //           contentPadding: const EdgeInsets.symmetric(
-                            //               vertical: 20.0, horizontal: 15.0),
-                            //           border: OutlineInputBorder(),
-                            //           fillColor: Color(0xff141318),
-                            //           filled: true,
-                            //         ),
-                            //         style: TextStyle(color: Colors.white),
-                            //       ),
-                            //     ),
-                            //   ),),
-
                             SizedBox(
                               height: 20,
                             ),
@@ -332,7 +316,7 @@ class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
-                              // controller: _permanentAddressController,
+                              controller: _addressController,
                               decoration: InputDecoration(
                                 hintText: 'Enter the Address',
                                 enabledBorder: OutlineInputBorder(
@@ -354,43 +338,14 @@ class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            // Text('Field',
-                            //     style: TextStyle(
-                            //         fontSize: 14.0,
-                            //         fontWeight: FontWeight.bold,
-                            //         color: Colors.white)),
-                            // SizedBox(height: 5),
-                            // TextField(
-                            //   // controller: _fatherHusbandNameController,
-                            //   decoration: InputDecoration(
-                            //     hintText: 'Software development',
-                            //     enabledBorder: OutlineInputBorder(
-                            //       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                            //     ),
-                            //     focusedBorder: OutlineInputBorder(
-                            //       borderSide: BorderSide(color: Color(0xff0CECDA)),
-                            //     ),
-                            //     hintStyle: GoogleFonts.kufam(
-                            //         color: Colors.white.withOpacity(0.5)),
-                            //     contentPadding: const EdgeInsets.symmetric(
-                            //         vertical: 20.0, horizontal: 15.0),
-                            //     border: OutlineInputBorder(),
-                            //     fillColor: Color(0xff141318),
-                            //     filled: true,
-                            //   ),
-                            //   style: TextStyle(color: Colors.white),
-                            // ),
-                            // SizedBox(
-                            //   height: 20,
-                            // ),
 
                             ElevatedButton(
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => CourseCompletedScreen()),
+                                  MaterialPageRoute(builder: (context) => TeacherSelectionScreen()),
                                 );
-                                // _saveTeacherData();
+                                 _saveTeacherData();
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Color(0xFF13E9DC),
