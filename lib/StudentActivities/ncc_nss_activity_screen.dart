@@ -6,16 +6,15 @@ import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
 
-class EventOrganisedScreen extends StatefulWidget {
+class NCCandNSSActivityScreen extends StatefulWidget {
   @override
-  _EventOrganisedScreenState createState() => _EventOrganisedScreenState();
+  _NCCandNSSActivityScreenState createState() => _NCCandNSSActivityScreenState();
 }
 
-class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
+class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
   bool _showWorkshopOrganizedTextField = false; // Variable to toggle visibility of text fields
   bool _showConferenceOrganizedTextField = false; // Variable to toggle visibility of text fields
   bool _showSeminarOrganizedTextField = false; // Variable to toggle visibility of text fields
-  bool _showFDPOrganizedTextField = false; // Variable to toggle visibility of text fields
   String selectedButton = '';
 
   DateTime WorkshopOrganizedHeldFromDate = DateTime.now();
@@ -26,9 +25,6 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
 
   DateTime SeminarOrganizedHeldFromDate = DateTime.now();
   DateTime SeminarOrganizedHeldToDate = DateTime.now();
-
-  DateTime FDPOrganizedHeldFromDate = DateTime.now();
-  DateTime FDPOrganizedHeldToDate = DateTime.now();
 
   //workshop organized button
   Future<void> _workshopOrganizedHeldFromDate(BuildContext context) async {
@@ -92,7 +88,6 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
     }
   }
 
-  //seminar organised button
   Future<void> _seminarOrganizedHeldFromDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -123,57 +118,28 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
     }
   }
 
-  //fdp organised button
-  Future<void> _fDPOrganizedHeldFromDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: FDPOrganizedHeldFromDate,
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-
-    if (picked != null && picked != FDPOrganizedHeldFromDate) {
-      setState(() {
-        FDPOrganizedHeldFromDate = picked;
-      });
-    }
-  }
-
-  Future<void> _fDPOrganizedHeldToDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: FDPOrganizedHeldToDate,
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-
-    if (picked != null && picked != FDPOrganizedHeldToDate) {
-      setState(() {
-        FDPOrganizedHeldToDate = picked;
-      });
-    }
-  }
-
-
-  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _rollController = TextEditingController();
+  final TextEditingController _eventNameController = TextEditingController();
   final TextEditingController _detailsController = TextEditingController();
-  final TextEditingController _addressController= TextEditingController();
   final TextEditingController _durationController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
 
-  final TextEditingController _fullName2Controller = TextEditingController();
-  final TextEditingController _details2Controller = TextEditingController();
-  final TextEditingController _address2Controller= TextEditingController();
-  final TextEditingController _duration2Controller = TextEditingController();
-
-  final TextEditingController _fullName3Controller = TextEditingController();
+  final TextEditingController _name3Controller = TextEditingController();
+  final TextEditingController _roll3Controller = TextEditingController();
+  final TextEditingController _eventName3Controller = TextEditingController();
   final TextEditingController _details3Controller = TextEditingController();
-  final TextEditingController _address3Controller= TextEditingController();
   final TextEditingController _duration3Controller = TextEditingController();
+  final TextEditingController _address3Controller = TextEditingController();
 
-  final TextEditingController _fullName4Controller = TextEditingController();
-  final TextEditingController _details4Controller = TextEditingController();
-  final TextEditingController _address4Controller= TextEditingController();
-  final TextEditingController _duration4Controller = TextEditingController();
+  final TextEditingController _name2Controller = TextEditingController();
+  final TextEditingController _roll2Controller = TextEditingController();
+  final TextEditingController _eventName2Controller = TextEditingController();
+  final TextEditingController _details2Controller = TextEditingController();
+  final TextEditingController _duration2Controller = TextEditingController();
+  final TextEditingController _indiOrGroupController = TextEditingController();
+  final TextEditingController _achievementsController = TextEditingController();
+  final TextEditingController _address2Controller = TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -201,7 +167,7 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                 height: 70,
               ),
               Text(
-                'Event Organized',
+                'NCC/NSS',
                 style: GoogleFonts.kufam(
                   fontWeight: FontWeight.w600,
                   fontSize: 26,
@@ -227,7 +193,7 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                           size: 18,
                         ),
                         label: Text(
-                          _showWorkshopOrganizedTextField ? 'Workshop Organized' : 'Workshop Organized',
+                          _showWorkshopOrganizedTextField ? 'Female' : 'Female',
                           style: GoogleFonts.kufam(
                             fontSize: 16,
                             color: Colors.white,
@@ -250,249 +216,319 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                     if (_showWorkshopOrganizedTextField) ...[
                       Container(
                         padding: EdgeInsets.all(16.0),
-                          child:
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Name of the faculty member',
-                            style: TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-
-                          TextFormField(
-                            controller: _fullNameController,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'This field is required';
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                              hintText: 'Shreya',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xff535353),
-                                ), // Color when not focused
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xff0CECDA),
+                        child:
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Name of the Society',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _nameController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'IEEE',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
                               ),
-                              hintStyle: GoogleFonts.kufam(
-                                color: Colors.white.withOpacity(0.5),
-                              ),
-                              contentPadding: const EdgeInsets.symmetric(
-                                vertical: 20.0,
-                                horizontal: 15.0,
-                              ),
-                              border: OutlineInputBorder(),
-                              fillColor: Color(0xff141318),
-                              filled: true,
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
                             ),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text('Details of the workshop organized',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
-                          SizedBox(height: 5),
-                          TextFormField(
-                            controller: _detailsController,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'This field is required';
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                              hintText: 'Abc ',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                              ),
-                              hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0, horizontal: 15.0),
-                              border: OutlineInputBorder(),
-                              fillColor: Color(0xff141318),
-                              filled: true,
-                            ),
-                            style: TextStyle(color: Colors.white),),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text('Workshop held from',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
-                          SizedBox(height: 5),
 
-                          Row(
-                            children: [
-                              Expanded(
-                                child: TextFormField(
-                                  readOnly: true, // Disable manual editing
-                                  onTap: () => _workshopOrganizedHeldFromDate(context),
-                                  decoration: InputDecoration(
-                                    hintText: 'Select a date',
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                            Text('Role in the society',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _rollController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Member',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            Text('Event name',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _eventNameController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Abc',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            Text('Details about event organized',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _detailsController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Abc ',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            Text('Event held from',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: TextFormField(
+                                    readOnly: true, // Disable manual editing
+                                    onTap: () => _workshopOrganizedHeldFromDate(context),
+                                    decoration: InputDecoration(
+                                      hintText: 'Select a date',
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                      ),
+                                      hintStyle: TextStyle(
+                                        color: Colors.white.withOpacity(0.5),
+                                      ),
+                                      contentPadding: const EdgeInsets.symmetric(
+                                        vertical: 20.0,
+                                        horizontal: 15.0,
+                                      ),
+                                      border: OutlineInputBorder(),
+                                      fillColor: Color(0xff141318),
+                                      filled: true,
                                     ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                    style: TextStyle(color: Colors.white),
+                                    controller: TextEditingController(
+                                      text: "${WorkshopOrganizedHeldFromDate.toLocal()}".split(' ')[0],
                                     ),
-                                    hintStyle: TextStyle(
-                                      color: Colors.white.withOpacity(0.5),
-                                    ),
-                                    contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0,
-                                      horizontal: 15.0,
-                                    ),
-                                    border: OutlineInputBorder(),
-                                    fillColor: Color(0xff141318),
-                                    filled: true,
-                                  ),
-                                  style: TextStyle(color: Colors.white),
-                                  controller: TextEditingController(
-                                    text: "${WorkshopOrganizedHeldFromDate.toLocal()}".split(' ')[0],
                                   ),
                                 ),
-                              ),
-                              IconButton(
-                                icon: Icon(Icons.calendar_today),
-                                onPressed: () => _workshopOrganizedHeldFromDate(context),
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text('Workshop held to',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
-                          SizedBox(height: 5),
+                                IconButton(
+                                  icon: Icon(Icons.calendar_today),
+                                  onPressed: () => _workshopOrganizedHeldFromDate(context),
+                                  color: Colors.white,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
 
-                          Row(
-                            children: [
-                              Expanded(
-                                child: TextFormField(
-                                  readOnly: true, // Disable manual editing
-                                  onTap: () => _workshopOrganizedHeldToDate(context),
-                                  decoration: InputDecoration(
-                                    hintText: 'Select a date',
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                            Text('Event held to',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: TextFormField(
+                                    readOnly: true, // Disable manual editing
+                                    onTap: () => _workshopOrganizedHeldToDate(context),
+                                    decoration: InputDecoration(
+                                      hintText: 'Select a date',
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                      ),
+                                      hintStyle: TextStyle(
+                                        color: Colors.white.withOpacity(0.5),
+                                      ),
+                                      contentPadding: const EdgeInsets.symmetric(
+                                        vertical: 20.0,
+                                        horizontal: 15.0,
+                                      ),
+                                      border: OutlineInputBorder(),
+                                      fillColor: Color(0xff141318),
+                                      filled: true,
                                     ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                    style: TextStyle(color: Colors.white),
+                                    controller: TextEditingController(
+                                      text: "${WorkshopOrganizedHeldToDate.toLocal()}".split(' ')[0],
                                     ),
-                                    hintStyle: TextStyle(
-                                      color: Colors.white.withOpacity(0.5),
-                                    ),
-                                    contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0,
-                                      horizontal: 15.0,
-                                    ),
-                                    border: OutlineInputBorder(),
-                                    fillColor: Color(0xff141318),
-                                    filled: true,
-                                  ),
-                                  style: TextStyle(color: Colors.white),
-                                  controller: TextEditingController(
-                                    text: "${WorkshopOrganizedHeldToDate.toLocal()}".split(' ')[0],
                                   ),
                                 ),
-                              ),
-                              IconButton(
-                                icon: Icon(Icons.calendar_today),
-                                onPressed: () =>
-                                    _workshopOrganizedHeldToDate(context),
-                                color: Colors.white,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text('Duration of workshop',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
-                          SizedBox(height: 5),
-                          TextField(
-                            controller: _durationController,
-                            decoration: InputDecoration(
-                              hintText: '2 months',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                              ),
-                              hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0, horizontal: 15.0),
-                              border: OutlineInputBorder(),
-                              fillColor: Color(0xff141318),
-                              filled: true,
+                                IconButton(
+                                  icon: Icon(Icons.calendar_today),
+                                  onPressed: () =>
+                                      _workshopOrganizedHeldToDate(context),
+                                  color: Colors.white,
+                                ),
+                              ],
                             ),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          // SizedBox(
-                          //   height: 20,
-                          // ),
+                            SizedBox(
+                              height: 20,
+                            ),
 
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text('Address of the place where workshop held',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
-                          SizedBox(height: 5),
-                          TextField(
-                            controller: _addressController,
-                            decoration: InputDecoration(
-                              hintText: 'Enter the Address',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                            Text('Duration of Event',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _durationController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: '2 Months',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                              ),
-                              hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0, horizontal: 15.0),
-                              border: OutlineInputBorder(),
-                              fillColor: Color(0xff141318),
-                              filled: true,
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
                             ),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          // Add more text fields as needed
-                        ],
-                      ),),
+
+                            Text('Address of the Place where event held',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _addressController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Enter the Address',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            // Add more text fields as needed
+                          ],
+                        ),),
                     ],
 
                     // Conference Organized Button
@@ -511,7 +547,7 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                           size: 18,
                         ),
                         label: Text(
-                          _showConferenceOrganizedTextField ? 'Conference Organized' : 'Conference Organized',
+                          _showConferenceOrganizedTextField ? 'Male' : 'Male',
                           style: GoogleFonts.kufam(
                             fontSize: 16,
                             color: Colors.white,
@@ -534,21 +570,18 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                     if (_showConferenceOrganizedTextField) ...[
                       Container(
                         padding: EdgeInsets.all(16.0),
-                        child: Column(
+                        child:
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Name of the Faculty Member',
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
+                            Text('Name of the Society',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
                             SizedBox(height: 5),
-
                             TextFormField(
-                              controller: _fullName2Controller,
+                              controller: _name2Controller,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -556,34 +589,97 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: 'Shreya',
+                                hintText: 'IEEE',
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xff535353),
-                                  ), // Color when not focused
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xff0CECDA),
-                                  ),
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
                                 ),
                                 hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5),
-                                ),
+                                    color: Colors.white.withOpacity(0.5)),
                                 contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0,
-                                  horizontal: 15.0,
-                                ),
+                                    vertical: 20.0, horizontal: 15.0),
                                 border: OutlineInputBorder(),
                                 fillColor: Color(0xff141318),
                                 filled: true,
                               ),
-                              style: TextStyle(color: Colors.white),
-                            ),
+                              style: TextStyle(color: Colors.white),),
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Details of the Conference organized',
+
+                            Text('Role in the society',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _roll2Controller,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Member',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            Text('Event name',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _eventName2Controller,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Abc',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            Text('Details about participation in event in brief',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -617,19 +713,19 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Conference held from',
+
+                            Text('Event held from',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white)),
                             SizedBox(height: 5),
-
                             Row(
                               children: [
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _conferenceOrganizedHeldFromDate(context),
+                                    onTap: () => _workshopOrganizedHeldFromDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -651,7 +747,7 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${ConferenceOrganizedHeldFromDate.toLocal()}".split(' ')[0],
+                                      text: "${WorkshopOrganizedHeldFromDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
@@ -665,13 +761,13 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Conference held to',
+
+                            Text('Event held to',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white)),
                             SizedBox(height: 5),
-
                             Row(
                               children: [
                                 Expanded(
@@ -699,14 +795,14 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${ConferenceOrganizedHeldToDate.toLocal()}".split(' ')[0],
+                                      text: "${WorkshopOrganizedHeldToDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
                                   onPressed: () =>
-                                      _conferenceOrganizedHeldToDate(context),
+                                      _workshopOrganizedHeldToDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -714,16 +810,23 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Duration of Conference',
+
+                            Text('Duration of Event',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white)),
                             SizedBox(height: 5),
-                            TextField(
+                            TextFormField(
                               controller: _duration2Controller,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
                               decoration: InputDecoration(
-                                hintText: '2 months',
+                                hintText: '2 Months',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -738,23 +841,95 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                                 fillColor: Color(0xff141318),
                                 filled: true,
                               ),
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            // SizedBox(
-                            //   height: 20,
-                            // ),
-
+                              style: TextStyle(color: Colors.white),),
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Address of the place where conference held',
+
+                            Text('Individual/Group',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white)),
                             SizedBox(height: 5),
-                            TextField(
+                            TextFormField(
+                              controller: _indiOrGroupController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Individual',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            Text('Achievements(if any)',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _achievementsController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Na',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            Text('Address of the Place where event held',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
                               controller: _address2Controller,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
                               decoration: InputDecoration(
                                 hintText: 'Enter the Address',
                                 enabledBorder: OutlineInputBorder(
@@ -771,15 +946,15 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                                 fillColor: Color(0xff141318),
                                 filled: true,
                               ),
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
                             ),
                             // Add more text fields as needed
                           ],
-                        ),
-                      ),
+                        ),),
                     ],
 
-                    //Seminar Organized Button
                     Container(
                       padding: EdgeInsets.all(16.0),
                       child:
@@ -795,7 +970,7 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                           size: 18,
                         ),
                         label: Text(
-                          _showSeminarOrganizedTextField ? 'Seminar Organized' : 'Seminar Organized',
+                          _showSeminarOrganizedTextField ? 'Co' : 'Co',
                           style: GoogleFonts.kufam(
                             fontSize: 16,
                             color: Colors.white,
@@ -815,24 +990,21 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                       ),
                     ),
                     // SizedBox(height: 20),
-                    if (_showSeminarOrganizedTextField) ...[
+                    if (_showWorkshopOrganizedTextField) ...[
                       Container(
                         padding: EdgeInsets.all(16.0),
-                        child: Column(
+                        child:
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Name of the Faculty Member',
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
+                            Text('Name of the Society',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
                             SizedBox(height: 5),
-
                             TextFormField(
-                              controller: _fullName3Controller,
+                              controller: _name3Controller,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -840,34 +1012,97 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: 'Shreya',
+                                hintText: 'IEEE',
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xff535353),
-                                  ), // Color when not focused
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xff0CECDA),
-                                  ),
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
                                 ),
                                 hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5),
-                                ),
+                                    color: Colors.white.withOpacity(0.5)),
                                 contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0,
-                                  horizontal: 15.0,
-                                ),
+                                    vertical: 20.0, horizontal: 15.0),
                                 border: OutlineInputBorder(),
                                 fillColor: Color(0xff141318),
                                 filled: true,
                               ),
-                              style: TextStyle(color: Colors.white),
-                            ),
+                              style: TextStyle(color: Colors.white),),
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Details of the Seminar organized',
+
+                            Text('Role in the society',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _roll3Controller,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Member',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            Text('Event name',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _eventName3Controller,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Abc',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            Text('Details about event organized',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -901,19 +1136,19 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Seminar held from',
+
+                            Text('Event held from',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white)),
                             SizedBox(height: 5),
-
                             Row(
                               children: [
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _seminarOrganizedHeldFromDate(context),
+                                    onTap: () => _workshopOrganizedHeldFromDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -935,13 +1170,13 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${SeminarOrganizedHeldFromDate.toLocal()}".split(' ')[0],
+                                      text: "${WorkshopOrganizedHeldFromDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
-                                  onPressed: () => _seminarOrganizedHeldFromDate(context),
+                                  onPressed: () => _workshopOrganizedHeldFromDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -949,19 +1184,19 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Seminar held to',
+
+                            Text('Event held to',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white)),
                             SizedBox(height: 5),
-
                             Row(
                               children: [
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _seminarOrganizedHeldToDate(context),
+                                    onTap: () => _workshopOrganizedHeldToDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -983,14 +1218,14 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${SeminarOrganizedHeldToDate.toLocal()}".split(' ')[0],
+                                      text: "${WorkshopOrganizedHeldToDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
                                   onPressed: () =>
-                                      _seminarOrganizedHeldToDate(context),
+                                      _workshopOrganizedHeldToDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -998,125 +1233,15 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Duration of Seminar',
+
+                            Text('Duration of Event',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white)),
                             SizedBox(height: 5),
-                            TextField(
+                            TextFormField(
                               controller: _duration3Controller,
-                              decoration: InputDecoration(
-                                hintText: '2 months',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                ),
-                                hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
-                              ),
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            // SizedBox(
-                            //   height: 20,
-                            // ),
-
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text('Address of the place where seminar held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
-                            TextField(
-                              controller: _address3Controller,
-                              decoration: InputDecoration(
-                                hintText: 'Enter the Address',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                ),
-                                hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
-                              ),
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            // Add more text fields as needed
-                          ],
-                        ),
-                      ),
-                    ],
-
-                    //FDP Organized Button
-                    Container(
-                      padding: EdgeInsets.all(16.0),
-                      child:
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          setState(() {
-                            _showFDPOrganizedTextField = !_showFDPOrganizedTextField;
-                          });
-                        },
-                        icon: Icon(
-                          _showFDPOrganizedTextField ? Icons.remove : Icons.add,
-                          color: Colors.white,
-                          size: 18,
-                        ),
-                        label: Text(
-                          _showFDPOrganizedTextField ? 'FDP Organized' : 'FDP Organized',
-                          style: GoogleFonts.kufam(
-                            fontSize: 16,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromRGBO(12, 236, 218, 0.5),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          minimumSize: Size(
-                            0.9 * MediaQuery.of(context).size.width,
-                            48.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                    // SizedBox(height: 20),
-                    if (_showFDPOrganizedTextField) ...[
-                      Container(
-                        padding: EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Name of the Faculty Member',
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                            SizedBox(height: 5),
-
-                            TextFormField(
-                              controller: _fullName4Controller,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -1124,49 +1249,7 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: 'Shreya',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xff535353),
-                                  ), // Color when not focused
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xff0CECDA),
-                                  ),
-                                ),
-                                hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5),
-                                ),
-                                contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0,
-                                  horizontal: 15.0,
-                                ),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
-                              ),
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text('Details of the FDP organized',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
-                            TextFormField(
-                              controller: _details4Controller,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'This field is required';
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                hintText: 'Abc ',
+                                hintText: '2 Months',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -1185,144 +1268,21 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('FDP held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
 
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: TextFormField(
-                                    readOnly: true, // Disable manual editing
-                                    onTap: () => _fDPOrganizedHeldFromDate(context),
-                                    decoration: InputDecoration(
-                                      hintText: 'Select a date',
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                      ),
-                                      hintStyle: TextStyle(
-                                        color: Colors.white.withOpacity(0.5),
-                                      ),
-                                      contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 20.0,
-                                        horizontal: 15.0,
-                                      ),
-                                      border: OutlineInputBorder(),
-                                      fillColor: Color(0xff141318),
-                                      filled: true,
-                                    ),
-                                    style: TextStyle(color: Colors.white),
-                                    controller: TextEditingController(
-                                      text: "${FDPOrganizedHeldFromDate.toLocal()}".split(' ')[0],
-                                    ),
-                                  ),
-                                ),
-                                IconButton(
-                                  icon: Icon(Icons.calendar_today),
-                                  onPressed: () => _fDPOrganizedHeldFromDate(context),
-                                  color: Colors.white,
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text('FDP held to',
+                            Text('Address of the Place where event held',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white)),
                             SizedBox(height: 5),
-
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: TextFormField(
-                                    readOnly: true, // Disable manual editing
-                                    onTap: () => _fDPOrganizedHeldToDate(context),
-                                    decoration: InputDecoration(
-                                      hintText: 'Select a date',
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                      ),
-                                      hintStyle: TextStyle(
-                                        color: Colors.white.withOpacity(0.5),
-                                      ),
-                                      contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 20.0,
-                                        horizontal: 15.0,
-                                      ),
-                                      border: OutlineInputBorder(),
-                                      fillColor: Color(0xff141318),
-                                      filled: true,
-                                    ),
-                                    style: TextStyle(color: Colors.white),
-                                    controller: TextEditingController(
-                                      text: "${FDPOrganizedHeldToDate.toLocal()}".split(' ')[0],
-                                    ),
-                                  ),
-                                ),
-                                IconButton(
-                                  icon: Icon(Icons.calendar_today),
-                                  onPressed: () =>
-                                      _fDPOrganizedHeldToDate(context),
-                                  color: Colors.white,
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text('Duration of FDP',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
-                            TextField(
-                              controller: _duration4Controller,
-                              decoration: InputDecoration(
-                                hintText: '2 months',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                ),
-                                hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
-                              ),
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            // SizedBox(
-                            //   height: 20,
-                            // ),
-
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text('Address of the place where FDP held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
-                            TextField(
-                              controller: _address4Controller,
+                            TextFormField(
+                              controller: _address3Controller,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
                               decoration: InputDecoration(
                                 hintText: 'Enter the Address',
                                 enabledBorder: OutlineInputBorder(
@@ -1339,12 +1299,13 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                                 fillColor: Color(0xff141318),
                                 filled: true,
                               ),
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
                             ),
                             // Add more text fields as needed
                           ],
-                        ),
-                      ),
+                        ),),
                     ],
 
 
@@ -1353,10 +1314,10 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => EventOrganisedScreen()),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => NCCandNSSActivityScreen()),
+                  // );
                   // _saveTeacherData();
                 },
                 style: ElevatedButton.styleFrom(
@@ -1370,7 +1331,7 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                   ),
                 ),
                 child: Text(
-                  'Next',
+                  'Save',
                   style: GoogleFonts.kufam(
                     fontSize: 18,
                     color: Colors.black,

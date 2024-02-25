@@ -49,6 +49,13 @@ class _PlacementScreenState extends State<PlacementScreen> {
     );
   }
 
+  final TextEditingController _categoriesController = TextEditingController();
+  final TextEditingController _placementController = TextEditingController();
+  final TextEditingController _companyNameController = TextEditingController();
+  final TextEditingController _packageController = TextEditingController();
+  final TextEditingController _positionController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -138,7 +145,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _categoriesController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -173,7 +180,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _placementController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -208,7 +215,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _companyNameController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -243,7 +250,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _packageController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -278,7 +285,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _positionController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -313,7 +320,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _locationController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';

@@ -154,6 +154,27 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
     }
   }
 
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _detailsController = TextEditingController();
+  final TextEditingController _addressController= TextEditingController();
+  final TextEditingController _durationController = TextEditingController();
+
+  final TextEditingController _fullName2Controller = TextEditingController();
+  final TextEditingController _details2Controller = TextEditingController();
+  final TextEditingController _address2Controller= TextEditingController();
+  final TextEditingController _duration2Controller = TextEditingController();
+
+  final TextEditingController _fullName3Controller = TextEditingController();
+  final TextEditingController _details3Controller = TextEditingController();
+  final TextEditingController _address3Controller= TextEditingController();
+  final TextEditingController _duration3Controller = TextEditingController();
+
+  final TextEditingController _fullName4Controller = TextEditingController();
+  final TextEditingController _details4Controller = TextEditingController();
+  final TextEditingController _address4Controller= TextEditingController();
+  final TextEditingController _duration4Controller = TextEditingController();
+
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -243,7 +264,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(height: 5),
 
                             TextFormField(
-                              // controller: _fullNameController,
+                              controller: _fullNameController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -285,7 +306,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
-                              // controller: _fullNameController,
+                              controller: _detailsController,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -416,7 +437,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
-                              // controller: _emailAddressController,
+                              controller: _durationController,
                               decoration: InputDecoration(
                                 hintText: '2 months',
                                 enabledBorder: OutlineInputBorder(
@@ -449,7 +470,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
-                              // controller: _permanentAddressController,
+                              controller: _addressController,
                               decoration: InputDecoration(
                                 hintText: 'Enter the Address',
                                 enabledBorder: OutlineInputBorder(
@@ -527,7 +548,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(height: 5),
 
                             TextFormField(
-                              // controller: _fullNameController,
+                              controller: _fullName2Controller,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -569,7 +590,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
-                              // controller: _fullNameController,
+                              controller: _details2Controller,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -700,7 +721,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
-                              // controller: _emailAddressController,
+                              controller: _duration2Controller,
                               decoration: InputDecoration(
                                 hintText: '2 months',
                                 enabledBorder: OutlineInputBorder(
@@ -733,7 +754,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
-                              // controller: _permanentAddressController,
+                              controller: _address2Controller,
                               decoration: InputDecoration(
                                 hintText: 'Enter the Address',
                                 enabledBorder: OutlineInputBorder(
@@ -811,7 +832,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(height: 5),
 
                             TextFormField(
-                              // controller: _fullNameController,
+                              controller: _fullName3Controller,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -853,7 +874,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
-                              // controller: _fullNameController,
+                              controller: _details3Controller,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -984,7 +1005,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
-                              // controller: _emailAddressController,
+                              controller: _duration3Controller,
                               decoration: InputDecoration(
                                 hintText: '2 months',
                                 enabledBorder: OutlineInputBorder(
@@ -1017,7 +1038,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
-                              // controller: _permanentAddressController,
+                              controller: _address3Controller,
                               decoration: InputDecoration(
                                 hintText: 'Enter the Address',
                                 enabledBorder: OutlineInputBorder(
@@ -1095,7 +1116,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(height: 5),
 
                             TextFormField(
-                              // controller: _fullNameController,
+                              controller: _fullName4Controller,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -1137,7 +1158,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
-                              // controller: _fullNameController,
+                              controller: _details4Controller,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
@@ -1268,7 +1289,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
-                              // controller: _emailAddressController,
+                              controller: _duration4Controller,
                               decoration: InputDecoration(
                                 hintText: '2 months',
                                 enabledBorder: OutlineInputBorder(
@@ -1301,7 +1322,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                                     color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
-                              // controller: _permanentAddressController,
+                              controller: _address4Controller,
                               decoration: InputDecoration(
                                 hintText: 'Enter the Address',
                                 enabledBorder: OutlineInputBorder(

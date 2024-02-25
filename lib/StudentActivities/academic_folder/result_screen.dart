@@ -1,26 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
-// import 'package:majorproject/teacher_data_sheet_screen.dart';
-// import 'package:majorproject/teacher_main_screen.dart';
-// import 'package:majorproject/student_data_sheet_screen.dart';
 
-
-class HigherStudiesScreen extends StatefulWidget {
+class ResultScreen extends StatefulWidget {
   @override
-  _HigherStudiesScreenState  createState() => _HigherStudiesScreenState ();
+  _ResultScreenState createState() => _ResultScreenState();
 }
 
-class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
+class _ResultScreenState extends State<ResultScreen> {
 
   String selectedButton = '';
-  String _selectedImage='';
   DateTime selectedDate = DateTime.now();
   DateTime joiningDate = DateTime.now();
-
-  TextEditingController _imageController = TextEditingController();
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -53,17 +45,10 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
     }
   }
 
-  Future<void> _pickImage() async {
-    final picker = ImagePicker();
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-
-    if (pickedFile != null) {
-      setState(() {
-        _selectedImage = pickedFile.path;
-        _imageController.text = _selectedImage;
-      });
-    }
-  }
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _detailsController = TextEditingController();
+  final TextEditingController _durationController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -93,7 +78,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                       height: 70,
                     ),
                     Text(
-                      'Higher Studies',
+                      'Results',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,
@@ -107,14 +92,14 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Name of the Course (Higher Studies)',
+                              Text('Name of the Faculty Member',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _nameController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -122,7 +107,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                   return null;
                                 },
                                 decoration: InputDecoration(
-                                  hintText: 'Mtech',
+                                  hintText: 'Shreya',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -142,14 +127,14 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                 height: 20,
                               ),
 
-                              Text('University',
+                              Text('Details of the Seminar Attended',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _detailsController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -157,7 +142,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                   return null;
                                 },
                                 decoration: InputDecoration(
-                                  hintText: 'MAIT',
+                                  hintText: 'Abc ',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -177,91 +162,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                 height: 20,
                               ),
 
-                              Text('Place/Location',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
-                              SizedBox(height: 5),
-                              TextFormField(
-                                // controller: _fullNameController,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'This field is required';
-                                  }
-                                  return null;
-                                },
-                                decoration: InputDecoration(
-                                  hintText: 'Delhi',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                  ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
-                                ),
-                                style: TextStyle(color: Colors.white),),
-                              SizedBox(
-                                height: 20,
-                              ),
-
-                              Text('Proof of Higher Studies(Copy of Id Card/ Admission Letter',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-                              SizedBox(height: 5),
-                              Padding(
-                                padding: const EdgeInsets.all(0.0),
-                                child:
-                                Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children:[
-                                      Stack(
-                                          children:[ TextField(
-                                            controller: _imageController,
-                                            readOnly: true,
-                                            decoration: InputDecoration(
-                                              hintText: 'Browse',
-                                              suffixIcon: IconButton(
-                                                icon: Icon(Icons.add, size: 25.0,),
-                                                onPressed: () {
-                                                  _pickImage();
-                                                },),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                              ),
-                                              hintStyle: GoogleFonts.kufam(
-                                                  color: Colors.white.withOpacity(0.5)),
-                                              contentPadding: const EdgeInsets.symmetric(
-                                                  vertical: 20.0, horizontal: 15.0),
-                                              border: OutlineInputBorder(),
-                                              fillColor: Color(0xff141318),
-                                              filled: true,
-                                            ),
-                                            style: TextStyle(color: Colors.white),
-
-                                          ),
-                                          ]
-                                        //     if (_selectedImage != null)
-                                        // Image.file(
-                                        //   File(_selectedImage),
-                                        //   height: 100,
-                                        //   width: 100,
-
-                                      ),]
-                                ),
-                              ),
-                              SizedBox(height: 20),
-
-                              Text('Starting Date of Course',
+                              Text('Seminar held from',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
@@ -309,7 +210,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                 height: 20,
                               ),
 
-                              Text('Completion Date of Course',
+                              Text('Seminar held to',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
@@ -358,14 +259,14 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                 height: 20,
                               ),
 
-                              Text('Duration of Course',
+                              Text('Duration of Seminar',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _durationController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -373,7 +274,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                   return null;
                                 },
                                 decoration: InputDecoration(
-                                  hintText: '2 Year',
+                                  hintText: '2 Months',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -393,14 +294,14 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                 height: 20,
                               ),
 
-                              Text('Have you got PPO through internship',
+                              Text('Address of the Place where seminar held',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _addressController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -408,7 +309,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                   return null;
                                 },
                                 decoration: InputDecoration(
-                                  hintText: 'Yes',
+                                  hintText: 'Enter the Address',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -425,41 +326,8 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                 ),
                                 style: TextStyle(color: Colors.white),),
                               SizedBox(
-                                height: 20,),
-
-                              Text('If PPO through internship give details (Name of the company and CTC)',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
-                              SizedBox(height: 5),
-                              TextFormField(
-                                // controller: _fullNameController,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'This field is required';
-                                  }
-                                  return null;
-                                },
-                                decoration: InputDecoration(
-                                  hintText: 'abc , 15lpa',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                  ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
-                                ),
-                                style: TextStyle(color: Colors.white),),
-                              SizedBox(
-                                height: 20,),
+                                height: 20,
+                              ),
 
                               ElevatedButton(
                                 onPressed: () {
@@ -467,7 +335,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                     // If all fields are valid, navigate to the next screen
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => HigherStudiesScreen()),
+                                      MaterialPageRoute(builder: (context) => ResultScreen()),
                                     );
                                   }
                                 },
@@ -492,4 +360,3 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
       ),);
   }
 }
-

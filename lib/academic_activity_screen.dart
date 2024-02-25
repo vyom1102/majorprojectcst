@@ -79,17 +79,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
-import 'package:majorproject/academic_folder/competition_screen.dart';
-import 'package:majorproject/academic_folder/courses_screen.dart';
-import 'package:majorproject/academic_folder/higher_studies_screen.dart';
-import 'package:majorproject/academic_folder/placement_screen.dart';
-import 'package:majorproject/academic_folder/result_screen.dart';
-import 'package:majorproject/academic_folder/seminar_screen.dart';
-import 'package:majorproject/academic_folder/startup_screen.dart';
-import 'package:majorproject/academic_folder/training_screen.dart';
+import 'package:majorproject/StudentActivities/academic_folder/competition_screen.dart';
+import 'package:majorproject/StudentActivities/academic_folder/courses_screen.dart';
+import 'package:majorproject/StudentActivities/academic_folder/higher_studies_screen.dart';
+import 'package:majorproject/StudentActivities/academic_folder/placement_screen.dart';
+import 'package:majorproject/StudentActivities/academic_folder/result_screen.dart';
+import 'package:majorproject/StudentActivities/academic_folder/seminar_screen.dart';
+import 'package:majorproject/StudentActivities/academic_folder/startup_screen.dart';
+import 'package:majorproject/StudentActivities/academic_folder/training_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'package:majorproject/student_data_sheet_screen.dart';
-import 'package:majorproject/academic_folder/training_screen.dart';
+import 'package:majorproject/StudentActivities/academic_folder/training_screen.dart';
 
 class AcademicScreen extends StatefulWidget {
   @override

@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
 
-class SeminarScreen extends StatefulWidget {
+
+class HigherStudiesScreen extends StatefulWidget {
   @override
-  _SeminarScreenState createState() => _SeminarScreenState();
+  _HigherStudiesScreenState  createState() => _HigherStudiesScreenState ();
 }
 
-class _SeminarScreenState extends State<SeminarScreen> {
+class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
 
   String selectedButton = '';
+  String _selectedImage='';
   DateTime selectedDate = DateTime.now();
   DateTime joiningDate = DateTime.now();
+
+  TextEditingController _imageController = TextEditingController();
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -48,6 +53,25 @@ class _SeminarScreenState extends State<SeminarScreen> {
     }
   }
 
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      setState(() {
+        _selectedImage = pickedFile.path;
+        _imageController.text = _selectedImage;
+      });
+    }
+  }
+
+  final TextEditingController _courseNameController = TextEditingController();
+  final TextEditingController _universityController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
+  final TextEditingController _durationController = TextEditingController();
+  final TextEditingController _ppoController = TextEditingController();
+  final TextEditingController _ppoDetailsController = TextEditingController();
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -76,7 +100,7 @@ class _SeminarScreenState extends State<SeminarScreen> {
                       height: 70,
                     ),
                     Text(
-                      'Seminar',
+                      'Higher Studies',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,
@@ -90,14 +114,14 @@ class _SeminarScreenState extends State<SeminarScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Name of the Faculty Member',
+                              Text('Name of the Course (Higher Studies)',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _courseNameController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -105,7 +129,7 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                   return null;
                                 },
                                 decoration: InputDecoration(
-                                  hintText: 'Shreya',
+                                  hintText: 'Mtech',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -125,14 +149,14 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                 height: 20,
                               ),
 
-                              Text('Details of the Seminar Attended',
+                              Text('University',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _universityController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -140,7 +164,7 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                   return null;
                                 },
                                 decoration: InputDecoration(
-                                  hintText: 'Abc ',
+                                  hintText: 'MAIT',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -160,7 +184,91 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                 height: 20,
                               ),
 
-                              Text('Seminar held from',
+                              Text('Place/Location',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              SizedBox(height: 5),
+                              TextFormField(
+                                controller: _locationController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'This field is required';
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  hintText: 'Delhi',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
+                                  hintStyle: GoogleFonts.kufam(
+                                      color: Colors.white.withOpacity(0.5)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 20.0, horizontal: 15.0),
+                                  border: OutlineInputBorder(),
+                                  fillColor: Color(0xff141318),
+                                  filled: true,
+                                ),
+                                style: TextStyle(color: Colors.white),),
+                              SizedBox(
+                                height: 20,
+                              ),
+
+                              Text('Proof of Higher Studies(Copy of Id Card/ Admission Letter',
+                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                              SizedBox(height: 5),
+                              Padding(
+                                padding: const EdgeInsets.all(0.0),
+                                child:
+                                Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children:[
+                                      Stack(
+                                          children:[ TextField(
+                                            controller: _imageController,
+                                            readOnly: true,
+                                            decoration: InputDecoration(
+                                              hintText: 'Browse',
+                                              suffixIcon: IconButton(
+                                                icon: Icon(Icons.add, size: 25.0,),
+                                                onPressed: () {
+                                                  _pickImage();
+                                                },),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                              ),
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                              ),
+                                              hintStyle: GoogleFonts.kufam(
+                                                  color: Colors.white.withOpacity(0.5)),
+                                              contentPadding: const EdgeInsets.symmetric(
+                                                  vertical: 20.0, horizontal: 15.0),
+                                              border: OutlineInputBorder(),
+                                              fillColor: Color(0xff141318),
+                                              filled: true,
+                                            ),
+                                            style: TextStyle(color: Colors.white),
+
+                                          ),
+                                          ]
+                                        //     if (_selectedImage != null)
+                                        // Image.file(
+                                        //   File(_selectedImage),
+                                        //   height: 100,
+                                        //   width: 100,
+
+                                      ),]
+                                ),
+                              ),
+                              SizedBox(height: 20),
+
+                              Text('Starting Date of Course',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
@@ -208,7 +316,7 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                 height: 20,
                               ),
 
-                              Text('Seminar held to',
+                              Text('Completion Date of Course',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
@@ -217,7 +325,8 @@ class _SeminarScreenState extends State<SeminarScreen> {
                               Row(
                                 children: [
                                   Expanded(
-                                    child: TextFormField(
+                                    child:
+                                    TextFormField(
                                       readOnly: true, // Disable manual editing
                                       onTap: () => _joiningDate(context),
                                       decoration: InputDecoration(
@@ -257,14 +366,14 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                 height: 20,
                               ),
 
-                              Text('Duration of Seminar',
+                              Text('Duration of Course',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _durationController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -272,7 +381,7 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                   return null;
                                 },
                                 decoration: InputDecoration(
-                                  hintText: '2 Months',
+                                  hintText: '2 Year',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -292,14 +401,14 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                 height: 20,
                               ),
 
-                              Text('Address of the Place where seminar held',
+                              Text('Have you got PPO through internship',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
-                                // controller: _fullNameController,
+                                controller: _ppoController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'This field is required';
@@ -307,7 +416,7 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                   return null;
                                 },
                                 decoration: InputDecoration(
-                                  hintText: 'Enter the Address',
+                                  hintText: 'Yes',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -324,8 +433,41 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                 ),
                                 style: TextStyle(color: Colors.white),),
                               SizedBox(
-                                height: 20,
-                              ),
+                                height: 20,),
+
+                              Text('If PPO through internship give details (Name of the company and CTC)',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              SizedBox(height: 5),
+                              TextFormField(
+                                controller: _ppoDetailsController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'This field is required';
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  hintText: 'abc , 15lpa',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
+                                  hintStyle: GoogleFonts.kufam(
+                                      color: Colors.white.withOpacity(0.5)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 20.0, horizontal: 15.0),
+                                  border: OutlineInputBorder(),
+                                  fillColor: Color(0xff141318),
+                                  filled: true,
+                                ),
+                                style: TextStyle(color: Colors.white),),
+                              SizedBox(
+                                height: 20,),
 
                               ElevatedButton(
                                 onPressed: () {
@@ -333,7 +475,7 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                     // If all fields are valid, navigate to the next screen
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => SeminarScreen()),
+                                      MaterialPageRoute(builder: (context) => HigherStudiesScreen()),
                                     );
                                   }
                                 },
@@ -358,3 +500,4 @@ class _SeminarScreenState extends State<SeminarScreen> {
       ),);
   }
 }
+

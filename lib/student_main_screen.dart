@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
+import 'package:majorproject/StudentActivities/co-curricular_activity_screen.dart';
 import 'package:majorproject/main.dart';
 import 'package:majorproject/teacher_data_sheet_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'package:majorproject/student_data_sheet_screen.dart';
+
+import 'StudentActivities/sports_screen.dart';
+import 'StudentActivities/co-curricular_folder/community_service.dart';
+import 'StudentActivities/ncc_nss_activity_screen.dart';
 
 class StudentSelectionScreen extends StatefulWidget {
   @override
@@ -248,27 +253,20 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TeacherSelectionScreen(),
+                          builder: (context) => CurricularActivityScreen(),
                         ),
                       );
                     } else if (selectedButton == 'Button 3') {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => AcademicScreen(),
-                      //   ),
-                      // );
-
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => studentDataSheet()),
+                            builder: (context) => SportsScreen()),
                       );
                     } else if (selectedButton == 'button 4') {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TeacherDataSheet(),
+                          builder: (context) => NCCandNSSActivityScreen(),
                         ),
                       );
                     }
