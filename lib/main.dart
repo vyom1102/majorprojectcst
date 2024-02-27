@@ -3,7 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:majorproject/adminscreen.dart';
+import 'package:majorproject/admin/adminHome.dart';
+import 'package:majorproject/admin/adminscreen.dart';
 import 'package:majorproject/firebase_options.dart';
 import 'package:majorproject/student_data_sheet_screen.dart';
 import 'package:majorproject/teacher_data_sheet_screen.dart';
@@ -64,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
       } else if (userRole == 'admin') {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => AdminScreen()),
+          MaterialPageRoute(builder: (context) => AdminHome()),
         );
       }
     } catch (e) {

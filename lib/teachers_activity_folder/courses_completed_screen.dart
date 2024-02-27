@@ -39,7 +39,6 @@ class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
 
   Future<void> _saveTeacherData() async {
     try {
-      // SharedPreferences prefs = await SharedPreferences.getInstance();
       await _teacherRef.child('id').child(_fullNameController.text).set({
         'fullName': _fullNameController.text,
         'detailsOfSeminar': _detailOfSeminarController.text,
@@ -47,8 +46,6 @@ class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
         'address': _addressController.text,
         'StartingDate': selectedDate.toString(),
         'Endingdate': joiningDate.toString(),
-
-
       });
 
     } catch (error) {
