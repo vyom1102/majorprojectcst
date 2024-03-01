@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/details.dart';
 import 'package:majorproject/main.dart';
-import 'package:majorproject/student_detail.dart';
+import 'package:majorproject/detailScreens/student_personaldetail.dart';
 import 'package:majorproject/teachers_activity_folder/courses_completed_screen.dart';
 import 'package:majorproject/teachers_activity_folder/event_attended_screen.dart';
 import 'package:majorproject/teachers_activity_folder/event_organised_screen.dart';

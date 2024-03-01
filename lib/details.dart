@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:majorproject/student_detail.dart';
+import 'package:majorproject/detailScreens/student_personaldetail.dart';
+import 'package:majorproject/detailScreens/student_training.dart';
 
 
 
@@ -95,7 +96,13 @@ class Details extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.model_training, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentTrainingList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),

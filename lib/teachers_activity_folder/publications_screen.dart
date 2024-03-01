@@ -874,7 +874,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      if(_fullNameController.text != null ) {
+                      if(_fullNameController.text.isNotEmpty ) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -882,7 +882,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                         );
                         _saveTeacherData();
                       }
-                      if(_authorNameController.text !=null){
+                      if(_authorNameController.text.isNotEmpty){
                         Navigator.push(
                           context,
                           MaterialPageRoute(

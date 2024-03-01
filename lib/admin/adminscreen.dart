@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:majorproject/student_detail.dart';
-import 'package:majorproject/teacher_detail.dart';
+import 'package:majorproject/detailScreens/student_personaldetail.dart';
+import 'package:majorproject/detailScreens/teacher_personaldetail.dart';
 
 
 class AdminScreen extends StatefulWidget {

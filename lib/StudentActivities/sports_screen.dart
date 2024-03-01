@@ -107,12 +107,6 @@ class _SportsScreenState extends State<SportsScreen> {
         'address' : _addressController.text,
         'Startingdate' : ConferenceOrganizedHeldFromDate.toString(),
         'Endingdate' : ConferenceOrganizedHeldToDate.toString(),
-        // 'fullName': _fullNameController.text,
-        // 'detailsOfSeminar': _detailOfSeminarController.text,
-        // 'duration': _durationController.text,
-        // 'address': _addressController.text,
-        // 'StartingDate': selectedDate.toString(),
-        // 'Endingdate': joiningDate.toString(),
       });
 
     } catch (error) {
@@ -219,12 +213,12 @@ class _SportsScreenState extends State<SportsScreen> {
   final TextEditingController _achievements2Controller = TextEditingController();
   final TextEditingController _address2Controller = TextEditingController();
 
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      // key: _scaffoldKey,
       backgroundColor: Color(0xff141318),
       body: Stack(
         children: [
@@ -1035,29 +1029,27 @@ class _SportsScreenState extends State<SportsScreen> {
                   ],
                 ),
               ),
+
               ElevatedButton(
                 onPressed: () {
-                  if(_studentnameController.text != null ) {
+                  if (_studentnameController.text.isNotEmpty) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => StudentSelectionScreen()),
+                        builder: (context) => StudentSelectionScreen(),
+                      ),
                     );
                     _saveStudentData();
                   }
-                  if(_student2nameController.text !=null){
+                  if (_student2nameController.text.isNotEmpty) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => StudentSelectionScreen()),
+                        builder: (context) => StudentSelectionScreen(),
+                      ),
                     );
                     _save2StudentData();
                   }
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => SportsScreen()),
-                  // );
-                  //_saveStudentData();
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF13E9DC),
@@ -1078,6 +1070,7 @@ class _SportsScreenState extends State<SportsScreen> {
                   ),
                 ),
               ),
+
             ],
 
           ),
