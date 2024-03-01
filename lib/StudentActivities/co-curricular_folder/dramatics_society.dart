@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
@@ -12,6 +13,10 @@ class DramaSocietyScreen extends StatefulWidget {
 }
 
 class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
+  final DatabaseReference _studentdram =
+  FirebaseDatabase.instance.ref().child('studentDramaEventOrganized');
+  final DatabaseReference _studentDrama =
+  FirebaseDatabase.instance.ref().child('studentDramaEventParticipation');
   bool _showWorkshopOrganizedTextField = false; // Variable to toggle visibility of text fields
   bool _showConferenceOrganizedTextField = false; // Variable to toggle visibility of text fields
   String selectedButton = '';
@@ -83,6 +88,46 @@ class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
       });
     }
   }
+  Future<void> _saveStudentResultData() async {
+    try {
+      await _studentdram.child('id').child(_studentnameController.text).set({
+        'enrollmentNumber': _studentnameController.text,
+        'nameOfSociety' : _nameController.text,
+        'roleInSociety' : _rollController.text,
+        'eventName' : _eventNameController.text,
+        'details' : _detailsController.text,
+        'duration' : _durationController.text,
+        'address' : _addressController.text,
+        'StartingDate' : EventOrganizedHeldFromDate.toString(),
+        'EndingDate' : EventOrganizedHeldToDate.toString(),
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
+  Future<void> _saveStudent2ResultData() async {
+    try {
+      await _studentDrama.child('id').child(_student2nameController.text).set({
+        'enrollmentNumber': _student2nameController.text,
+        'nameOfSociety' : _name2Controller.text,
+        'roleInSociety' : _roll2Controller.text,
+        'eventName' : _eventName2Controller.text,
+        'details' : _details2Controller.text,
+        'duration' : _duration2Controller.text,
+        'individualGroup' : _indiOrGroupController.text,
+        'achievement' : _achievementsController.text,
+        'address' : _address2Controller.text,
+        'StartingDate' : EventParticipationHeldFromDate.toString(),
+        'EndingDate' : EventParticipationHeldToDate.toString(),
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
 
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _rollController = TextEditingController();
@@ -90,6 +135,8 @@ class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
   final TextEditingController _detailsController = TextEditingController();
   final TextEditingController _durationController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _studentnameController = TextEditingController();
+
 
   final TextEditingController _name2Controller = TextEditingController();
   final TextEditingController _roll2Controller = TextEditingController();
@@ -99,6 +146,8 @@ class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
   final TextEditingController _indiOrGroupController = TextEditingController();
   final TextEditingController _achievementsController = TextEditingController();
   final TextEditingController _address2Controller = TextEditingController();
+  final TextEditingController _student2nameController = TextEditingController();
+
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -179,6 +228,40 @@ class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Text('Enrollment number of Student',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _studentnameController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'ABC',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Text('Name of the Society',
                                 style: TextStyle(
                                     fontSize: 14.0,
@@ -533,6 +616,40 @@ class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Text('Enrollment number of Student',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _student2nameController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'ABC',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Text('Name of the Society',
                                 style: TextStyle(
                                     fontSize: 14.0,
@@ -920,6 +1037,24 @@ class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
+                  if (_studentnameController.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DramaSocietyScreen(),
+                      ),
+                    );
+                    _saveStudentResultData();
+                  }
+                  if (_student2nameController.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DramaSocietyScreen(),
+                      ),
+                    );
+                    _saveStudent2ResultData();
+                  }
                   // Navigator.push(
                   //   context,
                   //   MaterialPageRoute(builder: (context) => DramaSocietyScreen()),
