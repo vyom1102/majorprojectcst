@@ -1,7 +1,9 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
+import 'package:majorproject/student_main_screen.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
@@ -12,6 +14,10 @@ class SportsScreen extends StatefulWidget {
 }
 
 class _SportsScreenState extends State<SportsScreen> {
+  final DatabaseReference _studentRef =
+  FirebaseDatabase.instance.ref().child('studentintercollegesport');
+  final DatabaseReference _studentRefer =
+  FirebaseDatabase.instance.ref().child('studentintracollegesport');
   bool _showWorkshopOrganizedTextField = false; // Variable to toggle visibility of text fields
   bool _showConferenceOrganizedTextField = false; // Variable to toggle visibility of text fields
   String selectedButton = '';
@@ -89,6 +95,50 @@ class _SportsScreenState extends State<SportsScreen> {
       });
     }
   }
+  Future<void> _saveStudentData() async {
+    try {
+      await _studentRef.child('id').child(_studentnameController.text).set({
+        'studentname': _studentnameController.text,
+        'eventname' : _nameController.text,
+        'detailname' : _detailsController.text,
+        'duration' : _durationController.text,
+        'individual' : _indiOrGroupController.text,
+        'achievement' : _achievementsController.text,
+        'address' : _addressController.text,
+        'Startingdate' : ConferenceOrganizedHeldFromDate.toString(),
+        'Endingdate' : ConferenceOrganizedHeldToDate.toString(),
+        // 'fullName': _fullNameController.text,
+        // 'detailsOfSeminar': _detailOfSeminarController.text,
+        // 'duration': _durationController.text,
+        // 'address': _addressController.text,
+        // 'StartingDate': selectedDate.toString(),
+        // 'Endingdate': joiningDate.toString(),
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
+  Future<void> _save2StudentData() async {
+    try {
+      await _studentRefer.child('id').child(_student2nameController.text).set({
+        'studentname': _student2nameController.text,
+        'eventname' : _name2Controller.text,
+        'detailname' : _details2Controller.text,
+        'duration' : _duration2Controller.text,
+        'individual' : _indiOrGroup2Controller.text,
+        'achievement' : _achievements2Controller.text,
+        'address' : _address2Controller.text,
+        'Startingdate' : WorkshopOrganizedHeldFromDate.toString(),
+        'Endingdate' : WorkshopOrganizedHeldToDate.toString(),
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
 
   //seminar organised button
   Future<void> _seminarOrganizedHeldFromDate(BuildContext context) async {
@@ -151,7 +201,8 @@ class _SportsScreenState extends State<SportsScreen> {
       });
     }
   }
-
+  //INTERCLLG CONTOLLER
+  final TextEditingController _studentnameController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _detailsController = TextEditingController();
   final TextEditingController _durationController = TextEditingController();
@@ -159,6 +210,8 @@ class _SportsScreenState extends State<SportsScreen> {
   final TextEditingController _achievementsController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
 
+  //INTRACLLG CONTOLLER
+  final TextEditingController _student2nameController = TextEditingController();
   final TextEditingController _name2Controller = TextEditingController();
   final TextEditingController _details2Controller = TextEditingController();
   final TextEditingController _duration2Controller = TextEditingController();
@@ -245,6 +298,40 @@ class _SportsScreenState extends State<SportsScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Text('Name of Student',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _studentnameController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'ABC',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Text('Name of the Event',
                                 style: TextStyle(
                                     fontSize: 14.0,
@@ -326,7 +413,7 @@ class _SportsScreenState extends State<SportsScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _workshopOrganizedHeldFromDate(context),
+                                    onTap: () => _conferenceOrganizedHeldFromDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -348,13 +435,13 @@ class _SportsScreenState extends State<SportsScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${WorkshopOrganizedHeldFromDate.toLocal()}".split(' ')[0],
+                                      text: "${ConferenceOrganizedHeldFromDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
-                                  onPressed: () => _workshopOrganizedHeldFromDate(context),
+                                  onPressed: () => _conferenceOrganizedHeldFromDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -374,7 +461,7 @@ class _SportsScreenState extends State<SportsScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _workshopOrganizedHeldToDate(context),
+                                    onTap: () => _conferenceOrganizedHeldToDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -396,14 +483,14 @@ class _SportsScreenState extends State<SportsScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${WorkshopOrganizedHeldToDate.toLocal()}".split(' ')[0],
+                                      text: "${ConferenceOrganizedHeldToDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
                                   onPressed: () =>
-                                      _workshopOrganizedHeldToDate(context),
+                                      _conferenceOrganizedHeldToDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -599,6 +686,40 @@ class _SportsScreenState extends State<SportsScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Text('Name of Student',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _student2nameController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'ABC',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Text('Name of the Event',
                                 style: TextStyle(
                                     fontSize: 14.0,
@@ -916,11 +1037,27 @@ class _SportsScreenState extends State<SportsScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
+                  if(_studentnameController.text != null ) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => StudentSelectionScreen()),
+                    );
+                    _saveStudentData();
+                  }
+                  if(_student2nameController.text !=null){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => StudentSelectionScreen()),
+                    );
+                    _save2StudentData();
+                  }
                   // Navigator.push(
                   //   context,
                   //   MaterialPageRoute(builder: (context) => SportsScreen()),
                   // );
-                  // _saveTeacherData();
+                  //_saveStudentData();
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF13E9DC),
