@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
@@ -13,6 +14,8 @@ class TrainingScreen extends StatefulWidget {
 }
 
 class _TrainingScreenState extends State<TrainingScreen> {
+  final DatabaseReference _studentTran =
+  FirebaseDatabase.instance.ref().child('studenttraining');
   String selectedButton = '';
   DateTime durationFromDate = DateTime.now();
   DateTime durationToDate = DateTime.now();
@@ -35,6 +38,35 @@ class _TrainingScreenState extends State<TrainingScreen> {
     }
   }
 
+  Future<void> _saveInternStudentData() async {
+    try {
+      await _studentTran.child('id').child(_studentnameController.text).set({
+        'enrollmentNumber': _studentnameController.text,
+        'training' : _projectTitleController.text,
+        'durationOfIntern' : _totalDurationController.text,
+        'StartingDate' : durationFromDate.toString(),
+        'EndingDate' : durationToDate.toString(),
+        'platformUse' : _platformUsedController.text,
+        'research' : _researchApplicationController.text,
+        'guide' : _guideNameController.text,
+        'designation' : _guideDesignationController.text,
+        'nameOfCompany' : _companyNameController.text,
+        'companyAddress' : _companyAddressController.text,
+        'sector' : _sectorController.text,
+        'scale' : _scaleController.text,
+        'incorporation' : _incorporationStatusController.text,
+        'productService' : _productServiceController.text,
+        'mode' : _trainingModeController.text,
+        'website' : _companyLinkController.text,
+        'stipend' : _stipendAmountController.text,
+
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
 
   Future <void> _selectdurationToDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -113,6 +145,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
   final TextEditingController _trainingModeController = TextEditingController();
   final TextEditingController _companyLinkController = TextEditingController();
   final TextEditingController _stipendAmountController = TextEditingController();
+  final TextEditingController _studentnameController = TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -161,6 +194,40 @@ class _TrainingScreenState extends State<TrainingScreen> {
                           children: [
 
                             //training title
+                            Text('Enrollment number of Student',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _studentnameController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'ABC',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Text('Training/Project Title',
                                 style: TextStyle(
                                     fontSize: 14.0,
@@ -830,8 +897,9 @@ class _TrainingScreenState extends State<TrainingScreen> {
 
                             ElevatedButton(
                               onPressed: () {
-                                if (Form.of(context)!.validate()) {
+                                if (_studentnameController.text != null) {
                                   // If all fields are valid, navigate to the next screen
+                                  _saveInternStudentData();
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(builder: (context) => TrainingScreen()),
@@ -846,7 +914,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
                                 minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                               ),
                               child: Text(
-                                'Next',
+                                'Save',
                                 style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
                               ),
                             ),

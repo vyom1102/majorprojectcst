@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -13,6 +14,8 @@ class CompetitionScreen extends StatefulWidget {
 }
 
 class _CompetitionScreenState extends State<CompetitionScreen> {
+  final DatabaseReference _studentCompi =
+  FirebaseDatabase.instance.ref().child('studentcompetition');
 
   String selectedButton = '';
   String _selectedImage='';
@@ -45,6 +48,59 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
       setState(() {
         selectedDate = picked;
       });
+    }
+  }
+  Future<void> _saveCompiStudentData() async {
+    try {
+      await _studentCompi.child('id').child(_enrollmentController.text).set({
+        'projectID' : _projectIDController.text,
+        'branch' : _branchController.text,
+        'projectGuide' : _guideController.text,
+        'projectCoGuide' : _coGuideController.text,
+        'projectTitle' : _titleController.text,
+        'projectDomain' : _domainController.text,
+
+        'member1Name' : _memberNameController.text,
+        'member1Enroll' : _enrollmentController.text,
+        'member1Email' : _emailController.text,
+        'member1WhatsappNumber' : _whatsappNumberController.text,
+        'member1Group' : _groupController.text,
+
+        'member2Name' : _memberName2Controller.text,
+        'member2Enroll' : _enrollment2Controller.text,
+        'member2Email' : _email2Controller.text,
+        'member2WhatsappNumber' : _whatsappNumber2Controller.text,
+        'member2Group' : _group2Controller.text,
+
+        'member3Name' : _memberName3Controller.text,
+        'member3Enroll' : _enrollment3Controller.text,
+        'member3Email' : _email3Controller.text,
+        'member3WhatsappNumber' : _whatsappNumber3Controller.text,
+        'member3Group' : _group3Controller.text,
+
+        'member4Name' : _memberName4Controller.text,
+        'member4Enroll' : _enrollment4Controller.text,
+        'member4Email' : _email4Controller.text,
+        'member4WhatsappNumber' : _whatsappNumber4Controller.text,
+        'member4Group' : _group4Controller.text,
+
+        'member5Name' : _memberName5Controller.text,
+        'member5Enroll' : _enrollment5Controller.text,
+        'member5Email' : _email5Controller.text,
+        'member5WhatsappNumber' : _whatsappNumber5Controller.text,
+        'member5Group' : _group5Controller.text,
+
+        'Hardware/SoftwareProject' : _hardwareSoftwareController.text,
+        'otherMember' : _otherMemberController.text,
+        'projectProblem' : _participationController.text,
+        'nameNationInternationalCompetition' : _nameOfCompController.text,
+        'dateOfParticipation' : selectedDate.toString(),
+        'proofUpload' : _imageController.text,
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
     }
   }
 
@@ -89,6 +145,7 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
   final TextEditingController _otherMemberController = TextEditingController();
   final TextEditingController _participationController = TextEditingController();
   final TextEditingController _nameOfCompController = TextEditingController();
+  //final TextEditingController _studentnameController = TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -132,6 +189,40 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              // Text('Enrollment number of Student',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
+                              // SizedBox(height: 5),
+                              // TextFormField(
+                              //   controller: _studentnameController,
+                              //   validator: (value) {
+                              //     if (value == null || value.isEmpty) {
+                              //       return 'This field is required';
+                              //     }
+                              //     return null;
+                              //   },
+                              //   decoration: InputDecoration(
+                              //     hintText: 'ABC',
+                              //     enabledBorder: OutlineInputBorder(
+                              //       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              //     ),
+                              //     focusedBorder: OutlineInputBorder(
+                              //       borderSide: BorderSide(color: Color(0xff0CECDA)),
+                              //     ),
+                              //     hintStyle: GoogleFonts.kufam(
+                              //         color: Colors.white.withOpacity(0.5)),
+                              //     contentPadding: const EdgeInsets.symmetric(
+                              //         vertical: 20.0, horizontal: 15.0),
+                              //     border: OutlineInputBorder(),
+                              //     fillColor: Color(0xff141318),
+                              //     filled: true,
+                              //   ),
+                              //   style: TextStyle(color: Colors.white),),
+                              // SizedBox(
+                              //   height: 20,
+                              // ),
                               //Project ID
                               Text('Project ID',
                                   style: TextStyle(
@@ -1490,13 +1581,13 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                  if (Form.of(context)!.validate()) {
                                     // If all fields are valid, navigate to the next screen
+                                    _saveCompiStudentData();
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(builder: (context) => CompetitionScreen()),
                                     );
-                                  }
+
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xFF13E9DC),
@@ -1506,7 +1597,7 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                                   minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                                 ),
                                 child: Text(
-                                  'Next',
+                                  'Save',
                                   style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
                                 ),
                               ),
