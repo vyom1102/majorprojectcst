@@ -6,45 +6,49 @@ import 'package:google_fonts/google_fonts.dart';
 
 class StudentTraining {
   final String id;
-  final String fullName;
-  final String mobileNumber;
-  final String motherName;
-  final String motherOccupation;
-  final String motherOfficeAddress;
-  final String motherPhoneNumber;
-  final String permanentAddress;
-  final String rollNumber;
-  final String year;
-  final String jeeRank;
-  final String dateOfBirth;
-  final String emailAddress;
-  final String fatherName;
-  final String fatherOccupation;
-  final String fatherOfficeAddress;
-  final String fatherPhoneNumber;
-  final String image;
+
+  final String enrollmentNumber;
+  final String training;
+  final String durationOfIntern;
+  final String startingDate;
+  final String endingDate;
+  final String platformUse;
+  final String research;
+  final String guide;
+  final String designation;
+  final String nameOfCompany;
+  final String companyAddress;
+  final String sector;
+  final String scale;
+  final String incorporation;
+  final String productService;
+  final String mode;
+  final String website;
+  final String stipend;
 
   StudentTraining({
     required this.id,
-    required this.fullName,
-    required this.mobileNumber,
-    required this.motherName,
-    required this.motherOccupation,
-    required this.motherOfficeAddress,
-    required this.motherPhoneNumber,
-    required this.permanentAddress,
-    required this.rollNumber,
-    required this.year,
-    required this.jeeRank,
-    required this.dateOfBirth,
-    required this.emailAddress,
-    required this.fatherName,
-    required this.fatherOccupation,
-    required this.fatherOfficeAddress,
-    required this.fatherPhoneNumber,
-    required this.image,
+    required this.enrollmentNumber,
+    required this.training,
+    required this.durationOfIntern,
+    required this.startingDate,
+    required this.endingDate,
+    required this.platformUse,
+    required this.research,
+    required this.guide,
+    required this.designation,
+    required this.nameOfCompany,
+    required this.companyAddress,
+    required this.sector,
+    required this.scale,
+    required this.incorporation,
+    required this.productService,
+    required this.mode,
+    required this.website,
+    required this.stipend,
   });
 }
+
 
 class StudentTrainingList extends StatefulWidget {
   @override
@@ -63,50 +67,77 @@ class _StudentTrainingListState extends State<StudentTrainingList> {
   @override
   void initState() {
     super.initState();
-    _membersRef = FirebaseDatabase.instance.ref().child('student/id');
+    _membersRef = FirebaseDatabase.instance.ref().child('studenttraining/id');
     fetchStudents();
   }
 
+  // Future<void> fetchStudents() async {
+  //   _membersRef.onValue.listen((event) {
+  //     final data = event.snapshot.value as Map<dynamic, dynamic>?;
+  //     if (data != null) {
+  //       final List<StudentTraining> fetchedStudents = [];
+  //       data.forEach((key, value) {
+  //         fetchedStudents.add(StudentTraining(
+  //           id: key.toString(),
+  //           fullName: value['fullName'] ?? '',
+  //           mobileNumber: value['mobileNumber'] ?? '',
+  //           motherName: value['motherName'] ?? '',
+  //
+  //         ));
+  //       });
+  //       setState(() {
+  //         students = fetchedStudents;
+  //         filteredStudents = fetchedStudents;
+  //       });
+  //     }
+  //   });
+  // }
   Future<void> fetchStudents() async {
-    _membersRef.onValue.listen((event) {
-      final data = event.snapshot.value as Map<dynamic, dynamic>?;
-      if (data != null) {
-        final List<StudentTraining> fetchedStudents = [];
-        data.forEach((key, value) {
-          fetchedStudents.add(StudentTraining(
-            id: key.toString(),
-            fullName: value['fullName'] ?? '',
-            mobileNumber: value['mobileNumber'] ?? '',
-            motherName: value['motherName'] ?? '',
-            motherOccupation: value['motherOccupation'] ?? '',
-            motherOfficeAddress: value['motherOfficeAddress'] ?? '',
-            motherPhoneNumber: value['motherPhoneNumber'] ?? '',
-            permanentAddress: value['permanentAddress'] ?? '',
-            rollNumber: value['rollNumber'] ?? '',
-            year: value['year'] ?? '',
-            jeeRank: value['jeeRank'] ?? '',
-            dateOfBirth: value['dateOfBirth'] ?? '',
-            emailAddress: value['emailAddress'] ?? '',
-            fatherName: value['fatherName'] ?? '',
-            fatherOccupation: value['fatherOccupation'] ?? '',
-            fatherOfficeAddress: value['fatherOfficeAddress'] ?? '',
-            fatherPhoneNumber: value['fatherPhoneNumber'] ?? '',
-            image: value['image'] ?? '',
-          ));
-        });
-        setState(() {
-          students = fetchedStudents;
-          filteredStudents = fetchedStudents;
-        });
-      }
-    });
+    try {
+      _membersRef.onValue.listen((event) {
+        final data = event.snapshot.value as Map<dynamic, dynamic>?;
+        if (data != null) {
+          final List<StudentTraining> fetchedStudents = [];
+          data.forEach((key, value) {
+            fetchedStudents.add(StudentTraining(
+              id: key.toString(),
+              enrollmentNumber: value['enrollmentNumber'] ?? '',
+              training: value['training'] ?? '',
+              durationOfIntern: value['durationOfIntern'] ?? '',
+              startingDate: value['startingDate'] ?? '',
+              endingDate: value['endingDate'] ?? '',
+              platformUse: value['platformUse'] ?? '',
+              research: value['research'] ?? '',
+              guide: value['guide'] ?? '',
+              designation: value['designation'] ?? '',
+              nameOfCompany: value['nameOfCompany'] ?? '',
+              companyAddress: value['companyAddress'] ?? '',
+              sector: value['sector'] ?? '',
+              scale: value['scale'] ?? '',
+              incorporation: value['incorporation'] ?? '',
+              productService: value['productService'] ?? '',
+              mode: value['mode'] ?? '',
+              website: value['website'] ?? '',
+              stipend: value['stipend'] ?? '',
+            ));
+          });
+          setState(() {
+            students = fetchedStudents;
+            filteredStudents = fetchedStudents;
+          });
+        }
+      });
+    } catch (error) {
+      // Handle the error
+      print('Error fetching students: $error');
+    }
   }
 
   void _filterStudents(String query) {
     setState(() {
       if (query.isNotEmpty) {
         filteredStudents = students.where((student) =>
-        student.fullName.toLowerCase().contains(query.toLowerCase()) ||
+        student.enrollmentNumber.toLowerCase().contains(query.toLowerCase()) ||
             student.id.toLowerCase().contains(query.toLowerCase())).toList();
       } else {
         filteredStudents = students;
@@ -114,6 +145,48 @@ class _StudentTrainingListState extends State<StudentTrainingList> {
     });
   }
 
+  // void _showDetailsDialog(StudentTraining student) {
+  //   showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return AlertDialog(
+  //         title: Text('Student Details'),
+  //         content: Column(
+  //           crossAxisAlignment: CrossAxisAlignment.start,
+  //           mainAxisSize: MainAxisSize.min,
+  //           children: [
+  //             Text('ID: ${student.id}'),
+  //             Text('Full Name: ${student.fullName}'),
+  //             Text('Mobile Number: ${student.mobileNumber}'),
+  //             Text('Mother Name: ${student.motherName}'),
+  //             Text('Mother Occupation: ${student.motherOccupation}'),
+  //             Text('Mother Office Address: ${student.motherOfficeAddress}'),
+  //             Text('Mother Phone Number: ${student.motherPhoneNumber}'),
+  //             Text('Permanent Address: ${student.permanentAddress}'),
+  //             Text('Roll Number: ${student.rollNumber}'),
+  //             Text('Year: ${student.year}'),
+  //             Text('JEE Rank: ${student.jeeRank}'),
+  //             Text('Date of Birth: ${student.dateOfBirth}'),
+  //             Text('Email Address: ${student.emailAddress}'),
+  //             Text('Father Name: ${student.fatherName}'),
+  //             Text('Father Occupation: ${student.fatherOccupation}'),
+  //             Text('Father Office Address: ${student.fatherOfficeAddress}'),
+  //             Text('Father Phone Number: ${student.fatherPhoneNumber}'),
+  //             Text('Image: ${student.image}'),
+  //           ],
+  //         ),
+  //         actions: [
+  //           TextButton(
+  //             onPressed: () {
+  //               Navigator.pop(context);
+  //             },
+  //             child: Text('Close'),
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
   void _showDetailsDialog(StudentTraining student) {
     showDialog(
       context: context,
@@ -125,23 +198,24 @@ class _StudentTrainingListState extends State<StudentTrainingList> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text('ID: ${student.id}'),
-              Text('Full Name: ${student.fullName}'),
-              Text('Mobile Number: ${student.mobileNumber}'),
-              Text('Mother Name: ${student.motherName}'),
-              Text('Mother Occupation: ${student.motherOccupation}'),
-              Text('Mother Office Address: ${student.motherOfficeAddress}'),
-              Text('Mother Phone Number: ${student.motherPhoneNumber}'),
-              Text('Permanent Address: ${student.permanentAddress}'),
-              Text('Roll Number: ${student.rollNumber}'),
-              Text('Year: ${student.year}'),
-              Text('JEE Rank: ${student.jeeRank}'),
-              Text('Date of Birth: ${student.dateOfBirth}'),
-              Text('Email Address: ${student.emailAddress}'),
-              Text('Father Name: ${student.fatherName}'),
-              Text('Father Occupation: ${student.fatherOccupation}'),
-              Text('Father Office Address: ${student.fatherOfficeAddress}'),
-              Text('Father Phone Number: ${student.fatherPhoneNumber}'),
-              Text('Image: ${student.image}'),
+              Text('Enrollment Number: ${student.enrollmentNumber}'),
+              Text('Training: ${student.training}'),
+              Text('Duration of Internship: ${student.durationOfIntern}'),
+              Text('Starting Date: ${student.startingDate}'),
+              Text('Ending Date: ${student.endingDate}'),
+              Text('Platform Use: ${student.platformUse}'),
+              Text('Research: ${student.research}'),
+              Text('Guide: ${student.guide}'),
+              Text('Designation: ${student.designation}'),
+              Text('Name of Company: ${student.nameOfCompany}'),
+              Text('Company Address: ${student.companyAddress}'),
+              Text('Sector: ${student.sector}'),
+              Text('Scale: ${student.scale}'),
+              Text('Incorporation: ${student.incorporation}'),
+              Text('Product/Service: ${student.productService}'),
+              Text('Mode: ${student.mode}'),
+              Text('Website: ${student.website}'),
+              Text('Stipend: ${student.stipend}'),
             ],
           ),
           actions: [
@@ -156,6 +230,7 @@ class _StudentTrainingListState extends State<StudentTrainingList> {
       },
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -214,27 +289,17 @@ class _StudentTrainingListState extends State<StudentTrainingList> {
                     itemCount: filteredStudents.length,
                     itemBuilder: (context, index) {
                       return Container(
-                        height: 100,
+                        height: 60,
                         child: Card(
-
+                            color: Color(0xff2D2B33),
                           child: ListTile(
-                            leading: CircleAvatar( // Display photo on the left side
-                              radius: 40,
-                              backgroundImage: AssetImage('path_to_image'), // Provide the path to the image
-                            ),
-                            title:Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
-                              child: Text('${filteredStudents[index].fullName.toUpperCase()}'),
-                            ),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('ID: ${filteredStudents[index].rollNumber}'),
 
-                                Text('Contact Number: ${filteredStudents[index].mobileNumber}'),
-                                Text('Email: ${filteredStudents[index].emailAddress}'),
-                              ],
+
+                            title:Padding(
+                              padding: const EdgeInsets.only(bottom: 2.0),
+                              child: Text('${filteredStudents[index].enrollmentNumber.toUpperCase()}',style: TextStyle(color:Colors.white),),
                             ),
+
                             onTap: () {
                               _showDetailsDialog(filteredStudents[index]);
                             },
