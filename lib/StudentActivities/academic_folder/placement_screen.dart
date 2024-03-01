@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
@@ -12,6 +13,8 @@ class PlacementScreen extends StatefulWidget {
 }
 
 class _PlacementScreenState extends State<PlacementScreen> {
+  final DatabaseReference _studentPlacement =
+  FirebaseDatabase.instance.ref().child('studentPlacement');
 
   String selectedButton = '';
   String selectedYear ='';
@@ -48,6 +51,24 @@ class _PlacementScreenState extends State<PlacementScreen> {
       },
     );
   }
+  Future<void> _studentHigherDetail() async {
+    try {
+      await _studentPlacement.child('id').child(_studentnameController.text).set({
+        'enrollmentNumber': _studentnameController.text,
+        'batch' : selectedYear.toString(),
+        'placement' : _categoriesController.text,
+        'campusPlacement' : _placementController.text,
+        'companyName' : _companyNameController.toString(),
+        'package' : _packageController.toString(),
+        'position' : _positionController.toString(),
+        'location' : _locationController.text,
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
 
   final TextEditingController _categoriesController = TextEditingController();
   final TextEditingController _placementController = TextEditingController();
@@ -55,6 +76,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
   final TextEditingController _packageController = TextEditingController();
   final TextEditingController _positionController = TextEditingController();
   final TextEditingController _locationController = TextEditingController();
+  final TextEditingController _studentnameController = TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -98,6 +120,40 @@ class _PlacementScreenState extends State<PlacementScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Text('Enrollment number of Student',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              SizedBox(height: 5),
+                              TextFormField(
+                                controller: _studentnameController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'This field is required';
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  hintText: 'ABC',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
+                                  hintStyle: GoogleFonts.kufam(
+                                      color: Colors.white.withOpacity(0.5)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 20.0, horizontal: 15.0),
+                                  border: OutlineInputBorder(),
+                                  fillColor: Color(0xff141318),
+                                  filled: true,
+                                ),
+                                style: TextStyle(color: Colors.white),),
+                              SizedBox(
+                                height: 20,
+                              ),
 
                               Text('Batch',
                                 style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
@@ -350,8 +406,9 @@ class _PlacementScreenState extends State<PlacementScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                  if (Form.of(context)!.validate()) {
+                                  if (_studentnameController.text != null) {
                                     // If all fields are valid, navigate to the next screen
+                                    _studentHigherDetail();
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(builder: (context) => PlacementScreen()),
@@ -366,7 +423,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                   minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                                 ),
                                 child: Text(
-                                  'Next',
+                                  'Save',
                                   style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
                                 ),
                               ),
