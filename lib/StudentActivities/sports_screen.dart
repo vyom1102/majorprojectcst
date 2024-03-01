@@ -98,7 +98,7 @@ class _SportsScreenState extends State<SportsScreen> {
   Future<void> _saveStudentData() async {
     try {
       await _studentRef.child('id').child(_studentnameController.text).set({
-        'studentname': _studentnameController.text,
+        'enrollnumb': _studentnameController.text,
         'eventname' : _nameController.text,
         'detailname' : _detailsController.text,
         'duration' : _durationController.text,
@@ -123,7 +123,7 @@ class _SportsScreenState extends State<SportsScreen> {
   Future<void> _save2StudentData() async {
     try {
       await _studentRefer.child('id').child(_student2nameController.text).set({
-        'studentname': _student2nameController.text,
+        'enrollnumb': _student2nameController.text,
         'eventname' : _name2Controller.text,
         'detailname' : _details2Controller.text,
         'duration' : _duration2Controller.text,
@@ -298,7 +298,7 @@ class _SportsScreenState extends State<SportsScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Name of Student',
+                            Text('Enrollment number of Student',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -686,7 +686,7 @@ class _SportsScreenState extends State<SportsScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Name of Student',
+                            Text('Enrollment number of Student',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
