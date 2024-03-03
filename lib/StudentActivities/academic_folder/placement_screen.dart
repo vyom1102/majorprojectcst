@@ -14,7 +14,7 @@ class PlacementScreen extends StatefulWidget {
 
 class _PlacementScreenState extends State<PlacementScreen> {
   final DatabaseReference _studentPlacement =
-  FirebaseDatabase.instance.ref().child('studentPlacement');
+  FirebaseDatabase.instance.ref().child('StudentData').child('Academic').child('studentPlacement');
 
   String selectedButton = '';
   String selectedYear ='';

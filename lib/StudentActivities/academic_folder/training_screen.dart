@@ -15,7 +15,7 @@ class TrainingScreen extends StatefulWidget {
 
 class _TrainingScreenState extends State<TrainingScreen> {
   final DatabaseReference _studentTran =
-  FirebaseDatabase.instance.ref().child('studenttraining');
+  FirebaseDatabase.instance.ref().child('StudentData').child('Academic').child('studenttraining');
   String selectedButton = '';
   DateTime durationFromDate = DateTime.now();
   DateTime durationToDate = DateTime.now();

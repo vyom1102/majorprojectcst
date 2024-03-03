@@ -15,7 +15,7 @@ class CompetitionScreen extends StatefulWidget {
 
 class _CompetitionScreenState extends State<CompetitionScreen> {
   final DatabaseReference _studentCompi =
-  FirebaseDatabase.instance.ref().child('studentcompetition');
+  FirebaseDatabase.instance.ref().child('StudentData').child('AcademicData').child('studentcompetition');
 
   String selectedButton = '';
   String _selectedImage='';

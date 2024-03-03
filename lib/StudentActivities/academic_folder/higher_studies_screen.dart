@@ -16,7 +16,7 @@ class HigherStudiesScreen extends StatefulWidget {
 
 class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
   final DatabaseReference _studentHigher =
-  FirebaseDatabase.instance.ref().child('studentHigherStudies');
+  FirebaseDatabase.instance.ref().child('StudentData').child('Academic').child('studentHigherStudies');
 
   String selectedButton = '';
   String _selectedImage='';

@@ -14,9 +14,9 @@ class DramaSocietyScreen extends StatefulWidget {
 
 class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
   final DatabaseReference _studentdram =
-  FirebaseDatabase.instance.ref().child('studentDramaEventOrganized');
+  FirebaseDatabase.instance.ref().child('StudentData').child('Co-CurricularData').child('DramaSocietyData').child('studentDramaEventOrganized');
   final DatabaseReference _studentDrama =
-  FirebaseDatabase.instance.ref().child('studentDramaEventParticipation');
+  FirebaseDatabase.instance.ref().child('StudentData').child('Co-CurricularData').child('DramaSocietyData').child('studentDramaEventParticipation');
   bool _showWorkshopOrganizedTextField = false; // Variable to toggle visibility of text fields
   bool _showConferenceOrganizedTextField = false; // Variable to toggle visibility of text fields
   String selectedButton = '';

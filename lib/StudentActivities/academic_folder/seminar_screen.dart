@@ -14,7 +14,7 @@ class SeminarScreen extends StatefulWidget {
 
 class _SeminarScreenState extends State<SeminarScreen> {
   final DatabaseReference _studentTran =
-  FirebaseDatabase.instance.ref().child('studentSeminar');
+  FirebaseDatabase.instance.ref().child('StudentData').child('Academic').child('studentSeminar');
 
   String selectedButton = '';
   DateTime selectedDate = DateTime.now();

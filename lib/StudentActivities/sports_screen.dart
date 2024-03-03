@@ -15,9 +15,9 @@ class SportsScreen extends StatefulWidget {
 
 class _SportsScreenState extends State<SportsScreen> {
   final DatabaseReference _studentRef =
-  FirebaseDatabase.instance.ref().child('studentintercollegesport');
+  FirebaseDatabase.instance.ref().child('StudentData').child('Sports').child('studentintercollegesport');
   final DatabaseReference _studentRefer =
-  FirebaseDatabase.instance.ref().child('studentintracollegesport');
+  FirebaseDatabase.instance.ref().child('StudentData').child('Sports').child('studentintracollegesport');
   bool _showWorkshopOrganizedTextField = false; // Variable to toggle visibility of text fields
   bool _showConferenceOrganizedTextField = false; // Variable to toggle visibility of text fields
   String selectedButton = '';
