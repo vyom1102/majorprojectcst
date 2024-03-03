@@ -4,9 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
-// import 'package:majorproject/teacher_data_sheet_screen.dart';
-// import 'package:majorproject/teacher_main_screen.dart';
-// import 'package:majorproject/student_data_sheet_screen.dart';
+
 
 class CompetitionScreen extends StatefulWidget {
   @override
@@ -15,7 +13,7 @@ class CompetitionScreen extends StatefulWidget {
 
 class _CompetitionScreenState extends State<CompetitionScreen> {
   final DatabaseReference _studentCompi =
-  FirebaseDatabase.instance.ref().child('StudentData').child('AcademicData').child('studentcompetition');
+  FirebaseDatabase.instance.ref().child('StudentData').child('Academic').child('studentcompetition');
 
   String selectedButton = '';
   String _selectedImage='';
@@ -59,38 +57,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
         'projectCoGuide' : _coGuideController.text,
         'projectTitle' : _titleController.text,
         'projectDomain' : _domainController.text,
-
         'member1Name' : _memberNameController.text,
         'member1Enroll' : _enrollmentController.text,
         'member1Email' : _emailController.text,
         'member1WhatsappNumber' : _whatsappNumberController.text,
         'member1Group' : _groupController.text,
-
         'member2Name' : _memberName2Controller.text,
         'member2Enroll' : _enrollment2Controller.text,
         'member2Email' : _email2Controller.text,
         'member2WhatsappNumber' : _whatsappNumber2Controller.text,
         'member2Group' : _group2Controller.text,
-
         'member3Name' : _memberName3Controller.text,
         'member3Enroll' : _enrollment3Controller.text,
         'member3Email' : _email3Controller.text,
         'member3WhatsappNumber' : _whatsappNumber3Controller.text,
         'member3Group' : _group3Controller.text,
-
         'member4Name' : _memberName4Controller.text,
         'member4Enroll' : _enrollment4Controller.text,
         'member4Email' : _email4Controller.text,
         'member4WhatsappNumber' : _whatsappNumber4Controller.text,
         'member4Group' : _group4Controller.text,
-
         'member5Name' : _memberName5Controller.text,
         'member5Enroll' : _enrollment5Controller.text,
         'member5Email' : _email5Controller.text,
         'member5WhatsappNumber' : _whatsappNumber5Controller.text,
         'member5Group' : _group5Controller.text,
-
-        'Hardware/SoftwareProject' : _hardwareSoftwareController.text,
+        'HardwareSoftwareProject' : _hardwareSoftwareController.text,
         'otherMember' : _otherMemberController.text,
         'projectProblem' : _participationController.text,
         'nameNationInternationalCompetition' : _nameOfCompController.text,
@@ -1583,10 +1575,11 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                                 onPressed: () {
                                     // If all fields are valid, navigate to the next screen
                                     _saveCompiStudentData();
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => CompetitionScreen()),
-                                    );
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(builder: (context) => CompetitionScreen()),
+                                    // );
+                                  Navigator.pop(context);
 
                                 },
                                 style: ElevatedButton.styleFrom(
