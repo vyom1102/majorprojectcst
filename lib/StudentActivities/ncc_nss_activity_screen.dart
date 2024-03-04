@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
-// import 'package:majorproject/teacher_data_sheet_screen.dart';
-// import 'package:majorproject/teacher_main_screen.dart';
-// import 'package:majorproject/student_data_sheet_screen.dart';
 
 class NCCandNSSActivityScreen extends StatefulWidget {
   @override
@@ -12,108 +9,108 @@ class NCCandNSSActivityScreen extends StatefulWidget {
 }
 
 class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
-  bool _showWorkshopOrganizedTextField = false; // Variable to toggle visibility of text fields
-  bool _showConferenceOrganizedTextField = false; // Variable to toggle visibility of text fields
-  bool _showSeminarOrganizedTextField = false; // Variable to toggle visibility of text fields
+  bool _showFemaleTextField = false; // Variable to toggle visibility of text fields
+  bool _showMaleTextField = false; // Variable to toggle visibility of text fields
+  bool _showCoTextField = false; // Variable to toggle visibility of text fields
   String selectedButton = '';
 
-  DateTime WorkshopOrganizedHeldFromDate = DateTime.now();
-  DateTime WorkshopOrganizedHeldToDate = DateTime.now();
+  DateTime femaleHeldFromDate = DateTime.now();
+  DateTime femaleHeldToDate = DateTime.now();
 
-  DateTime ConferenceOrganizedHeldFromDate = DateTime.now();
-  DateTime ConferenceOrganizedHeldToDate = DateTime.now();
+  DateTime maleHeldFromDate = DateTime.now();
+  DateTime maleHeldToDate = DateTime.now();
 
-  DateTime SeminarOrganizedHeldFromDate = DateTime.now();
-  DateTime SeminarOrganizedHeldToDate = DateTime.now();
+  DateTime coHeldFromDate = DateTime.now();
+  DateTime coHeldToDate = DateTime.now();
 
-  //workshop organized button
-  Future<void> _workshopOrganizedHeldFromDate(BuildContext context) async {
+
+  Future<void> _femaleHeldFromDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: WorkshopOrganizedHeldFromDate,
+      initialDate: femaleHeldFromDate,
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
 
-    if (picked != null && picked != WorkshopOrganizedHeldFromDate) {
+    if (picked != null && picked != femaleHeldFromDate) {
       setState(() {
-        WorkshopOrganizedHeldFromDate = picked;
+        femaleHeldFromDate = picked;
       });
     }
   }
 
-  Future<void> _workshopOrganizedHeldToDate(BuildContext context) async {
+  Future<void> _femaleHeldToDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: WorkshopOrganizedHeldToDate,
+      initialDate: femaleHeldToDate,
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
 
-    if (picked != null && picked != WorkshopOrganizedHeldToDate) {
+    if (picked != null && picked != femaleHeldToDate) {
       setState(() {
-        WorkshopOrganizedHeldToDate = picked;
+        femaleHeldToDate = picked;
       });
     }
   }
 
-  //conference organized button
-  Future<void> _conferenceOrganizedHeldFromDate(BuildContext context) async {
+
+  Future<void> _maleHeldFromDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: ConferenceOrganizedHeldFromDate,
+      initialDate: maleHeldFromDate,
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
 
-    if (picked != null && picked != ConferenceOrganizedHeldFromDate) {
+    if (picked != null && picked != maleHeldFromDate) {
       setState(() {
-        ConferenceOrganizedHeldFromDate = picked;
+        maleHeldFromDate = picked;
       });
     }
   }
 
-  Future<void> _conferenceOrganizedHeldToDate(BuildContext context) async {
+  Future<void> _maleHeldToDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: ConferenceOrganizedHeldToDate,
+      initialDate: maleHeldToDate,
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
 
-    if (picked != null && picked != ConferenceOrganizedHeldToDate) {
+    if (picked != null && picked != maleHeldToDate) {
       setState(() {
-        ConferenceOrganizedHeldToDate = picked;
+        maleHeldToDate = picked;
       });
     }
   }
 
-  Future<void> _seminarOrganizedHeldFromDate(BuildContext context) async {
+  Future<void> _coHeldFromDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: SeminarOrganizedHeldFromDate,
+      initialDate: coHeldFromDate,
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
 
-    if (picked != null && picked != SeminarOrganizedHeldFromDate) {
+    if (picked != null && picked != coHeldFromDate) {
       setState(() {
-        SeminarOrganizedHeldFromDate = picked;
+        coHeldFromDate = picked;
       });
     }
   }
 
-  Future<void> _seminarOrganizedHeldToDate(BuildContext context) async {
+  Future<void> _coHeldToDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: SeminarOrganizedHeldToDate,
+      initialDate: coHeldToDate,
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
 
-    if (picked != null && picked != SeminarOrganizedHeldToDate) {
+    if (picked != null && picked != coHeldToDate) {
       setState(() {
-        SeminarOrganizedHeldToDate = picked;
+        coHeldToDate = picked;
       });
     }
   }
@@ -137,8 +134,8 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
   final TextEditingController _eventName2Controller = TextEditingController();
   final TextEditingController _details2Controller = TextEditingController();
   final TextEditingController _duration2Controller = TextEditingController();
-  final TextEditingController _indiOrGroupController = TextEditingController();
-  final TextEditingController _achievementsController = TextEditingController();
+  // final TextEditingController _indiOrGroupController = TextEditingController();
+  // final TextEditingController _achievementsController = TextEditingController();
   final TextEditingController _address2Controller = TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -177,23 +174,23 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
               Expanded(
                 child: ListView(
                   children: <Widget>[
-                    // Workshop Organized Button
+
                     Container(
                       padding: EdgeInsets.all(16.0),
                       child:
                       ElevatedButton.icon(
                         onPressed: () {
                           setState(() {
-                            _showWorkshopOrganizedTextField = !_showWorkshopOrganizedTextField;
+                            _showFemaleTextField = !_showFemaleTextField;
                           });
                         },
                         icon: Icon(
-                          _showWorkshopOrganizedTextField ? Icons.remove : Icons.add,
+                          _showFemaleTextField ? Icons.remove : Icons.add,
                           color: Colors.white,
                           size: 18,
                         ),
                         label: Text(
-                          _showWorkshopOrganizedTextField ? 'Female' : 'Female',
+                          _showFemaleTextField ? 'Female' : 'Female',
                           style: GoogleFonts.kufam(
                             fontSize: 16,
                             color: Colors.white,
@@ -213,14 +210,14 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                       ),
                     ),
                     // SizedBox(height: 20),
-                    if (_showWorkshopOrganizedTextField) ...[
+                    if (_showFemaleTextField) ...[
                       Container(
                         padding: EdgeInsets.all(16.0),
                         child:
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Name of the Society',
+                            Text('Name',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -235,7 +232,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: 'IEEE',
+                                hintText: 'Abc',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -255,7 +252,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                               height: 20,
                             ),
 
-                            Text('Role in the society',
+                            Text('Role',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -270,7 +267,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: 'Member',
+                                hintText: 'Abc',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -325,7 +322,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                               height: 20,
                             ),
 
-                            Text('Details about event organized',
+                            Text('Details about event',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -371,7 +368,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _workshopOrganizedHeldFromDate(context),
+                                    onTap: () => _femaleHeldFromDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -393,13 +390,13 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${WorkshopOrganizedHeldFromDate.toLocal()}".split(' ')[0],
+                                      text: "${femaleHeldFromDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
-                                  onPressed: () => _workshopOrganizedHeldFromDate(context),
+                                  onPressed: () => _femaleHeldFromDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -419,7 +416,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _workshopOrganizedHeldToDate(context),
+                                    onTap: () => _femaleHeldToDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -441,14 +438,14 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${WorkshopOrganizedHeldToDate.toLocal()}".split(' ')[0],
+                                      text: "${femaleHeldToDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
                                   onPressed: () =>
-                                      _workshopOrganizedHeldToDate(context),
+                                      _femaleHeldToDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -531,23 +528,23 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                         ),),
                     ],
 
-                    // Conference Organized Button
+
                     Container(
                       padding: EdgeInsets.all(16.0),
                       child:
                       ElevatedButton.icon(
                         onPressed: () {
                           setState(() {
-                            _showConferenceOrganizedTextField = !_showConferenceOrganizedTextField;
+                            _showMaleTextField = !_showMaleTextField;
                           });
                         },
                         icon: Icon(
-                          _showConferenceOrganizedTextField ? Icons.remove : Icons.add,
+                          _showMaleTextField ? Icons.remove : Icons.add,
                           color: Colors.white,
                           size: 18,
                         ),
                         label: Text(
-                          _showConferenceOrganizedTextField ? 'Male' : 'Male',
+                          _showMaleTextField ? 'Male' : 'Male',
                           style: GoogleFonts.kufam(
                             fontSize: 16,
                             color: Colors.white,
@@ -567,14 +564,14 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                       ),
                     ),
                     // SizedBox(height: 20),
-                    if (_showConferenceOrganizedTextField) ...[
+                    if (_showMaleTextField) ...[
                       Container(
                         padding: EdgeInsets.all(16.0),
                         child:
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Name of the Society',
+                            Text('Name',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -589,7 +586,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: 'IEEE',
+                                hintText: 'Abc',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -609,7 +606,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                               height: 20,
                             ),
 
-                            Text('Role in the society',
+                            Text('Role',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -644,7 +641,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                               height: 20,
                             ),
 
-                            Text('Event name',
+                            Text('Event',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -679,7 +676,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                               height: 20,
                             ),
 
-                            Text('Details about participation in event in brief',
+                            Text('Details about event',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -694,7 +691,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: 'Abc ',
+                                hintText: 'Abc',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -725,7 +722,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _workshopOrganizedHeldFromDate(context),
+                                    onTap: () => _femaleHeldFromDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -747,13 +744,13 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${WorkshopOrganizedHeldFromDate.toLocal()}".split(' ')[0],
+                                      text: "${femaleHeldFromDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
-                                  onPressed: () => _conferenceOrganizedHeldFromDate(context),
+                                  onPressed: () => _maleHeldFromDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -773,7 +770,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _conferenceOrganizedHeldToDate(context),
+                                    onTap: () => _maleHeldToDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -795,14 +792,14 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${WorkshopOrganizedHeldToDate.toLocal()}".split(' ')[0],
+                                      text: "${femaleHeldToDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
                                   onPressed: () =>
-                                      _workshopOrganizedHeldToDate(context),
+                                      _femaleHeldToDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -846,75 +843,75 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                               height: 20,
                             ),
 
-                            Text('Individual/Group',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
-                            TextFormField(
-                              controller: _indiOrGroupController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'This field is required';
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                hintText: 'Individual',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                ),
-                                hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
-                              ),
-                              style: TextStyle(color: Colors.white),),
-                            SizedBox(
-                              height: 20,
-                            ),
-
-                            Text('Achievements(if any)',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
-                            TextFormField(
-                              controller: _achievementsController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'This field is required';
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                hintText: 'Na',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                ),
-                                hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
-                              ),
-                              style: TextStyle(color: Colors.white),),
-                            SizedBox(
-                              height: 20,
-                            ),
+                            // Text('Individual/Group',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
+                            // SizedBox(height: 5),
+                            // TextFormField(
+                            //   controller: _indiOrGroupController,
+                            //   validator: (value) {
+                            //     if (value == null || value.isEmpty) {
+                            //       return 'This field is required';
+                            //     }
+                            //     return null;
+                            //   },
+                            //   decoration: InputDecoration(
+                            //     hintText: 'Individual',
+                            //     enabledBorder: OutlineInputBorder(
+                            //       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                            //     ),
+                            //     focusedBorder: OutlineInputBorder(
+                            //       borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            //     ),
+                            //     hintStyle: GoogleFonts.kufam(
+                            //         color: Colors.white.withOpacity(0.5)),
+                            //     contentPadding: const EdgeInsets.symmetric(
+                            //         vertical: 20.0, horizontal: 15.0),
+                            //     border: OutlineInputBorder(),
+                            //     fillColor: Color(0xff141318),
+                            //     filled: true,
+                            //   ),
+                            //   style: TextStyle(color: Colors.white),),
+                            // SizedBox(
+                            //   height: 20,
+                            // ),
+                            //
+                            // Text('Achievements(if any)',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
+                            // SizedBox(height: 5),
+                            // TextFormField(
+                            //   controller: _achievementsController,
+                            //   validator: (value) {
+                            //     if (value == null || value.isEmpty) {
+                            //       return 'This field is required';
+                            //     }
+                            //     return null;
+                            //   },
+                            //   decoration: InputDecoration(
+                            //     hintText: 'Na',
+                            //     enabledBorder: OutlineInputBorder(
+                            //       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                            //     ),
+                            //     focusedBorder: OutlineInputBorder(
+                            //       borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            //     ),
+                            //     hintStyle: GoogleFonts.kufam(
+                            //         color: Colors.white.withOpacity(0.5)),
+                            //     contentPadding: const EdgeInsets.symmetric(
+                            //         vertical: 20.0, horizontal: 15.0),
+                            //     border: OutlineInputBorder(),
+                            //     fillColor: Color(0xff141318),
+                            //     filled: true,
+                            //   ),
+                            //   style: TextStyle(color: Colors.white),),
+                            // SizedBox(
+                            //   height: 20,
+                            // ),
 
                             Text('Address of the Place where event held',
                                 style: TextStyle(
@@ -961,16 +958,16 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                       ElevatedButton.icon(
                         onPressed: () {
                           setState(() {
-                            _showSeminarOrganizedTextField = !_showSeminarOrganizedTextField;
+                            _showCoTextField = !_showCoTextField;
                           });
                         },
                         icon: Icon(
-                          _showSeminarOrganizedTextField ? Icons.remove : Icons.add,
+                          _showCoTextField ? Icons.remove : Icons.add,
                           color: Colors.white,
                           size: 18,
                         ),
                         label: Text(
-                          _showSeminarOrganizedTextField ? 'Co' : 'Co',
+                          _showCoTextField ? 'Co' : 'Co',
                           style: GoogleFonts.kufam(
                             fontSize: 16,
                             color: Colors.white,
@@ -990,14 +987,14 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                       ),
                     ),
                     // SizedBox(height: 20),
-                    if (_showWorkshopOrganizedTextField) ...[
+                    if (_showCoTextField) ...[
                       Container(
                         padding: EdgeInsets.all(16.0),
                         child:
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Name of the Society',
+                            Text('Name',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -1012,7 +1009,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: 'IEEE',
+                                hintText: 'Abc',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -1032,7 +1029,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                               height: 20,
                             ),
 
-                            Text('Role in the society',
+                            Text('Role',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -1102,7 +1099,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                               height: 20,
                             ),
 
-                            Text('Details about event organized',
+                            Text('Details about event',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -1148,7 +1145,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _workshopOrganizedHeldFromDate(context),
+                                    onTap: () => _coHeldFromDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -1170,13 +1167,13 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${WorkshopOrganizedHeldFromDate.toLocal()}".split(' ')[0],
+                                      text: "${coHeldFromDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
-                                  onPressed: () => _workshopOrganizedHeldFromDate(context),
+                                  onPressed: () => _coHeldFromDate(context),
                                   color: Colors.white,
                                 ),
                               ],
@@ -1196,7 +1193,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     readOnly: true, // Disable manual editing
-                                    onTap: () => _workshopOrganizedHeldToDate(context),
+                                    onTap: () => _coHeldToDate(context),
                                     decoration: InputDecoration(
                                       hintText: 'Select a date',
                                       enabledBorder: OutlineInputBorder(
@@ -1218,14 +1215,14 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${WorkshopOrganizedHeldToDate.toLocal()}".split(' ')[0],
+                                      text: "${coHeldToDate.toLocal()}".split(' ')[0],
                                     ),
                                   ),
                                 ),
                                 IconButton(
                                   icon: Icon(Icons.calendar_today),
                                   onPressed: () =>
-                                      _workshopOrganizedHeldToDate(context),
+                                      _coHeldToDate(context),
                                   color: Colors.white,
                                 ),
                               ],
