@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
@@ -12,6 +13,18 @@ class EventOrganisedScreen extends StatefulWidget {
 }
 
 class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
+  final DatabaseReference _teacherRef =
+  FirebaseDatabase.instance.ref().child('TeacherData').child('WorkshopOrganized');
+
+  final DatabaseReference _teacherRef2 =
+  FirebaseDatabase.instance.ref().child('TeacherData').child('ConferenceOrganized');
+
+  final DatabaseReference _teacherRef3 =
+  FirebaseDatabase.instance.ref().child('TeacherData').child('SeminarOrganized');
+
+  final DatabaseReference _teacherRef4 =
+  FirebaseDatabase.instance.ref().child('TeacherData').child('FDPOrganized');
+
   bool _showWorkshopOrganizedTextField = false; // Variable to toggle visibility of text fields
   bool _showConferenceOrganizedTextField = false; // Variable to toggle visibility of text fields
   bool _showSeminarOrganizedTextField = false; // Variable to toggle visibility of text fields
@@ -151,6 +164,70 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
       setState(() {
         FDPOrganizedHeldToDate = picked;
       });
+    }
+  }
+  Future<void> _saveTeacherData() async {
+    try {
+      await _teacherRef.child('id').child(_fullNameController.text).set({
+        'fullName': _fullNameController.text,
+        'detailsOfSeminar': _detailsController.text,
+        'duration': _durationController.text,
+        'address': _addressController.text,
+        'StartingDate' : WorkshopOrganizedHeldFromDate.toString(),
+        'EndingDate' : WorkshopOrganizedHeldToDate.toString(),
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
+  Future<void> _saveTeacher2Data() async {
+    try {
+      await _teacherRef2.child('id').child(_fullName2Controller.text).set({
+        'fullName': _fullName2Controller.text,
+        'detailsOfSeminar': _details2Controller.text,
+        'duration': _duration2Controller.text,
+        'address': _address2Controller.text,
+        'StartingDate' : ConferenceOrganizedHeldFromDate.toString(),
+        'EndingDate' : ConferenceOrganizedHeldToDate.toString(),
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
+  Future<void> _saveTeacher3Data() async {
+    try {
+      await _teacherRef3.child('id').child(_fullName3Controller.text).set({
+        'fullName': _fullName3Controller.text,
+        'detailsOfSeminar': _details3Controller.text,
+        'duration': _duration3Controller.text,
+        'address': _address3Controller.text,
+        'StartingDate' : SeminarOrganizedHeldFromDate.toString(),
+        'EndingDate' : SeminarOrganizedHeldToDate.toString(),
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
+  Future<void> _saveTeacher4Data() async {
+    try {
+      await _teacherRef4.child('id').child(_fullName4Controller.text).set({
+        'fullName': _fullName4Controller.text,
+        'detailsOfSeminar': _details4Controller.text,
+        'duration': _duration4Controller.text,
+        'address': _address4Controller.text,
+        'StartingDate' : FDPOrganizedHeldFromDate.toString(),
+        'EndingDate' : FDPOrganizedHeldToDate.toString(),
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
     }
   }
 
@@ -1353,11 +1430,42 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => EventOrganisedScreen()),
-                  );
-                  // _saveTeacherData();
+                  if (_fullNameController.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EventOrganisedScreen(),
+                      ),
+                    );
+                    _saveTeacherData();
+                  }
+                  if (_fullName2Controller.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EventOrganisedScreen(),
+                      ),
+                    );
+                    _saveTeacher2Data();
+                  }
+                  if (_fullName3Controller.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EventOrganisedScreen(),
+                      ),
+                    );
+                    _saveTeacher3Data();
+                  }
+                  if (_fullName4Controller.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EventOrganisedScreen(),
+                      ),
+                    );
+                    _saveTeacher4Data();
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF13E9DC),
@@ -1370,7 +1478,7 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                   ),
                 ),
                 child: Text(
-                  'Next',
+                  'Save',
                   style: GoogleFonts.kufam(
                     fontSize: 18,
                     color: Colors.black,

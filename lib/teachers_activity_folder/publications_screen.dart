@@ -17,9 +17,9 @@ class PublicationScreen extends StatefulWidget {
 
 class _PublicationScreenState extends State<PublicationScreen> {
   final DatabaseReference _teacherRef =
-  FirebaseDatabase.instance.ref().child('teacherspaperpublished');
+  FirebaseDatabase.instance.ref().child('TeacherData').child('TeachersPaperPublished');
   final DatabaseReference _teacherRefer =
-  FirebaseDatabase.instance.ref().child('teachersbookpublished');
+  FirebaseDatabase.instance.ref().child('TeacherData').child('TeachersBookPublished');
   @override
   void initState() {
     retrievename();
@@ -900,7 +900,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                       minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                     ),
                     child: Text(
-                      'Next',
+                      'Save',
                       style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
                     ),
                   ),

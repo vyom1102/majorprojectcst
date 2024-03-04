@@ -13,7 +13,7 @@ class CourseCompletedScreen extends StatefulWidget {
 
 class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
   final DatabaseReference _teacherRef =
-  FirebaseDatabase.instance.ref().child('teacherscoursecompleted');
+  FirebaseDatabase.instance.ref().child('TeacherData').child('TeachersCourseCompleted');
   String selectedButton = '';
   DateTime selectedDate = DateTime.now();
   DateTime joiningDate = DateTime.now();
