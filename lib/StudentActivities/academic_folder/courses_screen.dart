@@ -341,13 +341,11 @@ class _CoursesScreenState extends State<CoursesScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                  if (Form.of(context)!.validate()) {
-                                    // If all fields are valid, navigate to the next screen
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(builder: (context) => CoursesScreen()),
                                     );
-                                  }
+
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xFF13E9DC),
