@@ -10,65 +10,18 @@ class ResultScreen extends StatefulWidget {
 }
 
 class _ResultScreenState extends State<ResultScreen> {
-  final DatabaseReference _studentTran =
-  FirebaseDatabase.instance.ref().child('StudentData').child('Academic').child('studentresult');
 
   String selectedButton = '';
-  DateTime selectedDate = DateTime.now();
-  DateTime joiningDate = DateTime.now();
 
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: selectedDate,
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-
-    if (picked != null && picked != selectedDate){
-      setState(() {
-        selectedDate = picked;
-      });
-    }
-  }
-  Future<void> _saveStudentResultData() async {
-    try {
-      await _studentTran.child('id').child(_studentnameController.text).set({
-        'enrollmentNumber': _studentnameController.text,
-        'nameOfFaculty' : _nameController.text,
-        'duration' : _durationController.text,
-        'address' : _addressController.text,
-        'StartingDate' : selectedDate.toString(),
-        'EndingDate' : joiningDate.toString(),
-      });
-
-    } catch (error) {
-      // Handle the error
-      print('Error saving data: $error');
-    }
-  }
-
-
-  Future <void> _joiningDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: joiningDate,
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-
-    if (picked != null && picked != joiningDate) {
-      setState(() {
-        joiningDate = picked;
-      });
-    }
-  }
-
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _detailsController = TextEditingController();
-  final TextEditingController _durationController = TextEditingController();
-  final TextEditingController _addressController = TextEditingController();
-  final TextEditingController _studentnameController = TextEditingController();
+  final TextEditingController _sem1Controller = TextEditingController();
+  final TextEditingController _sem2Controller = TextEditingController();
+  final TextEditingController _sem3Controller = TextEditingController();
+  final TextEditingController _sem4Controller = TextEditingController();
+  final TextEditingController _sem5Controller = TextEditingController();
+  final TextEditingController _sem6Controller = TextEditingController();
+  final TextEditingController _sem7Controller = TextEditingController();
+  final TextEditingController _sem8Controller = TextEditingController();
+  final TextEditingController _overallController = TextEditingController();
 
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -91,328 +44,364 @@ class _ResultScreenState extends State<ResultScreen> {
                     .width, // Adjust the height as needed
               ),
             ),
-            Form(
-              // key: formKey,
-              child: Column(
-                  children: [
-                    SizedBox(
-                      height: 70,
-                    ),
-                    Text(
-                      'Results',
-                      style: GoogleFonts.kufam(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 26,
-                          color: Color(0xff0CECDA)),
-                    ),
+            Column(
+                children: [
+                  SizedBox(
+                    height: 70,
+                  ),
+                  Text(
+                    'Results',
+                    style: GoogleFonts.kufam(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 26,
+                        color: Color(0xff0CECDA)),
+                  ),
 
-                    Expanded(
-                      child: ListView(children: [
-                        Container(
-                          padding: EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Enrollment number of Student',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
-                              SizedBox(height: 5),
-                              TextFormField(
-                                controller: _studentnameController,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'This field is required';
-                                  }
-                                  return null;
-                                },
-                                decoration: InputDecoration(
-                                  hintText: 'ABC',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                  ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
+                  Expanded(
+                    child: ListView(children: [
+                      Container(
+                        padding: EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Semester 1 GPA',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextField(
+                              controller: _sem1Controller,
+                              // validator: (value) {
+                              //   if (value == null || value.isEmpty) {
+                              //     return 'This field is required';
+                              //   }
+                              //   return null;
+                              // },
+                              decoration: InputDecoration(
+                                hintText: '9',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
-                                style: TextStyle(color: Colors.white),),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text('Name of the Faculty Member',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
-                              SizedBox(height: 5),
-                              TextFormField(
-                                controller: _nameController,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'This field is required';
-                                  }
-                                  return null;
-                                },
-                                decoration: InputDecoration(
-                                  hintText: 'Shreya',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                  ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
                                 ),
-                                style: TextStyle(color: Colors.white),),
-                              SizedBox(
-                                height: 20,
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
                               ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text('Semester 2 GPA',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextField(
+                              controller: _sem2Controller,
+                              // validator: (value) {
+                              //   if (value == null || value.isEmpty) {
+                              //     return 'This field is required';
+                              //   }
+                              //   return null;
+                              // },
+                              decoration: InputDecoration(
+                                hintText: '9',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
 
-                              Text('Details of the Seminar Attended',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
-                              SizedBox(height: 5),
-                              TextFormField(
-                                controller: _detailsController,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'This field is required';
-                                  }
-                                  return null;
-                                },
-                                decoration: InputDecoration(
-                                  hintText: 'Abc ',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                  ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
+                            Text('Semester 3 GPA',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextField(
+                              controller: _sem3Controller,
+                              // validator: (value) {
+                              //   if (value == null || value.isEmpty) {
+                              //     return 'This field is required';
+                              //   }
+                              //   return null;
+                              // },
+                              decoration: InputDecoration(
+                                hintText: '9',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
-                                style: TextStyle(color: Colors.white),),
-                              SizedBox(
-                                height: 20,
-                              ),
-
-                              Text('Seminar held from',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
-                              SizedBox(height: 5),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: TextFormField(
-                                      readOnly: true, // Disable manual editing
-                                      onTap: () => _selectDate(context),
-                                      decoration: InputDecoration(
-                                        hintText: 'Select a date',
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                        ),
-                                        hintStyle: TextStyle(
-                                          color: Colors.white.withOpacity(0.5),
-                                        ),
-                                        contentPadding: const EdgeInsets.symmetric(
-                                          vertical: 20.0,
-                                          horizontal: 15.0,
-                                        ),
-                                        border: OutlineInputBorder(),
-                                        fillColor: Color(0xff141318),
-                                        filled: true,
-                                      ),
-                                      style: TextStyle(color: Colors.white),
-                                      controller: TextEditingController(
-                                        text: "${selectedDate.toLocal()}".split(' ')[0],
-                                      ),
-                                    ),
-                                  ),
-                                  IconButton(
-                                    icon: Icon(Icons.calendar_today),
-                                    onPressed: () => _selectDate(context),
-                                    color: Colors.white,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-
-                              Text('Seminar held to',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
-                              SizedBox(height: 5),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: TextFormField(
-                                      readOnly: true, // Disable manual editing
-                                      onTap: () => _joiningDate(context),
-                                      decoration: InputDecoration(
-                                        hintText: 'Select a date',
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                        ),
-                                        hintStyle: TextStyle(
-                                          color: Colors.white.withOpacity(0.5),
-                                        ),
-                                        contentPadding: const EdgeInsets.symmetric(
-                                          vertical: 20.0,
-                                          horizontal: 15.0,
-                                        ),
-                                        border: OutlineInputBorder(),
-                                        fillColor: Color(0xff141318),
-                                        filled: true,
-                                      ),
-                                      style: TextStyle(color: Colors.white),
-                                      controller: TextEditingController(
-                                        text: "${joiningDate.toLocal()}".split(' ')[0],
-                                      ),
-                                    ),
-                                  ),
-                                  IconButton(
-                                    icon: Icon(Icons.calendar_today),
-                                    onPressed: () =>
-                                        _joiningDate(context),
-                                    color: Colors.white,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-
-                              Text('Duration of Seminar',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
-                              SizedBox(height: 5),
-                              TextFormField(
-                                controller: _durationController,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'This field is required';
-                                  }
-                                  return null;
-                                },
-                                decoration: InputDecoration(
-                                  hintText: '2 Months',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                  ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
                                 ),
-                                style: TextStyle(color: Colors.white),),
-                              SizedBox(
-                                height: 20,
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
                               ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
 
-                              Text('Address of the Place where seminar held',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
-                              SizedBox(height: 5),
-                              TextFormField(
-                                controller: _addressController,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'This field is required';
-                                  }
-                                  return null;
-                                },
-                                decoration: InputDecoration(
-                                  hintText: 'Enter the Address',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                  ),
-                                  hintStyle: GoogleFonts.kufam(
-                                      color: Colors.white.withOpacity(0.5)),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0, horizontal: 15.0),
-                                  border: OutlineInputBorder(),
-                                  fillColor: Color(0xff141318),
-                                  filled: true,
+                            Text('Semester 4 GPA',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextField(
+                              controller: _sem4Controller,
+                              // validator: (value) {
+                              //   if (value == null || value.isEmpty) {
+                              //     return 'This field is required';
+                              //   }
+                              //   return null;
+                              // },
+                              decoration: InputDecoration(
+                                hintText: '9',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
-                                style: TextStyle(color: Colors.white),),
-                              SizedBox(
-                                height: 20,
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
                               ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
 
-                              ElevatedButton(
-                                onPressed: () {
-                                  if (_studentnameController.text != null) {
-                                    // If all fields are valid, navigate to the next screen
-                                    _saveStudentResultData();
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => ResultScreen()),
-                                    );
-                                  }
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color(0xFF13E9DC),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                  minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                            Text('Semester 5 GPA',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextField(
+                              controller: _sem5Controller,
+                              // validator: (value) {
+                              //   if (value == null || value.isEmpty) {
+                              //     return 'This field is required';
+                              //   }
+                              //   return null;
+                              // },
+                              decoration: InputDecoration(
+                                hintText: '9',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
-                                child: Text(
-                                  'Save',
-                                  style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
                                 ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
                               ),
-                            ],
-                          ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            Text('Semester 6 GPA',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextField(
+                              controller: _sem6Controller,
+                              // validator: (value) {
+                              //   if (value == null || value.isEmpty) {
+                              //     return 'This field is required';
+                              //   }
+                              //   return null;
+                              // },
+                              decoration: InputDecoration(
+                                hintText: '9',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            Text('Semester 7 GPA',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextField(
+                              controller: _sem7Controller,
+                              // validator: (value) {
+                              //   if (value == null || value.isEmpty) {
+                              //     return 'This field is required';
+                              //   }
+                              //   return null;
+                              // },
+                              decoration: InputDecoration(
+                                hintText: '9',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            Text('Semester 8 GPA',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextField(
+                              controller: _sem8Controller,
+                              // validator: (value) {
+                              //   if (value == null || value.isEmpty) {
+                              //     return 'This field is required';
+                              //   }
+                              //   return null;
+                              // },
+                              decoration: InputDecoration(
+                                hintText: '9',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            Text('Overall GPA',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextField(
+                              controller: _overallController,
+                              // validator: (value) {
+                              //   if (value == null || value.isEmpty) {
+                              //     return 'This field is required';
+                              //   }
+                              //   return null;
+                              // },
+                              decoration: InputDecoration(
+                                hintText: '9',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+
+                            ElevatedButton(
+                              onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => ResultScreen()),
+                                  );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xFF13E9DC),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                              ),
+                              child: Text(
+                                'Save',
+                                style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],),),
-                  ]),
-            ),]
+                      ),
+                    ],),),
+                ]),]
       ),);
   }
 }

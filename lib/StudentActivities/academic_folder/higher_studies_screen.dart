@@ -23,8 +23,6 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
   DateTime selectedDate = DateTime.now();
   DateTime joiningDate = DateTime.now();
 
-  TextEditingController _imageController = TextEditingController();
-
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -67,6 +65,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
       });
     }
   }
+
   Future<void> _studentHigherDetail() async {
     try {
       await _studentHigher.child('id').child(_studentnameController.text).set({
@@ -95,6 +94,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
   final TextEditingController _ppoController = TextEditingController();
   final TextEditingController _ppoDetailsController = TextEditingController();
   final TextEditingController _studentnameController = TextEditingController();
+  TextEditingController _imageController = TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
