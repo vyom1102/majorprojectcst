@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
@@ -203,13 +204,25 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             TextFormField(
                               controller: _studentnameController,
                               validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'This field is required';
+                                if (value!.isEmpty) {
+                                  return 'Please enter an enrollment number';
                                 }
-                                return null;
+                                if (value.length != 11) {
+                                  return 'Enrollment number must be exactly 11 digits';
+                                }
+                                return null; // Return null if the input is valid
                               },
+                              // onSaved: (value) {
+                              //   _phoneNumber = value;
+                              // },
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              maxLength: 11,
                               decoration: InputDecoration(
                                 hintText: 'ABC',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
