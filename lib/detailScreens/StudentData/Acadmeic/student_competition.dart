@@ -404,44 +404,128 @@ class _StudentCompetitionScreenState extends State<StudentCompetitionScreen> {
     );
   }
 
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Student Competition Details'),
+//       ),
+//       body: Column(
+//         children: [
+//           Padding(
+//             padding: const EdgeInsets.all(8.0),
+//             child: TextField(
+//               controller: _searchController,
+//               decoration: InputDecoration(
+//                 labelText: 'Search by ID ',
+//                 prefixIcon: Icon(Icons.search),
+//                 filled: true,
+//                 fillColor: Colors.white,
+//                 border: OutlineInputBorder(
+//                   borderRadius: BorderRadius.circular(30.0),
+//                 ),
+//               ),
+//               onChanged: _filterCompetitions,
+//             ),
+//           ),
+//           Expanded(
+//             child: ListView.builder(
+//               itemCount: filteredCompetitions.length,
+//               itemBuilder: (context, index) {
+//                 return ListTile(
+//                   title: Text(filteredCompetitions[index].id),
+//                   onTap: () {
+//                     _showDetailsDialog(filteredCompetitions[index]);
+//                   },
+//                 );
+//               },
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Student Competition Details'),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: _searchController,
-              decoration: InputDecoration(
-                labelText: 'Search by ID or GV',
-                prefixIcon: Icon(Icons.search),
-                filled: true,
-                fillColor: Colors.white,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
+      backgroundColor: Color(0xff141318),
+
+      body: Stack(
+          children: [
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: Image.asset(
+                'images/bottom_container.png',
+                fit: BoxFit.cover,
+                height: 200,
+                width: MediaQuery.sizeOf(context)
+                    .width, // Adjust the height as needed
               ),
-              onChanged: _filterCompetitions,
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: filteredCompetitions.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(filteredCompetitions[index].id),
-                  onTap: () {
-                    _showDetailsDialog(filteredCompetitions[index]);
-                  },
-                );
-              },
+            Column(
+              children: [
+                SizedBox(height: MediaQuery.sizeOf(context).height*0.1,),
+                Row(
+                  children: [
+                    SizedBox(width: 10,),
+                    Text(
+                      'Student\'s Competition Details',
+                      style: GoogleFonts.kufam(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 24,
+                          color: Color(0xff0CECDA)),
+                    ),
+                  ],
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: TextField(
+                    controller: _searchController,
+                    decoration: InputDecoration(
+                      labelText: 'Search by Name or ID',
+                      prefixIcon: Icon(Icons.search),
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                    ),
+                    onChanged: _filterCompetitions,
+                  ),
+                ),
+
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: filteredCompetitions.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        height: 60,
+                        child: Card(
+                          color: Color(0xff2D2B33),
+                          child: ListTile(
+
+
+                            title:Padding(
+                              padding: const EdgeInsets.only(bottom: 2.0),
+                              child: Text('${filteredCompetitions[index].member1Enroll.toUpperCase()}',style: TextStyle(color:Colors.white),),
+                            ),
+
+                            onTap: () {
+                              _showDetailsDialog(filteredCompetitions[index]);
+                            },
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
+          ]
       ),
     );
   }

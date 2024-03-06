@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_competition.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_course.dart';
+import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Technical/Student_tech_attended.dart';
+import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Technical/Student_tech_organised.dart';
 import 'package:majorproject/detailScreens/StudentData/student_personaldetail.dart';
 import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_training.dart';
+
+import 'detailScreens/StudentData/Acadmeic/student_seminar.dart';
 
 
 
@@ -153,7 +159,13 @@ class Details extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.emoji_events, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentCompetitionScreen(),
+                                                ),
+                                              );
                                             },
                                           ),
                   ),
@@ -179,7 +191,13 @@ class Details extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.event, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentSeminarList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -273,82 +291,198 @@ class Details extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Container(
-                                padding: EdgeInsets.all(10.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.computer, color: Colors.white),
-                                            onPressed: () {
-                                              // Add functionality for the icon button
-                                            },
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.sports_soccer, color: Colors.white),
-                                            onPressed: () {
-                                              // Add functionality for the icon button
-                                            },
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Non-Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.music_note, color: Colors.white),
-                                            onPressed: () {
-                                              // Add functionality for the icon button
-                                            },
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Musical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.music_video, color: Colors.white),
-                                            onPressed: () {
-                                              // Add functionality for the icon button
-                                            },
-                                          ),
-                  ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(top:4.0),
-                                            child: Text('Dance', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                                          ),
+                              Column(
 
+                                // crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+
+                                  Row(
+                                    children: [
+                                      SizedBox(width: 40,),
+                                      Text('Ogranised', style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white
+                                      ),),
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.all(10.0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.computer, color: Colors.white),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          StudentTechOrganisedList(),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.sports_soccer, color: Colors.white),
+                                                onPressed: () {
+                                                  // Add functionality for the icon button
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Non-Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.music_note, color: Colors.white),
+                                                onPressed: () {
+                                                  // Add functionality for the icon button
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Musical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.music_video, color: Colors.white),
+                                                onPressed: () {
+                                                  // Add functionality for the icon button
+                                                },
+                                              ),
+                  ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(top:4.0),
+                                                child: Text('Dance', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              ),
+
+                                          ],
+                                        ),
                                       ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      SizedBox(width: 40,),
+                                      Text('Attended', style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white
+                                      ),),
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.all(10.0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.computer, color: Colors.white),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          StudentTechEventParticipationList(),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.sports_soccer, color: Colors.white),
+                                                onPressed: () {
+                                                  // Add functionality for the icon button
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Non-Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.music_note, color: Colors.white),
+                                                onPressed: () {
+                                                  // Add functionality for the icon button
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Musical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.music_video, color: Colors.white),
+                                                onPressed: () {
+                                                  // Add functionality for the icon button
+                                                },
+                                              ),
+                  ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(top:4.0),
+                                                child: Text('Dance', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              ),
+
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),

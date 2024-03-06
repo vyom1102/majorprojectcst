@@ -4,49 +4,50 @@ import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class StudentSeminar {
+class StudentCourse {
   final String id;
 
   final String enrollmentNumber;
-  final String facultyName;
-  final String detailSeminarAttended;
-  final String startingDate;
-  final String endingDate;
-  final String durationOfSeminar;
-  final String seminarAddress;
+  final String courseName;
+  final String instructorName;
+  final String specialization;
+  final String duration;
+  final String onlineOffline;
+  final String outcome;
+  //final String null;
 
 
-  StudentSeminar({
+  StudentCourse({
     required this.id,
     required this.enrollmentNumber,
-    required this.facultyName,
-    required this.durationOfSeminar,
-    required this.startingDate,
-    required this.endingDate,
-    required this.detailSeminarAttended,
-    required this.seminarAddress,
+    required this.courseName,
+    required this.instructorName,
+    required this.specialization,
+    required this.duration,
+    required this.onlineOffline,
+    required this.outcome,
   });
 }
 
 
-class StudentSeminarList extends StatefulWidget {
+class StudentCourseList extends StatefulWidget {
   @override
-  _StudentSeminarListState createState() => _StudentSeminarListState();
+  _StudentCourseListState createState() => _StudentCourseListState();
 }
 
-class _StudentSeminarListState extends State<StudentSeminarList> {
+class _StudentCourseListState extends State<StudentCourseList> {
   final databaseReference = FirebaseDatabase.instance.ref();
   late DatabaseReference _membersRef;
 
-  List<StudentSeminar> students = [];
-  List<StudentSeminar> filteredStudents = [];
+  List<StudentCourse> students = [];
+  List<StudentCourse> filteredStudents = [];
 
   TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _membersRef = FirebaseDatabase.instance.ref().child('StudentData/Academic/studentSeminar/id');
+    _membersRef = FirebaseDatabase.instance.ref().child('StudentData/Academic/studentCourse/id');
     fetchStudents();
   }
 
@@ -55,17 +56,17 @@ class _StudentSeminarListState extends State<StudentSeminarList> {
       _membersRef.onValue.listen((event) {
         final data = event.snapshot.value as Map<dynamic, dynamic>?;
         if (data != null) {
-          final List<StudentSeminar> fetchedStudents = [];
+          final List<StudentCourse> fetchedStudents = [];
           data.forEach((key, value) {
-            fetchedStudents.add(StudentSeminar(
+            fetchedStudents.add(StudentCourse(
               id: key.toString(),
               enrollmentNumber: value['enrollmentNumber'] ?? '',
-              facultyName: value['facultyName'] ?? '',
-              durationOfSeminar: value['durationOfSeminar'] ?? '',
-              startingDate: value['startingDate'] ?? '',
-              endingDate: value['endingDate'] ?? '',
-              detailSeminarAttended: value['detailSeminarAttended'] ?? '',
-              seminarAddress: value['seminarAddress'] ?? '',
+              courseName: value['CourseName'] ?? '',
+              instructorName: value['InstructorName'] ?? '',
+              specialization: value['specialization'] ?? '',
+              duration: value['duration'] ?? '',
+              onlineOffline: value['onlineOffline'] ?? '',
+              outcome: value['outcome'] ?? '',
             ));
           });
           setState(() {
@@ -92,7 +93,7 @@ class _StudentSeminarListState extends State<StudentSeminarList> {
     });
   }
 
-  void _showDetailsDialog(StudentSeminar student) {
+  void _showDetailsDialog(StudentCourse student) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -104,12 +105,12 @@ class _StudentSeminarListState extends State<StudentSeminarList> {
             children: [
               Text('ID: ${student.id}'),
               Text('Enrollment Number: ${student.enrollmentNumber}'),
-              Text('Faculty Name: ${student.facultyName}'),
-              Text('Duration of Seminar: ${student.durationOfSeminar}'),
-              Text('Starting Date: ${student.startingDate}'),
-              Text('Ending Date: ${student.endingDate}'),
-              Text('Seminar Attended: ${student.detailSeminarAttended}'),
-              Text('Seminar Address: ${student.seminarAddress}'),
+              Text('Course Name: ${student.courseName}'),
+              Text('Instructor Name: ${student.instructorName}'),
+              Text('Specialization: ${student.specialization}'),
+              Text('Duration: ${student.duration}'),
+              Text('Online Offline: ${student.onlineOffline}'),
+              Text('Outcome: ${student.outcome}'),
             ],
           ),
           actions: [
@@ -152,7 +153,7 @@ class _StudentSeminarListState extends State<StudentSeminarList> {
                   children: [
                     SizedBox(width: 10,),
                     Text(
-                      'Student\'s Seminar Details',
+                      'Student\'s Course Details',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,

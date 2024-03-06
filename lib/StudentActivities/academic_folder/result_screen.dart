@@ -10,6 +10,8 @@ class ResultScreen extends StatefulWidget {
 }
 
 class _ResultScreenState extends State<ResultScreen> {
+  final DatabaseReference _studentResult =
+  FirebaseDatabase.instance.ref().child('StudentData').child('Academic').child('studentResult');
 
   String selectedButton = '';
 
@@ -22,7 +24,28 @@ class _ResultScreenState extends State<ResultScreen> {
   final TextEditingController _sem7Controller = TextEditingController();
   final TextEditingController _sem8Controller = TextEditingController();
   final TextEditingController _overallController = TextEditingController();
+  final TextEditingController _studentnameController = TextEditingController();
 
+  Future<void> _studentHigherDetail() async {
+    try {
+      await _studentResult.child('id').child(_studentnameController.text).set({
+        'enrollmentNumber': _studentnameController.text,
+        'sem1' : _sem1Controller.text,
+        'sem2' : _sem2Controller.text,
+        'sem3' : _sem3Controller.text,
+        'sem4' : _sem4Controller.text,
+        'sem5' : _sem5Controller.text,
+        'sem6' : _sem6Controller.text,
+        'sem7' : _sem7Controller.text,
+        'sem8' : _sem8Controller.text,
+        'overall' : _overallController.text,
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -64,6 +87,41 @@ class _ResultScreenState extends State<ResultScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Text('Enrollment number of Student',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _studentnameController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(
+                                hintText: 'ABC',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Text('Semester 1 GPA',
                                 style: TextStyle(
                                     fontSize: 14.0,
@@ -78,6 +136,7 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   }
                               //   return null;
                               // },
+                              keyboardType: TextInputType.number,
                               decoration: InputDecoration(
                                 hintText: '9',
                                 enabledBorder: OutlineInputBorder(
@@ -112,6 +171,7 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   }
                               //   return null;
                               // },
+                              keyboardType: TextInputType.number,
                               decoration: InputDecoration(
                                 hintText: '9',
                                 enabledBorder: OutlineInputBorder(
@@ -133,14 +193,51 @@ class _ResultScreenState extends State<ResultScreen> {
                               height: 20,
                             ),
 
+                            // Text('Semester 3 GPA',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
+                            // SizedBox(height: 5),
+                            // TextField(
+                            //   controller: _sem3Controller,
+                            //   // validator: (value) {
+                            //   //   if (value == null || value.isEmpty) {
+                            //   //     return 'This field is required';
+                            //   //   }
+                            //   //   return null;
+                            //   // },
+                            //   decoration: InputDecoration(
+                            //     hintText: '9',
+                            //     enabledBorder: OutlineInputBorder(
+                            //       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                            //     ),
+                            //     focusedBorder: OutlineInputBorder(
+                            //       borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            //     ),
+                            //     hintStyle: GoogleFonts.kufam(
+                            //         color: Colors.white.withOpacity(0.5)),
+                            //     contentPadding: const EdgeInsets.symmetric(
+                            //         vertical: 20.0, horizontal: 15.0),
+                            //     border: OutlineInputBorder(),
+                            //     fillColor: Color(0xff141318),
+                            //     filled: true,
+                            //   ),
+                            //   style: TextStyle(color: Colors.white),),
+                            // SizedBox(
+                            //   height: 20,
+                            // ),
                             Text('Semester 3 GPA',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
                             SizedBox(height: 5),
                             TextField(
                               controller: _sem3Controller,
+                              keyboardType: TextInputType.number, // Add this line to set numeric keyboard
                               // validator: (value) {
                               //   if (value == null || value.isEmpty) {
                               //     return 'This field is required';
@@ -156,17 +253,19 @@ class _ResultScreenState extends State<ResultScreen> {
                                   borderSide: BorderSide(color: Color(0xff0CECDA)),
                                 ),
                                 hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
+                                  color: Colors.white.withOpacity(0.5),
+                                ),
+                                contentPadding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
                                 border: OutlineInputBorder(),
                                 fillColor: Color(0xff141318),
                                 filled: true,
                               ),
-                              style: TextStyle(color: Colors.white),),
+                              style: TextStyle(color: Colors.white),
+                            ),
                             SizedBox(
                               height: 20,
                             ),
+
 
                             Text('Semester 4 GPA',
                                 style: TextStyle(
@@ -182,6 +281,7 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   }
                               //   return null;
                               // },
+                              keyboardType: TextInputType.number,
                               decoration: InputDecoration(
                                 hintText: '9',
                                 enabledBorder: OutlineInputBorder(
@@ -217,6 +317,7 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   }
                               //   return null;
                               // },
+                              keyboardType: TextInputType.number,
                               decoration: InputDecoration(
                                 hintText: '9',
                                 enabledBorder: OutlineInputBorder(
@@ -252,6 +353,7 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   }
                               //   return null;
                               // },
+                              keyboardType: TextInputType.number,
                               decoration: InputDecoration(
                                 hintText: '9',
                                 enabledBorder: OutlineInputBorder(
@@ -287,6 +389,7 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   }
                               //   return null;
                               // },
+                              keyboardType: TextInputType.number,
                               decoration: InputDecoration(
                                 hintText: '9',
                                 enabledBorder: OutlineInputBorder(
@@ -322,6 +425,7 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   }
                               //   return null;
                               // },
+                              keyboardType: TextInputType.number,
                               decoration: InputDecoration(
                                 hintText: '9',
                                 enabledBorder: OutlineInputBorder(
@@ -357,6 +461,7 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   }
                               //   return null;
                               // },
+                              keyboardType: TextInputType.number,
                               decoration: InputDecoration(
                                 hintText: '9',
                                 enabledBorder: OutlineInputBorder(
@@ -380,10 +485,14 @@ class _ResultScreenState extends State<ResultScreen> {
 
                             ElevatedButton(
                               onPressed: () {
+                                if (_studentnameController.text != null) {
+                                  // If all fields are valid, navigate to the next screen
+                                  _studentHigherDetail();
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(builder: (context) => ResultScreen()),
                                   );
+                                }
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Color(0xFF13E9DC),

@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -10,6 +11,8 @@ class StartupScreen extends StatefulWidget {
 }
 
 class _StartupScreenState extends State<StartupScreen> {
+  final DatabaseReference _studentTran =
+  FirebaseDatabase.instance.ref().child('StudentData').child('Academic').child('studentStartup');
   String selectedButton = '';
   String _selectedImage='';
   DateTime selectedDate = DateTime.now();
@@ -40,12 +43,31 @@ class _StartupScreenState extends State<StartupScreen> {
       });
     }
   }
+  Future<void> _saveStartupData() async {
+    try {
+      await _studentTran.child('id').child(_studentnameController.text).set({
+        'enrollmentNumber': _studentnameController.text,
+        'companyName' : _companyNameController.text,
+        'companyProfile' : _companyProfileController.text,
+        'designation' : _designationController.text,
+        'location' : _placeController.text,
+        'StartingDate' : selectedDate.toString(),
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
+
 
   TextEditingController _imageController = TextEditingController();
   final TextEditingController _companyNameController = TextEditingController();
   final TextEditingController _companyProfileController = TextEditingController();
   final TextEditingController _designationController = TextEditingController();
   final TextEditingController _placeController = TextEditingController();
+  final TextEditingController _studentnameController = TextEditingController();
+
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -89,6 +111,40 @@ class _StartupScreenState extends State<StartupScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Text('Enrollment number of Student',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              SizedBox(height: 5),
+                              TextFormField(
+                                controller: _studentnameController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'This field is required';
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  hintText: 'ABC',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
+                                  hintStyle: GoogleFonts.kufam(
+                                      color: Colors.white.withOpacity(0.5)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 20.0, horizontal: 15.0),
+                                  border: OutlineInputBorder(),
+                                  fillColor: Color(0xff141318),
+                                  filled: true,
+                                ),
+                                style: TextStyle(color: Colors.white),),
+                              SizedBox(
+                                height: 20,
+                              ),
                               Text('Company Name',
                                   style: TextStyle(
                                       fontSize: 14.0,
@@ -327,10 +383,14 @@ class _StartupScreenState extends State<StartupScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
+                                  if (_studentnameController.text != null) {
+                                    // If all fields are valid, navigate to the next screen
+                                    _saveStartupData();
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(builder: (context) => StartupScreen()),
                                     );
+                                  }
 
                                 },
                                 style: ElevatedButton.styleFrom(

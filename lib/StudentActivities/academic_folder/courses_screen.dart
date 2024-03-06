@@ -26,24 +26,24 @@ class _CoursesScreenState extends State<CoursesScreen> {
       });
     }
   }
-  // Future<void> _studentHigherDetail() async {
-  //   try {
-  //     await _studentPlacement.child('id').child(_studentnameController.text).set({
-  //       'enrollmentNumber': _studentnameController.text,
-  //       'batch' : selectedYear.toString(),
-  //       'placement' : _categoriesController.text,
-  //       'campusPlacement' : _placementController.text,
-  //       'companyName' : _companyNameController.toString(),
-  //       'package' : _packageController.toString(),
-  //       'position' : _positionController.toString(),
-  //       'location' : _locationController.text,
-  //     });
-  //
-  //   } catch (error) {
-  //     // Handle the error
-  //     print('Error saving data: $error');
-  //   }
-  // }
+  Future<void> _studentHigherDetail() async {
+    try {
+      await _studentCourse.child('id').child(_studentnameController.text).set({
+        'enrollmentNumber': _studentnameController.text,
+        'certificate' : _imageController.toString(),
+        'courseName' : _courseNameController.text,
+        'instructorName' : _instructorOrOrganizationController.text,
+        'specialization' : _specializationController.toString(),
+        'duration' : _durationController.toString(),
+        'onlineoffline' : _onlineController.toString(),
+        'courseLearning' : _courseLearningController.text,
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
 
   TextEditingController _imageController = TextEditingController();
   final TextEditingController _courseNameController = TextEditingController();
@@ -52,6 +52,8 @@ class _CoursesScreenState extends State<CoursesScreen> {
   final TextEditingController _durationController = TextEditingController();
   final TextEditingController _onlineController = TextEditingController();
   final TextEditingController _courseLearningController = TextEditingController();
+  final TextEditingController _studentnameController = TextEditingController();
+
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -93,6 +95,40 @@ class _CoursesScreenState extends State<CoursesScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Text('Enrollment number of Student',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              SizedBox(height: 5),
+                              TextFormField(
+                                controller: _studentnameController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'This field is required';
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  hintText: 'ABC',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
+                                  hintStyle: GoogleFonts.kufam(
+                                      color: Colors.white.withOpacity(0.5)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 20.0, horizontal: 15.0),
+                                  border: OutlineInputBorder(),
+                                  fillColor: Color(0xff141318),
+                                  filled: true,
+                                ),
+                                style: TextStyle(color: Colors.white),),
+                              SizedBox(
+                                height: 20,
+                              ),
                               Text('Course Name',
                                   style: TextStyle(
                                       fontSize: 14.0,
@@ -362,10 +398,14 @@ class _CoursesScreenState extends State<CoursesScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
+                                  if (_studentnameController.text != null) {
+                                    // If all fields are valid, navigate to the next screen
+                                    _studentHigherDetail();
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(builder: (context) => CoursesScreen()),
                                     );
+                                  }
 
                                 },
                                 style: ElevatedButton.styleFrom(
