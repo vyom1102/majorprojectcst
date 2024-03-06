@@ -71,27 +71,6 @@ class _StudentTrainingListState extends State<StudentTrainingList> {
     fetchStudents();
   }
 
-  // Future<void> fetchStudents() async {
-  //   _membersRef.onValue.listen((event) {
-  //     final data = event.snapshot.value as Map<dynamic, dynamic>?;
-  //     if (data != null) {
-  //       final List<StudentTraining> fetchedStudents = [];
-  //       data.forEach((key, value) {
-  //         fetchedStudents.add(StudentTraining(
-  //           id: key.toString(),
-  //           fullName: value['fullName'] ?? '',
-  //           mobileNumber: value['mobileNumber'] ?? '',
-  //           motherName: value['motherName'] ?? '',
-  //
-  //         ));
-  //       });
-  //       setState(() {
-  //         students = fetchedStudents;
-  //         filteredStudents = fetchedStudents;
-  //       });
-  //     }
-  //   });
-  // }
   Future<void> fetchStudents() async {
     try {
       _membersRef.onValue.listen((event) {
@@ -145,48 +124,6 @@ class _StudentTrainingListState extends State<StudentTrainingList> {
     });
   }
 
-  // void _showDetailsDialog(StudentTraining student) {
-  //   showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return AlertDialog(
-  //         title: Text('Student Details'),
-  //         content: Column(
-  //           crossAxisAlignment: CrossAxisAlignment.start,
-  //           mainAxisSize: MainAxisSize.min,
-  //           children: [
-  //             Text('ID: ${student.id}'),
-  //             Text('Full Name: ${student.fullName}'),
-  //             Text('Mobile Number: ${student.mobileNumber}'),
-  //             Text('Mother Name: ${student.motherName}'),
-  //             Text('Mother Occupation: ${student.motherOccupation}'),
-  //             Text('Mother Office Address: ${student.motherOfficeAddress}'),
-  //             Text('Mother Phone Number: ${student.motherPhoneNumber}'),
-  //             Text('Permanent Address: ${student.permanentAddress}'),
-  //             Text('Roll Number: ${student.rollNumber}'),
-  //             Text('Year: ${student.year}'),
-  //             Text('JEE Rank: ${student.jeeRank}'),
-  //             Text('Date of Birth: ${student.dateOfBirth}'),
-  //             Text('Email Address: ${student.emailAddress}'),
-  //             Text('Father Name: ${student.fatherName}'),
-  //             Text('Father Occupation: ${student.fatherOccupation}'),
-  //             Text('Father Office Address: ${student.fatherOfficeAddress}'),
-  //             Text('Father Phone Number: ${student.fatherPhoneNumber}'),
-  //             Text('Image: ${student.image}'),
-  //           ],
-  //         ),
-  //         actions: [
-  //           TextButton(
-  //             onPressed: () {
-  //               Navigator.pop(context);
-  //             },
-  //             child: Text('Close'),
-  //           ),
-  //         ],
-  //       );
-  //     },
-  //   );
-  // }
   void _showDetailsDialog(StudentTraining student) {
     showDialog(
       context: context,
