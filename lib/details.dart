@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/detailScreens/StudentData/student_personaldetail.dart';
-import 'package:majorproject/detailScreens/StudentData/student_training.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_training.dart';
 
 
 
