@@ -1410,61 +1410,7 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                               ),
                               style: TextStyle(color: Colors.white),
                             ),
-                            ElevatedButton(
-                              onPressed: () {
-                                if (_fullNameController.text.isNotEmpty) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => EventAttendedScreen(),
-                                    ),
-                                  );
-                                  _saveTeacherData();
-                                }
-                                if (_fullName2Controller.text.isNotEmpty) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => EventAttendedScreen(),
-                                    ),
-                                  );
-                                  _saveTeacher2Data();
-                                }
-                                if (_fullName3Controller.text.isNotEmpty) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => EventAttendedScreen(),
-                                    ),
-                                  );
-                                  _saveTeacher3Data();
-                                }
-                                if (_fullName4Controller.text.isNotEmpty) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => EventAttendedScreen(),
-                                    ),
-                                  );
-                                  _saveTeacher4Data();
-                                }
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFF13E9DC),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                ),
-                                minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
-                              ),
-                              child: Text(
-                                'Save',
-                                style: GoogleFonts.kufam(
-                                  fontSize: 18,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
+
                             // Add more text fields as needed
                           ],
                         ),
@@ -1475,7 +1421,61 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                   ],
                 ),
               ),
-
+              ElevatedButton(
+                onPressed: () {
+                  if (_fullNameController.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EventAttendedScreen(),
+                      ),
+                    );
+                    _saveTeacherData();
+                  }
+                  if (_fullName2Controller.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EventAttendedScreen(),
+                      ),
+                    );
+                    _saveTeacher2Data();
+                  }
+                  if (_fullName3Controller.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EventAttendedScreen(),
+                      ),
+                    );
+                    _saveTeacher3Data();
+                  }
+                  if (_fullName4Controller.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EventAttendedScreen(),
+                      ),
+                    );
+                    _saveTeacher4Data();
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF13E9DC),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                ),
+                child: Text(
+                  'Save',
+                  style: GoogleFonts.kufam(
+                    fontSize: 18,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
             ],
 
           ),
