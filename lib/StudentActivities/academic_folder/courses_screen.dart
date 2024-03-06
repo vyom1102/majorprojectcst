@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -8,6 +9,8 @@ class CoursesScreen extends StatefulWidget {
 }
 
 class _CoursesScreenState extends State<CoursesScreen> {
+  final DatabaseReference _studentCourse =
+  FirebaseDatabase.instance.ref().child('StudentData').child('Academic').child('studentCourse');
 
   String selectedButton = '';
   String _selectedImage='';
@@ -23,6 +26,24 @@ class _CoursesScreenState extends State<CoursesScreen> {
       });
     }
   }
+  // Future<void> _studentHigherDetail() async {
+  //   try {
+  //     await _studentPlacement.child('id').child(_studentnameController.text).set({
+  //       'enrollmentNumber': _studentnameController.text,
+  //       'batch' : selectedYear.toString(),
+  //       'placement' : _categoriesController.text,
+  //       'campusPlacement' : _placementController.text,
+  //       'companyName' : _companyNameController.toString(),
+  //       'package' : _packageController.toString(),
+  //       'position' : _positionController.toString(),
+  //       'location' : _locationController.text,
+  //     });
+  //
+  //   } catch (error) {
+  //     // Handle the error
+  //     print('Error saving data: $error');
+  //   }
+  // }
 
   TextEditingController _imageController = TextEditingController();
   final TextEditingController _courseNameController = TextEditingController();
