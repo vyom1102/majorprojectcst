@@ -26,26 +26,47 @@ class _ResultScreenState extends State<ResultScreen> {
   final TextEditingController _overallController = TextEditingController();
   final TextEditingController _studentnameController = TextEditingController();
 
+  // Future<void> _studentHigherDetail() async {
+  //   try {
+  //     await _studentResult.child('id').child(_studentnameController.text).set({
+  //       'enrollmentNumber': _studentnameController.text,
+  //       'sem1' : _sem1Controller.text,
+  //       'sem2' : _sem2Controller.text,
+  //       'sem3' : _sem3Controller.text,
+  //       'sem4' : _sem4Controller.text,
+  //       'sem5' : _sem5Controller.text,
+  //       'sem6' : _sem6Controller.text,
+  //       'sem7' : _sem7Controller.text,
+  //       'sem8' : _sem8Controller.text,
+  //       'overall' : _overallController.text,
+  //     });
+  //
+  //   } catch (error) {
+  //     // Handle the error
+  //     print('Error saving data: $error');
+  //   }
+  // }
+
   Future<void> _studentHigherDetail() async {
     try {
       await _studentResult.child('id').child(_studentnameController.text).set({
-        'enrollmentNumber': _studentnameController.text,
-        'sem1' : _sem1Controller.text,
-        'sem2' : _sem2Controller.text,
-        'sem3' : _sem3Controller.text,
-        'sem4' : _sem4Controller.text,
-        'sem5' : _sem5Controller.text,
-        'sem6' : _sem6Controller.text,
-        'sem7' : _sem7Controller.text,
-        'sem8' : _sem8Controller.text,
-        'overall' : _overallController.text,
+        'enrollmentNumber': int.tryParse(_studentnameController.text) ?? 0,
+        'sem1': int.tryParse(_sem1Controller.text) ?? 0,
+        'sem2': int.tryParse(_sem2Controller.text) ?? 0,
+        'sem3': int.tryParse(_sem3Controller.text) ?? 0,
+        'sem4': int.tryParse(_sem4Controller.text) ?? 0,
+        'sem5': int.tryParse(_sem5Controller.text) ?? 0,
+        'sem6': int.tryParse(_sem6Controller.text) ?? 0,
+        'sem7': int.tryParse(_sem7Controller.text) ?? 0,
+        'sem8': int.tryParse(_sem8Controller.text) ?? 0,
+        'overall': int.tryParse(_overallController.text) ?? 0,
       });
-
     } catch (error) {
       // Handle the error
       print('Error saving data: $error');
     }
   }
+
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
