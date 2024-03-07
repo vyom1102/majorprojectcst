@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_competition.dart';
 import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_course.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_higherstudies.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_result.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_startup.dart';
 import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Technical/Student_tech_attended.dart';
 import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Technical/Student_tech_organised.dart';
+import 'package:majorproject/detailScreens/StudentData/Sports/student_intercollege.dart';
+import 'package:majorproject/detailScreens/StudentData/Sports/student_intracollege.dart';
 import 'package:majorproject/detailScreens/StudentData/student_personaldetail.dart';
 import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_training.dart';
 
+import 'detailScreens/StudentData/Acadmeic/student_placement.dart';
 import 'detailScreens/StudentData/Acadmeic/student_seminar.dart';
 
 
@@ -125,7 +131,13 @@ class Details extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.school, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentCourseList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -142,7 +154,13 @@ class Details extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.assignment, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentResultList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -214,7 +232,13 @@ class Details extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.business, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentStartupList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -231,7 +255,13 @@ class Details extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.work, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentPlacementList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -248,7 +278,13 @@ class Details extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.school_outlined, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentStudiesList(),
+                                                ),
+                                              );
                                             },
                                           ),
                   ),
@@ -525,7 +561,13 @@ class Details extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.sports_baseball, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the first icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentInterList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -542,7 +584,13 @@ class Details extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.sports_volleyball, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the first icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentIntraList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),

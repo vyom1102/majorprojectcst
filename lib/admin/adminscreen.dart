@@ -30,39 +30,7 @@ class _AdminScreenState extends State<AdminScreen> {
 
       body: Column(
         children: [
-          // SizedBox(
-          //   height: MediaQuery.of(context).size.height * 0.05,
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: [
-          //       ElevatedButton(
-          //         onPressed: () {
-          //           _pageController.animateToPage(0,
-          //               duration: Duration(milliseconds: 500),
-          //               curve: Curves.easeInOut);
-          //         },
-          //         child: Text('Student'),
-          //         style: ButtonStyle(
-          //           backgroundColor:
-          //           MaterialStateProperty.all<Color>(Colors.transparent),
-          //         ),
-          //       ),
-          //       SizedBox(width: 10),
-          //       ElevatedButton(
-          //         onPressed: () {
-          //           _pageController.animateToPage(1,
-          //               duration: Duration(milliseconds: 500),
-          //               curve: Curves.easeInOut);
-          //         },
-          //         child: Text('Teacher'),
-          //         style: ButtonStyle(
-          //           backgroundColor:
-          //           MaterialStateProperty.all<Color>(Colors.transparent),
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
+
           Expanded(
             child: PageView(
               controller: _pageController,
