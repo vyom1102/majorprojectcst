@@ -59,9 +59,9 @@ class _TeacherWorkshopOListState extends State<TeacherWorkshopOList> {
               name: value['name'] ?? '',
               detail: value['detail'] ?? '',
               address: value['address'] ?? '',
-              starting: value['starting'] ?? '',
+              starting: value['StartingDate'] ?? '',
               duration: value['duration'] ?? '',
-              ending: value['ending'] ?? '',
+              ending: value['EndingDate'] ?? '',
             ));
           });
           setState(() {
