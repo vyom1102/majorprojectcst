@@ -14,6 +14,17 @@ import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Technic
 import 'package:majorproject/detailScreens/StudentData/Sports/student_intercollege.dart';
 import 'package:majorproject/detailScreens/StudentData/Sports/student_intracollege.dart';
 import 'package:majorproject/detailScreens/StudentData/student_personaldetail.dart';
+import 'package:majorproject/detailScreens/TeacherData/Event%20Attended/teacher_FDP_a.dart';
+import 'package:majorproject/detailScreens/TeacherData/Event%20Attended/teacher_conference_a.dart';
+import 'package:majorproject/detailScreens/TeacherData/Event%20Attended/teacher_seminar_a.dart';
+import 'package:majorproject/detailScreens/TeacherData/Event%20Attended/teacher_workshop_a.dart';
+import 'package:majorproject/detailScreens/TeacherData/Event%20Organised/teacher_Conference_o.dart';
+import 'package:majorproject/detailScreens/TeacherData/Event%20Organised/teacher_FDP_o.dart';
+import 'package:majorproject/detailScreens/TeacherData/Event%20Organised/teacher_seminar_o.dart';
+import 'package:majorproject/detailScreens/TeacherData/Event%20Organised/teacher_workshop_o.dart';
+import 'package:majorproject/detailScreens/TeacherData/Publication/book.dart';
+import 'package:majorproject/detailScreens/TeacherData/Publication/research_paper.dart';
+import 'package:majorproject/detailScreens/TeacherData/teacher_course_completed.dart';
 
 
 
@@ -737,7 +748,13 @@ class AdminHome extends StatelessWidget {
                                             icon: Icon(Icons.local_activity,
                                                 color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TeacherWorkshopList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -758,7 +775,13 @@ class AdminHome extends StatelessWidget {
                                             icon: Icon(Icons.school,
                                                 color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                     TeacherConferenceList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -779,7 +802,13 @@ class AdminHome extends StatelessWidget {
                                             icon: Icon(Icons.event_note,
                                                 color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                     TeacherSeminarList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -800,7 +829,13 @@ class AdminHome extends StatelessWidget {
                                             icon: Icon(Icons.emoji_events,
                                                 color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TeacherFDPList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -860,7 +895,13 @@ class AdminHome extends StatelessWidget {
                                             icon:Icon(Icons.local_activity,
                                                 color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TeacherWorkshopOList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -881,7 +922,13 @@ class AdminHome extends StatelessWidget {
                                             icon: Icon(Icons.school,
                                                 color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TeacherConferenceOList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -902,7 +949,13 @@ class AdminHome extends StatelessWidget {
                                             icon:Icon(Icons.event_note,
                                                 color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TeacherSeminarOList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -923,7 +976,13 @@ class AdminHome extends StatelessWidget {
                                             icon:  Icon(Icons.emoji_events,
                                                 color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TeacherFDPOList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -983,7 +1042,13 @@ class AdminHome extends StatelessWidget {
                                             icon: Icon(Icons.checklist_rtl_rounded,
                                                 color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the first icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TeacherCourseList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -1043,7 +1108,13 @@ class AdminHome extends StatelessWidget {
                                             icon: Icon(Icons.article,
                                                 color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the first icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TeacherPaperList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -1064,7 +1135,13 @@ class AdminHome extends StatelessWidget {
                                             icon: Icon(Icons.book,
                                                 color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the first icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TeacherBookList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -1077,335 +1154,6 @@ class AdminHome extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-
-
-                  // Container(
-                  //   color: Color(0xff13292B),
-                  //   child: Row(
-                  //     crossAxisAlignment: CrossAxisAlignment.start,
-                  //     children: [
-                  //       Expanded(
-                  //         child: Column(
-                  //           crossAxisAlignment: CrossAxisAlignment.start,
-                  //           children: [
-                  //             Padding(
-                  //               padding: const EdgeInsets.only(top: 18.0,left: 18,bottom: 8),
-                  //               child: Text(
-                  //                 'Event Attended',
-                  //                 style: TextStyle(
-                  //                     fontSize: 18,
-                  //                     fontWeight: FontWeight.bold,
-                  //                     color: Colors.white
-                  //                 ),
-                  //               ),
-                  //             ),
-                  //             Container(
-                  //               padding: EdgeInsets.all(10.0),
-                  //               child: Row(
-                  //                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //                 children: [
-                  //                   Column(
-                  //                     children: [
-                  //                       Container(
-                  //                         color: Color(0x1A0CECDA),
-                  //                         child: IconButton(
-                  //                           icon: Icon(Icons.model_training, color: Colors.white),
-                  //                           onPressed: () {
-                  //                             // Add functionality for the icon button
-                  //                           },
-                  //                         ),
-                  //                       ),
-                  //                       Padding(
-                  //                         padding: const EdgeInsets.only(top:4.0),
-                  //                         child: Text('Workshop', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                  //                       ),
-                  //                     ],
-                  //                   ),
-                  //                   Column(
-                  //                     children: [
-                  //                       Container(
-                  //                         color: Color(0x1A0CECDA),
-                  //                         child: IconButton(
-                  //                           icon: Icon(Icons.school, color: Colors.white),
-                  //                           onPressed: () {
-                  //                             // Add functionality for the icon button
-                  //                           },
-                  //                         ),
-                  //                       ),
-                  //                       Padding(
-                  //                         padding: const EdgeInsets.only(top:4.0),
-                  //                         child: Text('Conference', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                  //                       ),
-                  //                     ],
-                  //                   ),
-                  //                   Column(
-                  //                     children: [
-                  //                       Container(
-                  //                         color: Color(0x1A0CECDA),
-                  //                         child: IconButton(
-                  //                           icon: Icon(Icons.assignment, color: Colors.white),
-                  //                           onPressed: () {
-                  //                             // Add functionality for the icon button
-                  //                           },
-                  //                         ),
-                  //                       ),
-                  //                       Padding(
-                  //                         padding: const EdgeInsets.only(top:4.0),
-                  //                         child: Text('Seminar', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                  //                       ),
-                  //                     ],
-                  //                   ),
-                  //                   Column(
-                  //                     children: [
-                  //                       Container(
-                  //                         color: Color(0x1A0CECDA),
-                  //                         child: IconButton(
-                  //                           icon: Icon(Icons.emoji_events, color: Colors.white),
-                  //                           onPressed: () {
-                  //                             // Add functionality for the icon button
-                  //                           },
-                  //                         ),
-                  //                       ),
-                  //                       Padding(
-                  //                         padding: const EdgeInsets.only(top:4.0),
-                  //                         child: Text('FDP', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                  //                       ),
-                  //
-                  //                     ],
-                  //                   ),
-                  //                 ],
-                  //               ),
-                  //             ),
-                  //
-                  //           ],
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                  //
-                  // SizedBox(height: 15,),
-                  //
-                  // Container(
-                  //   color: Color(0xff13292B),
-                  //   child: Row(
-                  //     crossAxisAlignment: CrossAxisAlignment.start,
-                  //     children: [
-                  //       Expanded(
-                  //         child: Column(
-                  //           crossAxisAlignment: CrossAxisAlignment.start,
-                  //           children: [
-                  //             Padding(
-                  //               padding: const EdgeInsets.only(top: 18.0,left: 18,bottom: 8),
-                  //               child: Text(
-                  //                 'Event Organised',
-                  //                 style: TextStyle(
-                  //                     fontSize: 18,
-                  //                     fontWeight: FontWeight.bold,
-                  //                     color: Colors.white
-                  //                 ),
-                  //               ),
-                  //             ),
-                  //             Container(
-                  //               padding: EdgeInsets.all(10.0),
-                  //               child: Row(
-                  //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //                 children: [
-                  //                   Column(
-                  //                     children: [
-                  //                       Container(
-                  //                         color: Color(0x1A0CECDA),
-                  //                         child: IconButton(
-                  //                           icon: Icon(Icons.computer, color: Colors.white),
-                  //                           onPressed: () {
-                  //                             // Add functionality for the icon button
-                  //                           },
-                  //                         ),
-                  //                       ),
-                  //                       Padding(
-                  //                         padding: const EdgeInsets.only(top:4.0),
-                  //                         child: Text('Workshop', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                  //                       ),
-                  //                     ],
-                  //                   ),
-                  //                   Column(
-                  //                     children: [
-                  //                       Container(
-                  //                         color: Color(0x1A0CECDA),
-                  //                         child: IconButton(
-                  //                           icon: Icon(Icons.sports_soccer, color: Colors.white),
-                  //                           onPressed: () {
-                  //                             // Add functionality for the icon button
-                  //                           },
-                  //                         ),
-                  //                       ),
-                  //                       Padding(
-                  //                         padding: const EdgeInsets.only(top:4.0),
-                  //                         child: Text('Conference', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                  //                       ),
-                  //                     ],
-                  //                   ),
-                  //                   Column(
-                  //                     children: [
-                  //                       Container(
-                  //                         color: Color(0x1A0CECDA),
-                  //                         child: IconButton(
-                  //                           icon: Icon(Icons.music_note, color: Colors.white),
-                  //                           onPressed: () {
-                  //                             // Add functionality for the icon button
-                  //                           },
-                  //                         ),
-                  //                       ),
-                  //                       Padding(
-                  //                         padding: const EdgeInsets.only(top:4.0),
-                  //                         child: Text('Seminar', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                  //                       ),
-                  //                     ],
-                  //                   ),
-                  //                   Column(
-                  //                     children: [
-                  //                       Container(
-                  //                         color: Color(0x1A0CECDA),
-                  //                         child: IconButton(
-                  //                           icon: Icon(Icons.music_video, color: Colors.white),
-                  //                           onPressed: () {
-                  //                             // Add functionality for the icon button
-                  //                           },
-                  //                         ),
-                  //                       ),
-                  //                       Padding(
-                  //                         padding: const EdgeInsets.only(top:4.0),
-                  //                         child: Text('FDP', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                  //                       ),
-                  //
-                  //                     ],
-                  //                   ),
-                  //                 ],
-                  //               ),
-                  //             ),
-                  //           ],
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                  //
-                  // SizedBox(height: 15,),
-                  //
-                  // Container(
-                  //   color: Color(0xff13292B),
-                  //   child: Row(
-                  //     crossAxisAlignment: CrossAxisAlignment.start,
-                  //     children: [
-                  //       Expanded(
-                  //         child: Column(
-                  //           crossAxisAlignment: CrossAxisAlignment.start,
-                  //           children: [
-                  //             Padding(
-                  //               padding: const EdgeInsets.only(top: 18.0,left: 18,bottom: 8),
-                  //               child: Text(
-                  //                 'Course Completed',
-                  //                 style: TextStyle(
-                  //                     fontSize: 18,
-                  //                     fontWeight: FontWeight.bold,
-                  //                     color: Colors.white
-                  //                 ),
-                  //               ),
-                  //             ),
-                  //             Container(
-                  //               padding: EdgeInsets.all(10.0),
-                  //               child: Row(
-                  //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //                 children: [
-                  //                   Column(
-                  //                     children: [
-                  //                       Container(
-                  //                         color: Color(0x1A0CECDA),
-                  //                         child: IconButton(
-                  //                           icon: Icon(Icons.sports_baseball, color: Colors.white),
-                  //                           onPressed: () {
-                  //                             // Add functionality for the first icon button
-                  //                           },
-                  //                         ),
-                  //                       ),
-                  //                       Padding(
-                  //                         padding: const EdgeInsets.only(top:4.0),
-                  //                         child: Text('Courses', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                  //                       ),
-                  //                     ],
-                  //                   ),
-                  //
-                  //                 ],
-                  //               ),
-                  //             ),
-                  //           ],
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                  //
-                  // SizedBox(height: 15,),
-                  //
-                  // Container(
-                  //   color: Color(0xff13292B),
-                  //   child: Row(
-                  //     crossAxisAlignment: CrossAxisAlignment.start,
-                  //     children: [
-                  //       Expanded(
-                  //         child: Column(
-                  //           crossAxisAlignment: CrossAxisAlignment.start,
-                  //           children: [
-                  //             Padding(
-                  //               padding: const EdgeInsets.only(top: 18.0,left: 18,bottom: 8),
-                  //               child: Text(
-                  //                 'Publication',
-                  //                 style: TextStyle(
-                  //                     fontSize: 18,
-                  //                     fontWeight: FontWeight.bold,
-                  //                     color: Colors.white
-                  //                 ),
-                  //               ),
-                  //             ),
-                  //             Container(
-                  //               padding: EdgeInsets.all(10.0),
-                  //               child: Row(
-                  //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //                 children: [
-                  //                   Column(
-                  //                     children: [
-                  //                       Container(
-                  //                         color: Color(0x1A0CECDA),
-                  //                         child: IconButton(
-                  //                           icon: Icon(Icons.male, color: Colors.white),
-                  //                           onPressed: () {
-                  //                             // Add functionality for the first icon button
-                  //                           },
-                  //                         ),
-                  //                       ),
-                  //                       Padding(
-                  //                         padding: const EdgeInsets.only(top:4.0),
-                  //                         child: Text('Research Papers', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                  //                       ),
-                  //                     ],
-                  //                   ),
-                  //                   Column(
-                  //                     children: [
-                  //                       Container(
-                  //                         color: Color(0x1A0CECDA),
-                  //                         child: IconButton(
-                  //                           icon: Icon(Icons.female, color: Colors.white),
-                  //                           onPressed: () {
-                  //                             // Add functionality for the first icon button
-                  //                           },
-                  //                         ),
-                  //                       ),
-                  //                       Padding(
-                  //                         padding: const EdgeInsets.only(top:4.0),
-                  //                         child: Text('Books', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                  //                       ),
-                  //                     ],
-                  //                   ),
 
                                   ],
                                 ),
