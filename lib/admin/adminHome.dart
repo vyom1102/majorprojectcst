@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/admin/adminscreen.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_competition.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_course.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_higherstudies.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_placement.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_result.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_seminar.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_startup.dart';
+import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_training.dart';
+import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Technical/Student_tech_attended.dart';
+import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Technical/Student_tech_organised.dart';
+import 'package:majorproject/detailScreens/StudentData/Sports/student_intercollege.dart';
+import 'package:majorproject/detailScreens/StudentData/Sports/student_intracollege.dart';
 import 'package:majorproject/detailScreens/StudentData/student_personaldetail.dart';
 
 
@@ -97,7 +109,13 @@ class AdminHome extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.model_training, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentTrainingList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -114,7 +132,13 @@ class AdminHome extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.school, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentCourseList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -131,7 +155,13 @@ class AdminHome extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.assignment, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentResultList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -148,7 +178,13 @@ class AdminHome extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.emoji_events, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentCompetitionScreen(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -174,7 +210,13 @@ class AdminHome extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.event, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentSeminarList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -191,7 +233,13 @@ class AdminHome extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.business, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentStartupList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -208,7 +256,13 @@ class AdminHome extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.work, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentPlacementList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -225,7 +279,13 @@ class AdminHome extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.school_outlined, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentStudiesList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -268,82 +328,198 @@ class AdminHome extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Container(
-                                padding: EdgeInsets.all(10.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.computer, color: Colors.white),
-                                            onPressed: () {
-                                              // Add functionality for the icon button
-                                            },
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.sports_soccer, color: Colors.white),
-                                            onPressed: () {
-                                              // Add functionality for the icon button
-                                            },
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Non-Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.music_note, color: Colors.white),
-                                            onPressed: () {
-                                              // Add functionality for the icon button
-                                            },
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Musical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.music_video, color: Colors.white),
-                                            onPressed: () {
-                                              // Add functionality for the icon button
-                                            },
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Dance', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                                        ),
+                              Column(
 
+                                // crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+
+                                  Row(
+                                    children: [
+                                      SizedBox(width: 40,),
+                                      Text('Ogranised', style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white
+                                      ),),
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.all(10.0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.computer, color: Colors.white),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          StudentTechOrganisedList(),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.sports_soccer, color: Colors.white),
+                                                onPressed: () {
+                                                  // Add functionality for the icon button
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Non-Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.music_note, color: Colors.white),
+                                                onPressed: () {
+                                                  // Add functionality for the icon button
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Musical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.music_video, color: Colors.white),
+                                                onPressed: () {
+                                                  // Add functionality for the icon button
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Dance', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+
+                                          ],
+                                        ),
                                       ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      SizedBox(width: 40,),
+                                      Text('Attended', style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white
+                                      ),),
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.all(10.0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.computer, color: Colors.white),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          StudentTechEventParticipationList(),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.sports_soccer, color: Colors.white),
+                                                onPressed: () {
+                                                  // Add functionality for the icon button
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Non-Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.music_note, color: Colors.white),
+                                                onPressed: () {
+                                                  // Add functionality for the icon button
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Musical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.music_video, color: Colors.white),
+                                                onPressed: () {
+                                                  // Add functionality for the icon button
+                                                },
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top:4.0),
+                                              child: Text('Dance', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            ),
+
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -386,7 +562,13 @@ class AdminHome extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.sports_baseball, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the first icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentInterList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
@@ -403,7 +585,13 @@ class AdminHome extends StatelessWidget {
                                           child: IconButton(
                                             icon: Icon(Icons.sports_volleyball, color: Colors.white),
                                             onPressed: () {
-                                              // Add functionality for the first icon button
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentIntraList(),
+                                                ),
+                                              );
                                             },
                                           ),
                                         ),
