@@ -9,7 +9,7 @@ import 'package:majorproject/StudentActivities/academic_folder/result_screen.dar
 import 'package:majorproject/StudentActivities/academic_folder/seminar_screen.dart';
 import 'package:majorproject/StudentActivities/academic_folder/startup_screen.dart';
 import 'package:majorproject/StudentActivities/academic_folder/training_screen.dart';
-import 'package:majorproject/StudentActivities/co-curricular_folder/dramatics_society.dart';
+import 'package:majorproject/StudentActivities/co-curricular_folder/others_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'package:majorproject/student_data_sheet_screen.dart';
 import 'package:majorproject/StudentActivities/academic_folder/training_screen.dart';
@@ -152,7 +152,6 @@ class _CurricularActivityScreenState extends State<CurricularActivityScreen> {
                   ),
                 ),
               ),
-
               Padding(
                 padding:
                 const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
@@ -173,54 +172,6 @@ class _CurricularActivityScreenState extends State<CurricularActivityScreen> {
                           return Color.fromRGBO(12, 236, 218, 0.5);
                         } else if (states.contains(MaterialState.selected) ||
                             selectedButton == 'Button 3') {
-                          // Selected color
-                          return Color.fromRGBO(12, 236, 218, 0.5);
-                        } else {
-                          // Default color
-                          return Colors.black;
-                        }
-                      },
-                    ),
-                    shape: MaterialStateProperty.all<OutlinedBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius:
-                        BorderRadius.circular(8.0), // Set the border radius
-                        side: BorderSide(
-                            color: Color(0xFF0CECDA)), // Set the border color
-                      ),
-                    ),
-                  ),
-                  child: Text(
-                    'Drama',
-                    style: GoogleFonts.kufam(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
-
-              Padding(
-                padding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      selectedButton = 'Button 4';
-                      // selectedButton = 'NCC/NSS';
-                    });
-                  },
-                  style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(
-                      Size(0.9 * MediaQuery.of(context).size.width, 48.0),
-                    ),
-                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.pressed)) {
-                          // Pressed color
-                          return Color.fromRGBO(12, 236, 218, 0.5);
-                        } else if (states.contains(MaterialState.selected) ||
-                            selectedButton == 'Button 4') {
                           // Selected color
                           return Color.fromRGBO(12, 236, 218, 0.5);
                         } else {
@@ -252,6 +203,53 @@ class _CurricularActivityScreenState extends State<CurricularActivityScreen> {
                   ),
                 ),
               ),
+              Padding(
+                padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedButton = 'Button 4';
+                    });
+                  },
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(
+                      Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                    ),
+                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                          (Set<MaterialState> states) {
+                        if (states.contains(MaterialState.pressed)) {
+                          // Pressed color
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else if (states.contains(MaterialState.selected) ||
+                            selectedButton == 'Button 4') {
+                          // Selected color
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else {
+                          // Default color
+                          return Colors.black;
+                        }
+                      },
+                    ),
+                    shape: MaterialStateProperty.all<OutlinedBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius:
+                        BorderRadius.circular(8.0), // Set the border radius
+                        side: BorderSide(
+                            color: Color(0xFF0CECDA)), // Set the border color
+                      ),
+                    ),
+                  ),
+                  child: Text(
+                    'Others',
+                    style: GoogleFonts.kufam(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        color: Colors.white),
+                  ),
+                ),
+              ),
+
 
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.08),
 
@@ -280,11 +278,12 @@ class _CurricularActivityScreenState extends State<CurricularActivityScreen> {
                           builder: (context) => CulturalSocietyScreen(),
                         ),
                       );
-                    } else if (selectedButton == 'Button 3') {
+                    }
+                    else if (selectedButton == 'Button 3') {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => DramaSocietyScreen(),
+                          builder: (context) => CommunityServiceScreen(),
                         ),
                       );
                     }
@@ -292,7 +291,7 @@ class _CurricularActivityScreenState extends State<CurricularActivityScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => CommunityServiceScreen(),
+                          builder: (context) => OthersScreen(),
                         ),
                       );
                     }
