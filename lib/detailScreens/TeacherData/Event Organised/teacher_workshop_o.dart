@@ -26,12 +26,12 @@ class StudentCourse {
 }
 
 
-class TeacherWorkshopList extends StatefulWidget {
+class TeacherWorkshopOList extends StatefulWidget {
   @override
-  _TeacherWorkshopListState createState() => _TeacherWorkshopListState();
+  _TeacherWorkshopOListState createState() => _TeacherWorkshopOListState();
 }
 
-class _TeacherWorkshopListState extends State<TeacherWorkshopList> {
+class _TeacherWorkshopOListState extends State<TeacherWorkshopOList> {
   final databaseReference = FirebaseDatabase.instance.ref();
   late DatabaseReference _membersRef;
 
