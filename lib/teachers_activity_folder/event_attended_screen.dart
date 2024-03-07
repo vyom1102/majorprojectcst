@@ -170,9 +170,11 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
     try {
       await _teacherRef.child('id').child(_fullNameController.text).set({
         'fullName': _fullNameController.text,
-        'detailsOfSeminar': _detailsController.text,
+        'detailsOfWorkshop': _detailsController.text,
         'duration': _durationController.text,
         'address': _addressController.text,
+        'starting': WorkshopHeldFromDate.toString(),
+        'ending': WorkshopHeldToDate.toString(),
       });
 
     } catch (error) {
@@ -184,9 +186,11 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
     try {
       await _teacherRef2.child('id').child(_fullName2Controller.text).set({
         'fullName': _fullName2Controller.text,
-        'detailsOfSeminar': _details2Controller.text,
+        'detailsOfConference': _details2Controller.text,
         'duration': _duration2Controller.text,
         'address': _address2Controller.text,
+        'starting': ConferenceHeldFromDate.toString(),
+        'ending': ConferenceHeldToDate.toString(),
       });
 
     } catch (error) {
@@ -201,6 +205,8 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
         'detailsOfSeminar': _details3Controller.text,
         'duration': _duration3Controller.text,
         'address': _address3Controller.text,
+        'starting': SeminarHeldFromDate.toString(),
+        'ending': SeminarHeldToDate.toString(),
       });
 
     } catch (error) {
@@ -212,9 +218,11 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
     try {
       await _teacherRef4.child('id').child(_fullName4Controller.text).set({
         'fullName': _fullName4Controller.text,
-        'detailsOfSeminar': _details4Controller.text,
+        'detailsOfFDP': _details4Controller.text,
         'duration': _duration4Controller.text,
         'address': _address4Controller.text,
+        'starting': FDPHeldFromDate.toString(),
+        'ending': FDPHeldToDate.toString(),
       });
 
     } catch (error) {
