@@ -262,7 +262,7 @@ class _CommunityServiceScreenState extends State<CommunityServiceScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Name of the Society',
+                            Text('Name of the organization',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -297,7 +297,7 @@ class _CommunityServiceScreenState extends State<CommunityServiceScreen> {
                               height: 20,
                             ),
 
-                            Text('Role in the society',
+                            Text('Role in the organization',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -650,7 +650,7 @@ class _CommunityServiceScreenState extends State<CommunityServiceScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Name of the Society',
+                            Text('Name of the Organization',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -685,7 +685,7 @@ class _CommunityServiceScreenState extends State<CommunityServiceScreen> {
                               height: 20,
                             ),
 
-                            Text('Role in the society',
+                            Text('Role in the organization',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,

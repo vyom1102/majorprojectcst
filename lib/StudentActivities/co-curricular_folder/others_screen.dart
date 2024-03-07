@@ -7,12 +7,12 @@ import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
 
-class DramaSocietyScreen extends StatefulWidget {
+class OthersScreen extends StatefulWidget {
   @override
-  _DramaSocietyScreenState createState() => _DramaSocietyScreenState();
+  _OthersScreenState createState() => _OthersScreenState();
 }
 
-class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
+class _OthersScreenState extends State<OthersScreen> {
   final DatabaseReference _studentdram =
   FirebaseDatabase.instance.ref().child('StudentData').child('Co-CurricularData').child('DramaSocietyData').child('studentDramaEventOrganized');
   final DatabaseReference _studentDrama =
@@ -175,7 +175,7 @@ class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
                 height: 70,
               ),
               Text(
-                'Dramatics',
+                'Others',
                 style: GoogleFonts.kufam(
                   fontWeight: FontWeight.w600,
                   fontSize: 26,
@@ -262,75 +262,75 @@ class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Name of the Society',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
-                            TextFormField(
-                              controller: _nameController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'This field is required';
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                hintText: 'Ayaam',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                ),
-                                hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
-                              ),
-                              style: TextStyle(color: Colors.white),),
-                            SizedBox(
-                              height: 20,
-                            ),
-
-                            Text('Role in the society',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
-                            TextFormField(
-                              controller: _rollController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'This field is required';
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                hintText: 'Member',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                ),
-                                hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
-                              ),
-                              style: TextStyle(color: Colors.white),),
-                            SizedBox(
-                              height: 20,
-                            ),
+                            // Text('Name of the Society',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
+                            // SizedBox(height: 5),
+                            // TextFormField(
+                            //   controller: _nameController,
+                            //   validator: (value) {
+                            //     if (value == null || value.isEmpty) {
+                            //       return 'This field is required';
+                            //     }
+                            //     return null;
+                            //   },
+                            //   decoration: InputDecoration(
+                            //     hintText: 'Ayaam',
+                            //     enabledBorder: OutlineInputBorder(
+                            //       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                            //     ),
+                            //     focusedBorder: OutlineInputBorder(
+                            //       borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            //     ),
+                            //     hintStyle: GoogleFonts.kufam(
+                            //         color: Colors.white.withOpacity(0.5)),
+                            //     contentPadding: const EdgeInsets.symmetric(
+                            //         vertical: 20.0, horizontal: 15.0),
+                            //     border: OutlineInputBorder(),
+                            //     fillColor: Color(0xff141318),
+                            //     filled: true,
+                            //   ),
+                            //   style: TextStyle(color: Colors.white),),
+                            // SizedBox(
+                            //   height: 20,
+                            // ),
+                            //
+                            // Text('Role in the society',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
+                            // SizedBox(height: 5),
+                            // TextFormField(
+                            //   controller: _rollController,
+                            //   validator: (value) {
+                            //     if (value == null || value.isEmpty) {
+                            //       return 'This field is required';
+                            //     }
+                            //     return null;
+                            //   },
+                            //   decoration: InputDecoration(
+                            //     hintText: 'Member',
+                            //     enabledBorder: OutlineInputBorder(
+                            //       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                            //     ),
+                            //     focusedBorder: OutlineInputBorder(
+                            //       borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            //     ),
+                            //     hintStyle: GoogleFonts.kufam(
+                            //         color: Colors.white.withOpacity(0.5)),
+                            //     contentPadding: const EdgeInsets.symmetric(
+                            //         vertical: 20.0, horizontal: 15.0),
+                            //     border: OutlineInputBorder(),
+                            //     fillColor: Color(0xff141318),
+                            //     filled: true,
+                            //   ),
+                            //   style: TextStyle(color: Colors.white),),
+                            // SizedBox(
+                            //   height: 20,
+                            // ),
 
                             Text('Event name',
                                 style: TextStyle(
@@ -650,7 +650,7 @@ class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Name of the Society',
+                            Text('Name of the organization',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
@@ -665,7 +665,7 @@ class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: 'Ayaam',
+                                hintText: 'Abc',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -685,40 +685,40 @@ class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
                               height: 20,
                             ),
 
-                            Text('Role in the society',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
-                            SizedBox(height: 5),
-                            TextFormField(
-                              controller: _roll2Controller,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'This field is required';
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                hintText: 'Member',
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                ),
-                                hintStyle: GoogleFonts.kufam(
-                                    color: Colors.white.withOpacity(0.5)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    vertical: 20.0, horizontal: 15.0),
-                                border: OutlineInputBorder(),
-                                fillColor: Color(0xff141318),
-                                filled: true,
-                              ),
-                              style: TextStyle(color: Colors.white),),
-                            SizedBox(
-                              height: 20,
-                            ),
+                            // Text('Role in the society',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
+                            // SizedBox(height: 5),
+                            // TextFormField(
+                            //   controller: _roll2Controller,
+                            //   validator: (value) {
+                            //     if (value == null || value.isEmpty) {
+                            //       return 'This field is required';
+                            //     }
+                            //     return null;
+                            //   },
+                            //   decoration: InputDecoration(
+                            //     hintText: 'Member',
+                            //     enabledBorder: OutlineInputBorder(
+                            //       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                            //     ),
+                            //     focusedBorder: OutlineInputBorder(
+                            //       borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            //     ),
+                            //     hintStyle: GoogleFonts.kufam(
+                            //         color: Colors.white.withOpacity(0.5)),
+                            //     contentPadding: const EdgeInsets.symmetric(
+                            //         vertical: 20.0, horizontal: 15.0),
+                            //     border: OutlineInputBorder(),
+                            //     fillColor: Color(0xff141318),
+                            //     filled: true,
+                            //   ),
+                            //   style: TextStyle(color: Colors.white),),
+                            // SizedBox(
+                            //   height: 20,
+                            // ),
 
                             Text('Event name',
                                 style: TextStyle(
@@ -1041,7 +1041,7 @@ class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DramaSocietyScreen(),
+                        builder: (context) => OthersScreen(),
                       ),
                     );
                     _saveStudentResultData();
@@ -1050,7 +1050,7 @@ class _DramaSocietyScreenState extends State<DramaSocietyScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DramaSocietyScreen(),
+                        builder: (context) => OthersScreen(),
                       ),
                     );
                     _saveStudent2ResultData();
