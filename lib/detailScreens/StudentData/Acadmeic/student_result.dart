@@ -164,7 +164,7 @@ class _StudentResultListState extends State<StudentResultList> {
                   children: [
                     SizedBox(width: 10,),
                     Text(
-                      'Student\'s Seminar Details',
+                      'Student\'s Result Details',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,
