@@ -33,7 +33,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
             child: Image.asset(
               'images/bottom_container.png',
               fit: BoxFit.cover,
-              height: 200,
+              height: MediaQuery.sizeOf(context).height*0.25,
               width: MediaQuery.sizeOf(context)
                   .width, // Adjust the height as needed
             ),
@@ -41,19 +41,23 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
           Column(
             children: [
               SizedBox(
-                height: 100,
+
+                height: MediaQuery.sizeOf(context).height*0.1,
               ),
               Row(
                 children: [
                   IconButton(
                     icon: Image.asset('images/drawer.png',
                     width: 30.0,
-                    height: 30.0,),
+                    height: 30.0,
+                    ),
                     onPressed: () {
                       _scaffoldKey.currentState?.openDrawer();
                     },
                   ),
-                  SizedBox(width: 80,),
+                  SizedBox(
+                    width: MediaQuery.sizeOf(context).width*0.2,
+                  ),
                   Text(
                     'STUDENT',
                     style: GoogleFonts.kufam(
@@ -64,14 +68,14 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: MediaQuery.sizeOf(context).height*0.05,
               ),
               Center(
                   child: Image.asset(
                 'images/student.png',
                 scale: 3,
               )),
-              SizedBox(height: 20),
+              SizedBox(height: MediaQuery.sizeOf(context).height*0.05,),
 
               // Buttons
               ElevatedButton(
@@ -82,7 +86,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                 },
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all(
-                    Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                    Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
                   ),
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
                     (Set<MaterialState> states) {
@@ -112,7 +116,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
               ),
               SizedBox(
-                height: 20,
+                  height: MediaQuery.sizeOf(context).height*0.025,
               ),
               ElevatedButton(
                 onPressed: () {
@@ -122,7 +126,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                 },
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all(
-                    Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                    Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
                   ),
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
                     (Set<MaterialState> states) {
@@ -152,7 +156,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
               ),
               SizedBox(
-                height: 20,
+                height: MediaQuery.sizeOf(context).height*0.025,
               ),
               ElevatedButton(
                 onPressed: () {
@@ -162,7 +166,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                 },
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all(
-                    Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                    Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
                   ),
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
                     (Set<MaterialState> states) {
@@ -192,7 +196,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
               ),
               SizedBox(
-                height: 20,
+                height: MediaQuery.sizeOf(context).height*0.025,
               ),
 
               ElevatedButton(
@@ -203,7 +207,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                 },
                 style: ButtonStyle(
                   minimumSize: MaterialStateProperty.all(
-                    Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                    Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
                   ),
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
                     (Set<MaterialState> states) {
@@ -238,7 +242,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                   minimumSize:
-                      Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                  Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
                 ),
                 onPressed: () {
                   if (selectedButton.isNotEmpty) {
@@ -271,7 +275,9 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                       );
                     }
                   } else {
-                    // Show a message or handle the case when no button is selected.
+                    print(MediaQuery.sizeOf(context).height);
+                    print(MediaQuery.sizeOf(context).width);
+
                     print('Please select a button.');
                   }
                 },

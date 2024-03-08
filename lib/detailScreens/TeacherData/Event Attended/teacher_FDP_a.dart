@@ -147,7 +147,7 @@ class _TeacherFDPListState extends State<TeacherFDPList> {
                   children: [
                     SizedBox(width: 10,),
                     Text(
-                      'Teacher\'s FDP Attended Details',
+                      'FDP Attended',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,

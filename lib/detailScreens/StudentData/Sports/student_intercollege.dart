@@ -168,7 +168,7 @@ class _StudentInterListState extends State<StudentInterList> {
                   children: [
                     SizedBox(width: 10,),
                     Text(
-                      'Student\'s InterCollege Sports Details',
+                      'InterCollege Sports Details',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,

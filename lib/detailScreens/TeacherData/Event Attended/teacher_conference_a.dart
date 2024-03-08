@@ -147,7 +147,7 @@ class _TeacherConferenceListState extends State<TeacherConferenceList> {
                   children: [
                     SizedBox(width: 10,),
                     Text(
-                      'Teacher\'s Conference Attended Details',
+                      'Conference Attended',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,
