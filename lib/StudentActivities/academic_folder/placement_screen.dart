@@ -58,9 +58,9 @@ class _PlacementScreenState extends State<PlacementScreen> {
         'batch' : selectedYear.toString(),
         'placement' : _categoriesController.text,
         'campusPlacement' : _placementController.text,
-        'companyName' : _companyNameController.toString(),
-        'package' : _packageController.toString(),
-        'position' : _positionController.toString(),
+        'companyName' : _companyNameController.text,
+        'package' : _packageController.text,
+        'position' : _positionController.text,
         'location' : _locationController.text,
       });
 

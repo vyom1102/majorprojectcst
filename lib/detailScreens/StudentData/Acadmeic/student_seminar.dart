@@ -9,7 +9,7 @@ class StudentSeminar {
 
   final String enrollmentNumber;
   final String facultyName;
-  final String detailSeminarAttended;
+  //final String detailSeminarAttended;
   final String startingDate;
   final String endingDate;
   final String durationOfSeminar;
@@ -23,7 +23,7 @@ class StudentSeminar {
     required this.durationOfSeminar,
     required this.startingDate,
     required this.endingDate,
-    required this.detailSeminarAttended,
+   // required this.detailSeminarAttended,
     required this.seminarAddress,
   });
 }
@@ -60,12 +60,12 @@ class _StudentSeminarListState extends State<StudentSeminarList> {
             fetchedStudents.add(StudentSeminar(
               id: key.toString(),
               enrollmentNumber: value['enrollmentNumber'] ?? '',
-              facultyName: value['facultyName'] ?? '',
-              durationOfSeminar: value['durationOfSeminar'] ?? '',
-              startingDate: value['startingDate'] ?? '',
-              endingDate: value['endingDate'] ?? '',
-              detailSeminarAttended: value['detailSeminarAttended'] ?? '',
-              seminarAddress: value['seminarAddress'] ?? '',
+              facultyName: value['nameOfFaculty'] ?? '',
+              durationOfSeminar: value['duration'] ?? '',
+              startingDate: value['StartingDate'] ?? '',
+              endingDate: value['EndingDate'] ?? '',
+              //detailSeminarAttended: value['detailSeminarAttended'] ?? '',
+              seminarAddress: value['address'] ?? '',
             ));
           });
           setState(() {
@@ -102,13 +102,13 @@ class _StudentSeminarListState extends State<StudentSeminarList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('ID: ${student.id}'),
+              //Text('ID: ${student.id}'),
               Text('Enrollment Number: ${student.enrollmentNumber}'),
               Text('Faculty Name: ${student.facultyName}'),
               Text('Duration of Seminar: ${student.durationOfSeminar}'),
               Text('Starting Date: ${student.startingDate}'),
               Text('Ending Date: ${student.endingDate}'),
-              Text('Seminar Attended: ${student.detailSeminarAttended}'),
+              //Text('Seminar Attended: ${student.detailSeminarAttended}'),
               Text('Seminar Address: ${student.seminarAddress}'),
             ],
           ),

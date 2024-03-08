@@ -64,14 +64,14 @@ class _StudentStudiesListState extends State<StudentStudiesList> {
             fetchedStudents.add(StudentHigherStudies(
               id: key.toString(),
               enrollmentNumber: value['enrollmentNumber'] ?? '',
-              courseName: value['courseName'] ?? '',
+              courseName: value['nameOfCourse'] ?? '',
               university: value['university'] ?? '',
-              startingDate: value['startingDate'] ?? '',
-              endingDate: value['endingDate'] ?? '',
+              startingDate: value['StartingDate'] ?? '',
+              endingDate: value['EndingDate'] ?? '',
               location: value['location'] ?? '',
               duration: value['duration'] ?? '',
-              ppo: value['ppo'] ?? '',
-              detailPPO: value['detailPPO'] ?? '',
+              ppo: value['ppoInfo'] ?? '',
+              detailPPO: value['ppoDetail'] ?? '',
             ));
           });
           setState(() {
@@ -108,7 +108,7 @@ class _StudentStudiesListState extends State<StudentStudiesList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('ID: ${student.id}'),
+              //Text('ID: ${student.id}'),
               Text('Enrollment Number: ${student.enrollmentNumber}'),
               Text('Course Name: ${student.courseName}'),
               Text('University: ${student.university}'),

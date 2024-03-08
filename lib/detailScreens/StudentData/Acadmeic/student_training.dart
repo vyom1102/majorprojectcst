@@ -135,7 +135,7 @@ class _StudentTrainingListState extends State<StudentTrainingList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('ID: ${student.id}'),
+              // Text('ID: ${student.id}'),
               Text('Enrollment Number: ${student.enrollmentNumber}'),
               Text('Training: ${student.training}'),
               Text('Duration of Internship: ${student.durationOfIntern}'),
@@ -217,10 +217,12 @@ class _StudentTrainingListState extends State<StudentTrainingList> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
+                      floatingLabelBehavior: FloatingLabelBehavior.never, // Keeps the hint text visible
                     ),
                     onChanged: _filterStudents,
                   ),
                 ),
+
 
                 Expanded(
                   child: ListView.builder(

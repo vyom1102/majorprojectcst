@@ -73,9 +73,9 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
         'nameOfCourse' : _courseNameController.text,
         'university' : _universityController.text,
         'location' : _locationController.text,
-        'duration' : _durationController.toString(),
-        'ppoInfo' : _ppoController.toString(),
-        'ppoDetail' : _ppoDetailsController.toString(),
+        'duration' : _durationController.text,
+        'ppoInfo' : _ppoController.text,
+        'ppoDetail' : _ppoDetailsController.text,
         'StartingDate' : selectedDate.toString(),
         'EndingDate' : joiningDate.toString(),
       });

@@ -59,7 +59,7 @@ class _StudentStartupListState extends State<StudentStartupList> {
               enrollmentNumber: value['enrollmentNumber'] ?? '',
               companyName: value['companyName'] ?? '',
               companyProfile: value['companyProfile'] ?? '',
-              startingDate: value['startingDate'] ?? '',
+              startingDate: value['StartingDate'] ?? '',
               designation: value['designation'] ?? '',
               location: value['location'] ?? '',
             ));
