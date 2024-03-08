@@ -160,7 +160,7 @@ class _StudentCulEventParticipationListState
                 children: [
                   SizedBox(width: 10),
                   Text(
-                    'Technical Event Participation ',
+                    'Cultural Event Participation ',
                     style: GoogleFonts.kufam(
                       fontWeight: FontWeight.w600,
                       fontSize: 22,

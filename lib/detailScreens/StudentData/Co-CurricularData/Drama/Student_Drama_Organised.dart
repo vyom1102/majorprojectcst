@@ -160,7 +160,7 @@ class _StudentDramaEventOrganisedListState
                 children: [
                   SizedBox(width: 10),
                   Text(
-                    'Technical Event Participation ',
+                    'Other Event Organisation ',
                     style: GoogleFonts.kufam(
                       fontWeight: FontWeight.w600,
                       fontSize: 22,
