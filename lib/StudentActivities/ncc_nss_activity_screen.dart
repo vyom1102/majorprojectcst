@@ -11,11 +11,11 @@ class NCCandNSSActivityScreen extends StatefulWidget {
 
 class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
   final DatabaseReference _studentRef =
-  FirebaseDatabase.instance.ref().child('StudentData').child('Co-CurricularData').child('TechnicalSocietyData').child('studentTechnicalEventOrganized');
+  FirebaseDatabase.instance.ref().child('StudentData').child('NCCNSS').child('Female');
   final DatabaseReference _studentRef1 =
-  FirebaseDatabase.instance.ref().child('StudentData').child('Co-CurricularData').child('TechnicalSocietyData').child('studentTechnicalEventParticipation');
+  FirebaseDatabase.instance.ref().child('StudentData').child('NCCNSS').child('Male');
   final DatabaseReference _studentRef2 =
-  FirebaseDatabase.instance.ref().child('StudentData').child('Co-CurricularData').child('TechnicalSocietyData').child('studentTechnicalEventParticipation');
+  FirebaseDatabase.instance.ref().child('StudentData').child('NCCNSS').child('CO');
   bool _showFemaleTextField = false; // Variable to toggle visibility of text fields
   bool _showMaleTextField = false; // Variable to toggle visibility of text fields
   bool _showCoTextField = false; // Variable to toggle visibility of text fields
@@ -121,25 +121,63 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
       });
     }
   }
-  // Future<void> _saveStudentData() async {
-  //   try {
-  //     await _studentRef.child('id').child(_studentnameController.text).set({
-  //       'enrollnumb': _studentnameController.text,
-  //       'eventname' : _nameController.text,
-  //       'detailname' : _detailsController.text,
-  //       'duration' : _durationController.text,
-  //       'individual' : _indiOrGroupController.text,
-  //       'achievement' : _achievementsController.text,
-  //       'address' : _addressController.text,
-  //       'Startingdate' : ConferenceOrganizedHeldFromDate.toString(),
-  //       'Endingdate' : ConferenceOrganizedHeldToDate.toString(),
-  //     });
-  //
-  //   } catch (error) {
-  //     // Handle the error
-  //     print('Error saving data: $error');
-  //   }
-  // }
+  Future<void> _saveStudentData() async {
+    try {
+      await _studentRef.child('id').child(_studentnameController.text).set({
+        'enrollmentNumber': _studentnameController.text,
+        'eventname' : _eventNameController.text,
+        'name' : _nameController.text,
+        'role' : _rollController.text,
+        'detail' : _detailsController.text,
+        'duration' : _durationController.text,
+        'address' : _addressController.text,
+        'Startingdate' : femaleHeldFromDate.toString(),
+        'Endingdate' : femaleHeldToDate.toString(),
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
+  Future<void> _save2StudentData() async {
+    try {
+      await _studentRef1.child('id').child(_student2nameController.text).set({
+        'enrollmentNumber': _student2nameController.text,
+        'eventname' : _eventName2Controller.text,
+        'name' : _name2Controller.text,
+        'role' : _roll2Controller.text,
+        'detail' : _details2Controller.text,
+        'duration' : _duration2Controller.text,
+        'address' : _address2Controller.text,
+        'Startingdate' : maleHeldFromDate.toString(),
+        'Endingdate' : maleHeldToDate.toString(),
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
+  Future<void> _save3StudentData() async {
+    try {
+      await _studentRef2.child('id').child(_student3nameController.text).set({
+        'enrollmentNumber': _student3nameController.text,
+        'eventname' : _eventName3Controller.text,
+        'name' : _name3Controller.text,
+        'role' : _roll3Controller.text,
+        'detail' : _details3Controller.text,
+        'duration' : _duration3Controller.text,
+        'address' : _address3Controller.text,
+        'Startingdate' : coHeldFromDate.toString(),
+        'Endingdate' : coHeldToDate.toString(),
+      });
+
+    } catch (error) {
+      // Handle the error
+      print('Error saving data: $error');
+    }
+  }
 
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _rollController = TextEditingController();
@@ -162,8 +200,6 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
   final TextEditingController _eventName2Controller = TextEditingController();
   final TextEditingController _details2Controller = TextEditingController();
   final TextEditingController _duration2Controller = TextEditingController();
-  // final TextEditingController _indiOrGroupController = TextEditingController();
-  // final TextEditingController _achievementsController = TextEditingController();
   final TextEditingController _address2Controller = TextEditingController();
   final TextEditingController _student2nameController = TextEditingController();
 
@@ -246,6 +282,40 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Text('Enrollment number of Student',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _studentnameController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'ABC',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Text('Name',
                                 style: TextStyle(
                                     fontSize: 14.0,
@@ -600,6 +670,40 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Text('Enrollment number of Student',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _student2nameController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'ABC',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Text('Name',
                                 style: TextStyle(
                                     fontSize: 14.0,
@@ -1023,6 +1127,40 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Text('Enrollment number of Student',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                            SizedBox(height: 5),
+                            TextFormField(
+                              controller: _student3nameController,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'ABC',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Text('Name',
                                 style: TextStyle(
                                     fontSize: 14.0,
@@ -1340,6 +1478,33 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
+                  if (_studentnameController.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NCCandNSSActivityScreen(),
+                      ),
+                    );
+                    _saveStudentData();
+                  }
+                  if (_student2nameController.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NCCandNSSActivityScreen(),
+                      ),
+                    );
+                    _save2StudentData();
+                  }
+                  if (_student3nameController.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NCCandNSSActivityScreen(),
+                      ),
+                    );
+                    _save3StudentData();
+                  }
                   // Navigator.push(
                   //   context,
                   //   MaterialPageRoute(builder: (context) => NCCandNSSActivityScreen()),
