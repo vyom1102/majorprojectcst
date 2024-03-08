@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
@@ -9,6 +10,12 @@ class NCCandNSSActivityScreen extends StatefulWidget {
 }
 
 class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
+  final DatabaseReference _studentRef =
+  FirebaseDatabase.instance.ref().child('StudentData').child('Co-CurricularData').child('TechnicalSocietyData').child('studentTechnicalEventOrganized');
+  final DatabaseReference _studentRef1 =
+  FirebaseDatabase.instance.ref().child('StudentData').child('Co-CurricularData').child('TechnicalSocietyData').child('studentTechnicalEventParticipation');
+  final DatabaseReference _studentRef2 =
+  FirebaseDatabase.instance.ref().child('StudentData').child('Co-CurricularData').child('TechnicalSocietyData').child('studentTechnicalEventParticipation');
   bool _showFemaleTextField = false; // Variable to toggle visibility of text fields
   bool _showMaleTextField = false; // Variable to toggle visibility of text fields
   bool _showCoTextField = false; // Variable to toggle visibility of text fields
@@ -114,6 +121,25 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
       });
     }
   }
+  // Future<void> _saveStudentData() async {
+  //   try {
+  //     await _studentRef.child('id').child(_studentnameController.text).set({
+  //       'enrollnumb': _studentnameController.text,
+  //       'eventname' : _nameController.text,
+  //       'detailname' : _detailsController.text,
+  //       'duration' : _durationController.text,
+  //       'individual' : _indiOrGroupController.text,
+  //       'achievement' : _achievementsController.text,
+  //       'address' : _addressController.text,
+  //       'Startingdate' : ConferenceOrganizedHeldFromDate.toString(),
+  //       'Endingdate' : ConferenceOrganizedHeldToDate.toString(),
+  //     });
+  //
+  //   } catch (error) {
+  //     // Handle the error
+  //     print('Error saving data: $error');
+  //   }
+  // }
 
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _rollController = TextEditingController();
@@ -121,6 +147,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
   final TextEditingController _detailsController = TextEditingController();
   final TextEditingController _durationController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _studentnameController = TextEditingController();
 
   final TextEditingController _name3Controller = TextEditingController();
   final TextEditingController _roll3Controller = TextEditingController();
@@ -128,6 +155,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
   final TextEditingController _details3Controller = TextEditingController();
   final TextEditingController _duration3Controller = TextEditingController();
   final TextEditingController _address3Controller = TextEditingController();
+  final TextEditingController _student3nameController = TextEditingController();
 
   final TextEditingController _name2Controller = TextEditingController();
   final TextEditingController _roll2Controller = TextEditingController();
@@ -137,6 +165,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
   // final TextEditingController _indiOrGroupController = TextEditingController();
   // final TextEditingController _achievementsController = TextEditingController();
   final TextEditingController _address2Controller = TextEditingController();
+  final TextEditingController _student2nameController = TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 

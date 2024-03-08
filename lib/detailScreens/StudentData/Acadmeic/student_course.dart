@@ -13,7 +13,8 @@ class StudentCourse {
   final String specialization;
   final String duration;
   final String onlineOffline;
-  final String outcome;
+  final String certificate;
+  final String courseLearning;
   //final String null;
 
 
@@ -25,7 +26,8 @@ class StudentCourse {
     required this.specialization,
     required this.duration,
     required this.onlineOffline,
-    required this.outcome,
+    required this.certificate,
+    required this.courseLearning,
   });
 }
 
@@ -62,11 +64,12 @@ class _StudentCourseListState extends State<StudentCourseList> {
               id: key.toString(),
               enrollmentNumber: value['enrollmentNumber'] ?? '',
               courseName: value['CourseName'] ?? '',
-              instructorName: value['InstructorName'] ?? '',
+              instructorName: value['instructorName'] ?? '',
               specialization: value['specialization'] ?? '',
               duration: value['duration'] ?? '',
-              onlineOffline: value['onlineOffline'] ?? '',
-              outcome: value['outcome'] ?? '',
+              onlineOffline: value['onlineoffline'] ?? '',
+              certificate: value['certificate'] ?? '',
+              courseLearning: value['courseLearning'] ?? '',
             ));
           });
           setState(() {
@@ -110,7 +113,8 @@ class _StudentCourseListState extends State<StudentCourseList> {
               Text('Specialization: ${student.specialization}'),
               Text('Duration: ${student.duration}'),
               Text('Online Offline: ${student.onlineOffline}'),
-              Text('Outcome: ${student.outcome}'),
+              Text('Outcome: ${student.certificate}'),
+              Text('Course Learning: ${student.courseLearning}'),
             ],
           ),
           actions: [

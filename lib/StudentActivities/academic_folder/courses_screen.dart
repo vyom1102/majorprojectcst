@@ -30,12 +30,12 @@ class _CoursesScreenState extends State<CoursesScreen> {
     try {
       await _studentCourse.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
-        'certificate' : _imageController.toString(),
+        'certificate' : _imageController.text,
         'courseName' : _courseNameController.text,
         'instructorName' : _instructorOrOrganizationController.text,
-        'specialization' : _specializationController.toString(),
-        'duration' : _durationController.toString(),
-        'onlineoffline' : _onlineController.toString(),
+        'specialization' : _specializationController.text,
+        'duration' : _durationController.text,
+        'onlineoffline' : _onlineController.text,
         'courseLearning' : _courseLearningController.text,
       });
 
