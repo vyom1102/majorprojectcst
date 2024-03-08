@@ -121,19 +121,22 @@ class AdminHome extends StatelessWidget {
                                   children: [
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.model_training, color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StudentTrainingList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10),
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.model_training, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        StudentTrainingList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -144,19 +147,22 @@ class AdminHome extends StatelessWidget {
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.school, color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StudentCourseList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10),
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.school, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        StudentCourseList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -167,19 +173,22 @@ class AdminHome extends StatelessWidget {
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.assignment, color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StudentResultList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10),
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.assignment, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        StudentResultList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -190,19 +199,22 @@ class AdminHome extends StatelessWidget {
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.emoji_events, color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StudentCompetitionScreen(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10),
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.emoji_events, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        StudentCompetitionScreen(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -220,99 +232,200 @@ class AdminHome extends StatelessWidget {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
+                                    // Column(
+                                    //   children: [
+                                    //     Container(
+                                    //       color: Color(0x1A0CECDA),
+                                    //       child: IconButton(
+                                    //         icon: Icon(Icons.event, color: Colors.white),
+                                    //         onPressed: () {
+                                    //           Navigator.push(
+                                    //             context,
+                                    //             MaterialPageRoute(
+                                    //               builder: (context) =>
+                                    //                   StudentSeminarList(),
+                                    //             ),
+                                    //           );
+                                    //         },
+                                    //       ),
+                                    //     ),
+                                    //     Padding(
+                                    //       padding: const EdgeInsets.only(top:4.0),
+                                    //       child: Text('Seminar', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                    //     ),
+                                    //   ],
+                                    // ),
+                                    // Column(
+                                    //   children: [
+                                    //     Container(
+                                    //       color: Color(0x1A0CECDA),
+                                    //       child: IconButton(
+                                    //         icon: Icon(Icons.business, color: Colors.white),
+                                    //         onPressed: () {
+                                    //           Navigator.push(
+                                    //             context,
+                                    //             MaterialPageRoute(
+                                    //               builder: (context) =>
+                                    //                   StudentStartupList(),
+                                    //             ),
+                                    //           );
+                                    //         },
+                                    //       ),
+                                    //     ),
+                                    //     Padding(
+                                    //       padding: const EdgeInsets.only(top:4.0),
+                                    //       child: Text('Start Up', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                    //     ),
+                                    //   ],
+                                    // ),
+                                    // Column(
+                                    //   children: [
+                                    //     Container(
+                                    //       color: Color(0x1A0CECDA),
+                                    //       child: IconButton(
+                                    //         icon: Icon(Icons.work, color: Colors.white),
+                                    //         onPressed: () {
+                                    //           Navigator.push(
+                                    //             context,
+                                    //             MaterialPageRoute(
+                                    //               builder: (context) =>
+                                    //                   StudentPlacementList(),
+                                    //             ),
+                                    //           );
+                                    //         },
+                                    //       ),
+                                    //     ),
+                                    //     Padding(
+                                    //       padding: const EdgeInsets.only(top:4.0),
+                                    //       child: Text('Placement', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                    //     ),
+                                    //   ],
+                                    // ),
+                                    // Column(
+                                    //   children: [
+                                    //     Container(
+                                    //       color: Color(0x1A0CECDA),
+                                    //       child: IconButton(
+                                    //         icon: Icon(Icons.school_outlined, color: Colors.white),
+                                    //         onPressed: () {
+                                    //           Navigator.push(
+                                    //             context,
+                                    //             MaterialPageRoute(
+                                    //               builder: (context) =>
+                                    //                   StudentStudiesList(),
+                                    //             ),
+                                    //           );
+                                    //         },
+                                    //       ),
+                                    //     ),
+                                    //     Padding(
+                                    //       padding: const EdgeInsets.only(top:4.0),
+                                    //       child: Text('Higher Study', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                    //     ),
+                                    //
+                                    //   ],
+                                    // ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.event, color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StudentSeminarList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.event, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => StudentSeminarList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Seminar', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                          padding: const EdgeInsets.only(top: 4.0),
+                                          child: Text('Seminar', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.business, color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StudentStartupList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.business, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => StudentStartupList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Start Up', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                          padding: const EdgeInsets.only(top: 4.0),
+                                          child: Text('Start Up', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.work, color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StudentPlacementList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.work, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => StudentPlacementList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Placement', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                          padding: const EdgeInsets.only(top: 4.0),
+                                          child: Text('Placement', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.school_outlined, color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StudentStudiesList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.school_outlined, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => StudentStudiesList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Higher Study', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                          padding: const EdgeInsets.only(top: 4.0),
+                                          child: Text('Higher Study', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                         ),
+                                      ],
+                                    ),
 
-                                      ],
-                                    ),
                                   ],
                                 ),
                               ),
@@ -360,6 +473,107 @@ class AdminHome extends StatelessWidget {
                                       ),),
                                     ],
                                   ),
+                                  // Container(
+                                  //   padding: EdgeInsets.all(10.0),
+                                  //   child: Row(
+                                  //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  //     children: [
+                                  //       Column(
+                                  //         children: [
+                                  //           Container(
+                                  //             color: Color(0x1A0CECDA),
+                                  //             child: IconButton(
+                                  //               icon: Icon(Icons.code, color: Colors.white),
+                                  //               onPressed: () {
+                                  //                 Navigator.push(
+                                  //                   context,
+                                  //                   MaterialPageRoute(
+                                  //                     builder: (context) =>
+                                  //                         StudentTechOrganisedList(),
+                                  //                   ),
+                                  //                 );
+                                  //               },
+                                  //             ),
+                                  //           ),
+                                  //           Padding(
+                                  //             padding: const EdgeInsets.only(top:4.0),
+                                  //             child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                  //           ),
+                                  //         ],
+                                  //       ),
+                                  //       Column(
+                                  //         children: [
+                                  //           Container(
+                                  //             color: Color(0x1A0CECDA),
+                                  //             child: IconButton(
+                                  //               icon: Icon(Icons.art_track, color: Colors.white),
+                                  //               onPressed: () {
+                                  //                 Navigator.push(
+                                  //                   context,
+                                  //                   MaterialPageRoute(
+                                  //                     builder: (context) =>
+                                  //                         StudentCulEventOrganisedList(),
+                                  //                   ),
+                                  //                 );
+                                  //               },
+                                  //             ),
+                                  //           ),
+                                  //           Padding(
+                                  //             padding: const EdgeInsets.only(top:4.0),
+                                  //             child: Text('Cultural', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                  //           ),
+                                  //         ],
+                                  //       ),
+                                  //       Column(
+                                  //         children: [
+                                  //           Container(
+                                  //             color: Color(0x1A0CECDA),
+                                  //             child: IconButton(
+                                  //               icon: Icon(Icons.group, color: Colors.white),
+                                  //               onPressed: () {
+                                  //                 Navigator.push(
+                                  //                   context,
+                                  //                   MaterialPageRoute(
+                                  //                     builder: (context) =>
+                                  //                         StudentCommEventOrganiseList(),
+                                  //                   ),
+                                  //                 );
+                                  //               },
+                                  //             ),
+                                  //           ),
+                                  //           Padding(
+                                  //             padding: const EdgeInsets.only(top:4.0),
+                                  //             child: Text('Community', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                  //           ),
+                                  //         ],
+                                  //       ),
+                                  //       Column(
+                                  //         children: [
+                                  //           Container(
+                                  //             color: Color(0x1A0CECDA),
+                                  //             child: IconButton(
+                                  //               icon: Icon(Icons.more_horiz, color: Colors.white),
+                                  //               onPressed: () {
+                                  //                 Navigator.push(
+                                  //                   context,
+                                  //                   MaterialPageRoute(
+                                  //                     builder: (context) =>
+                                  //                         StudentDramaEventOrganisedList(),
+                                  //                   ),
+                                  //                 );
+                                  //               },
+                                  //             ),
+                                  //           ),
+                                  //           Padding(
+                                  //             padding: const EdgeInsets.only(top:4.0),
+                                  //             child: Text('Others', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                  //           ),
+                                  //
+                                  //         ],
+                                  //       ),
+                                  //     ],
+                                  //   ),
+                                  // ),
                                   Container(
                                     padding: EdgeInsets.all(10.0),
                                     child: Row(
@@ -367,100 +581,108 @@ class AdminHome extends StatelessWidget {
                                       children: [
                                         Column(
                                           children: [
-                                            Container(
-                                              color: Color(0x1A0CECDA),
-                                              child: IconButton(
-                                                icon: Icon(Icons.computer, color: Colors.white),
-                                                onPressed: () {
-                                                  Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          StudentTechOrganisedList(),
-                                                    ),
-                                                  );
-                                                },
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              child: Container(
+                                                color: Color(0x1A0CECDA),
+                                                child: IconButton(
+                                                  icon: Icon(Icons.code, color: Colors.white),
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) => StudentTechOrganisedList(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              padding: const EdgeInsets.only(top: 4.0),
+                                              child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                             ),
                                           ],
                                         ),
                                         Column(
                                           children: [
-                                            Container(
-                                              color: Color(0x1A0CECDA),
-                                              child: IconButton(
-                                                icon: Icon(Icons.sports_soccer, color: Colors.white),
-                                                onPressed: () {
-                                                  Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          StudentCulEventOrganisedList(),
-                                                    ),
-                                                  );
-                                                },
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              child: Container(
+                                                color: Color(0x1A0CECDA),
+                                                child: IconButton(
+                                                  icon: Icon(Icons.art_track, color: Colors.white),
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) => StudentCulEventOrganisedList(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Cultural', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              padding: const EdgeInsets.only(top: 4.0),
+                                              child: Text('Cultural', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                             ),
                                           ],
                                         ),
                                         Column(
                                           children: [
-                                            Container(
-                                              color: Color(0x1A0CECDA),
-                                              child: IconButton(
-                                                icon: Icon(Icons.music_note, color: Colors.white),
-                                                onPressed: () {
-                                                  Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          StudentCommEventOrganiseList(),
-                                                    ),
-                                                  );
-                                                },
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              child: Container(
+                                                color: Color(0x1A0CECDA),
+                                                child: IconButton(
+                                                  icon: Icon(Icons.group, color: Colors.white),
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) => StudentCommEventOrganiseList(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Community', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              padding: const EdgeInsets.only(top: 4.0),
+                                              child: Text('Community', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                             ),
                                           ],
                                         ),
                                         Column(
                                           children: [
-                                            Container(
-                                              color: Color(0x1A0CECDA),
-                                              child: IconButton(
-                                                icon: Icon(Icons.music_video, color: Colors.white),
-                                                onPressed: () {
-                                                  Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          StudentDramaEventOrganisedList(),
-                                                    ),
-                                                  );
-                                                },
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              child: Container(
+                                                color: Color(0x1A0CECDA),
+                                                child: IconButton(
+                                                  icon: Icon(Icons.more_horiz, color: Colors.white),
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) => StudentDramaEventOrganisedList(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Others', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              padding: const EdgeInsets.only(top: 4.0),
+                                              child: Text('Others', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                             ),
-
                                           ],
                                         ),
                                       ],
                                     ),
                                   ),
+
                                   Row(
                                     children: [
                                       SizedBox(width: 40,),
@@ -471,6 +693,107 @@ class AdminHome extends StatelessWidget {
                                       ),),
                                     ],
                                   ),
+                                  // Container(
+                                  //   padding: EdgeInsets.all(10.0),
+                                  //   child: Row(
+                                  //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  //     children: [
+                                  //       Column(
+                                  //         children: [
+                                  //           Container(
+                                  //             color: Color(0x1A0CECDA),
+                                  //             child: IconButton(
+                                  //               icon: Icon(Icons.code, color: Colors.white),
+                                  //               onPressed: () {
+                                  //                 Navigator.push(
+                                  //                   context,
+                                  //                   MaterialPageRoute(
+                                  //                     builder: (context) =>
+                                  //                         StudentTechEventParticipationList(),
+                                  //                   ),
+                                  //                 );
+                                  //               },
+                                  //             ),
+                                  //           ),
+                                  //           Padding(
+                                  //             padding: const EdgeInsets.only(top:4.0),
+                                  //             child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                  //           ),
+                                  //         ],
+                                  //       ),
+                                  //       Column(
+                                  //         children: [
+                                  //           Container(
+                                  //             color: Color(0x1A0CECDA),
+                                  //             child: IconButton(
+                                  //               icon: Icon(Icons.art_track, color: Colors.white),
+                                  //               onPressed: () {
+                                  //                 Navigator.push(
+                                  //                   context,
+                                  //                   MaterialPageRoute(
+                                  //                     builder: (context) =>
+                                  //                         StudentCulEventParticipationList(),
+                                  //                   ),
+                                  //                 );
+                                  //               },
+                                  //             ),
+                                  //           ),
+                                  //           Padding(
+                                  //             padding: const EdgeInsets.only(top:4.0),
+                                  //             child: Text('Cultural', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                  //           ),
+                                  //         ],
+                                  //       ),
+                                  //       Column(
+                                  //         children: [
+                                  //           Container(
+                                  //             color: Color(0x1A0CECDA),
+                                  //             child: IconButton(
+                                  //               icon: Icon(Icons.group, color: Colors.white),
+                                  //               onPressed: () {
+                                  //                 Navigator.push(
+                                  //                   context,
+                                  //                   MaterialPageRoute(
+                                  //                     builder: (context) =>
+                                  //                         StudentCommEventParticipationList(),
+                                  //                   ),
+                                  //                 );
+                                  //               },
+                                  //             ),
+                                  //           ),
+                                  //           Padding(
+                                  //             padding: const EdgeInsets.only(top:4.0),
+                                  //             child: Text('Community', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                  //           ),
+                                  //         ],
+                                  //       ),
+                                  //       Column(
+                                  //         children: [
+                                  //           Container(
+                                  //             color: Color(0x1A0CECDA),
+                                  //             child: IconButton(
+                                  //               icon: Icon(Icons.more_horiz, color: Colors.white),
+                                  //               onPressed: () {
+                                  //                 Navigator.push(
+                                  //                   context,
+                                  //                   MaterialPageRoute(
+                                  //                     builder: (context) =>
+                                  //                         StudentDramaEventParticipationList(),
+                                  //                   ),
+                                  //                 );
+                                  //               },
+                                  //             ),
+                                  //           ),
+                                  //           Padding(
+                                  //             padding: const EdgeInsets.only(top:4.0),
+                                  //             child: Text('Others', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                  //           ),
+                                  //
+                                  //         ],
+                                  //       ),
+                                  //     ],
+                                  //   ),
+                                  // ),
                                   Container(
                                     padding: EdgeInsets.all(10.0),
                                     child: Row(
@@ -478,100 +801,108 @@ class AdminHome extends StatelessWidget {
                                       children: [
                                         Column(
                                           children: [
-                                            Container(
-                                              color: Color(0x1A0CECDA),
-                                              child: IconButton(
-                                                icon: Icon(Icons.computer, color: Colors.white),
-                                                onPressed: () {
-                                                  Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          StudentTechEventParticipationList(),
-                                                    ),
-                                                  );
-                                                },
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              child: Container(
+                                                color: Color(0x1A0CECDA),
+                                                child: IconButton(
+                                                  icon: Icon(Icons.code, color: Colors.white),
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) => StudentTechEventParticipationList(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              padding: const EdgeInsets.only(top: 4.0),
+                                              child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                             ),
                                           ],
                                         ),
                                         Column(
                                           children: [
-                                            Container(
-                                              color: Color(0x1A0CECDA),
-                                              child: IconButton(
-                                                icon: Icon(Icons.sports_soccer, color: Colors.white),
-                                                onPressed: () {
-                                                  Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          StudentCulEventParticipationList(),
-                                                    ),
-                                                  );
-                                                },
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              child: Container(
+                                                color: Color(0x1A0CECDA),
+                                                child: IconButton(
+                                                  icon: Icon(Icons.art_track, color: Colors.white),
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) => StudentCulEventParticipationList(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Cultural', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              padding: const EdgeInsets.only(top: 4.0),
+                                              child: Text('Cultural', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                             ),
                                           ],
                                         ),
                                         Column(
                                           children: [
-                                            Container(
-                                              color: Color(0x1A0CECDA),
-                                              child: IconButton(
-                                                icon: Icon(Icons.music_note, color: Colors.white),
-                                                onPressed: () {
-                                                  Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          StudentCommEventParticipationList(),
-                                                    ),
-                                                  );
-                                                },
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              child: Container(
+                                                color: Color(0x1A0CECDA),
+                                                child: IconButton(
+                                                  icon: Icon(Icons.group, color: Colors.white),
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) => StudentCommEventParticipationList(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Community', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              padding: const EdgeInsets.only(top: 4.0),
+                                              child: Text('Community', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                             ),
                                           ],
                                         ),
                                         Column(
                                           children: [
-                                            Container(
-                                              color: Color(0x1A0CECDA),
-                                              child: IconButton(
-                                                icon: Icon(Icons.music_video, color: Colors.white),
-                                                onPressed: () {
-                                                  Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          StudentDramaEventParticipationList(),
-                                                    ),
-                                                  );
-                                                },
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              child: Container(
+                                                color: Color(0x1A0CECDA),
+                                                child: IconButton(
+                                                  icon: Icon(Icons.more_horiz, color: Colors.white),
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) => StudentDramaEventParticipationList(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Others', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              padding: const EdgeInsets.only(top: 4.0),
+                                              child: Text('Others', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                             ),
-
                                           ],
                                         ),
                                       ],
                                     ),
                                   ),
+
                                 ],
                               ),
                             ],
@@ -580,6 +911,232 @@ class AdminHome extends StatelessWidget {
                       ],
                     ),
                   ),
+
+                  // Container(
+                  //   color: Color(0xff13292B),
+                  //   child: Row(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       Expanded(
+                  //         child: Column(
+                  //           crossAxisAlignment: CrossAxisAlignment.start,
+                  //           children: [
+                  //             Padding(
+                  //               padding: const EdgeInsets.only(top: 18.0, left: 18, bottom: 8),
+                  //               child: Text(
+                  //                 'Co-curricular Activity (Society)',
+                  //                 style: TextStyle(
+                  //                   fontSize: 18,
+                  //                   fontWeight: FontWeight.bold,
+                  //                   color: Colors.white,
+                  //                 ),
+                  //               ),
+                  //             ),
+                  //             Column(
+                  //               children: [
+                  //                 Row(
+                  //                   children: [
+                  //                     SizedBox(width: 40),
+                  //                     Text(
+                  //                       'Ogranised',
+                  //                       style: TextStyle(
+                  //                         fontSize: 18,
+                  //                         fontWeight: FontWeight.bold,
+                  //                         color: Colors.white,
+                  //                       ),
+                  //                     ),
+                  //                   ],
+                  //                 ),
+                  //                 Container(
+                  //                   padding: EdgeInsets.all(10.0),
+                  //                   child: Row(
+                  //                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //                     children: [
+                  //                       Column(
+                  //                         children: [
+                  //                           IconButton(
+                  //                             icon: Icon(Icons.code, color: Colors.white), // Change icon to code icon
+                  //                             onPressed: () {
+                  //                               Navigator.push(
+                  //                                 context,
+                  //                                 MaterialPageRoute(
+                  //                                   builder: (context) => StudentTechOrganisedList(),
+                  //                                 ),
+                  //                               );
+                  //                             },
+                  //                           ),
+                  //                           Padding(
+                  //                             padding: const EdgeInsets.only(top: 4.0),
+                  //                             child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                  //                           ),
+                  //                         ],
+                  //                       ),
+                  //                       Column(
+                  //                         children: [
+                  //                           IconButton(
+                  //                             icon: Icon(Icons.art_track, color: Colors.white), // Change icon to art_track icon
+                  //                             onPressed: () {
+                  //                               Navigator.push(
+                  //                                 context,
+                  //                                 MaterialPageRoute(
+                  //                                   builder: (context) => StudentCulEventOrganisedList(),
+                  //                                 ),
+                  //                               );
+                  //                             },
+                  //                           ),
+                  //                           Padding(
+                  //                             padding: const EdgeInsets.only(top: 4.0),
+                  //                             child: Text('Cultural', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                  //                           ),
+                  //                         ],
+                  //                       ),
+                  //                       Column(
+                  //                         children: [
+                  //                           IconButton(
+                  //                             icon: Icon(Icons.group, color: Colors.white), // Change icon to group icon
+                  //                             onPressed: () {
+                  //                               Navigator.push(
+                  //                                 context,
+                  //                                 MaterialPageRoute(
+                  //                                   builder: (context) => StudentCommEventOrganiseList(),
+                  //                                 ),
+                  //                               );
+                  //                             },
+                  //                           ),
+                  //                           Padding(
+                  //                             padding: const EdgeInsets.only(top: 4.0),
+                  //                             child: Text('Community', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                  //                           ),
+                  //                         ],
+                  //                       ),
+                  //                       Column(
+                  //                         children: [
+                  //                           IconButton(
+                  //                             icon: Icon(Icons.more_horiz, color: Colors.white), // Change icon to more_horiz icon
+                  //                             onPressed: () {
+                  //                               Navigator.push(
+                  //                                 context,
+                  //                                 MaterialPageRoute(
+                  //                                   builder: (context) => StudentDramaEventOrganisedList(),
+                  //                                 ),
+                  //                               );
+                  //                             },
+                  //                           ),
+                  //                           Padding(
+                  //                             padding: const EdgeInsets.only(top: 4.0),
+                  //                             child: Text('Others', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                  //                           ),
+                  //                         ],
+                  //                       ),
+                  //                     ],
+                  //                   ),
+                  //                 ),
+                  //                 Row(
+                  //                   children: [
+                  //                     SizedBox(width: 40),
+                  //                     Text(
+                  //                       'Attended',
+                  //                       style: TextStyle(
+                  //                         fontSize: 18,
+                  //                         fontWeight: FontWeight.bold,
+                  //                         color: Colors.white,
+                  //                       ),
+                  //                     ),
+                  //                   ],
+                  //                 ),
+                  //                 Container(
+                  //                   padding: EdgeInsets.all(10.0),
+                  //                   child: Row(
+                  //                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //                     children: [
+                  //                       Column(
+                  //                         children: [
+                  //                           IconButton(
+                  //                             icon: Icon(Icons.code, color: Colors.white), // Change icon to code icon
+                  //                             onPressed: () {
+                  //                               Navigator.push(
+                  //                                 context,
+                  //                                 MaterialPageRoute(
+                  //                                   builder: (context) => StudentTechEventParticipationList(),
+                  //                                 ),
+                  //                               );
+                  //                             },
+                  //                           ),
+                  //                           Padding(
+                  //                             padding: const EdgeInsets.only(top: 4.0),
+                  //                             child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                  //                           ),
+                  //                         ],
+                  //                       ),
+                  //                       Column(
+                  //                         children: [
+                  //                           IconButton(
+                  //                             icon: Icon(Icons.art_track, color: Colors.white), // Change icon to art_track icon
+                  //                             onPressed: () {
+                  //                               Navigator.push(
+                  //                                 context,
+                  //                                 MaterialPageRoute(
+                  //                                   builder: (context) => StudentCulEventParticipationList(),
+                  //                                 ),
+                  //                               );
+                  //                             },
+                  //                           ),
+                  //                           Padding(
+                  //                             padding: const EdgeInsets.only(top: 4.0),
+                  //                             child: Text('Cultural', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                  //                           ),
+                  //                         ],
+                  //                       ),
+                  //                       Column(
+                  //                         children: [
+                  //                           IconButton(
+                  //                             icon: Icon(Icons.group, color: Colors.white), // Change icon to group icon
+                  //                             onPressed: () {
+                  //                               Navigator.push(
+                  //                                 context,
+                  //                                 MaterialPageRoute(
+                  //                                   builder: (context) => StudentCommEventParticipationList(),
+                  //                                 ),
+                  //                               );
+                  //                             },
+                  //                           ),
+                  //                           Padding(
+                  //                             padding: const EdgeInsets.only(top: 4.0),
+                  //                             child: Text('Community', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                  //                           ),
+                  //                         ],
+                  //                       ),
+                  //                       Column(
+                  //                         children: [
+                  //                           IconButton(
+                  //                             icon: Icon(Icons.more_horiz, color: Colors.white), // Change icon to more_horiz icon
+                  //                             onPressed: () {
+                  //                               Navigator.push(
+                  //                                 context,
+                  //                                 MaterialPageRoute(
+                  //                                   builder: (context) => StudentDramaEventParticipationList(),
+                  //                                 ),
+                  //                               );
+                  //                             },
+                  //                           ),
+                  //                           Padding(
+                  //                             padding: const EdgeInsets.only(top: 4.0),
+                  //                             child: Text('Others', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                  //                           ),
+                  //                         ],
+                  //                       ),
+                  //                     ],
+                  //                   ),
+                  //                 ),
+                  //               ],
+                  //             ),
+                  //           ],
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+
 
                   SizedBox(height: 15,),
 
@@ -603,58 +1160,67 @@ class AdminHome extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Container(
-                                padding: EdgeInsets.all(10.0),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.sports_baseball, color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StudentInterList(),
-                                                ),
-                                              );
-                                            },
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Container(
+                                  padding: EdgeInsets.all(10.0),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius: BorderRadius.circular(10),
+                                            child: Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.sports_baseball, color: Colors.white),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          StudentInterList(),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            ),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Intercollege', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.sports_volleyball, color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StudentIntraList(),
-                                                ),
-                                              );
-                                            },
+                                          Padding(
+                                            padding: const EdgeInsets.only(top:4.0),
+                                            child: Text('Intercollege', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Intracollege', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius: BorderRadius.circular(10),
+                                            child: Container(
+                                              color: Color(0x1A0CECDA),
+                                              child: IconButton(
+                                                icon: Icon(Icons.sports_volleyball, color: Colors.white),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          StudentIntraList(),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(top:4.0),
+                                            child: Text('Intracollege', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -693,13 +1259,17 @@ class AdminHome extends StatelessWidget {
                                   children: [
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.male, color: Colors.white),
-                                            onPressed: () {
-                                              // Add functionality for the first icon button
-                                            },
+                                        ClipRRect(
+                                            borderRadius: BorderRadius.circular(10),
+
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.male, color: Colors.white),
+                                              onPressed: () {
+                                                // Add functionality for the first icon button
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -710,13 +1280,17 @@ class AdminHome extends StatelessWidget {
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.female, color: Colors.white),
-                                            onPressed: () {
-                                              // Add functionality for the first icon button
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10),
+
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.female, color: Colors.white),
+                                              onPressed: () {
+                                                // Add functionality for the first icon button
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -727,13 +1301,17 @@ class AdminHome extends StatelessWidget {
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.group, color: Colors.white),
-                                            onPressed: () {
-                                              // Add functionality for the first icon button
-                                            },
+                                        ClipRRect(
+                                            borderRadius: BorderRadius.circular(10),
+
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.group, color: Colors.white),
+                                              onPressed: () {
+                                                // Add functionality for the first icon button
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -777,6 +1355,122 @@ class AdminHome extends StatelessWidget {
                                       color: Colors.white),
                                 ),
                               ),
+                              // Container(
+                              //   padding: EdgeInsets.all(10.0),
+                              //   child: Row(
+                              //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              //     children: [
+                              //       Column(
+                              //         children: [
+                              //           Container(
+                              //             color: Color(0x1A0CECDA),
+                              //             child: IconButton(
+                              //               icon: Icon(Icons.local_activity,
+                              //                   color: Colors.white),
+                              //               onPressed: () {
+                              //                 Navigator.push(
+                              //                   context,
+                              //                   MaterialPageRoute(
+                              //                     builder: (context) =>
+                              //                         TeacherWorkshopList(),
+                              //                   ),
+                              //                 );
+                              //               },
+                              //             ),
+                              //           ),
+                              //           Padding(
+                              //             padding: const EdgeInsets.only(top: 4.0),
+                              //             child: Text('Workshop',
+                              //                 style: GoogleFonts.kufam(
+                              //                     color: Colors.white,
+                              //                     fontSize: 12)),
+                              //           ),
+                              //         ],
+                              //       ),
+                              //       Column(
+                              //         children: [
+                              //           Container(
+                              //             color: Color(0x1A0CECDA),
+                              //             child: IconButton(
+                              //               icon: Icon(Icons.school,
+                              //                   color: Colors.white),
+                              //               onPressed: () {
+                              //                 Navigator.push(
+                              //                   context,
+                              //                   MaterialPageRoute(
+                              //                     builder: (context) =>
+                              //                        TeacherConferenceList(),
+                              //                   ),
+                              //                 );
+                              //               },
+                              //             ),
+                              //           ),
+                              //           Padding(
+                              //             padding: const EdgeInsets.only(top: 4.0),
+                              //             child: Text('Conference',
+                              //                 style: GoogleFonts.kufam(
+                              //                     color: Colors.white,
+                              //                     fontSize: 12)),
+                              //           ),
+                              //         ],
+                              //       ),
+                              //       Column(
+                              //         children: [
+                              //           Container(
+                              //             color: Color(0x1A0CECDA),
+                              //             child: IconButton(
+                              //               icon: Icon(Icons.event_note,
+                              //                   color: Colors.white),
+                              //               onPressed: () {
+                              //                 Navigator.push(
+                              //                   context,
+                              //                   MaterialPageRoute(
+                              //                     builder: (context) =>
+                              //                        TeacherSeminarList(),
+                              //                   ),
+                              //                 );
+                              //               },
+                              //             ),
+                              //           ),
+                              //           Padding(
+                              //             padding: const EdgeInsets.only(top: 4.0),
+                              //             child: Text('Seminar',
+                              //                 style: GoogleFonts.kufam(
+                              //                     color: Colors.white,
+                              //                     fontSize: 12)),
+                              //           ),
+                              //         ],
+                              //       ),
+                              //       Column(
+                              //         children: [
+                              //           Container(
+                              //             color: Color(0x1A0CECDA),
+                              //             child: IconButton(
+                              //               icon: Icon(Icons.emoji_events,
+                              //                   color: Colors.white),
+                              //               onPressed: () {
+                              //                 Navigator.push(
+                              //                   context,
+                              //                   MaterialPageRoute(
+                              //                     builder: (context) =>
+                              //                         TeacherFDPList(),
+                              //                   ),
+                              //                 );
+                              //               },
+                              //             ),
+                              //           ),
+                              //           Padding(
+                              //             padding: const EdgeInsets.only(top: 4.0),
+                              //             child: Text('FDP',
+                              //                 style: GoogleFonts.kufam(
+                              //                     color: Colors.white,
+                              //                     fontSize: 12)),
+                              //           ),
+                              //         ],
+                              //       ),
+                              //     ],
+                              //   ),
+                              // ),
                               Container(
                                 padding: EdgeInsets.all(10.0),
                                 child: Row(
@@ -784,115 +1478,108 @@ class AdminHome extends StatelessWidget {
                                   children: [
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.local_activity,
-                                                color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TeacherWorkshopList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.local_activity, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => TeacherWorkshopList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Workshop',
-                                              style: GoogleFonts.kufam(
-                                                  color: Colors.white,
-                                                  fontSize: 12)),
+                                          child: Text('Workshop', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.school,
-                                                color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                     TeacherConferenceList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.school, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => TeacherConferenceList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Conference',
-                                              style: GoogleFonts.kufam(
-                                                  color: Colors.white,
-                                                  fontSize: 12)),
+                                          child: Text('Conference', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.event_note,
-                                                color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                     TeacherSeminarList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.event_note, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => TeacherSeminarList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Seminar',
-                                              style: GoogleFonts.kufam(
-                                                  color: Colors.white,
-                                                  fontSize: 12)),
+                                          child: Text('Seminar', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.emoji_events,
-                                                color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TeacherFDPList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.emoji_events, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => TeacherFDPList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('FDP',
-                                              style: GoogleFonts.kufam(
-                                                  color: Colors.white,
-                                                  fontSize: 12)),
+                                          child: Text('FDP', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                   ],
                                 ),
                               ),
+
                             ],
                           ),
                         ),
@@ -924,6 +1611,122 @@ class AdminHome extends StatelessWidget {
                                       color: Colors.white),
                                 ),
                               ),
+                              // Container(
+                              //   padding: EdgeInsets.all(10.0),
+                              //   child: Row(
+                              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              //     children: [
+                              //       Column(
+                              //         children: [
+                              //           Container(
+                              //             color: Color(0x1A0CECDA),
+                              //             child: IconButton(
+                              //               icon:Icon(Icons.local_activity,
+                              //                   color: Colors.white),
+                              //               onPressed: () {
+                              //                 Navigator.push(
+                              //                   context,
+                              //                   MaterialPageRoute(
+                              //                     builder: (context) =>
+                              //                         TeacherWorkshopOList(),
+                              //                   ),
+                              //                 );
+                              //               },
+                              //             ),
+                              //           ),
+                              //           Padding(
+                              //             padding: const EdgeInsets.only(top: 4.0),
+                              //             child: Text('Workshop',
+                              //                 style: GoogleFonts.kufam(
+                              //                     color: Colors.white,
+                              //                     fontSize: 12)),
+                              //           ),
+                              //         ],
+                              //       ),
+                              //       Column(
+                              //         children: [
+                              //           Container(
+                              //             color: Color(0x1A0CECDA),
+                              //             child: IconButton(
+                              //               icon: Icon(Icons.school,
+                              //                   color: Colors.white),
+                              //               onPressed: () {
+                              //                 Navigator.push(
+                              //                   context,
+                              //                   MaterialPageRoute(
+                              //                     builder: (context) =>
+                              //                         TeacherConferenceOList(),
+                              //                   ),
+                              //                 );
+                              //               },
+                              //             ),
+                              //           ),
+                              //           Padding(
+                              //             padding: const EdgeInsets.only(top: 4.0),
+                              //             child: Text('Conference',
+                              //                 style: GoogleFonts.kufam(
+                              //                     color: Colors.white,
+                              //                     fontSize: 12)),
+                              //           ),
+                              //         ],
+                              //       ),
+                              //       Column(
+                              //         children: [
+                              //           Container(
+                              //             color: Color(0x1A0CECDA),
+                              //             child: IconButton(
+                              //               icon:Icon(Icons.event_note,
+                              //                   color: Colors.white),
+                              //               onPressed: () {
+                              //                 Navigator.push(
+                              //                   context,
+                              //                   MaterialPageRoute(
+                              //                     builder: (context) =>
+                              //                         TeacherSeminarOList(),
+                              //                   ),
+                              //                 );
+                              //               },
+                              //             ),
+                              //           ),
+                              //           Padding(
+                              //             padding: const EdgeInsets.only(top: 4.0),
+                              //             child: Text('Seminar',
+                              //                 style: GoogleFonts.kufam(
+                              //                     color: Colors.white,
+                              //                     fontSize: 12)),
+                              //           ),
+                              //         ],
+                              //       ),
+                              //       Column(
+                              //         children: [
+                              //           Container(
+                              //             color: Color(0x1A0CECDA),
+                              //             child: IconButton(
+                              //               icon:  Icon(Icons.emoji_events,
+                              //                   color: Colors.white),
+                              //               onPressed: () {
+                              //                 Navigator.push(
+                              //                   context,
+                              //                   MaterialPageRoute(
+                              //                     builder: (context) =>
+                              //                         TeacherFDPOList(),
+                              //                   ),
+                              //                 );
+                              //               },
+                              //             ),
+                              //           ),
+                              //           Padding(
+                              //             padding: const EdgeInsets.only(top: 4.0),
+                              //             child: Text('FDP',
+                              //                 style: GoogleFonts.kufam(
+                              //                     color: Colors.white,
+                              //                     fontSize: 12)),
+                              //           ),
+                              //         ],
+                              //       ),
+                              //     ],
+                              //   ),
+                              // ),
                               Container(
                                 padding: EdgeInsets.all(10.0),
                                 child: Row(
@@ -931,115 +1734,108 @@ class AdminHome extends StatelessWidget {
                                   children: [
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon:Icon(Icons.local_activity,
-                                                color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TeacherWorkshopOList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.local_activity, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => TeacherWorkshopOList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Workshop',
-                                              style: GoogleFonts.kufam(
-                                                  color: Colors.white,
-                                                  fontSize: 12)),
+                                          child: Text('Workshop', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.school,
-                                                color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TeacherConferenceOList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.school, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => TeacherConferenceOList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Conference',
-                                              style: GoogleFonts.kufam(
-                                                  color: Colors.white,
-                                                  fontSize: 12)),
+                                          child: Text('Conference', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon:Icon(Icons.event_note,
-                                                color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TeacherSeminarOList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.event_note, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => TeacherSeminarOList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Seminar',
-                                              style: GoogleFonts.kufam(
-                                                  color: Colors.white,
-                                                  fontSize: 12)),
+                                          child: Text('Seminar', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon:  Icon(Icons.emoji_events,
-                                                color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TeacherFDPOList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.emoji_events, color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => TeacherFDPOList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('FDP',
-                                              style: GoogleFonts.kufam(
-                                                  color: Colors.white,
-                                                  fontSize: 12)),
+                                          child: Text('FDP', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                   ],
                                 ),
                               ),
+
                             ],
                           ),
                         ),
@@ -1078,20 +1874,23 @@ class AdminHome extends StatelessWidget {
                                   children: [
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.checklist_rtl_rounded,
-                                                color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TeacherCourseList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10),
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.checklist_rtl_rounded,
+                                                  color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        TeacherCourseList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -1144,20 +1943,23 @@ class AdminHome extends StatelessWidget {
                                   children: [
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.article,
-                                                color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TeacherPaperList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10),
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.article,
+                                                  color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        TeacherPaperList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
@@ -1171,20 +1973,23 @@ class AdminHome extends StatelessWidget {
                                     ),
                                     Column(
                                       children: [
-                                        Container(
-                                          color: Color(0x1A0CECDA),
-                                          child: IconButton(
-                                            icon: Icon(Icons.book,
-                                                color: Colors.white),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TeacherBookList(),
-                                                ),
-                                              );
-                                            },
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(10),
+                                          child: Container(
+                                            color: Color(0x1A0CECDA),
+                                            child: IconButton(
+                                              icon: Icon(Icons.book,
+                                                  color: Colors.white),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        TeacherBookList(),
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                         Padding(
