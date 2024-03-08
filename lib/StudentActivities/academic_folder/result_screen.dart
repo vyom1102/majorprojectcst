@@ -51,15 +51,15 @@ class _ResultScreenState extends State<ResultScreen> {
     try {
       await _studentResult.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': int.tryParse(_studentnameController.text) ?? 0,
-        'sem1': int.tryParse(_sem1Controller.text) ?? 0,
-        'sem2': int.tryParse(_sem2Controller.text) ?? 0,
-        'sem3': int.tryParse(_sem3Controller.text) ?? 0,
-        'sem4': int.tryParse(_sem4Controller.text) ?? 0,
-        'sem5': int.tryParse(_sem5Controller.text) ?? 0,
-        'sem6': int.tryParse(_sem6Controller.text) ?? 0,
-        'sem7': int.tryParse(_sem7Controller.text) ?? 0,
-        'sem8': int.tryParse(_sem8Controller.text) ?? 0,
-        'overall': int.tryParse(_overallController.text) ?? 0,
+        'sem1': double.tryParse(_sem1Controller.text) ?? 0,
+        'sem2': double.tryParse(_sem2Controller.text) ?? 0,
+        'sem3': double.tryParse(_sem3Controller.text) ?? 0,
+        'sem4': double.tryParse(_sem4Controller.text) ?? 0,
+        'sem5': double.tryParse(_sem5Controller.text) ?? 0,
+        'sem6': double.tryParse(_sem6Controller.text) ?? 0,
+        'sem7': double.tryParse(_sem7Controller.text) ?? 0,
+        'sem8': double.tryParse(_sem8Controller.text) ?? 0,
+        'overall': double.tryParse(_overallController.text) ?? 0,
       });
     } catch (error) {
       // Handle the error
