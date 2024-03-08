@@ -369,13 +369,15 @@ class _StudentTechOrganisedListState extends State<StudentTechOrganisedList> {
                 child: TextField(
                   controller: _searchController,
                   decoration: InputDecoration(
-                    labelText: 'Search by Name or ID',
+                    labelText: 'Search by Enrollment Number',
                     prefixIcon: Icon(Icons.search),
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
+
                   ),
                   onChanged: _filterStudents,
                 ),

@@ -196,7 +196,7 @@ class _StudentTrainingListState extends State<StudentTrainingList> {
                   children: [
                     SizedBox(width: 10,),
                     Text(
-                      'Student\'s Training Details',
+                      'Training Details',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,
@@ -210,14 +210,14 @@ class _StudentTrainingListState extends State<StudentTrainingList> {
                   child: TextField(
                     controller: _searchController,
                     decoration: InputDecoration(
-                      labelText: 'Search by Name or ID',
+                      labelText: 'Search by Enrollment Number',
                       prefixIcon: Icon(Icons.search),
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
-                      floatingLabelBehavior: FloatingLabelBehavior.never, // Keeps the hint text visible
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
                     ),
                     onChanged: _filterStudents,
                   ),
