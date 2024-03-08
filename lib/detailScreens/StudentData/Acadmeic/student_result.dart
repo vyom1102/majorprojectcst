@@ -231,15 +231,15 @@ import 'package:google_fonts/google_fonts.dart';
 class StudentResult {
   final int id;
   final int enrollmentNumber;
-  final int sem1;
-  final int sem2;
-  final int sem3;
-  final int sem4;
-  final int sem5;
-  final int sem6;
-  final int sem7;
-  final int sem8;
-  final int overall;
+  final double sem1;
+  final double sem2;
+  final double sem3;
+  final double sem4;
+  final double sem5;
+  final double sem6;
+  final double sem7;
+  final double sem8;
+  final double overall;
 
   StudentResult({
     required this.id,
@@ -287,15 +287,15 @@ class _StudentResultListState extends State<StudentResultList> {
             fetchedStudents.add(StudentResult(
               id: int.parse(key.toString()),
               enrollmentNumber: int.parse(value['enrollmentNumber'].toString()),
-              sem1: int.parse(value['sem1'].toString()),
-              sem2: int.parse(value['sem2'].toString()),
-              sem3: int.parse(value['sem3'].toString()),
-              sem4: int.parse(value['sem4'].toString()),
-              sem5: int.parse(value['sem5'].toString()),
-              sem6: int.parse(value['sem6'].toString()),
-              sem7: int.parse(value['sem7'].toString()),
-              sem8: int.parse(value['sem8'].toString()),
-              overall: int.parse(value['overall'].toString()),
+              sem1: double.parse(value['sem1'].toString()),
+              sem2: double.parse(value['sem2'].toString()),
+              sem3: double.parse(value['sem3'].toString()),
+              sem4: double.parse(value['sem4'].toString()),
+              sem5: double.parse(value['sem5'].toString()),
+              sem6: double.parse(value['sem6'].toString()),
+              sem7: double.parse(value['sem7'].toString()),
+              sem8: double.parse(value['sem8'].toString()),
+              overall: double.parse(value['overall'].toString()),
             ));
           });
           setState(() {
@@ -332,7 +332,7 @@ class _StudentResultListState extends State<StudentResultList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('ID: ${student.id}'),
+              // Text('ID: ${student.id}'),
               Text('Enrollment Number: ${student.enrollmentNumber}'),
               Text('Sem 1: ${student.sem1}'),
               Text('Sem 2: ${student.sem2}'),

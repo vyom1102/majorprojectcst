@@ -179,13 +179,13 @@ class _TrainingScreenState extends State<TrainingScreen> {
                     'Internship/Training Details',
                     style: GoogleFonts.kufam(
                         fontWeight: FontWeight.w600,
-                        fontSize: 26,
+                        fontSize: MediaQuery.sizeOf(context).width*0.06,
                         color: Color(0xff0CECDA)),
                   ),
                   SizedBox(
                     height: 20,
                   ),
-                  Text('$_storedNickname',style: TextStyle(color: Colors.white),),
+                  // Text('$_storedNickname',style: TextStyle(color: Colors.white),),
                   Expanded(
                     child: ListView(children: [
                       Container(
