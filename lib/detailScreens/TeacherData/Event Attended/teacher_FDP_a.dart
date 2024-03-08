@@ -43,7 +43,7 @@ class _TeacherFDPListState extends State<TeacherFDPList> {
   @override
   void initState() {
     super.initState();
-    _membersRef = FirebaseDatabase.instance.ref().child('TeacherData/FDPAttended/id');
+    _membersRef = FirebaseDatabase.instance.ref().child('TeacherData/EventAttended/FDPAttended/id');
     fetchStudents();
   }
 

@@ -43,7 +43,7 @@ class _TeacherConferenceListState extends State<TeacherConferenceList> {
   @override
   void initState() {
     super.initState();
-    _membersRef = FirebaseDatabase.instance.ref().child('TeacherData/ConferenceAttended/id');
+    _membersRef = FirebaseDatabase.instance.ref().child('TeacherData/EventAttended/ConferenceAttended/id');
     fetchStudents();
   }
 

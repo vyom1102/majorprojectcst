@@ -43,7 +43,7 @@ class _TeacherSeminarOListState extends State<TeacherSeminarOList> {
   @override
   void initState() {
     super.initState();
-    _membersRef = FirebaseDatabase.instance.ref().child('TeacherData/SeminarOrganized/id');
+    _membersRef = FirebaseDatabase.instance.ref().child('TeacherData/EventOrganised/SeminarOrganized/id');
     fetchStudents();
   }
 
