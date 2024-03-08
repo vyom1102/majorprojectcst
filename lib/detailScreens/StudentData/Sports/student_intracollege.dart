@@ -63,13 +63,13 @@ class _StudentIntraListState extends State<StudentIntraList> {
           data.forEach((key, value) {
             fetchedStudents.add(StudentIntra(
               id: key.toString(),
-              enrollmentNumber: value['enrollmentNumber'] ?? '',
-              eventName: value['eventName'] ?? '',
-              eventDetail: value['eventDetail'] ?? '',
-              startingDate: value['startingDate'] ?? '',
-              endingDate: value['endingDate'] ?? '',
+              enrollmentNumber: value['enrollnumb'] ?? '',
+              eventName: value['eventname'] ?? '',
+              eventDetail: value['detailname'] ?? '',
+              startingDate: value['Startingdate'] ?? '',
+              endingDate: value['Endingdate'] ?? '',
               duration: value['duration'] ?? '',
-              group: value['group'] ?? '',
+              group: value['individual'] ?? '',
               achievement: value['achievement'] ?? '',
               address: value['address'] ?? '',
             ));
