@@ -63,7 +63,7 @@ class _StudentCourseListState extends State<StudentCourseList> {
             fetchedStudents.add(StudentCourse(
               id: key.toString(),
               enrollmentNumber: value['enrollmentNumber'] ?? '',
-              courseName: value['CourseName'] ?? '',
+              courseName: value['courseName'] ?? '',
               instructorName: value['instructorName'] ?? '',
               specialization: value['specialization'] ?? '',
               duration: value['duration'] ?? '',
@@ -113,7 +113,7 @@ class _StudentCourseListState extends State<StudentCourseList> {
               Text('Specialization: ${student.specialization}'),
               Text('Duration: ${student.duration}'),
               Text('Online Offline: ${student.onlineOffline}'),
-              Text('Outcome: ${student.certificate}'),
+              Text('Certificate: ${student.certificate}'),
               Text('Course Learning: ${student.courseLearning}'),
             ],
           ),
