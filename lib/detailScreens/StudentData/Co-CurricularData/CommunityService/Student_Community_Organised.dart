@@ -109,7 +109,7 @@ class _StudentCommEventOrganiseListState
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('ID: ${student.id}'),
+              //Text('ID: ${student.id}'),
               Text('Enrollment Number: ${student.enrollmentNumber}'),
               Text('Event Name: ${student.eventName}'),
               Text('Name of Society: ${student.nameOfSociety}'),
@@ -119,8 +119,8 @@ class _StudentCommEventOrganiseListState
               Text('Starting Date: ${student.startingDate}'),
               Text('Ending Date: ${student.endingDate}'),
               Text('Address: ${student.address}'),
-              Text('Individual/Group: ${student.individualGroup}'),
-              Text('Achievement: ${student.achievement}'),
+              //Text('Individual/Group: ${student.individualGroup}'),
+              //Text('Achievement: ${student.achievement}'),
             ],
           ),
           actions: [

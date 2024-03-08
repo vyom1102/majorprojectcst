@@ -14,9 +14,9 @@ class CommunityServiceScreen extends StatefulWidget {
 
 class _CommunityServiceScreenState extends State<CommunityServiceScreen> {
   final DatabaseReference _studentComm =
-  FirebaseDatabase.instance.ref().child('studentCommunityEventOrganized');
+  FirebaseDatabase.instance.ref().child('StudentData').child('Co-CurricularData').child('CommunityData').child('studentCommunityEventOrganized');
   final DatabaseReference _studentCommunity =
-  FirebaseDatabase.instance.ref().child('studentCommunityEventParticipation');
+  FirebaseDatabase.instance.ref().child('StudentData').child('Co-CurricularData').child('CommunityData').child('studentCommunityEventParticipation');
   bool _showWorkshopOrganizedTextField = false; // Variable to toggle visibility of text fields
   bool _showConferenceOrganizedTextField = false; // Variable to toggle visibility of text fields
   String selectedButton = '';

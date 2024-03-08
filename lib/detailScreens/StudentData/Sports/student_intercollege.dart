@@ -116,7 +116,7 @@ class _StudentInterListState extends State<StudentInterList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('ID: ${student.id}'),
+              //Text('ID: ${student.id}'),
               Text('Enrollment Number: ${student.enrollmentNumber}'),
               Text('Event Name: ${student.eventName}'),
               Text('Event Detail: ${student.eventDetail}'),

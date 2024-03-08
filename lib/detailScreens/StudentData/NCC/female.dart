@@ -108,7 +108,7 @@ class _StudentFEStudiesListState extends State<StudentFEStudiesList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('ID: ${student.id}'),
+             // Text('ID: ${student.id}'),
               Text('Enrollment Number: ${student.enrollmentNumber}'),
               Text('Name: ${student.name}'),
               Text('Address: ${student.address}'),

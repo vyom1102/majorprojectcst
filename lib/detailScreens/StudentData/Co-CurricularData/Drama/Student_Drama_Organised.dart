@@ -6,8 +6,8 @@ class StudentCommEventParticipation {
   final String id;
   final String enrollmentNumber;
   final String eventName;
-  final String nameOfSociety;
-  final String roleInSociety;
+  //final String nameOfSociety;
+ // final String roleInSociety;
   final String details;
   final String duration;
   final String startingDate;
@@ -20,8 +20,8 @@ class StudentCommEventParticipation {
     required this.id,
     required this.enrollmentNumber,
     required this.eventName,
-    required this.nameOfSociety,
-    required this.roleInSociety,
+    //required this.nameOfSociety,
+    //required this.roleInSociety,
     required this.details,
     required this.duration,
     required this.startingDate,
@@ -65,8 +65,8 @@ class _StudentDramaEventOrganisedListState
               id: key.toString(),
               enrollmentNumber: value['enrollmentNumber'] ?? '',
               eventName: value['eventName'] ?? '',
-              nameOfSociety: value['nameOfSociety'] ?? '',
-              roleInSociety: value['roleInSociety'] ?? '',
+              //nameOfSociety: value['nameOfSociety'] ?? '',
+              //roleInSociety: value['roleInSociety'] ?? '',
               details: value['details'] ?? '',
               duration: value['duration'] ?? '',
               startingDate: value['StartingDate'] ?? '',
@@ -109,11 +109,11 @@ class _StudentDramaEventOrganisedListState
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('ID: ${student.id}'),
+             // Text('ID: ${student.id}'),
               Text('Enrollment Number: ${student.enrollmentNumber}'),
               Text('Event Name: ${student.eventName}'),
-              Text('Name of Society: ${student.nameOfSociety}'),
-              Text('Role in Society: ${student.roleInSociety}'),
+              //Text('Name of Society: ${student.nameOfSociety}'),
+              //Text('Role in Society: ${student.roleInSociety}'),
               Text('Details: ${student.details}'),
               Text('Duration: ${student.duration}'),
               Text('Starting Date: ${student.startingDate}'),

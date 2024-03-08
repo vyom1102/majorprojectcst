@@ -109,7 +109,7 @@ class _StudentCommEventParticipationListState
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('ID: ${student.id}'),
+             // Text('ID: ${student.id}'),
               Text('Enrollment Number: ${student.enrollmentNumber}'),
               Text('Event Name: ${student.eventName}'),
               Text('Name of Society: ${student.nameOfSociety}'),

@@ -92,8 +92,8 @@ class _OthersScreenState extends State<OthersScreen> {
     try {
       await _studentdram.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
-        'nameOfSociety' : _nameController.text,
-        'roleInSociety' : _rollController.text,
+        //'nameOfSociety' : _nameController.text,
+        //'roleInSociety' : _rollController.text,
         'eventName' : _eventNameController.text,
         'details' : _detailsController.text,
         'duration' : _durationController.text,
@@ -112,7 +112,7 @@ class _OthersScreenState extends State<OthersScreen> {
       await _studentDrama.child('id').child(_student2nameController.text).set({
         'enrollmentNumber': _student2nameController.text,
         'nameOfSociety' : _name2Controller.text,
-        'roleInSociety' : _roll2Controller.text,
+        //'roleInSociety' : _roll2Controller.text,
         'eventName' : _eventName2Controller.text,
         'details' : _details2Controller.text,
         'duration' : _duration2Controller.text,
@@ -129,8 +129,8 @@ class _OthersScreenState extends State<OthersScreen> {
     }
   }
 
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _rollController = TextEditingController();
+  // final TextEditingController _nameController = TextEditingController();
+  // final TextEditingController _rollController = TextEditingController();
   final TextEditingController _eventNameController = TextEditingController();
   final TextEditingController _detailsController = TextEditingController();
   final TextEditingController _durationController = TextEditingController();
@@ -139,7 +139,7 @@ class _OthersScreenState extends State<OthersScreen> {
 
 
   final TextEditingController _name2Controller = TextEditingController();
-  final TextEditingController _roll2Controller = TextEditingController();
+  //final TextEditingController _roll2Controller = TextEditingController();
   final TextEditingController _eventName2Controller = TextEditingController();
   final TextEditingController _details2Controller = TextEditingController();
   final TextEditingController _duration2Controller = TextEditingController();

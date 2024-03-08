@@ -7,7 +7,7 @@ class StudentCommEventParticipation {
   final String enrollmentNumber;
   final String eventName;
   final String nameOfSociety;
-  final String roleInSociety;
+  //final String roleInSociety;
   final String details;
   final String duration;
   final String startingDate;
@@ -21,7 +21,7 @@ class StudentCommEventParticipation {
     required this.enrollmentNumber,
     required this.eventName,
     required this.nameOfSociety,
-    required this.roleInSociety,
+    //required this.roleInSociety,
     required this.details,
     required this.duration,
     required this.startingDate,
@@ -66,7 +66,7 @@ class _StudentDramaEventParticipationListState
               enrollmentNumber: value['enrollmentNumber'] ?? '',
               eventName: value['eventName'] ?? '',
               nameOfSociety: value['nameOfSociety'] ?? '',
-              roleInSociety: value['roleInSociety'] ?? '',
+              //roleInSociety: value['roleInSociety'] ?? '',
               details: value['details'] ?? '',
               duration: value['duration'] ?? '',
               startingDate: value['StartingDate'] ?? '',
@@ -109,11 +109,11 @@ class _StudentDramaEventParticipationListState
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('ID: ${student.id}'),
+              //Text('ID: ${student.id}'),
               Text('Enrollment Number: ${student.enrollmentNumber}'),
               Text('Event Name: ${student.eventName}'),
               Text('Name of Society: ${student.nameOfSociety}'),
-              Text('Role in Society: ${student.roleInSociety}'),
+              //Text('Role in Society: ${student.roleInSociety}'),
               Text('Details: ${student.details}'),
               Text('Duration: ${student.duration}'),
               Text('Starting Date: ${student.startingDate}'),
