@@ -56,12 +56,12 @@ class _TeacherCourseListState extends State<TeacherCourseList> {
           data.forEach((key, value) {
             fetchedStudents.add(StudentCourse(
               id: key.toString(),
-              name: value['name'] ?? '',
+              name: value['fullName'] ?? '',
               detail: value['detail'] ?? '',
               address: value['address'] ?? '',
-              starting: value['starting'] ?? '',
+              starting: value['StartingDate'] ?? '',
               duration: value['duration'] ?? '',
-              ending: value['ending'] ?? '',
+              ending: value['Endingdate'] ?? '',
             ));
           });
           setState(() {

@@ -93,7 +93,7 @@ class _TeacherConferenceListState extends State<TeacherConferenceList> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Workshop Attended Details'),
+          title: Text('Conference Attended Details'),
           content: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,

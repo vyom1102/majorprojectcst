@@ -43,7 +43,7 @@ class _TeacherPaperListState extends State<TeacherPaperList> {
   @override
   void initState() {
     super.initState();
-    _membersRef = FirebaseDatabase.instance.ref().child('TeacherData/TeachersCourseCompleted/id');
+    _membersRef = FirebaseDatabase.instance.ref().child('TeacherData/TeachersPaperPublished/id');
     fetchStudents();
   }
 
@@ -56,8 +56,8 @@ class _TeacherPaperListState extends State<TeacherPaperList> {
           data.forEach((key, value) {
             fetchedStudents.add(StudentCourse(
               id: key.toString(),
-              name: value['name'] ?? '',
-              isbn: value['isbn'] ?? '',
+              name: value['fullName'] ?? '',
+              isbn: value['isbnNo'] ?? '',
               journalName: value['journalName'] ?? '',
               month: value['month'] ?? '',
               tileOfPaper: value['tileOfPaper'] ?? '',
@@ -146,7 +146,7 @@ class _TeacherPaperListState extends State<TeacherPaperList> {
                   children: [
                     SizedBox(width: 10,),
                     Text(
-                      'Course Completed Details',
+                      'Research Paper Details',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,

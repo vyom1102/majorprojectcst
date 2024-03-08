@@ -49,7 +49,7 @@ class _TeacherBookListState extends State<TeacherBookList> {
   @override
   void initState() {
     super.initState();
-    _membersRef = FirebaseDatabase.instance.ref().child('TeacherData/TeachersCourseCompleted/id');
+    _membersRef = FirebaseDatabase.instance.ref().child('TeacherData/TeachersBookPublished/id');
     fetchStudents();
   }
 
@@ -62,15 +62,15 @@ class _TeacherBookListState extends State<TeacherBookList> {
           data.forEach((key, value) {
             fetchedStudents.add(StudentCourse(
               id: key.toString(),
-              name: value['name'] ?? '',
-              isbn: value['isbn'] ?? '',
+              name: value['authorName'] ?? '',
+              isbn: value['isbnNo'] ?? '',
               bookname: value['bookName'] ?? '',
-              detail: value['detail'] ?? '',
+              detail: value['details'] ?? '',
               month: value['month'] ?? '',
               year: value['year'] ?? '',
-              pageNo: value['pageNo'] ?? '',
-              pubType: value['pubType'] ?? '',
-              volandIssueNo: value['volandIssueNo'] ?? '',
+              pageNo: value['pageNO'] ?? '',
+              pubType: value['publicationType'] ?? '',
+              volandIssueNo: value['volumeAndIssueNo'] ?? '',
             ));
           });
           setState(() {
@@ -107,8 +107,8 @@ class _TeacherBookListState extends State<TeacherBookList> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text('ID: ${student.id}'),
-              Text('Name: ${student.name}'),
-              Text('ISBN: ${student.isbn}'),
+              Text('Author Name: ${student.name}'),
+              Text('ISBN No: ${student.isbn}'),
               Text('Book Name: ${student.bookname}'),
               Text('Month: ${student.month}'),
               Text('Detail: ${student.detail}'),
