@@ -14,16 +14,16 @@ class EventOrganisedScreen extends StatefulWidget {
 
 class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
   final DatabaseReference _teacherRef =
-  FirebaseDatabase.instance.ref().child('TeacherData').child('WorkshopOrganized');
+  FirebaseDatabase.instance.ref().child('TeacherData').child('EventOrganised').child('WorkshopOrganized');
 
   final DatabaseReference _teacherRef2 =
-  FirebaseDatabase.instance.ref().child('TeacherData').child('ConferenceOrganized');
+  FirebaseDatabase.instance.ref().child('TeacherData').child('EventOrganised').child('ConferenceOrganized');
 
   final DatabaseReference _teacherRef3 =
-  FirebaseDatabase.instance.ref().child('TeacherData').child('SeminarOrganized');
+  FirebaseDatabase.instance.ref().child('TeacherData').child('EventOrganised').child('SeminarOrganized');
 
   final DatabaseReference _teacherRef4 =
-  FirebaseDatabase.instance.ref().child('TeacherData').child('FDPOrganized');
+  FirebaseDatabase.instance.ref().child('TeacherData').child('EventOrganised').child('FDPOrganized');
 
   bool _showWorkshopOrganizedTextField = false; // Variable to toggle visibility of text fields
   bool _showConferenceOrganizedTextField = false; // Variable to toggle visibility of text fields
@@ -170,7 +170,7 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
     try {
       await _teacherRef.child('id').child(_fullNameController.text).set({
         'fullName': _fullNameController.text,
-        'detailsOfSeminar': _detailsController.text,
+        'detailsOfWorkshop': _detailsController.text,
         'duration': _durationController.text,
         'address': _addressController.text,
         'StartingDate' : WorkshopOrganizedHeldFromDate.toString(),
@@ -186,7 +186,7 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
     try {
       await _teacherRef2.child('id').child(_fullName2Controller.text).set({
         'fullName': _fullName2Controller.text,
-        'detailsOfSeminar': _details2Controller.text,
+        'detailsOfConference': _details2Controller.text,
         'duration': _duration2Controller.text,
         'address': _address2Controller.text,
         'StartingDate' : ConferenceOrganizedHeldFromDate.toString(),
@@ -218,7 +218,7 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
     try {
       await _teacherRef4.child('id').child(_fullName4Controller.text).set({
         'fullName': _fullName4Controller.text,
-        'detailsOfSeminar': _details4Controller.text,
+        'detailsOfFDP': _details4Controller.text,
         'duration': _duration4Controller.text,
         'address': _address4Controller.text,
         'StartingDate' : FDPOrganizedHeldFromDate.toString(),

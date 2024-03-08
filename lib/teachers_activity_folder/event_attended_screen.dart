@@ -14,16 +14,16 @@ class EventAttendedScreen extends StatefulWidget {
 
 class _EventAttendedScreenState extends State<EventAttendedScreen> {
   final DatabaseReference _teacherRef =
-  FirebaseDatabase.instance.ref().child('TeacherData').child('WorkshopAttend');
+  FirebaseDatabase.instance.ref().child('TeacherData').child('EventAttended').child('WorkshopAttend');
 
   final DatabaseReference _teacherRef2 =
-  FirebaseDatabase.instance.ref().child('TeacherData').child('ConferenceAttended');
+  FirebaseDatabase.instance.ref().child('TeacherData').child('EventAttended').child('ConferenceAttended');
 
   final DatabaseReference _teacherRef3 =
-  FirebaseDatabase.instance.ref().child('TeacherData').child('SeminarAttended');
+  FirebaseDatabase.instance.ref().child('TeacherData').child('EventAttended').child('SeminarAttended');
 
   final DatabaseReference _teacherRef4 =
-  FirebaseDatabase.instance.ref().child('TeacherData').child('FDPAttended');
+  FirebaseDatabase.instance.ref().child('TeacherData').child('EventAttended').child('FDPAttended');
 
   bool _showWorkshopAttendedTextField = false; // Variable to toggle visibility of text fields
   bool _showConferenceAttendedTextField = false; // Variable to toggle visibility of text fields

@@ -9,6 +9,12 @@ import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_result.d
 import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_seminar.dart';
 import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_startup.dart';
 import 'package:majorproject/detailScreens/StudentData/Acadmeic/student_training.dart';
+import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/CommunityService/Student_Community_Attended.dart';
+import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/CommunityService/Student_Community_Organised.dart';
+import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Cultural/Student_Cultural_Attended.dart';
+import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Cultural/Student_Cultural_Organised.dart';
+import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Drama/Student_Drama_Attended.dart';
+import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Drama/Student_Drama_Organised.dart';
 import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Technical/Student_tech_attended.dart';
 import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Technical/Student_tech_organised.dart';
 import 'package:majorproject/detailScreens/StudentData/Sports/student_intercollege.dart';
@@ -389,13 +395,19 @@ class AdminHome extends StatelessWidget {
                                               child: IconButton(
                                                 icon: Icon(Icons.sports_soccer, color: Colors.white),
                                                 onPressed: () {
-                                                  // Add functionality for the icon button
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          StudentCulEventOrganisedList(),
+                                                    ),
+                                                  );
                                                 },
                                               ),
                                             ),
                                             Padding(
                                               padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Non-Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              child: Text('Cultural', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
                                             ),
                                           ],
                                         ),
@@ -406,13 +418,19 @@ class AdminHome extends StatelessWidget {
                                               child: IconButton(
                                                 icon: Icon(Icons.music_note, color: Colors.white),
                                                 onPressed: () {
-                                                  // Add functionality for the icon button
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          StudentCommEventOrganiseList(),
+                                                    ),
+                                                  );
                                                 },
                                               ),
                                             ),
                                             Padding(
                                               padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Musical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              child: Text('Community', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
                                             ),
                                           ],
                                         ),
@@ -423,13 +441,19 @@ class AdminHome extends StatelessWidget {
                                               child: IconButton(
                                                 icon: Icon(Icons.music_video, color: Colors.white),
                                                 onPressed: () {
-                                                  // Add functionality for the icon button
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          StudentDramaEventOrganisedList(),
+                                                    ),
+                                                  );
                                                 },
                                               ),
                                             ),
                                             Padding(
                                               padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Dance', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              child: Text('Others', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
                                             ),
 
                                           ],
@@ -482,13 +506,19 @@ class AdminHome extends StatelessWidget {
                                               child: IconButton(
                                                 icon: Icon(Icons.sports_soccer, color: Colors.white),
                                                 onPressed: () {
-                                                  // Add functionality for the icon button
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          StudentCulEventParticipationList(),
+                                                    ),
+                                                  );
                                                 },
                                               ),
                                             ),
                                             Padding(
                                               padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Non-Technical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              child: Text('Cultural', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
                                             ),
                                           ],
                                         ),
@@ -499,13 +529,19 @@ class AdminHome extends StatelessWidget {
                                               child: IconButton(
                                                 icon: Icon(Icons.music_note, color: Colors.white),
                                                 onPressed: () {
-                                                  // Add functionality for the icon button
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          StudentCommEventParticipationList(),
+                                                    ),
+                                                  );
                                                 },
                                               ),
                                             ),
                                             Padding(
                                               padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Musical', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              child: Text('Community', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
                                             ),
                                           ],
                                         ),
@@ -516,13 +552,19 @@ class AdminHome extends StatelessWidget {
                                               child: IconButton(
                                                 icon: Icon(Icons.music_video, color: Colors.white),
                                                 onPressed: () {
-                                                  // Add functionality for the icon button
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          StudentDramaEventParticipationList(),
+                                                    ),
+                                                  );
                                                 },
                                               ),
                                             ),
                                             Padding(
                                               padding: const EdgeInsets.only(top:4.0),
-                                              child: Text('Dance', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                              child: Text('Others', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
                                             ),
 
                                           ],

@@ -56,8 +56,8 @@ class _TeacherConferenceOListState extends State<TeacherConferenceOList> {
           data.forEach((key, value) {
             fetchedStudents.add(StudentCourse(
               id: key.toString(),
-              name: value['name'] ?? '',
-              detail: value['detail'] ?? '',
+              name: value['fullName'] ?? '',
+              detail: value['detailsOfConference'] ?? '',
               address: value['address'] ?? '',
               starting: value['StartingDate'] ?? '',
               duration: value['duration'] ?? '',
@@ -147,7 +147,7 @@ class _TeacherConferenceOListState extends State<TeacherConferenceOList> {
                   children: [
                     SizedBox(width: 10,),
                     Text(
-                      'Teacher\'s Conference Organised Details',
+                      'Conference Organised ',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,

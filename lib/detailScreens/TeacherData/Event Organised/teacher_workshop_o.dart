@@ -56,8 +56,8 @@ class _TeacherWorkshopOListState extends State<TeacherWorkshopOList> {
           data.forEach((key, value) {
             fetchedStudents.add(StudentCourse(
               id: key.toString(),
-              name: value['name'] ?? '',
-              detail: value['detail'] ?? '',
+              name: value['fullName'] ?? '',
+              detail: value['detailsOfWorkshop'] ?? '',
               address: value['address'] ?? '',
               starting: value['StartingDate'] ?? '',
               duration: value['duration'] ?? '',
@@ -147,7 +147,7 @@ class _TeacherWorkshopOListState extends State<TeacherWorkshopOList> {
                   children: [
                     SizedBox(width: 10,),
                     Text(
-                      'Teacher\'s Workshop Organised Details',
+                      'Workshop Organised',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,

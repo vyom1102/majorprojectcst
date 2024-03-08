@@ -100,7 +100,7 @@ class _TeacherCourseListState extends State<TeacherCourseList> {
             children: [
               Text('ID: ${student.id}'),
               Text('Name: ${student.name}'),
-              Text('Duration of Workshop: ${student.duration}'),
+              Text('Duration of Course: ${student.duration}'),
               Text('Address: ${student.address}'),
               Text('Starting: ${student.starting}'),
               Text('Duration: ${student.duration}'),

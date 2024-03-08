@@ -56,8 +56,8 @@ class _TeacherFDPListState extends State<TeacherFDPList> {
           data.forEach((key, value) {
             fetchedStudents.add(StudentCourse(
               id: key.toString(),
-              name: value['name'] ?? '',
-              detail: value['detail'] ?? '',
+              name: value['fullName'] ?? '',
+              detail: value['detailsOfFDP'] ?? '',
               address: value['address'] ?? '',
               starting: value['starting'] ?? '',
               duration: value['duration'] ?? '',
@@ -147,7 +147,7 @@ class _TeacherFDPListState extends State<TeacherFDPList> {
                   children: [
                     SizedBox(width: 10,),
                     Text(
-                      'Teacher\'s FDP Attended Details',
+                      'FDP Attended',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,

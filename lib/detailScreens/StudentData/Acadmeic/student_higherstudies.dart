@@ -160,7 +160,7 @@ class _StudentStudiesListState extends State<StudentStudiesList> {
                   children: [
                     SizedBox(width: 10,),
                     Text(
-                      'Student\'s Higher Studies Details',
+                      'Higher Studies Details',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,
