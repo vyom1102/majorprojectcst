@@ -17,6 +17,9 @@ import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Drama/S
 import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Drama/Student_Drama_Organised.dart';
 import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Technical/Student_tech_attended.dart';
 import 'package:majorproject/detailScreens/StudentData/Co-CurricularData/Technical/Student_tech_organised.dart';
+import 'package:majorproject/detailScreens/StudentData/NCC/co.dart';
+import 'package:majorproject/detailScreens/StudentData/NCC/female.dart';
+import 'package:majorproject/detailScreens/StudentData/NCC/male.dart';
 import 'package:majorproject/detailScreens/StudentData/Sports/student_intercollege.dart';
 import 'package:majorproject/detailScreens/StudentData/Sports/student_intracollege.dart';
 import 'package:majorproject/detailScreens/StudentData/student_personaldetail.dart';
@@ -31,13 +34,16 @@ import 'package:majorproject/detailScreens/TeacherData/Event%20Organised/teacher
 import 'package:majorproject/detailScreens/TeacherData/Publication/book.dart';
 import 'package:majorproject/detailScreens/TeacherData/Publication/research_paper.dart';
 import 'package:majorproject/detailScreens/TeacherData/teacher_course_completed.dart';
+import 'package:majorproject/main.dart';
 
 
 
 class AdminHome extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Color(0xff141318),
       body: Stack(
         children: [
@@ -59,8 +65,30 @@ class AdminHome extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   SizedBox(height: MediaQuery.sizeOf(context).height*0.04,),
-                  Center(child: Text('Details',style: GoogleFonts.kufam(fontWeight: FontWeight.w600,fontSize: 26,color: Color(0xff0CECDA)),)),
-
+                  // Center(child: Text('Details',style: GoogleFonts.kufam(fontWeight: FontWeight.w600,fontSize: 26,color: Color(0xff0CECDA)),)),
+                  Row(
+                    children: [
+                      IconButton(
+                        icon: Image.asset('images/drawer.png',
+                          width: 30.0,
+                          height: 30.0,
+                        ),
+                        onPressed: () {
+                          _scaffoldKey.currentState?.openDrawer();
+                        },
+                      ),
+                      SizedBox(
+                        width: MediaQuery.sizeOf(context).width*0.2,
+                      ),
+                      Text(
+                        'DETAILS',
+                        style: GoogleFonts.kufam(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 26,
+                            color: Color(0xff0CECDA)),
+                      ),
+                    ],
+                  ),
                   SizedBox(height: 20),
                   ElevatedButton(
                     style: ButtonStyle(
@@ -1267,7 +1295,13 @@ class AdminHome extends StatelessWidget {
                                             child: IconButton(
                                               icon: Icon(Icons.male, color: Colors.white),
                                               onPressed: () {
-                                                // Add functionality for the first icon button
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        StudentmaleStudiesList(),
+                                                  ),
+                                                );
                                               },
                                             ),
                                           ),
@@ -1288,7 +1322,13 @@ class AdminHome extends StatelessWidget {
                                             child: IconButton(
                                               icon: Icon(Icons.female, color: Colors.white),
                                               onPressed: () {
-                                                // Add functionality for the first icon button
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        StudentFEStudiesList(),
+                                                  ),
+                                                );
                                               },
                                             ),
                                           ),
@@ -1309,7 +1349,13 @@ class AdminHome extends StatelessWidget {
                                             child: IconButton(
                                               icon: Icon(Icons.group, color: Colors.white),
                                               onPressed: () {
-                                                // Add functionality for the first icon button
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        StudentCOStudiesList(),
+                                                  ),
+                                                );
                                               },
                                             ),
                                           ),
@@ -2016,6 +2062,58 @@ class AdminHome extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: Container(
+          color: Colors.white, // Set the drawer background color to grey
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text(
+                  'Your Name',
+                  style: TextStyle(color: Colors.black),
+                ),
+                accountEmail: Text(
+                  'your.email@example.com',
+                  style: TextStyle(color: Colors.black),
+                ),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage:
+                  AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.grey, // Set the header background color to grey
+                ),
+              ),
+              SizedBox(height: MediaQuery.sizeOf(context).height*0.65,),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF13E9DC),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  minimumSize:
+                  Size(70, 40.0),
+                ),
+                onPressed: () {
+                  Navigator.pop(context); // Close the drawer
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+                child: Text(
+                  'Log out',
+                  style: GoogleFonts.kufam(
+                      color: Color(0xff1E192E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
