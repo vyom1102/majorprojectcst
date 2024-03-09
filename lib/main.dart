@@ -10,6 +10,7 @@ import 'package:majorproject/student_data_sheet_screen.dart';
 import 'package:majorproject/teacher_data_sheet_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'student_main_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,8 +25,81 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+        home:  IsLogin(),
+        //LoginScreen(),
+
     );
+  }
+}
+class IsLogin extends StatefulWidget {
+  @override
+  _IsLoginState createState() => _IsLoginState();
+}
+
+class _IsLoginState extends State<IsLogin> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    // Check if the user is already signed in when the widget initializes
+    checkLoginStatus();
+  }
+
+  Future<void> checkLoginStatus() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? email = prefs.getString('email');
+    String? password = prefs.getString('password');
+
+    // Check if email and password are saved locally
+    if (email != null && password != null) {
+      try {
+        // Try signing in the user using saved credentials
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+        // If sign-in is successful, navigate to the student selection screen
+        if(email.toString().contains('student')){
+          Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
+        );}
+        else if(email.toString().contains('teacher')){Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => TeacherDataSheet()),
+        );}
+        else if(email.toString().contains('admin')){Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => AdminHome()),
+        );}
+      } catch (e) {
+        // If sign-in fails, clear saved credentials
+        await clearSavedCredentials();
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => LoginScreen())
+        );
+      }
+    }else {
+      // If no saved credentials, navigate to the login screen
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+      );
+  }}
+
+  Future<void> clearSavedCredentials() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('email');
+    prefs.remove('password');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // You can build any UI here if needed
+    return Container();
   }
 }
 
@@ -51,6 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
       // Firebase sign-in successful, navigate to the appropriate screen
       String userRole = getUserRoleFromEmail(email);
       if (userRole == 'student') {
+        saveCredentials(email, password);
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) =>
@@ -58,15 +133,29 @@ class _LoginScreenState extends State<LoginScreen> {
               // studentDataSheet()),
         );
       } else if (userRole == 'teacher') {
+        saveCredentials(email, password);
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => TeacherDataSheet()),
+          MaterialPageRoute(builder: (context) =>
+              TeacherDataSheet()),
+          // studentDataSheet()),
         );
+        // Navigator.pushReplacement(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => TeacherDataSheet()),
+        // );
       } else if (userRole == 'admin') {
+        saveCredentials(email, password);
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => AdminHome()),
+          MaterialPageRoute(builder: (context) =>
+              AdminHome()),
+          // studentDataSheet()),
         );
+        // Navigator.pushReplacement(
+        //   context,
+        //   MaterialPageRoute(builder: (context) => AdminHome()),
+        // );
       }
     } catch (e) {
 
@@ -74,6 +163,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
     }
+  }
+  Future<void> saveCredentials(String email, String password) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('email', email);
+    prefs.setString('password', password);
   }
 
   String getUserRoleFromEmail(String email) {

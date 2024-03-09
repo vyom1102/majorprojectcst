@@ -9,6 +9,7 @@ import 'package:majorproject/teachers_activity_folder/courses_completed_screen.d
 import 'package:majorproject/teachers_activity_folder/event_attended_screen.dart';
 import 'package:majorproject/teachers_activity_folder/event_organised_screen.dart';
 import 'package:majorproject/teachers_activity_folder/publications_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class TeacherSelectionScreen extends StatefulWidget {
   @override
@@ -17,6 +18,11 @@ class TeacherSelectionScreen extends StatefulWidget {
 
 class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
   String selectedButton = '';
+  Future<void> clearSavedCredentials() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('email');
+    prefs.remove('password');
+  }
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -312,17 +318,46 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                 ),
               ),
               SizedBox(height: MediaQuery.sizeOf(context).height*0.65,),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: Color(0xFF13E9DC),
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(20.0),
+              //     ),
+              //     minimumSize:
+              //     Size(70, 40.0),
+              //   ),
+              //   onPressed: () {
+              //     Navigator.pop(context); // Close the drawer
+              //     Navigator.pushReplacement(
+              //       context,
+              //       MaterialPageRoute(builder: (context) => LoginScreen()),
+              //     );
+              //   },
+              //   child: Text(
+              //     'Log out',
+              //     style: GoogleFonts.kufam(
+              //         color: Color(0xff1E192E),
+              //         fontSize: 20,
+              //         fontWeight: FontWeight.w500),
+              //   ),
+              // ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF13E9DC),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
-                  minimumSize:
-                  Size(70, 40.0),
+                  minimumSize: Size(70, 40.0),
                 ),
-                onPressed: () {
-                  Navigator.pop(context); // Close the drawer
+                onPressed: () async {
+                  // Close the drawer
+                  Navigator.pop(context);
+
+                  // Remove user details from SharedPreferences
+                  await clearSavedCredentials();
+
+                  // Navigate to the login screen
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => LoginScreen()),
@@ -333,7 +368,8 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                   style: GoogleFonts.kufam(
                       color: Color(0xff1E192E),
                       fontSize: 20,
-                      fontWeight: FontWeight.w500),
+                      fontWeight: FontWeight.w500
+                  ),
                 ),
               ),
             ],

@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
 
@@ -50,6 +51,7 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
   }
   Future<void> _saveCompiStudentData() async {
     try {
+      String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
       await _studentCompi.child('id').child(_enrollmentController.text).set({
         'projectID' : _projectIDController.text,
         'branch' : _branchController.text,
@@ -86,7 +88,7 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
         'otherMember' : _otherMemberController.text,
         'projectProblem' : _participationController.text,
         'nameNationInternationalCompetition' : _nameOfCompController.text,
-        'dateOfParticipation' : selectedDate.toString(),
+        'dateOfParticipation' :formattedSelectedDate,
         'proofUpload' : _imageController.text,
       });
 

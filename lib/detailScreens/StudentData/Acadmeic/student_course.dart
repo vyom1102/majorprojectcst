@@ -106,7 +106,7 @@ class _StudentCourseListState extends State<StudentCourseList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('ID: ${student.id}'),
+
               Text('Enrollment Number: ${student.enrollmentNumber}'),
               Text('Course Name: ${student.courseName}'),
               Text('Instructor Name: ${student.instructorName}'),

@@ -43,6 +43,48 @@ class StudentCompetition {
   final String projectProblem;
   final String projectTitle;
   final String proofUpload;
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'hardwareSoftwareProject': hardwareSoftwareProject,
+      'branch': branch,
+      'dateOfParticipation': dateOfParticipation,
+      'member1Email': member1Email,
+      'member1Enroll': member1Enroll,
+      'member1Group': member1Group,
+      'member1Name': member1Name,
+      'member1WhatsappNumber': member1WhatsappNumber,
+      'member2Email': member2Email,
+      'member2Enroll': member2Enroll,
+      'member2Group': member2Group,
+      'member2Name': member2Name,
+      'member2WhatsappNumber': member2WhatsappNumber,
+      'member3Email': member3Email,
+      'member3Enroll': member3Enroll,
+      'member3Group': member3Group,
+      'member3Name': member3Name,
+      'member3WhatsappNumber': member3WhatsappNumber,
+      'member4Email': member4Email,
+      'member4Enroll': member4Enroll,
+      'member4Group': member4Group,
+      'member4Name': member4Name,
+      'member4WhatsappNumber': member4WhatsappNumber,
+      'member5Email': member5Email,
+      'member5Enroll': member5Enroll,
+      'member5Group': member5Group,
+      'member5Name': member5Name,
+      'member5WhatsappNumber': member5WhatsappNumber,
+      'nameNationInternationalCompetition': nameNationInternationalCompetition,
+      'otherMember': otherMember,
+      'projectCoGuide': projectCoGuide,
+      'projectDomain': projectDomain,
+      'projectGuide': projectGuide,
+      'projectID': projectID,
+      'projectProblem': projectProblem,
+      'projectTitle': projectTitle,
+      'proofUpload': proofUpload,
+    };
+  }
 
   StudentCompetition({
     required this.id,
@@ -351,17 +393,6 @@ class _StudentCompetitionScreenState extends State<StudentCompetitionScreen> {
     }
   }
 
-  // void _filterCompetitions(String query) {
-  //   setState(() {
-  //     if (query.isNotEmpty) {
-  //       filteredCompetitions = competitions.where((competition) =>
-  //       competition.gv.toLowerCase().contains(query.toLowerCase()) ||
-  //           competition.id.toLowerCase().contains(query.toLowerCase())).toList();
-  //     } else {
-  //       filteredCompetitions = competitions;
-  //     }
-  //   });
-  // }
   void _filterCompetitions(String query) {
     setState(() {
       if (query.isNotEmpty) {
@@ -374,22 +405,23 @@ class _StudentCompetitionScreenState extends State<StudentCompetitionScreen> {
     });
   }
 
+
   void _showDetailsDialog(StudentCompetition competition) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Competition Details'),
-          content: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text('ID: ${competition.id}'),
-              Text('Hardware/Software Project: ${competition.hardwareSoftwareProject}'),
-              Text('Branch: ${competition.branch}'),
-              Text('Date of Participation: ${competition.dateOfParticipation}'),
-              // Add more fields as needed
-            ],
+          content: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                for (var entry in competition.toMap().entries)
+                  if (entry.value.toString().isNotEmpty)
+                   Text('${entry.key}: ${entry.value}'),
+              ],
+            ),
           ),
           actions: [
             TextButton(
@@ -404,48 +436,6 @@ class _StudentCompetitionScreenState extends State<StudentCompetitionScreen> {
     );
   }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Student Competition Details'),
-//       ),
-//       body: Column(
-//         children: [
-//           Padding(
-//             padding: const EdgeInsets.all(8.0),
-//             child: TextField(
-//               controller: _searchController,
-//               decoration: InputDecoration(
-//                 labelText: 'Search by ID ',
-//                 prefixIcon: Icon(Icons.search),
-//                 filled: true,
-//                 fillColor: Colors.white,
-//                 border: OutlineInputBorder(
-//                   borderRadius: BorderRadius.circular(30.0),
-//                 ),
-//               ),
-//               onChanged: _filterCompetitions,
-//             ),
-//           ),
-//           Expanded(
-//             child: ListView.builder(
-//               itemCount: filteredCompetitions.length,
-//               itemBuilder: (context, index) {
-//                 return ListTile(
-//                   title: Text(filteredCompetitions[index].id),
-//                   onTap: () {
-//                     _showDetailsDialog(filteredCompetitions[index]);
-//                   },
-//                 );
-//               },
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
