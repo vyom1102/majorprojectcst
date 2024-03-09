@@ -215,16 +215,14 @@ class _TrainingScreenState extends State<TrainingScreen> {
                                 }
                                 return null; // Return null if the input is valid
                               },
-                              // onSaved: (value) {
-                              //   _phoneNumber = value;
-                              // },
+
                               keyboardType: TextInputType.number,
                               inputFormatters: <TextInputFormatter>[
                                 FilteringTextInputFormatter.digitsOnly
                               ],
                               maxLength: 11,
                               decoration: InputDecoration(
-                                hintText: 'ABC',
+                                hintText: '0909090',
                                 counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
@@ -294,6 +292,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
                                 }
                                 return null;
                               },
+                              keyboardType: TextInputType.number,
                               decoration: InputDecoration(
                                 hintText: '2',
                                 enabledBorder: OutlineInputBorder(
@@ -913,13 +912,14 @@ class _TrainingScreenState extends State<TrainingScreen> {
 
                             ElevatedButton(
                               onPressed: () {
-                                if (_studentnameController.text != null) {
+                                if (_studentnameController.text.toString().isNotEmpty) {
                                   // If all fields are valid, navigate to the next screen
                                   _saveInternStudentData();
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => TrainingScreen()),
-                                  );
+                                  Navigator.pop(context);
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(builder: (context) => TrainingScreen()),
+                                  // );
                                 }
                               },
                               style: ElevatedButton.styleFrom(
