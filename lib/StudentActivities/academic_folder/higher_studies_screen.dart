@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
@@ -68,6 +69,10 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
 
   Future<void> _studentHigherDetail() async {
     try {
+      String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+      String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate);
+
+
       await _studentHigher.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
         'nameOfCourse' : _courseNameController.text,
@@ -76,8 +81,8 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
         'duration' : _durationController.text,
         'ppoInfo' : _ppoController.text,
         'ppoDetail' : _ppoDetailsController.text,
-        'StartingDate' : selectedDate.toString(),
-        'EndingDate' : joiningDate.toString(),
+        'StartingDate' :formattedSelectedDate,
+        'EndingDate' : formattedJoiningDate,
       });
 
     } catch (error) {
