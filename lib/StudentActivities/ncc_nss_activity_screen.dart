@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
 
@@ -122,6 +123,8 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
     }
   }
   Future<void> _saveStudentData() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(femaleHeldFromDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(femaleHeldToDate);
     try {
       await _studentRef.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
@@ -131,8 +134,8 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
         'detail' : _detailsController.text,
         'duration' : _durationController.text,
         'address' : _addressController.text,
-        'Startingdate' : femaleHeldFromDate.toString(),
-        'Endingdate' : femaleHeldToDate.toString(),
+        'Startingdate' : formattedSelectedDate,
+        'Endingdate' : formattedJoiningDate,
       });
 
     } catch (error) {
@@ -141,6 +144,8 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
     }
   }
   Future<void> _save2StudentData() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(maleHeldFromDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(maleHeldToDate);
     try {
       await _studentRef1.child('id').child(_student2nameController.text).set({
         'enrollmentNumber': _student2nameController.text,
@@ -150,8 +155,8 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
         'detail' : _details2Controller.text,
         'duration' : _duration2Controller.text,
         'address' : _address2Controller.text,
-        'Startingdate' : maleHeldFromDate.toString(),
-        'Endingdate' : maleHeldToDate.toString(),
+        'Startingdate' : formattedSelectedDate,
+        'Endingdate' : formattedJoiningDate,
       });
 
     } catch (error) {
@@ -160,6 +165,8 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
     }
   }
   Future<void> _save3StudentData() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(coHeldFromDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(coHeldToDate);
     try {
       await _studentRef2.child('id').child(_student3nameController.text).set({
         'enrollmentNumber': _student3nameController.text,
@@ -169,8 +176,8 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
         'detail' : _details3Controller.text,
         'duration' : _duration3Controller.text,
         'address' : _address3Controller.text,
-        'Startingdate' : coHeldFromDate.toString(),
-        'Endingdate' : coHeldToDate.toString(),
+        'Startingdate' : formattedSelectedDate,
+        'Endingdate' : formattedJoiningDate,
       });
 
     } catch (error) {

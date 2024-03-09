@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
@@ -36,13 +37,16 @@ class _SeminarScreenState extends State<SeminarScreen> {
   }
   Future<void> _saveSeminarData() async {
     try {
+      String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+      String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate);
+
       await _studentTran.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
         'nameOfFaculty' : _nameController.text,
         'duration' : _durationController.text,
         'address' : _addressController.text,
-        'StartingDate' : selectedDate.toString(),
-        'EndingDate' : joiningDate.toString(),
+        'StartingDate' :formattedSelectedDate,
+        'EndingDate' : formattedJoiningDate,
       });
 
     } catch (error) {

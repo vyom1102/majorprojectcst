@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
@@ -88,6 +89,8 @@ class _CulturalSocietyScreenState extends State<CulturalSocietyScreen> {
     }
   }
   Future<void> _saveStudentResultData() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(EventOrganizedHeldFromDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(EventOrganizedHeldToDate);
     try {
       await _studentCul.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
@@ -97,8 +100,8 @@ class _CulturalSocietyScreenState extends State<CulturalSocietyScreen> {
         'details' : _detailsController.text,
         'duration' : _durationController.text,
         'address' : _addressController.text,
-        'StartingDate' : EventOrganizedHeldFromDate.toString(),
-        'EndingDate' : EventOrganizedHeldToDate.toString(),
+        'StartingDate' : formattedSelectedDate,
+        'EndingDate' : formattedJoiningDate,
       });
 
     } catch (error) {
@@ -107,6 +110,8 @@ class _CulturalSocietyScreenState extends State<CulturalSocietyScreen> {
     }
   }
   Future<void> _saveStudent2ResultData() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(EventParticipationHeldFromDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(EventParticipationHeldFromDate);
     try {
       await _studentCultural.child('id').child(_student2nameController.text).set({
         'enrollmentNumber': _student2nameController.text,
@@ -118,8 +123,8 @@ class _CulturalSocietyScreenState extends State<CulturalSocietyScreen> {
         'individualGroup' : _indiOrGroupController.text,
         'achievement' : _achievementsController.text,
         'address' : _address2Controller.text,
-        'StartingDate' : EventParticipationHeldFromDate.toString(),
-        'EndingDate' : EventParticipationHeldToDate.toString(),
+        'StartingDate' : formattedSelectedDate,
+        'EndingDate' : formattedJoiningDate,
       });
 
     } catch (error) {

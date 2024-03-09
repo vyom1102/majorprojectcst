@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
@@ -89,6 +90,8 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
     }
   }
   Future<void> _saveStudentResultData() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(WorkshopOrganizedHeldFromDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(WorkshopOrganizedHeldToDate);
     try {
       await _studentTech.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
@@ -98,8 +101,8 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
         'details' : _detailsController.text,
         'duration' : _durationController.text,
         'address' : _addressController.text,
-        'StartingDate' : WorkshopOrganizedHeldFromDate.toString(),
-        'EndingDate' : WorkshopOrganizedHeldToDate.toString(),
+        'StartingDate' : formattedSelectedDate,
+        'EndingDate' : formattedJoiningDate,
       });
 
     } catch (error) {
@@ -108,6 +111,8 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
     }
   }
   Future<void> _saveStudent2ResultData() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(ConferenceOrganizedHeldFromDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(ConferenceOrganizedHeldToDate);
     try {
       await _studentTechnical.child('id').child(_student2nameController.text).set({
         'enrollmentNumber': _student2nameController.text,
@@ -119,8 +124,8 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
         'individualGroup' : _indiOrGroupController.text,
         'achievement' : _achievementsController.text,
         'address' : _address2Controller.text,
-        'StartingDate' : ConferenceOrganizedHeldFromDate.toString(),
-        'EndingDate' : ConferenceOrganizedHeldToDate.toString(),
+        'StartingDate' : formattedSelectedDate,
+        'EndingDate' : formattedJoiningDate,
       });
 
     } catch (error) {

@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
 import 'package:majorproject/student_main_screen.dart';
@@ -96,6 +97,8 @@ class _SportsScreenState extends State<SportsScreen> {
     }
   }
   Future<void> _saveStudentData() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(ConferenceOrganizedHeldFromDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(ConferenceOrganizedHeldToDate);
     try {
       await _studentRef.child('id').child(_studentnameController.text).set({
         'enrollnumb': _studentnameController.text,
@@ -105,8 +108,8 @@ class _SportsScreenState extends State<SportsScreen> {
         'individual' : _indiOrGroupController.text,
         'achievement' : _achievementsController.text,
         'address' : _addressController.text,
-        'Startingdate' : ConferenceOrganizedHeldFromDate.toString(),
-        'Endingdate' : ConferenceOrganizedHeldToDate.toString(),
+        'Startingdate' : formattedSelectedDate,
+        'Endingdate' : formattedJoiningDate,
       });
 
     } catch (error) {
@@ -115,6 +118,8 @@ class _SportsScreenState extends State<SportsScreen> {
     }
   }
   Future<void> _save2StudentData() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(WorkshopOrganizedHeldFromDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(WorkshopOrganizedHeldToDate);
     try {
       await _studentRefer.child('id').child(_student2nameController.text).set({
         'enrollnumb': _student2nameController.text,
@@ -124,8 +129,8 @@ class _SportsScreenState extends State<SportsScreen> {
         'individual' : _indiOrGroup2Controller.text,
         'achievement' : _achievements2Controller.text,
         'address' : _address2Controller.text,
-        'Startingdate' : WorkshopOrganizedHeldFromDate.toString(),
-        'Endingdate' : WorkshopOrganizedHeldToDate.toString(),
+        'Startingdate' : formattedSelectedDate,
+        'Endingdate' : formattedJoiningDate,
       });
 
     } catch (error) {

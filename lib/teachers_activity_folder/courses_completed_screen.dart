@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
 import 'package:majorproject/teacher_main_screen.dart';
@@ -38,14 +39,16 @@ class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
   final TextEditingController _addressController = TextEditingController();
 
   Future<void> _saveTeacherData() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate);
     try {
       await _teacherRef.child('id').child(_fullNameController.text).set({
         'fullName': _fullNameController.text,
         'details': _detailOfSeminarController.text,
         'duration': _durationController.text,
         'address': _addressController.text,
-        'StartingDate': selectedDate.toString(),
-        'Endingdate': joiningDate.toString(),
+        'StartingDate': formattedSelectedDate,
+        'Endingdate': formattedJoiningDate,
       });
 
     } catch (error) {

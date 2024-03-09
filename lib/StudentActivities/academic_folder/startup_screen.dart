@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
 
@@ -45,13 +46,14 @@ class _StartupScreenState extends State<StartupScreen> {
   }
   Future<void> _saveStartupData() async {
     try {
+      String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
       await _studentTran.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
         'companyName' : _companyNameController.text,
         'companyProfile' : _companyProfileController.text,
         'designation' : _designationController.text,
         'location' : _placeController.text,
-        'StartingDate' : selectedDate.toString(),
+        'StartingDate' : formattedSelectedDate,
       });
 
     } catch (error) {

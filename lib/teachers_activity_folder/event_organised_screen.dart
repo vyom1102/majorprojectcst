@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
@@ -167,14 +168,16 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
     }
   }
   Future<void> _saveTeacherData() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(WorkshopOrganizedHeldFromDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(WorkshopOrganizedHeldToDate);
     try {
       await _teacherRef.child('id').child(_fullNameController.text).set({
         'fullName': _fullNameController.text,
         'detailsOfWorkshop': _detailsController.text,
         'duration': _durationController.text,
         'address': _addressController.text,
-        'StartingDate' : WorkshopOrganizedHeldFromDate.toString(),
-        'EndingDate' : WorkshopOrganizedHeldToDate.toString(),
+        'StartingDate' : formattedSelectedDate,
+        'EndingDate' : formattedJoiningDate,
       });
 
     } catch (error) {
@@ -183,14 +186,16 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
     }
   }
   Future<void> _saveTeacher2Data() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(ConferenceOrganizedHeldFromDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(ConferenceOrganizedHeldToDate);
     try {
       await _teacherRef2.child('id').child(_fullName2Controller.text).set({
         'fullName': _fullName2Controller.text,
         'detailsOfConference': _details2Controller.text,
         'duration': _duration2Controller.text,
         'address': _address2Controller.text,
-        'StartingDate' : ConferenceOrganizedHeldFromDate.toString(),
-        'EndingDate' : ConferenceOrganizedHeldToDate.toString(),
+        'StartingDate' : formattedSelectedDate,
+        'EndingDate' : formattedJoiningDate,
       });
 
     } catch (error) {
@@ -199,14 +204,16 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
     }
   }
   Future<void> _saveTeacher3Data() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(SeminarOrganizedHeldFromDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(SeminarOrganizedHeldToDate);
     try {
       await _teacherRef3.child('id').child(_fullName3Controller.text).set({
         'fullName': _fullName3Controller.text,
         'detailsOfSeminar': _details3Controller.text,
         'duration': _duration3Controller.text,
         'address': _address3Controller.text,
-        'StartingDate' : SeminarOrganizedHeldFromDate.toString(),
-        'EndingDate' : SeminarOrganizedHeldToDate.toString(),
+        'StartingDate' : formattedSelectedDate,
+        'EndingDate' : formattedJoiningDate,
       });
 
     } catch (error) {
@@ -215,14 +222,16 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
     }
   }
   Future<void> _saveTeacher4Data() async {
+    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(FDPOrganizedHeldFromDate);
+    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(FDPOrganizedHeldToDate);
     try {
       await _teacherRef4.child('id').child(_fullName4Controller.text).set({
         'fullName': _fullName4Controller.text,
         'detailsOfFDP': _details4Controller.text,
         'duration': _duration4Controller.text,
         'address': _address4Controller.text,
-        'StartingDate' : FDPOrganizedHeldFromDate.toString(),
-        'EndingDate' : FDPOrganizedHeldToDate.toString(),
+        'StartingDate' : formattedSelectedDate,
+        'EndingDate' : formattedJoiningDate,
       });
 
     } catch (error) {
