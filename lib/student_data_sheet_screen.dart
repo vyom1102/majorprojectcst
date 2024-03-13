@@ -5,6 +5,7 @@ import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/student_main_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:firebase_core/firebase_core.dart';
 
 
@@ -115,6 +116,15 @@ class _studentDataSheetState extends State<studentDataSheet> {
       // Handle the error
       print('Error saving data: $error');
     }
+  }
+  Future<void> _saveStudentNameEmail() async {
+    String fullName = _fullNameController.text;
+    String emailAddress = _emailAddressController.text;
+
+    // Save student's name and email using SharedPreferences
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('student_name', fullName);
+    await prefs.setString('student_email', emailAddress);
   }
 
 
@@ -911,28 +921,30 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   ),
                                   SizedBox(height: 20),
 
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      if (Form.of(context)!.validate()) {
-                                        _saveStudentData();
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
-                                        );
-                                      }
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Color(0xFF13E9DC),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(20.0),
-                                      ),
-                                      minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
-                                    ),
-                                    child: Text(
-                                      'Next',
-                                      style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
-                                    ),
-                                  ),
+                                  // ElevatedButton(
+                                  //   onPressed: () async{
+                                  //     if (Form.of(context)!.validate()) {
+                                  //       await _saveStudentNameEmail();
+                                  //     // if (Form.of(context)!.validate()) {
+                                  //     //   _saveStudentData();
+                                  //       Navigator.push(
+                                  //         context,
+                                  //         MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
+                                  //       );
+                                  //     }
+                                  //   },
+                                  //   style: ElevatedButton.styleFrom(
+                                  //     backgroundColor: Color(0xFF13E9DC),
+                                  //     shape: RoundedRectangleBorder(
+                                  //       borderRadius: BorderRadius.circular(20.0),
+                                  //     ),
+                                  //     minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                                  //   ),
+                                  //   child: Text(
+                                  //     'Save',
+                                  //     style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
+                                  //   ),
+                                  // ),
                                   // ElevatedButton(
                                   //   onPressed: () {
                                   //     Navigator.push(
@@ -949,10 +961,31 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   //     minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                                   //   ),
                                   //   child: Text(
-                                  //     'Next',
+                                  //     'Save',
                                   //     style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
                                   //   ),
                                   // ),
+                                  ElevatedButton(
+                                    onPressed: () async {
+                                      await _saveStudentNameEmail(); // Save student's name and email
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
+                                      );
+                                       _saveStudentData(); // Not sure what this function does, remove or use it as needed
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Color(0xFF13E9DC),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20.0),
+                                      ),
+                                      minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                                    ),
+                                    child: Text(
+                                      'Save',
+                                      style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),

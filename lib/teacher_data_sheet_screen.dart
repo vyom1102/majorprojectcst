@@ -30,6 +30,16 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
       });
     }
   }
+  Future<void> saveTeacherEmail(String email) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('teacher_email', email);
+  }
+
+  Future<void> saveTeacherName(String name) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //await prefs.setString('teacher_name', name);
+    await prefs.setString('teacher_name', name);
+  }
 
   Future <void> _joiningDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -488,14 +498,42 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
 
                           SizedBox(height: 20),
 
+                          // ElevatedButton(
+                          //   onPressed: () async {
+                          //     await saveTeacherName(_fullNameController.text);
+                          //     Navigator.push(
+                          //       context,
+                          //       MaterialPageRoute(builder: (context) => TeacherSelectionScreen()),
+                          //     );
+                          //      _saveTeacherData();
+                          //
+                          //   },
+                          //   style: ElevatedButton.styleFrom(
+                          //     backgroundColor: Color(0xFF13E9DC),
+                          //     shape: RoundedRectangleBorder(
+                          //       borderRadius: BorderRadius.circular(20.0),
+                          //     ),
+                          //     minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                          //   ),
+                          //   child: Text(
+                          //     'Save',
+                          //     style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
+                          //   ),
+                          // ),
                           ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
+                              // Save teacher name and email
+                              await saveTeacherName(_fullNameController.text);
+                              await saveTeacherEmail(_emailAddressController.text);
+
+                              // Navigate to the teacher selection screen
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) => TeacherSelectionScreen()),
                               );
-                               _saveTeacherData();
 
+                              // Save other teacher data if needed
+                              _saveTeacherData();
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Color(0xFF13E9DC),
@@ -505,8 +543,8 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                               minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                             ),
                             child: Text(
-                              'Next',
-                              style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
+                              'Save',
+                              style: GoogleFonts.kufam(fontSize: 18, color: Colors.black, fontWeight: FontWeight.w500),
                             ),
                           ),
                         ],

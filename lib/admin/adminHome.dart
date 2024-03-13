@@ -37,14 +37,17 @@ import 'package:majorproject/detailScreens/TeacherData/teacher_course_completed.
 import 'package:majorproject/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
-
 class AdminHome extends StatelessWidget {
   Future<void> clearSavedCredentials() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove('email');
     prefs.remove('password');
   }
+  Future<String?> getUserEmail() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('email');
+  }
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -61,7 +64,8 @@ class AdminHome extends StatelessWidget {
               'images/bottom_container.png',
               fit: BoxFit.cover,
               height: 200,
-              width: MediaQuery.sizeOf(context).width,// Adjust the height as needed
+              width: MediaQuery.sizeOf(context)
+                  .width, // Adjust the height as needed
             ),
           ),
           Padding(
@@ -70,12 +74,15 @@ class AdminHome extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  SizedBox(height: MediaQuery.sizeOf(context).height*0.04,),
+                  SizedBox(
+                    height: MediaQuery.sizeOf(context).height * 0.04,
+                  ),
                   // Center(child: Text('Details',style: GoogleFonts.kufam(fontWeight: FontWeight.w600,fontSize: 26,color: Color(0xff0CECDA)),)),
                   Row(
                     children: [
                       IconButton(
-                        icon: Image.asset('images/drawer.png',
+                        icon: Image.asset(
+                          'images/drawer.png',
                           width: 30.0,
                           height: 30.0,
                         ),
@@ -84,7 +91,7 @@ class AdminHome extends StatelessWidget {
                         },
                       ),
                       SizedBox(
-                        width: MediaQuery.sizeOf(context).width*0.2,
+                        width: MediaQuery.sizeOf(context).width * 0.2,
                       ),
                       Text(
                         'DETAILS',
@@ -102,31 +109,45 @@ class AdminHome extends StatelessWidget {
                         Size(0.9 * MediaQuery.of(context).size.width, 48.0),
                       ),
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                            (Set<MaterialState> states) {
-
+                        (Set<MaterialState> states) {
                           return Color(0xff13292B);
-
                         },
                       ),
                       shape: MaterialStateProperty.all<OutlinedBorder>(
                         RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0), // Set the border radius
-                          side: BorderSide(color: Color(0xFF0CECDA)), // Set the border color
+                          borderRadius: BorderRadius.circular(
+                              8.0), // Set the border radius
+                          side: BorderSide(
+                              color: Color(0xFF0CECDA)), // Set the border color
                         ),
                       ),
                     ),
-                    onPressed: (){
+                    onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              AdminScreen(),
+                          builder: (context) => AdminScreen(),
                         ),
                       );
                     },
-                    child: Text(' Personal Details' ,style: GoogleFonts.kufam(color: Color(0xFF0CECDA),fontSize: 16,fontWeight: FontWeight.w500),),),
-                  SizedBox(height: 15,),
-                  Text('Students',style: GoogleFonts.kufam(fontWeight: FontWeight.w600,fontSize: 26,color: Color(0xff0CECDA)),),
+                    child: Text(
+                      ' Personal Details',
+                      style: GoogleFonts.kufam(
+                          color: Color(0xFF0CECDA),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    'Students',
+                    style: GoogleFonts.kufam(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 26,
+                        color: Color(0xff0CECDA)),
+                  ),
 
                   Container(
                     color: Color(0xff13292B),
@@ -138,29 +159,32 @@ class AdminHome extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(top: 18.0,left: 18,bottom: 8),
+                                padding: const EdgeInsets.only(
+                                    top: 18.0, left: 18, bottom: 8),
                                 child: Text(
                                   'Academic Activity',
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white
-                                  ),
+                                      color: Colors.white),
                                 ),
                               ),
                               Container(
                                 padding: EdgeInsets.all(10.0),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.model_training, color: Colors.white),
+                                              icon: Icon(Icons.model_training,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
@@ -174,19 +198,25 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Training', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Training',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.school, color: Colors.white),
+                                              icon: Icon(Icons.school,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
@@ -200,19 +230,25 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Courses', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Courses',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.assignment, color: Colors.white),
+                                              icon: Icon(Icons.assignment,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
@@ -226,19 +262,25 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Result', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Result',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.emoji_events, color: Colors.white),
+                                              icon: Icon(Icons.emoji_events,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
@@ -252,10 +294,13 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Competition', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Competition',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
-
                                       ],
                                     ),
                                   ],
@@ -264,7 +309,8 @@ class AdminHome extends StatelessWidget {
                               Container(
                                 padding: EdgeInsets.all(10.0),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     // Column(
                                     //   children: [
@@ -362,16 +408,19 @@ class AdminHome extends StatelessWidget {
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          borderRadius: BorderRadius.circular(
+                                              10), // Adjust the value to change the roundness of the corners
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.event, color: Colors.white),
+                                              icon: Icon(Icons.event,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => StudentSeminarList(),
+                                                    builder: (context) =>
+                                                        StudentSeminarList(),
                                                   ),
                                                 );
                                               },
@@ -379,24 +428,31 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Seminar', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Seminar',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          borderRadius: BorderRadius.circular(
+                                              10), // Adjust the value to change the roundness of the corners
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.business, color: Colors.white),
+                                              icon: Icon(Icons.business,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => StudentStartupList(),
+                                                    builder: (context) =>
+                                                        StudentStartupList(),
                                                   ),
                                                 );
                                               },
@@ -404,24 +460,31 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Start Up', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Start Up',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          borderRadius: BorderRadius.circular(
+                                              10), // Adjust the value to change the roundness of the corners
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.work, color: Colors.white),
+                                              icon: Icon(Icons.work,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => StudentPlacementList(),
+                                                    builder: (context) =>
+                                                        StudentPlacementList(),
                                                   ),
                                                 );
                                               },
@@ -429,24 +492,31 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Placement', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Placement',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          borderRadius: BorderRadius.circular(
+                                              10), // Adjust the value to change the roundness of the corners
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.school_outlined, color: Colors.white),
+                                              icon: Icon(Icons.school_outlined,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => StudentStudiesList(),
+                                                    builder: (context) =>
+                                                        StudentStudiesList(),
                                                   ),
                                                 );
                                               },
@@ -454,12 +524,15 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Higher Study', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Higher Study',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
-
                                   ],
                                 ),
                               ),
@@ -470,7 +543,9 @@ class AdminHome extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 15,),
+                  SizedBox(
+                    height: 15,
+                  ),
 
                   Container(
                     color: Color(0xff13292B),
@@ -482,29 +557,31 @@ class AdminHome extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(top: 18.0,left: 18,bottom: 8),
+                                padding: const EdgeInsets.only(
+                                    top: 18.0, left: 18, bottom: 8),
                                 child: Text(
                                   'Co-curricular Activity (Society)',
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white
-                                  ),
+                                      color: Colors.white),
                                 ),
                               ),
                               Column(
-
                                 // crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-
                                   Row(
                                     children: [
-                                      SizedBox(width: 40,),
-                                      Text('Ogranised', style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white
-                                      ),),
+                                      SizedBox(
+                                        width: 40,
+                                      ),
+                                      Text(
+                                        'Ogranised',
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      ),
                                     ],
                                   ),
                                   // Container(
@@ -611,21 +688,25 @@ class AdminHome extends StatelessWidget {
                                   Container(
                                     padding: EdgeInsets.all(10.0),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Column(
                                           children: [
                                             ClipRRect(
-                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              borderRadius: BorderRadius.circular(
+                                                  10), // Adjust the value to change the roundness of the corners
                                               child: Container(
                                                 color: Color(0x1A0CECDA),
                                                 child: IconButton(
-                                                  icon: Icon(Icons.code, color: Colors.white),
+                                                  icon: Icon(Icons.code,
+                                                      color: Colors.white),
                                                   onPressed: () {
                                                     Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
-                                                        builder: (context) => StudentTechOrganisedList(),
+                                                        builder: (context) =>
+                                                            StudentTechOrganisedList(),
                                                       ),
                                                     );
                                                   },
@@ -633,24 +714,31 @@ class AdminHome extends StatelessWidget {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top: 4.0),
-                                              child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                              padding: const EdgeInsets.only(
+                                                  top: 4.0),
+                                              child: Text('Technical',
+                                                  style: GoogleFonts.kufam(
+                                                      color: Colors.white,
+                                                      fontSize: 12)),
                                             ),
                                           ],
                                         ),
                                         Column(
                                           children: [
                                             ClipRRect(
-                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              borderRadius: BorderRadius.circular(
+                                                  10), // Adjust the value to change the roundness of the corners
                                               child: Container(
                                                 color: Color(0x1A0CECDA),
                                                 child: IconButton(
-                                                  icon: Icon(Icons.art_track, color: Colors.white),
+                                                  icon: Icon(Icons.art_track,
+                                                      color: Colors.white),
                                                   onPressed: () {
                                                     Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
-                                                        builder: (context) => StudentCulEventOrganisedList(),
+                                                        builder: (context) =>
+                                                            StudentCulEventOrganisedList(),
                                                       ),
                                                     );
                                                   },
@@ -658,24 +746,31 @@ class AdminHome extends StatelessWidget {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top: 4.0),
-                                              child: Text('Cultural', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                              padding: const EdgeInsets.only(
+                                                  top: 4.0),
+                                              child: Text('Cultural',
+                                                  style: GoogleFonts.kufam(
+                                                      color: Colors.white,
+                                                      fontSize: 12)),
                                             ),
                                           ],
                                         ),
                                         Column(
                                           children: [
                                             ClipRRect(
-                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              borderRadius: BorderRadius.circular(
+                                                  10), // Adjust the value to change the roundness of the corners
                                               child: Container(
                                                 color: Color(0x1A0CECDA),
                                                 child: IconButton(
-                                                  icon: Icon(Icons.group, color: Colors.white),
+                                                  icon: Icon(Icons.group,
+                                                      color: Colors.white),
                                                   onPressed: () {
                                                     Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
-                                                        builder: (context) => StudentCommEventOrganiseList(),
+                                                        builder: (context) =>
+                                                            StudentCommEventOrganiseList(),
                                                       ),
                                                     );
                                                   },
@@ -683,24 +778,31 @@ class AdminHome extends StatelessWidget {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top: 4.0),
-                                              child: Text('Community', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                              padding: const EdgeInsets.only(
+                                                  top: 4.0),
+                                              child: Text('Community',
+                                                  style: GoogleFonts.kufam(
+                                                      color: Colors.white,
+                                                      fontSize: 12)),
                                             ),
                                           ],
                                         ),
                                         Column(
                                           children: [
                                             ClipRRect(
-                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              borderRadius: BorderRadius.circular(
+                                                  10), // Adjust the value to change the roundness of the corners
                                               child: Container(
                                                 color: Color(0x1A0CECDA),
                                                 child: IconButton(
-                                                  icon: Icon(Icons.more_horiz, color: Colors.white),
+                                                  icon: Icon(Icons.more_horiz,
+                                                      color: Colors.white),
                                                   onPressed: () {
                                                     Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
-                                                        builder: (context) => StudentDramaEventOrganisedList(),
+                                                        builder: (context) =>
+                                                            StudentDramaEventOrganisedList(),
                                                       ),
                                                     );
                                                   },
@@ -708,8 +810,12 @@ class AdminHome extends StatelessWidget {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top: 4.0),
-                                              child: Text('Others', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                              padding: const EdgeInsets.only(
+                                                  top: 4.0),
+                                              child: Text('Others',
+                                                  style: GoogleFonts.kufam(
+                                                      color: Colors.white,
+                                                      fontSize: 12)),
                                             ),
                                           ],
                                         ),
@@ -719,12 +825,16 @@ class AdminHome extends StatelessWidget {
 
                                   Row(
                                     children: [
-                                      SizedBox(width: 40,),
-                                      Text('Attended', style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white
-                                      ),),
+                                      SizedBox(
+                                        width: 40,
+                                      ),
+                                      Text(
+                                        'Attended',
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      ),
                                     ],
                                   ),
                                   // Container(
@@ -831,21 +941,25 @@ class AdminHome extends StatelessWidget {
                                   Container(
                                     padding: EdgeInsets.all(10.0),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Column(
                                           children: [
                                             ClipRRect(
-                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              borderRadius: BorderRadius.circular(
+                                                  10), // Adjust the value to change the roundness of the corners
                                               child: Container(
                                                 color: Color(0x1A0CECDA),
                                                 child: IconButton(
-                                                  icon: Icon(Icons.code, color: Colors.white),
+                                                  icon: Icon(Icons.code,
+                                                      color: Colors.white),
                                                   onPressed: () {
                                                     Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
-                                                        builder: (context) => StudentTechEventParticipationList(),
+                                                        builder: (context) =>
+                                                            StudentTechEventParticipationList(),
                                                       ),
                                                     );
                                                   },
@@ -853,24 +967,31 @@ class AdminHome extends StatelessWidget {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top: 4.0),
-                                              child: Text('Technical', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                              padding: const EdgeInsets.only(
+                                                  top: 4.0),
+                                              child: Text('Technical',
+                                                  style: GoogleFonts.kufam(
+                                                      color: Colors.white,
+                                                      fontSize: 12)),
                                             ),
                                           ],
                                         ),
                                         Column(
                                           children: [
                                             ClipRRect(
-                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              borderRadius: BorderRadius.circular(
+                                                  10), // Adjust the value to change the roundness of the corners
                                               child: Container(
                                                 color: Color(0x1A0CECDA),
                                                 child: IconButton(
-                                                  icon: Icon(Icons.art_track, color: Colors.white),
+                                                  icon: Icon(Icons.art_track,
+                                                      color: Colors.white),
                                                   onPressed: () {
                                                     Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
-                                                        builder: (context) => StudentCulEventParticipationList(),
+                                                        builder: (context) =>
+                                                            StudentCulEventParticipationList(),
                                                       ),
                                                     );
                                                   },
@@ -878,24 +999,31 @@ class AdminHome extends StatelessWidget {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top: 4.0),
-                                              child: Text('Cultural', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                              padding: const EdgeInsets.only(
+                                                  top: 4.0),
+                                              child: Text('Cultural',
+                                                  style: GoogleFonts.kufam(
+                                                      color: Colors.white,
+                                                      fontSize: 12)),
                                             ),
                                           ],
                                         ),
                                         Column(
                                           children: [
                                             ClipRRect(
-                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              borderRadius: BorderRadius.circular(
+                                                  10), // Adjust the value to change the roundness of the corners
                                               child: Container(
                                                 color: Color(0x1A0CECDA),
                                                 child: IconButton(
-                                                  icon: Icon(Icons.group, color: Colors.white),
+                                                  icon: Icon(Icons.group,
+                                                      color: Colors.white),
                                                   onPressed: () {
                                                     Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
-                                                        builder: (context) => StudentCommEventParticipationList(),
+                                                        builder: (context) =>
+                                                            StudentCommEventParticipationList(),
                                                       ),
                                                     );
                                                   },
@@ -903,24 +1031,31 @@ class AdminHome extends StatelessWidget {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top: 4.0),
-                                              child: Text('Community', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                              padding: const EdgeInsets.only(
+                                                  top: 4.0),
+                                              child: Text('Community',
+                                                  style: GoogleFonts.kufam(
+                                                      color: Colors.white,
+                                                      fontSize: 12)),
                                             ),
                                           ],
                                         ),
                                         Column(
                                           children: [
                                             ClipRRect(
-                                              borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                              borderRadius: BorderRadius.circular(
+                                                  10), // Adjust the value to change the roundness of the corners
                                               child: Container(
                                                 color: Color(0x1A0CECDA),
                                                 child: IconButton(
-                                                  icon: Icon(Icons.more_horiz, color: Colors.white),
+                                                  icon: Icon(Icons.more_horiz,
+                                                      color: Colors.white),
                                                   onPressed: () {
                                                     Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
-                                                        builder: (context) => StudentDramaEventParticipationList(),
+                                                        builder: (context) =>
+                                                            StudentDramaEventParticipationList(),
                                                       ),
                                                     );
                                                   },
@@ -928,15 +1063,18 @@ class AdminHome extends StatelessWidget {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top: 4.0),
-                                              child: Text('Others', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                              padding: const EdgeInsets.only(
+                                                  top: 4.0),
+                                              child: Text('Others',
+                                                  style: GoogleFonts.kufam(
+                                                      color: Colors.white,
+                                                      fontSize: 12)),
                                             ),
                                           ],
                                         ),
                                       ],
                                     ),
                                   ),
-
                                 ],
                               ),
                             ],
@@ -1171,8 +1309,9 @@ class AdminHome extends StatelessWidget {
                   //   ),
                   // ),
 
-
-                  SizedBox(height: 15,),
+                  SizedBox(
+                    height: 15,
+                  ),
 
                   Container(
                     color: Color(0xff13292B),
@@ -1184,14 +1323,14 @@ class AdminHome extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(top: 18.0,left: 18,bottom: 8),
+                                padding: const EdgeInsets.only(
+                                    top: 18.0, left: 18, bottom: 8),
                                 child: Text(
                                   'Sports',
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white
-                                  ),
+                                      color: Colors.white),
                                 ),
                               ),
                               ClipRRect(
@@ -1199,16 +1338,20 @@ class AdminHome extends StatelessWidget {
                                 child: Container(
                                   padding: EdgeInsets.all(10.0),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
                                     children: [
                                       Column(
                                         children: [
                                           ClipRRect(
-                                            borderRadius: BorderRadius.circular(10),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                             child: Container(
                                               color: Color(0x1A0CECDA),
                                               child: IconButton(
-                                                icon: Icon(Icons.sports_baseball, color: Colors.white),
+                                                icon: Icon(
+                                                    Icons.sports_baseball,
+                                                    color: Colors.white),
                                                 onPressed: () {
                                                   Navigator.push(
                                                     context,
@@ -1222,19 +1365,26 @@ class AdminHome extends StatelessWidget {
                                             ),
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.only(top:4.0),
-                                            child: Text('Intercollege', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            padding:
+                                                const EdgeInsets.only(top: 4.0),
+                                            child: Text('Intercollege',
+                                                style: GoogleFonts.kufam(
+                                                    color: Colors.white,
+                                                    fontSize: 12)),
                                           ),
                                         ],
                                       ),
                                       Column(
                                         children: [
                                           ClipRRect(
-                                            borderRadius: BorderRadius.circular(10),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                             child: Container(
                                               color: Color(0x1A0CECDA),
                                               child: IconButton(
-                                                icon: Icon(Icons.sports_volleyball, color: Colors.white),
+                                                icon: Icon(
+                                                    Icons.sports_volleyball,
+                                                    color: Colors.white),
                                                 onPressed: () {
                                                   Navigator.push(
                                                     context,
@@ -1248,8 +1398,12 @@ class AdminHome extends StatelessWidget {
                                             ),
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.only(top:4.0),
-                                            child: Text('Intracollege', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                            padding:
+                                                const EdgeInsets.only(top: 4.0),
+                                            child: Text('Intracollege',
+                                                style: GoogleFonts.kufam(
+                                                    color: Colors.white,
+                                                    fontSize: 12)),
                                           ),
                                         ],
                                       ),
@@ -1264,7 +1418,9 @@ class AdminHome extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 15,),
+                  SizedBox(
+                    height: 15,
+                  ),
 
                   Container(
                     color: Color(0xff13292B),
@@ -1276,30 +1432,32 @@ class AdminHome extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(top: 18.0,left: 18,bottom: 8),
+                                padding: const EdgeInsets.only(
+                                    top: 18.0, left: 18, bottom: 8),
                                 child: Text(
                                   'NCC/NSS',
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white
-                                  ),
+                                      color: Colors.white),
                                 ),
                               ),
                               Container(
                                 padding: EdgeInsets.all(10.0),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Column(
                                       children: [
                                         ClipRRect(
-                                            borderRadius: BorderRadius.circular(10),
-
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.male, color: Colors.white),
+                                              icon: Icon(Icons.male,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
@@ -1313,20 +1471,25 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Male', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Male',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
-
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.female, color: Colors.white),
+                                              icon: Icon(Icons.female,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
@@ -1340,20 +1503,25 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Female', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Female',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                            borderRadius: BorderRadius.circular(10),
-
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.group, color: Colors.white),
+                                              icon: Icon(Icons.group,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
@@ -1367,8 +1535,12 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top:4.0),
-                                          child: Text('Co-ed', style: GoogleFonts.kufam(color: Colors.white,fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Co-ed',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
@@ -1381,11 +1553,17 @@ class AdminHome extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 15,),
+                  SizedBox(
+                    height: 15,
+                  ),
 
-
-                  Text('Teachers',style: GoogleFonts.kufam(fontWeight: FontWeight.w600,fontSize: 26,color: Color(0xff0CECDA)),),
-
+                  Text(
+                    'Teachers',
+                    style: GoogleFonts.kufam(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 26,
+                        color: Color(0xff0CECDA)),
+                  ),
 
                   Container(
                     color: Color(0xff13292B),
@@ -1526,21 +1704,25 @@ class AdminHome extends StatelessWidget {
                               Container(
                                 padding: EdgeInsets.all(10.0),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          borderRadius: BorderRadius.circular(
+                                              10), // Adjust the value to change the roundness of the corners
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.local_activity, color: Colors.white),
+                                              icon: Icon(Icons.local_activity,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => TeacherWorkshopList(),
+                                                    builder: (context) =>
+                                                        TeacherWorkshopList(),
                                                   ),
                                                 );
                                               },
@@ -1548,24 +1730,31 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Workshop', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Workshop',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          borderRadius: BorderRadius.circular(
+                                              10), // Adjust the value to change the roundness of the corners
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.school, color: Colors.white),
+                                              icon: Icon(Icons.school,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => TeacherConferenceList(),
+                                                    builder: (context) =>
+                                                        TeacherConferenceList(),
                                                   ),
                                                 );
                                               },
@@ -1573,24 +1762,31 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Conference', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Conference',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          borderRadius: BorderRadius.circular(
+                                              10), // Adjust the value to change the roundness of the corners
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.event_note, color: Colors.white),
+                                              icon: Icon(Icons.event_note,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => TeacherSeminarList(),
+                                                    builder: (context) =>
+                                                        TeacherSeminarList(),
                                                   ),
                                                 );
                                               },
@@ -1598,24 +1794,31 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Seminar', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Seminar',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          borderRadius: BorderRadius.circular(
+                                              10), // Adjust the value to change the roundness of the corners
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.emoji_events, color: Colors.white),
+                                              icon: Icon(Icons.emoji_events,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => TeacherFDPList(),
+                                                    builder: (context) =>
+                                                        TeacherFDPList(),
                                                   ),
                                                 );
                                               },
@@ -1623,15 +1826,18 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('FDP', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('FDP',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                   ],
                                 ),
                               ),
-
                             ],
                           ),
                         ),
@@ -1782,21 +1988,25 @@ class AdminHome extends StatelessWidget {
                               Container(
                                 padding: EdgeInsets.all(10.0),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          borderRadius: BorderRadius.circular(
+                                              10), // Adjust the value to change the roundness of the corners
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.local_activity, color: Colors.white),
+                                              icon: Icon(Icons.local_activity,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => TeacherWorkshopOList(),
+                                                    builder: (context) =>
+                                                        TeacherWorkshopOList(),
                                                   ),
                                                 );
                                               },
@@ -1804,24 +2014,31 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Workshop', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Workshop',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          borderRadius: BorderRadius.circular(
+                                              10), // Adjust the value to change the roundness of the corners
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.school, color: Colors.white),
+                                              icon: Icon(Icons.school,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => TeacherConferenceOList(),
+                                                    builder: (context) =>
+                                                        TeacherConferenceOList(),
                                                   ),
                                                 );
                                               },
@@ -1829,24 +2046,31 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Conference', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Conference',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          borderRadius: BorderRadius.circular(
+                                              10), // Adjust the value to change the roundness of the corners
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.event_note, color: Colors.white),
+                                              icon: Icon(Icons.event_note,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => TeacherSeminarOList(),
+                                                    builder: (context) =>
+                                                        TeacherSeminarOList(),
                                                   ),
                                                 );
                                               },
@@ -1854,24 +2078,31 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('Seminar', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('Seminar',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10), // Adjust the value to change the roundness of the corners
+                                          borderRadius: BorderRadius.circular(
+                                              10), // Adjust the value to change the roundness of the corners
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.emoji_events, color: Colors.white),
+                                              icon: Icon(Icons.emoji_events,
+                                                  color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => TeacherFDPOList(),
+                                                    builder: (context) =>
+                                                        TeacherFDPOList(),
                                                   ),
                                                 );
                                               },
@@ -1879,15 +2110,18 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
-                                          child: Text('FDP', style: GoogleFonts.kufam(color: Colors.white, fontSize: 12)),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
+                                          child: Text('FDP',
+                                              style: GoogleFonts.kufam(
+                                                  color: Colors.white,
+                                                  fontSize: 12)),
                                         ),
                                       ],
                                     ),
                                   ],
                                 ),
                               ),
-
                             ],
                           ),
                         ),
@@ -1922,16 +2156,19 @@ class AdminHome extends StatelessWidget {
                               Container(
                                 padding: EdgeInsets.all(10.0),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
-                                              icon: Icon(Icons.checklist_rtl_rounded,
+                                              icon: Icon(
+                                                  Icons.checklist_rtl_rounded,
                                                   color: Colors.white),
                                               onPressed: () {
                                                 Navigator.push(
@@ -1946,7 +2183,8 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
                                           child: Text('Courses',
                                               style: GoogleFonts.kufam(
                                                   color: Colors.white,
@@ -1991,12 +2229,14 @@ class AdminHome extends StatelessWidget {
                               Container(
                                 padding: EdgeInsets.all(10.0),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
@@ -2015,7 +2255,8 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
                                           child: Text('Research Papers',
                                               style: GoogleFonts.kufam(
                                                   color: Colors.white,
@@ -2026,7 +2267,8 @@ class AdminHome extends StatelessWidget {
                                     Column(
                                       children: [
                                         ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           child: Container(
                                             color: Color(0x1A0CECDA),
                                             child: IconButton(
@@ -2045,7 +2287,8 @@ class AdminHome extends StatelessWidget {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(top: 4.0),
+                                          padding:
+                                              const EdgeInsets.only(top: 4.0),
                                           child: Text('Books',
                                               style: GoogleFonts.kufam(
                                                   color: Colors.white,
@@ -2053,7 +2296,6 @@ class AdminHome extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-
                                   ],
                                 ),
                               ),
@@ -2075,24 +2317,57 @@ class AdminHome extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              UserAccountsDrawerHeader(
-                accountName: Text(
-                  'Your Name',
-                  style: TextStyle(color: Colors.black),
-                ),
-                accountEmail: Text(
-                  'your.email@example.com',
-                  style: TextStyle(color: Colors.black),
-                ),
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage:
-                  AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.grey, // Set the header background color to grey
-                ),
+              // UserAccountsDrawerHeader(
+              //   accountName: Text(
+              //     'Admin',
+              //     style: TextStyle(color: Colors.black),
+              //   ),
+              //   accountEmail: Text(
+              //     'your.email@example.com',
+              //     style: TextStyle(color: Colors.black),
+              //   ),
+              //   currentAccountPicture: CircleAvatar(
+              //     backgroundImage:
+              //         AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
+              //   ),
+              //   decoration: BoxDecoration(
+              //     color: Colors.grey, // Set the header background color to grey
+              //   ),
+              // ),
+              FutureBuilder<String?>(
+                future: getUserEmail(), // Fetch user email asynchronously
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return CircularProgressIndicator(); // Show loading indicator while fetching email
+                  } else {
+                    return UserAccountsDrawerHeader(
+                      accountName: FutureBuilder<String?>(
+                        future: getUserEmail(), // Fetch user name asynchronously
+                        builder: (context, nameSnapshot) {
+                          return Text(
+                            'Admin', // Default to 'Admin' if name is not available
+                            style: TextStyle(color: Colors.black),
+                          );
+                        },
+                      ),
+                      accountEmail: Text(
+                        snapshot.data ?? 'your.email@example.com', // Use fetched email or default email
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      currentAccountPicture: CircleAvatar(
+                        backgroundImage:
+                        AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.grey, // Set the header background color to grey
+                      ),
+                    );
+                  }
+                },
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).height*0.65,),
+              SizedBox(
+                height: MediaQuery.sizeOf(context).height * 0.65,
+              ),
               // ElevatedButton(
               //   style: ElevatedButton.styleFrom(
               //     backgroundColor: Color(0xFF13E9DC),
@@ -2143,8 +2418,7 @@ class AdminHome extends StatelessWidget {
                   style: GoogleFonts.kufam(
                       color: Color(0xff1E192E),
                       fontSize: 20,
-                      fontWeight: FontWeight.w500
-                  ),
+                      fontWeight: FontWeight.w500),
                 ),
               )
             ],

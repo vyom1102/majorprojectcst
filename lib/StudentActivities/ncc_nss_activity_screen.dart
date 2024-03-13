@@ -1537,6 +1537,8 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                   ),
                 ),
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).height*0.02,)
+
             ],
 
           ),
