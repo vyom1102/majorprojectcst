@@ -1075,6 +1075,7 @@ class _SportsScreenState extends State<SportsScreen> {
                   ),
                 ),
               ),
+              SizedBox(height: MediaQuery.sizeOf(context).height*0.04,)
 
             ],
 

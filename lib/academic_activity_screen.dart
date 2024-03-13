@@ -1,80 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
-//
-// class AcademicScreen extends StatelessWidget {
-//   final List<String> buttonTitles = [
-//     'Training',
-//     'Result',
-//     'Courses',
-//     'Seminar',
-//     'Competition',
-//     'Higher Studies',
-//     'Startup',
-//     'Placement',
-//   ];
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Color(0xff21262E),
-//       body: Stack(
-//         children: [
-//           Image.asset(
-//             'images/Group 174.png', // Adjust this to your background image
-//             fit: BoxFit.cover,
-//             width: double.infinity,
-//             height: double.infinity,
-//           ),
-//           SingleChildScrollView(
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 SizedBox(height: 40),
-//                 Text(
-//                   'Student',
-//                   style: GoogleFonts.marcellus(
-//                     color: Colors.white,
-//                     fontSize: 32,
-//                     fontWeight: FontWeight.bold,
-//                   ),
-//                 ),
-//
-//                 GridView.builder(
-//                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//                     crossAxisCount: 2,
-//                     crossAxisSpacing: 16.0,
-//                     mainAxisSpacing: 16.0,
-//                   ),
-//                   shrinkWrap: true,
-//                   physics: NeverScrollableScrollPhysics(),
-//                   itemCount: buttonTitles.length,
-//                   itemBuilder: (BuildContext context, int index) {
-//                     return Padding(
-//                       padding: const EdgeInsets.all(8.0),
-//                       child: ElevatedButton(
-//                         onPressed: () {},
-//                         style: ElevatedButton.styleFrom(
-//                           padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-//                           foregroundColor: Colors.black,
-//                           backgroundColor: Color(0xff1E94FF),
-//                           shape: RoundedRectangleBorder(
-//                             side: BorderSide(color: Colors.black),
-//                             borderRadius: BorderRadius.circular(0),
-//                           ),
-//                         ),
-//                         child: Text(buttonTitles[index],style: GoogleFonts.marcellus(fontSize: 22,),textAlign: TextAlign.center,),
-//                       ),
-//                     );
-//                   },
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -118,17 +41,18 @@ class _AcademicScreenState extends State<AcademicScreen> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 60,
+                  height: MediaQuery.sizeOf(context).height*0.074,
                 ),
                 Text(
                   'Academic Activity',
                   style: GoogleFonts.kufam(
                       fontWeight: FontWeight.w600,
-                      fontSize: 26,
+                      fontSize: MediaQuery.sizeOf(context).width*0.067,
+                      //26,
                       color: Color(0xff0CECDA)),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: MediaQuery.sizeOf(context).height*0.024,
                 ),
                 // Buttons
                 Padding(
@@ -142,7 +66,7 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     },
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all(
-                        Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                        Size(0.9 * MediaQuery.of(context).size.width, MediaQuery.sizeOf(context).height*0.0624),
                       ),
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
                         (Set<MaterialState> states) {
@@ -189,7 +113,7 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     },
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all(
-                        Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                        Size(0.9 * MediaQuery.of(context).size.width, MediaQuery.sizeOf(context).height*0.0624),
                       ),
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
                         (Set<MaterialState> states) {
@@ -236,7 +160,7 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     },
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all(
-                        Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                        Size(0.9 * MediaQuery.of(context).size.width, MediaQuery.sizeOf(context).height*0.0624),
                       ),
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
                         (Set<MaterialState> states) {
@@ -284,7 +208,7 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     },
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all(
-                        Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                        Size(0.9 * MediaQuery.of(context).size.width, MediaQuery.sizeOf(context).height*0.0624),
                       ),
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
                         (Set<MaterialState> states) {
@@ -336,7 +260,7 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     },
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all(
-                        Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                        Size(0.9 * MediaQuery.of(context).size.width, MediaQuery.sizeOf(context).height*0.0624),
                       ),
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
                         (Set<MaterialState> states) {
@@ -383,7 +307,7 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     },
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all(
-                        Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                        Size(0.9 * MediaQuery.of(context).size.width, MediaQuery.sizeOf(context).height*0.0624),
                       ),
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
                         (Set<MaterialState> states) {
@@ -430,7 +354,7 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     },
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all(
-                        Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                        Size(0.9 * MediaQuery.of(context).size.width, MediaQuery.sizeOf(context).height*0.0624),
                       ),
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
                         (Set<MaterialState> states) {
@@ -477,7 +401,7 @@ class _AcademicScreenState extends State<AcademicScreen> {
                     },
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all(
-                        Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                        Size(0.9 * MediaQuery.of(context).size.width, MediaQuery.sizeOf(context).height*0.0624),
                       ),
                       backgroundColor: MaterialStateProperty.resolveWith<Color>(
                         (Set<MaterialState> states) {
@@ -514,53 +438,53 @@ class _AcademicScreenState extends State<AcademicScreen> {
                   ),
                 ),
             
-                Padding(
-                  padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        selectedButton = 'Button 9';
-                      });
-                    },
-                    style: ButtonStyle(
-                      minimumSize: MaterialStateProperty.all(
-                        Size(0.9 * MediaQuery.of(context).size.width, 48.0),
-                      ),
-                      backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                            (Set<MaterialState> states) {
-                          if (states.contains(MaterialState.pressed)) {
-                            // Pressed color
-                            return Color.fromRGBO(12, 236, 218, 0.5);
-                          } else if (states.contains(MaterialState.selected) ||
-                              selectedButton == 'Button 9') {
-                            // Selected color
-                            return Color.fromRGBO(12, 236, 218, 0.5);
-                          } else {
-                            // Default color
-                            return Colors.black;
-                          }
-                        },
-                      ),
-                      shape: MaterialStateProperty.all<OutlinedBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius:
-                          BorderRadius.circular(8.0), // Set the border radius
-                          side: BorderSide(color: Color(0xFF0CECDA)),
-                        ),
-                      ),
-                    ),
-                    child: Text(
-                      'Minor/Major Projects',
-                      style: GoogleFonts.kufam(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                          color: Colors.white),
-                    ),
-                  ),
-                ),
+                // Padding(
+                //   padding:
+                //   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+                //   child: ElevatedButton(
+                //     onPressed: () {
+                //       setState(() {
+                //         selectedButton = 'Button 9';
+                //       });
+                //     },
+                //     style: ButtonStyle(
+                //       minimumSize: MaterialStateProperty.all(
+                //         Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                //       ),
+                //       backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                //             (Set<MaterialState> states) {
+                //           if (states.contains(MaterialState.pressed)) {
+                //             // Pressed color
+                //             return Color.fromRGBO(12, 236, 218, 0.5);
+                //           } else if (states.contains(MaterialState.selected) ||
+                //               selectedButton == 'Button 9') {
+                //             // Selected color
+                //             return Color.fromRGBO(12, 236, 218, 0.5);
+                //           } else {
+                //             // Default color
+                //             return Colors.black;
+                //           }
+                //         },
+                //       ),
+                //       shape: MaterialStateProperty.all<OutlinedBorder>(
+                //         RoundedRectangleBorder(
+                //           borderRadius:
+                //           BorderRadius.circular(8.0), // Set the border radius
+                //           side: BorderSide(color: Color(0xFF0CECDA)),
+                //         ),
+                //       ),
+                //     ),
+                //     child: Text(
+                //       'Minor/Major Projects',
+                //       style: GoogleFonts.kufam(
+                //           fontWeight: FontWeight.w500,
+                //           fontSize: 14,
+                //           color: Colors.white),
+                //     ),
+                //   ),
+                // ),
             
-                SizedBox(height: MediaQuery.sizeOf(context).height * 0.04),
+                SizedBox(height: MediaQuery.sizeOf(context).height * 0.09),
             
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -569,7 +493,7 @@ class _AcademicScreenState extends State<AcademicScreen> {
                       borderRadius: BorderRadius.circular(20.0),
                     ),
                     minimumSize:
-                        Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                    Size(0.9 * MediaQuery.of(context).size.width, MediaQuery.sizeOf(context).height*0.0624),
                   ),
                   onPressed: () {
                     if (selectedButton.isNotEmpty) {

@@ -251,7 +251,7 @@ class _CurricularActivityScreenState extends State<CurricularActivityScreen> {
               ),
 
 
-              SizedBox(height: MediaQuery.sizeOf(context).height * 0.08),
+              SizedBox(height: MediaQuery.sizeOf(context).height * 0.38),
 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
