@@ -50,258 +50,260 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                   .width, // Adjust the height as needed
             ),
           ),
-          Column(
-            children: [
-              SizedBox(
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
 
-                height: MediaQuery.sizeOf(context).height*0.1,
-              ),
-              Row(
-                children: [
-                  IconButton(
-                    icon: Image.asset('images/drawer.png',
-                    width: 30.0,
-                    height: 30.0,
-                    ),
-                    onPressed: () {
-                      _scaffoldKey.currentState?.openDrawer();
-                    },
-                  ),
-                  SizedBox(
-                    width: MediaQuery.sizeOf(context).width*0.2,
-                  ),
-                  Text(
-                    'STUDENT',
-                    style: GoogleFonts.kufam(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 26,
-                        color: Color(0xff0CECDA)),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: MediaQuery.sizeOf(context).height*0.05,
-              ),
-              Center(
-                  child: Image.asset(
-                'images/student.png',
-                scale: 3,
-              )),
-              SizedBox(height: MediaQuery.sizeOf(context).height*0.05,),
-
-              // Buttons
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    selectedButton = 'Button 1';
-                  });
-                },
-                style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(
-                    Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
-                  ),
-                  backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                    (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.pressed)) {
-                        // Pressed color
-                        return Color.fromRGBO(12, 236, 218, 0.5);
-                      } else if (states.contains(MaterialState.selected) ||
-                          selectedButton == 'Button 1') {
-                        // Selected color
-                        return Color.fromRGBO(12, 236, 218, 0.5);
-                      } else {
-                        // Default color
-                        return Colors.black;
-                      }
-                    },
-                  ),
-                  shape: MaterialStateProperty.all<OutlinedBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(8.0), // Set the border radius
-                      side: BorderSide(
-                          color: Color(0xFF0CECDA)), // Set the border color
-                    ),
-                  ),
+                  height: MediaQuery.sizeOf(context).height*0.1,
                 ),
-                child: Text('Academic Activity',
-                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-              ),
-              SizedBox(
+                Row(
+                  children: [
+                    IconButton(
+                      icon: Image.asset('images/drawer.png',
+                      width: 30.0,
+                      height: 30.0,
+                      ),
+                      onPressed: () {
+                        _scaffoldKey.currentState?.openDrawer();
+                      },
+                    ),
+                    SizedBox(
+                      width: MediaQuery.sizeOf(context).width*0.2,
+                    ),
+                    Text(
+                      'STUDENT',
+                      style: GoogleFonts.kufam(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 26,
+                          color: Color(0xff0CECDA)),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: MediaQuery.sizeOf(context).height*0.05,
+                ),
+                Center(
+                    child: Image.asset(
+                  'images/student.png',
+                  scale: 3,
+                )),
+                SizedBox(height: MediaQuery.sizeOf(context).height*0.05,),
+
+                // Buttons
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedButton = 'Button 1';
+                    });
+                  },
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(
+                      Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
+                    ),
+                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                      (Set<MaterialState> states) {
+                        if (states.contains(MaterialState.pressed)) {
+                          // Pressed color
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else if (states.contains(MaterialState.selected) ||
+                            selectedButton == 'Button 1') {
+                          // Selected color
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else {
+                          // Default color
+                          return Colors.black;
+                        }
+                      },
+                    ),
+                    shape: MaterialStateProperty.all<OutlinedBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.circular(8.0), // Set the border radius
+                        side: BorderSide(
+                            color: Color(0xFF0CECDA)), // Set the border color
+                      ),
+                    ),
+                  ),
+                  child: Text('Academic Activity',
+                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                ),
+                SizedBox(
+                    height: MediaQuery.sizeOf(context).height*0.025,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedButton = 'Button 2';
+                    });
+                  },
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(
+                      Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
+                    ),
+                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                      (Set<MaterialState> states) {
+                        if (states.contains(MaterialState.pressed)) {
+                          // Pressed color
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else if (states.contains(MaterialState.selected) ||
+                            selectedButton == 'Button 2') {
+                          // Selected color
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else {
+                          // Default color
+                          return Colors.black;
+                        }
+                      },
+                    ),
+                    shape: MaterialStateProperty.all<OutlinedBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.circular(8.0), // Set the border radius
+                        side: BorderSide(
+                            color: Color(0xFF0CECDA)), // Set the border color
+                      ),
+                    ),
+                  ),
+                  child: Text('Co-curricular Activity',
+                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                ),
+                SizedBox(
                   height: MediaQuery.sizeOf(context).height*0.025,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    selectedButton = 'Button 2';
-                  });
-                },
-                style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(
-                    Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
-                  ),
-                  backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                    (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.pressed)) {
-                        // Pressed color
-                        return Color.fromRGBO(12, 236, 218, 0.5);
-                      } else if (states.contains(MaterialState.selected) ||
-                          selectedButton == 'Button 2') {
-                        // Selected color
-                        return Color.fromRGBO(12, 236, 218, 0.5);
-                      } else {
-                        // Default color
-                        return Colors.black;
-                      }
-                    },
-                  ),
-                  shape: MaterialStateProperty.all<OutlinedBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(8.0), // Set the border radius
-                      side: BorderSide(
-                          color: Color(0xFF0CECDA)), // Set the border color
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedButton = 'Button 3';
+                    });
+                  },
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(
+                      Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
+                    ),
+                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                      (Set<MaterialState> states) {
+                        if (states.contains(MaterialState.pressed)) {
+                          // Pressed color
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else if (states.contains(MaterialState.selected) ||
+                            selectedButton == 'Button 3') {
+                          // Selected color
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else {
+                          // Default color
+                          return Colors.black;
+                        }
+                      },
+                    ),
+                    shape: MaterialStateProperty.all<OutlinedBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.circular(8.0), // Set the border radius
+                        side: BorderSide(
+                            color: Color(0xFF0CECDA)), // Set the border color
+                      ),
                     ),
                   ),
+                  child: Text('Sports',
+                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                 ),
-                child: Text('Co-curricular Activity',
-                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-              ),
-              SizedBox(
-                height: MediaQuery.sizeOf(context).height*0.025,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    selectedButton = 'Button 3';
-                  });
-                },
-                style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(
-                    Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
-                  ),
-                  backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                    (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.pressed)) {
-                        // Pressed color
-                        return Color.fromRGBO(12, 236, 218, 0.5);
-                      } else if (states.contains(MaterialState.selected) ||
-                          selectedButton == 'Button 3') {
-                        // Selected color
-                        return Color.fromRGBO(12, 236, 218, 0.5);
-                      } else {
-                        // Default color
-                        return Colors.black;
-                      }
-                    },
-                  ),
-                  shape: MaterialStateProperty.all<OutlinedBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(8.0), // Set the border radius
-                      side: BorderSide(
-                          color: Color(0xFF0CECDA)), // Set the border color
+                SizedBox(
+                  height: MediaQuery.sizeOf(context).height*0.025,
+                ),
+
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedButton = 'button 4';
+                    });
+                  },
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(
+                      Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
+                    ),
+                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                      (Set<MaterialState> states) {
+                        if (states.contains(MaterialState.pressed) ||
+                            selectedButton == 'button 4') {
+                          // Pressed or selected color
+                          return Color.fromRGBO(12, 236, 218, 0.5);
+                        } else {
+                          // Default color
+                          return Colors.black;
+                        }
+                      },
+                    ),
+                    shape: MaterialStateProperty.all<OutlinedBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.circular(8.0), // Set the border radius
+                        side: BorderSide(color: Color(0xFF0CECDA)),
+                      ),
                     ),
                   ),
+                  child: Text('NCC/NSS',
+                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                 ),
-                child: Text('Sports',
-                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-              ),
-              SizedBox(
-                height: MediaQuery.sizeOf(context).height*0.025,
-              ),
 
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    selectedButton = 'button 4';
-                  });
-                },
-                style: ButtonStyle(
-                  minimumSize: MaterialStateProperty.all(
+                SizedBox(height: MediaQuery.sizeOf(context).height * 0.08),
+
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF13E9DC),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    minimumSize:
                     Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
                   ),
-                  backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                    (Set<MaterialState> states) {
-                      if (states.contains(MaterialState.pressed) ||
-                          selectedButton == 'button 4') {
-                        // Pressed or selected color
-                        return Color.fromRGBO(12, 236, 218, 0.5);
-                      } else {
-                        // Default color
-                        return Colors.black;
+                  onPressed: () {
+                    if (selectedButton.isNotEmpty) {
+                      if (selectedButton == 'Button 1') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AcademicScreen(),
+                          ),
+                        );
+                      } else if (selectedButton == 'Button 2') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CurricularActivityScreen(),
+                          ),
+                        );
+                      } else if (selectedButton == 'Button 3') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SportsScreen()),
+                        );
+                      } else if (selectedButton == 'button 4') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NCCandNSSActivityScreen(),
+                          ),
+                        );
                       }
-                    },
-                  ),
-                  shape: MaterialStateProperty.all<OutlinedBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(8.0), // Set the border radius
-                      side: BorderSide(color: Color(0xFF0CECDA)),
-                    ),
-                  ),
-                ),
-                child: Text('NCC/NSS',
-                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
-              ),
+                    } else {
+                      print(MediaQuery.sizeOf(context).height);
+                      print(MediaQuery.sizeOf(context).width);
 
-              SizedBox(height: MediaQuery.sizeOf(context).height * 0.08),
-
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF13E9DC),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  minimumSize:
-                  Size(0.9 * MediaQuery.of(context).size.width,MediaQuery.sizeOf(context).height*0.059,),
-                ),
-                onPressed: () {
-                  if (selectedButton.isNotEmpty) {
-                    if (selectedButton == 'Button 1') {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AcademicScreen(),
-                        ),
-                      );
-                    } else if (selectedButton == 'Button 2') {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CurricularActivityScreen(),
-                        ),
-                      );
-                    } else if (selectedButton == 'Button 3') {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SportsScreen()),
-                      );
-                    } else if (selectedButton == 'button 4') {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => NCCandNSSActivityScreen(),
-                        ),
-                      );
+                      print('Please select a button.');
                     }
-                  } else {
-                    print(MediaQuery.sizeOf(context).height);
-                    print(MediaQuery.sizeOf(context).width);
-
-                    print('Please select a button.');
-                  }
-                },
-                child: Text(
-                  'Next',
-                  style: GoogleFonts.kufam(
-                      color: Color(0xff1E192E),
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500),
+                  },
+                  child: Text(
+                    'Next',
+                    style: GoogleFonts.kufam(
+                        color: Color(0xff1E192E),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
