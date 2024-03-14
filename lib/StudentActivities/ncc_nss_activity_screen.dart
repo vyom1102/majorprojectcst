@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
+import 'package:quickalert/quickalert.dart';
 
 class NCCandNSSActivityScreen extends StatefulWidget {
   @override
@@ -1485,7 +1486,20 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  if (_studentnameController.text.isNotEmpty) {
+                  if (_nameController.text.isEmpty ||
+                      _rollController.text.isEmpty ||
+                      _eventNameController.text.isEmpty ||
+                      _detailsController.text.isEmpty ||
+                      _durationController.text.isEmpty ||
+                      _addressController.text.isEmpty ||
+                      _studentnameController.text.isEmpty) {
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.error,
+                      title: 'Oops...',
+                      text: 'Please fill in all the required fields.',
+                    );
+                  } else {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -1494,7 +1508,20 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                     );
                     _saveStudentData();
                   }
-                  if (_student2nameController.text.isNotEmpty) {
+                  if (_name2Controller.text.isEmpty ||
+                      _roll2Controller.text.isEmpty ||
+                      _eventName2Controller.text.isEmpty ||
+                      _details2Controller.text.isEmpty ||
+                      _duration2Controller.text.isEmpty ||
+                      _address2Controller.text.isEmpty ||
+                      _student2nameController.text.isEmpty) {
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.error,
+                      title: 'Oops...',
+                      text: 'Please fill in all the required fields.',
+                    );
+                  } else {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -1503,20 +1530,35 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                     );
                     _save2StudentData();
                   }
-                  if (_student3nameController.text.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => NCCandNSSActivityScreen(),
-                      ),
-                    );
-                    _save3StudentData();
-                  }
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => NCCandNSSActivityScreen()),
-                  // );
-                  // _saveTeacherData();
+                  onPressed: () {
+                    if (_name3Controller.text.isEmpty ||
+                        _roll3Controller.text.isEmpty ||
+                        _eventName3Controller.text.isEmpty ||
+                        _details3Controller.text.isEmpty ||
+                        _duration3Controller.text.isEmpty ||
+                        _address3Controller.text.isEmpty ||
+                        _student3nameController.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields.',
+                      );
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NCCandNSSActivityScreen(),
+                        ),
+                      );
+                      _save3StudentData();
+                    }
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => NCCandNSSActivityScreen()),
+                    // );
+                    // _saveTeacherData();
+                  };
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF13E9DC),

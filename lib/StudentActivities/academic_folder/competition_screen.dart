@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
+import 'package:quickalert/quickalert.dart';
 
 
 class CompetitionScreen extends StatefulWidget {
@@ -1575,14 +1576,50 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                    // If all fields are valid, navigate to the next screen
+                                    if (_projectIDController.text.isEmpty ||
+                                    _branchController.text.isEmpty ||
+                                    _guideController.text.isEmpty ||
+                                    _coGuideController.text.isEmpty ||
+                                    _titleController.text.isEmpty ||
+                                    _domainController.text.isEmpty ||
+                                    _memberNameController.text.isEmpty ||
+                                    _enrollmentController.text.isEmpty ||
+                                    _emailController.text.isEmpty ||
+                                    _whatsappNumberController.text.isEmpty ||
+                                    _groupController.text.isEmpty ||
+                                    _memberName2Controller.text.isEmpty ||
+                                    _enrollment2Controller.text.isEmpty ||
+                                    _email2Controller.text.isEmpty ||
+                                    _whatsappNumber2Controller.text.isEmpty ||
+                                    _group2Controller.text.isEmpty ||
+                                    _memberName3Controller.text.isEmpty ||
+                                    _enrollment3Controller.text.isEmpty ||
+                                    _email3Controller.text.isEmpty ||
+                                    _whatsappNumber3Controller.text.isEmpty ||
+                                    _group3Controller.text.isEmpty ||
+                                    _memberName4Controller.text.isEmpty ||
+                                    _enrollment4Controller.text.isEmpty ||
+                                    _email4Controller.text.isEmpty ||
+                                    _whatsappNumber4Controller.text.isEmpty ||
+                                    _group4Controller.text.isEmpty ||
+                                    _memberName5Controller.text.isEmpty ||
+                                    _enrollment5Controller.text.isEmpty ||
+                                    _email5Controller.text.isEmpty ||
+                                    _whatsappNumber5Controller.text.isEmpty ||
+                                    _group5Controller.text.isEmpty ||
+                                    _hardwareSoftwareController.text.isEmpty ||
+                                    _otherMemberController.text.isEmpty ||
+                                    _participationController.text.isEmpty ||
+                                    _nameOfCompController.text.isEmpty)
+                                    {
+                                    QuickAlert.show(
+                                    context: context,
+                                    type: QuickAlertType.error,
+                                    title: 'Oops...',
+                                    text: 'Please fill in all the required fields.',);}
+                                    else {
                                     _saveCompiStudentData();
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(builder: (context) => CompetitionScreen()),
-                                    // );
-                                  Navigator.pop(context);
-
+                                  Navigator.pop(context);}
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xFF13E9DC),

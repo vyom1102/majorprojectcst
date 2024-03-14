@@ -7,10 +7,12 @@ import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
+import 'package:quickalert/quickalert.dart';
 
 class OthersScreen extends StatefulWidget {
   @override
   _OthersScreenState createState() => _OthersScreenState();
+
 }
 
 class _OthersScreenState extends State<OthersScreen> {
@@ -1042,7 +1044,18 @@ class _OthersScreenState extends State<OthersScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  if (_studentnameController.text.isNotEmpty) {
+                  if (_eventNameController.text.isEmpty ||
+                      _detailsController.text.isEmpty ||
+                      _durationController.text.isEmpty ||
+                      _addressController.text.isEmpty ||
+                      _studentnameController.text.isEmpty) {
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.error,
+                      title: 'Oops...',
+                      text: 'Please fill in all the required fields.',
+                    );
+                  } else {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -1051,7 +1064,21 @@ class _OthersScreenState extends State<OthersScreen> {
                     );
                     _saveStudentResultData();
                   }
-                  if (_student2nameController.text.isNotEmpty) {
+                  if (_name2Controller.text.isEmpty ||
+                      _eventName2Controller.text.isEmpty ||
+                      _details2Controller.text.isEmpty ||
+                      _duration2Controller.text.isEmpty ||
+                      _indiOrGroupController.text.isEmpty ||
+                      _achievementsController.text.isEmpty ||
+                      _address2Controller.text.isEmpty ||
+                      _student2nameController.text.isEmpty) {
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.error,
+                      title: 'Oops...',
+                      text: 'Please fill in all the required fields.',
+                    );
+                  } else {
                     Navigator.push(
                       context,
                       MaterialPageRoute(

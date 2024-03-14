@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
+import 'package:quickalert/quickalert.dart';
 
 class MinorMajorProjectScreen extends StatefulWidget {
   @override

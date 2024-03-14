@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
+import 'package:quickalert/quickalert.dart';
 
 class TrainingScreen extends StatefulWidget {
   @override
@@ -912,8 +913,31 @@ class _TrainingScreenState extends State<TrainingScreen> {
 
                             ElevatedButton(
                               onPressed: () {
-                                if (_studentnameController.text.toString().isNotEmpty) {
-                                  // If all fields are valid, navigate to the next screen
+                                    if (_studentnameController.text.isEmpty ||
+                                    _yearController.text.isEmpty ||
+                                    _projectTitleController.text.isEmpty ||
+                                    _teamSizeController.text.isEmpty ||
+                                    _totalDurationController.text.isEmpty ||
+                                    _platformUsedController.text.isEmpty ||
+                                    _researchApplicationController.text.isEmpty ||
+                                    _guideNameController.text.isEmpty ||
+                                    _guideDesignationController.text.isEmpty ||
+                                    _companyNameController.text.isEmpty ||
+                                    _companyAddressController.text.isEmpty ||
+                                    _sectorController.text.isEmpty ||
+                                    _scaleController.text.isEmpty ||
+                                    _incorporationStatusController.text.isEmpty ||
+                                    _productServiceController.text.isEmpty ||
+                                    _trainingModeController.text.isEmpty ||
+                                    _companyLinkController.text.isEmpty ||
+                                    _stipendAmountController.text.isEmpty) {
+                                  QuickAlert.show(
+                                    context: context,
+                                    type: QuickAlertType.error,
+                                    title: 'Oops...',
+                                    text: 'Please fill in all the required fields.',
+                                  );
+                                } else {
                                   _saveInternStudentData();
                                   Navigator.pop(context);
                                   // Navigator.push(

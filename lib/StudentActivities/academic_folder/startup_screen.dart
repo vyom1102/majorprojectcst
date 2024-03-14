@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
+import 'package:quickalert/quickalert.dart';
 
 class StartupScreen extends StatefulWidget {
   @override
@@ -385,8 +386,19 @@ class _StartupScreenState extends State<StartupScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                  if (_studentnameController.text != null) {
-                                    // If all fields are valid, navigate to the next screen
+                                  if (_imageController.text.isEmpty ||
+                                      _companyNameController.text.isEmpty ||
+                                      _companyProfileController.text.isEmpty ||
+                                      _designationController.text.isEmpty ||
+                                      _placeController.text.isEmpty ||
+                                      _studentnameController.text.isEmpty) {
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.error,
+                                      title: 'Oops...',
+                                      text: 'Please fill in all the required fields.',
+                                    );
+                                  } else {
                                     _saveStartupData();
                                     Navigator.push(
                                       context,

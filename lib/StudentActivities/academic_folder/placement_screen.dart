@@ -6,6 +6,7 @@ import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
+import 'package:quickalert/quickalert.dart';
 
 class PlacementScreen extends StatefulWidget {
   @override
@@ -406,8 +407,20 @@ class _PlacementScreenState extends State<PlacementScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                  if (_studentnameController.text != null) {
-                                    // If all fields are valid, navigate to the next screen
+                                  if (_categoriesController.text.isEmpty ||
+                                      _placementController.text.isEmpty ||
+                                      _companyNameController.text.isEmpty ||
+                                      _packageController.text.isEmpty ||
+                                      _positionController.text.isEmpty ||
+                                      _locationController.text.isEmpty ||
+                                      _studentnameController.text.isEmpty) {
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.error,
+                                      title: 'Oops...',
+                                      text: 'Please fill in all the required fields.',
+                                    );
+                                  } else {
                                     _studentHigherDetail();
                                     Navigator.push(
                                       context,

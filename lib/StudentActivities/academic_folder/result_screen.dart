@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
+import 'package:quickalert/quickalert.dart';
 
 class ResultScreen extends StatefulWidget {
   @override
@@ -506,8 +507,23 @@ class _ResultScreenState extends State<ResultScreen> {
 
                             ElevatedButton(
                               onPressed: () {
-                                if (_studentnameController.text != null) {
-                                  // If all fields are valid, navigate to the next screen
+                                if (_sem1Controller.text.isEmpty ||
+                                    _sem2Controller.text.isEmpty ||
+                                    _sem3Controller.text.isEmpty ||
+                                    _sem4Controller.text.isEmpty ||
+                                    _sem5Controller.text.isEmpty ||
+                                    _sem6Controller.text.isEmpty ||
+                                    _sem7Controller.text.isEmpty ||
+                                    _sem8Controller.text.isEmpty ||
+                                    _overallController.text.isEmpty ||
+                                    _studentnameController.text.isEmpty) {
+                                  QuickAlert.show(
+                                    context: context,
+                                    type: QuickAlertType.error,
+                                    title: 'Oops...',
+                                    text: 'Please fill in all the required fields.',
+                                  );
+                                } else {
                                   _studentHigherDetail();
                                   Navigator.push(
                                     context,

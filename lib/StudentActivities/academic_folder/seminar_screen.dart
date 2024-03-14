@@ -7,6 +7,7 @@ import 'package:majorproject/main.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
+import 'package:quickalert/quickalert.dart';
 
 class SeminarScreen extends StatefulWidget {
   @override
@@ -392,8 +393,18 @@ class _SeminarScreenState extends State<SeminarScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                  if (_studentnameController.text != null) {
-                                    // If all fields are valid, navigate to the next screen
+                                  if (_studentnameController.text.isEmpty ||
+                                      _nameController.text.isEmpty ||
+                                      _detailsController.text.isEmpty ||
+                                      _durationController.text.isEmpty ||
+                                      _addressController.text.isEmpty) {
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.error,
+                                      title: 'Oops...',
+                                      text: 'Please fill in all the required fields.',
+                                    );
+                                  } else {
                                     _saveSeminarData();
                                     Navigator.push(
                                       context,

@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:quickalert/quickalert.dart';
 
 class CoursesScreen extends StatefulWidget {
   @override
@@ -398,8 +399,21 @@ class _CoursesScreenState extends State<CoursesScreen> {
 
                               ElevatedButton(
                                 onPressed: () {
-                                  if (_studentnameController.text != null) {
-                                    // If all fields are valid, navigate to the next screen
+                                  if (_imageController.text.isEmpty ||
+                                      _courseNameController.text.isEmpty ||
+                                      _instructorOrOrganizationController.text.isEmpty ||
+                                      _specializationController.text.isEmpty ||
+                                      _durationController.text.isEmpty ||
+                                      _onlineController.text.isEmpty ||
+                                      _courseLearningController.text.isEmpty ||
+                                      _studentnameController.text.isEmpty) {
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.error,
+                                      title: 'Oops...',
+                                      text: 'Please fill in all the required fields.',
+                                    );
+                                  } else {
                                     _studentHigherDetail();
                                     Navigator.push(
                                       context,
