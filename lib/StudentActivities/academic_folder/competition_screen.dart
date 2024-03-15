@@ -1587,26 +1587,6 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                                     _emailController.text.isEmpty ||
                                     _whatsappNumberController.text.isEmpty ||
                                     _groupController.text.isEmpty ||
-                                    _memberName2Controller.text.isEmpty ||
-                                    _enrollment2Controller.text.isEmpty ||
-                                    _email2Controller.text.isEmpty ||
-                                    _whatsappNumber2Controller.text.isEmpty ||
-                                    _group2Controller.text.isEmpty ||
-                                    _memberName3Controller.text.isEmpty ||
-                                    _enrollment3Controller.text.isEmpty ||
-                                    _email3Controller.text.isEmpty ||
-                                    _whatsappNumber3Controller.text.isEmpty ||
-                                    _group3Controller.text.isEmpty ||
-                                    _memberName4Controller.text.isEmpty ||
-                                    _enrollment4Controller.text.isEmpty ||
-                                    _email4Controller.text.isEmpty ||
-                                    _whatsappNumber4Controller.text.isEmpty ||
-                                    _group4Controller.text.isEmpty ||
-                                    _memberName5Controller.text.isEmpty ||
-                                    _enrollment5Controller.text.isEmpty ||
-                                    _email5Controller.text.isEmpty ||
-                                    _whatsappNumber5Controller.text.isEmpty ||
-                                    _group5Controller.text.isEmpty ||
                                     _hardwareSoftwareController.text.isEmpty ||
                                     _otherMemberController.text.isEmpty ||
                                     _participationController.text.isEmpty ||
