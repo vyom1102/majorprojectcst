@@ -406,6 +406,34 @@ class _StartupScreenState extends State<StartupScreen> {
                                     );
                                   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xFF13E9DC),

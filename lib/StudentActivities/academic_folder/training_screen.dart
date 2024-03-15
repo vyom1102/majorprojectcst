@@ -316,7 +316,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //Duration
-                            Text('Duration of Internship/Course',
+                            Text('Duration of Internship/Course(in months)',
                                 style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
