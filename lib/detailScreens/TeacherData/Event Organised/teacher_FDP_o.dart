@@ -39,6 +39,7 @@ class _TeacherFDPOListState extends State<TeacherFDPOList> {
   List<StudentCourse> filteredStudents = [];
 
   TextEditingController _searchController = TextEditingController();
+  String _selectedYear = '2024';
 
   @override
   void initState() {
@@ -155,6 +156,39 @@ class _TeacherFDPOListState extends State<TeacherFDPOList> {
                     ),
                   ],
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Row(
+                    children: [
+                      SizedBox(width: 10),
+                      Text(
+                        'Select Year: ',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      DropdownButton<String>(
+                        dropdownColor: Colors.black,
+                        value: _selectedYear,
+                        items: <String>['2021','2022', '2023', '2024', '2025']
+                            .map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value,style: TextStyle(color: Color(0xff0CECDA),),),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _selectedYear = newValue!;
+                            // Filter students by selected year
+                            filteredStudents = students
+                                .where((student) => student.starting.contains(_selectedYear))
+                                .toList();
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+
 
                 Padding(
                   padding: const EdgeInsets.all(2.0),
