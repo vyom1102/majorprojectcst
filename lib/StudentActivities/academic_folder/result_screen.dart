@@ -508,13 +508,6 @@ class _ResultScreenState extends State<ResultScreen> {
                             ElevatedButton(
                               onPressed: () {
                                 if (_sem1Controller.text.isEmpty ||
-                                    _sem2Controller.text.isEmpty ||
-                                    _sem3Controller.text.isEmpty ||
-                                    _sem4Controller.text.isEmpty ||
-                                    _sem5Controller.text.isEmpty ||
-                                    _sem6Controller.text.isEmpty ||
-                                    _sem7Controller.text.isEmpty ||
-                                    _sem8Controller.text.isEmpty ||
                                     _overallController.text.isEmpty ||
                                     _studentnameController.text.isEmpty) {
                                   QuickAlert.show(
@@ -525,10 +518,11 @@ class _ResultScreenState extends State<ResultScreen> {
                                   );
                                 } else {
                                   _studentHigherDetail();
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => ResultScreen()),
-                                  );
+                                  Navigator.pop(context);
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(builder: (context) => ResultScreen()),
+                                  // );
                                 }
                               },
                               style: ElevatedButton.styleFrom(
