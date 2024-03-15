@@ -403,12 +403,6 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
     prefs.remove('email');
     prefs.remove('password');
   }
-  Future<Map<String, String>> getUserData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String name = prefs.getString('teacher_name') ?? 'Your Name';
-    String email = prefs.getString('teacher_email') ?? 'your.email@example.com';
-    return {'name': name, 'email': email};
-  }
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -686,52 +680,22 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              // UserAccountsDrawerHeader(
-              //   accountName: Text(
-              //     'Your Name',
-              //     style: TextStyle(color: Colors.black),
-              //   ),
-              //   accountEmail: Text(
-              //     'your.email@example.com',
-              //     style: TextStyle(color: Colors.black),
-              //   ),
-              //   currentAccountPicture: CircleAvatar(
-              //     backgroundImage:
-              //     AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
-              //   ),
-              //   decoration: BoxDecoration(
-              //     color: Colors.grey, // Set the header background color to grey
-              //   ),
-              // ),
-              FutureBuilder<Map<String, String>>(
-                future: getUserData(), // Fetch user data asynchronously
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return CircularProgressIndicator();
-                  } else if (snapshot.hasError) {
-                    return Text('Error: ${snapshot.error}');
-                  } else {
-                    print(snapshot.data);
-                    String name = snapshot.data?['name'] ?? 'Your Name';
-                    String email = snapshot.data?['email'] ?? 'your.email@example.com';
-                    return UserAccountsDrawerHeader(
-                      accountName: Text(
-                        name,
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      accountEmail: Text(
-                        email,
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      currentAccountPicture: CircleAvatar(
-                        backgroundImage: AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.grey, // Set the header background color to grey
-                      ),
-                    );
-                  }
-                },
+              UserAccountsDrawerHeader(
+                accountName: Text(
+                  'Your Name',
+                  style: TextStyle(color: Colors.black),
+                ),
+                accountEmail: Text(
+                  'your.email@example.com',
+                  style: TextStyle(color: Colors.black),
+                ),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage:
+                  AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.grey, // Set the header background color to grey
+                ),
               ),
               SizedBox(height: MediaQuery.sizeOf(context).height*0.65,),
               // ElevatedButton(
