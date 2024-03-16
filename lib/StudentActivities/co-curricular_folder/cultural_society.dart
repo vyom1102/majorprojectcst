@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
@@ -244,11 +245,19 @@ class _CulturalSocietyScreenState extends State<CulturalSocietyScreen> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
+                                }else if (value.length != 11) {
+                                  return 'Please enter a valid enrollment no.';
                                 }
                                 return null;
                               },
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              maxLength: 11,
                               decoration: InputDecoration(
-                                hintText: 'ABC',
+                                hintText: '79879667878',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -632,11 +641,19 @@ class _CulturalSocietyScreenState extends State<CulturalSocietyScreen> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
+                                }else if (value.length != 11) {
+                                  return 'Please enter a valid enrollment no.';
                                 }
                                 return null;
                               },
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              maxLength: 11,
                               decoration: InputDecoration(
-                                hintText: 'ABC',
+                                hintText: '79879667878',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -1043,7 +1060,6 @@ class _CulturalSocietyScreenState extends State<CulturalSocietyScreen> {
               ElevatedButton(
                 onPressed: () {
                   if (_nameController.text.isEmpty ||
-                      _rollController.text.isEmpty ||
                       _eventNameController.text.isEmpty ||
                       _detailsController.text.isEmpty ||
                       _durationController.text.isEmpty ||
@@ -1056,16 +1072,16 @@ class _CulturalSocietyScreenState extends State<CulturalSocietyScreen> {
                       text: 'Please fill in all the required fields.',
                     );
                   } else {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CulturalSocietyScreen(),
-                      ),
-                    );
+                    Navigator.pop(context);
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => CulturalSocietyScreen(),
+                    //   ),
+                    // );
                     _saveStudentResultData();
                   }
                   if (_name2Controller.text.isEmpty ||
-                      _roll2Controller.text.isEmpty ||
                       _eventName2Controller.text.isEmpty ||
                       _details2Controller.text.isEmpty ||
                       _duration2Controller.text.isEmpty ||
@@ -1080,12 +1096,13 @@ class _CulturalSocietyScreenState extends State<CulturalSocietyScreen> {
                       text: 'Please fill in all the required fields.',
                     );
                   } else {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CulturalSocietyScreen(),
-                      ),
-                    );
+                    Navigator.pop(context);
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => CulturalSocietyScreen(),
+                    //   ),
+                    // );
                     _saveStudent2ResultData();
                   }
                   // Navigator.push(

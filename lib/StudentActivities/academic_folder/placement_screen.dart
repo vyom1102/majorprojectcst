@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
@@ -135,8 +136,14 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                   }
                                   return null;
                                 },
+                                keyboardType: TextInputType.number,
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],
+                                maxLength: 11,
                                 decoration: InputDecoration(
-                                  hintText: 'ABC',
+                                  hintText: '79879667878',
+                                  counterText: '',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -422,10 +429,11 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                     );
                                   } else {
                                     _studentHigherDetail();
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => PlacementScreen()),
-                                    );
+                                    Navigator.pop(context);
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(builder: (context) => PlacementScreen()),
+                                    // );
                                   }
                                 },
                                 style: ElevatedButton.styleFrom(

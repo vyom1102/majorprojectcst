@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
@@ -245,11 +246,18 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
+                                }else if (value.length != 11) {
+                                  return 'Please enter a valid enrollment no.';
                                 }
                                 return null;
-                              },
+                              },keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              maxLength: 11,
                               decoration: InputDecoration(
-                                hintText: 'ABC',
+                                hintText: '79879667878',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -571,9 +579,9 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                                 filled: true,
                               ),
                               style: TextStyle(color: Colors.white),),
-                            SizedBox(
-                              height: 20,
-                            ),
+                            // SizedBox(
+                            //   height: 20,
+                            // ),
                             // Add more text fields as needed
                           ],
                         ),),
@@ -633,11 +641,19 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
+                                }else if (value.length != 11) {
+                                  return 'Please enter a valid enrollment no.';
                                 }
                                 return null;
                               },
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              maxLength: 11,
                               decoration: InputDecoration(
-                                hintText: 'ABC',
+                                hintText: '79879667878',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -1044,7 +1060,6 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
               ElevatedButton(
                 onPressed: () {
                   if (_nameController.text.isEmpty ||
-                      _rollController.text.isEmpty ||
                       _eventNameController.text.isEmpty ||
                       _detailsController.text.isEmpty ||
                       _durationController.text.isEmpty ||
@@ -1057,21 +1072,20 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                       text: 'Please fill in all the required fields.',
                     );
                   } else {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => TechnicalSocietyScreen(),
-                      ),
-                    );
+                    Navigator.pop(context);
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => TechnicalSocietyScreen(),
+                    //   ),
+                    // );
                     _saveStudentResultData();
                   }
                   if (_name2Controller.text.isEmpty ||
-                      _roll2Controller.text.isEmpty ||
                       _eventName2Controller.text.isEmpty ||
                       _details2Controller.text.isEmpty ||
                       _duration2Controller.text.isEmpty ||
                       _indiOrGroupController.text.isEmpty ||
-                      _achievementsController.text.isEmpty ||
                       _address2Controller.text.isEmpty ||
                       _student2nameController.text.isEmpty) {
                     QuickAlert.show(
@@ -1081,12 +1095,13 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                       text: 'Please fill in all the required fields.',
                     );
                   } else {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => TechnicalSocietyScreen(),
-                      ),
-                    );
+                    Navigator.pop(context);
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => TechnicalSocietyScreen(),
+                    //   ),
+                    // );
                     _saveStudent2ResultData();
                   }
                   // Navigator.push(

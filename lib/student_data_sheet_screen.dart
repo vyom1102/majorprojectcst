@@ -1929,6 +1929,7 @@
 //
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/student_main_screen.dart';
@@ -2278,7 +2279,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
 
-                                Text('Roll No.',
+                                Text('Enrollment No.',
                                   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextFormField(
@@ -2286,11 +2287,19 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return 'This field is required';
+                                    }else if (value.length != 11) {
+                                      return 'Please enter a valid enrollment no.';
                                     }
                                     return null;
                                   },
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: <TextInputFormatter>[
+                                    FilteringTextInputFormatter.digitsOnly
+                                  ],
+                                  maxLength: 11,
                                   decoration: InputDecoration(
                                     hintText: '98753',
+                                    counterText: '',
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                     ),
@@ -2439,8 +2448,14 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     }
                                     return null;
                                   },
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: <TextInputFormatter>[
+                                    FilteringTextInputFormatter.digitsOnly
+                                  ],
+                                  maxLength: 11,
                                   decoration: InputDecoration(
                                     hintText: '54728',
+                                    counterText: '',
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                     ),
@@ -2469,11 +2484,19 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return 'This field is required';
+                                    }else if (value.length != 10) {
+                                      return 'Please enter a valid phone no.';
                                     }
                                     return null;
                                   },
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: <TextInputFormatter>[
+                                    FilteringTextInputFormatter.digitsOnly
+                                  ],
+                                  maxLength: 10,
                                   decoration: InputDecoration(
                                     hintText: '98765XXXXX',
+                                    counterText: '',
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                     ),
@@ -2692,9 +2715,16 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return 'This field is required';
+                                      }else if (value.length != 10) {
+                                        return 'Please enter a valid phone no.';
                                       }
                                       return null;
                                     },
+                                    keyboardType: TextInputType.number,
+                                    inputFormatters: <TextInputFormatter>[
+                                      FilteringTextInputFormatter.digitsOnly
+                                    ],
+                                    maxLength: 10,
                                     decoration: InputDecoration(
                                       hintText: '98765XXXX',
                                       enabledBorder: OutlineInputBorder(
@@ -2827,9 +2857,16 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return 'This field is required';
+                                      }else if (value.length != 10) {
+                                        return 'Please enter a valid phone no.';
                                       }
                                       return null;
                                     },
+                                    keyboardType: TextInputType.number,
+                                    inputFormatters: <TextInputFormatter>[
+                                      FilteringTextInputFormatter.digitsOnly
+                                    ],
+                                    maxLength: 10,
                                     decoration: InputDecoration(
                                       hintText: '98765XXXXX',
                                       enabledBorder: OutlineInputBorder(

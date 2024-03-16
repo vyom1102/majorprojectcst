@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
@@ -124,8 +125,13 @@ class _ResultScreenState extends State<ResultScreen> {
                                 return null;
                               },
                               keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              maxLength: 11,
                               decoration: InputDecoration(
-                                hintText: 'ABC',
+                                hintText: '79879667878',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -159,8 +165,15 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   return null;
                               // },
                               keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'),
+                                ),
+                              ],
+                              maxLength: 4,
                               decoration: InputDecoration(
-                                hintText: '9',
+                                hintText: '9.54',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -194,8 +207,15 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   return null;
                               // },
                               keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'),
+                                ),
+                              ],
+                              maxLength: 4,
                               decoration: InputDecoration(
-                                hintText: '9',
+                                hintText: '9.54',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -259,7 +279,13 @@ class _ResultScreenState extends State<ResultScreen> {
                             SizedBox(height: 5),
                             TextField(
                               controller: _sem3Controller,
-                              keyboardType: TextInputType.number, // Add this line to set numeric keyboard
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'),
+                                ),
+                              ],
+                              maxLength: 4, // Add this line to set numeric keyboard
                               // validator: (value) {
                               //   if (value == null || value.isEmpty) {
                               //     return 'This field is required';
@@ -267,7 +293,8 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   return null;
                               // },
                               decoration: InputDecoration(
-                                hintText: '9',
+                                hintText: '9.54',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -304,8 +331,15 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   return null;
                               // },
                               keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'),
+                                ),
+                              ],
+                              maxLength: 4,
                               decoration: InputDecoration(
-                                hintText: '9',
+                                hintText: '9.54',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -340,8 +374,15 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   return null;
                               // },
                               keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'),
+                                ),
+                              ],
+                              maxLength: 4,
                               decoration: InputDecoration(
-                                hintText: '9',
+                                hintText: '9.54',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -376,8 +417,15 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   return null;
                               // },
                               keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'),
+                                ),
+                              ],
+                              maxLength: 4,
                               decoration: InputDecoration(
-                                hintText: '9',
+                                hintText: '9.54',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -412,8 +460,15 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   return null;
                               // },
                               keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'),
+                                ),
+                              ],
+                              maxLength: 4,
                               decoration: InputDecoration(
-                                hintText: '9',
+                                hintText: '9.54',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -448,8 +503,15 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   return null;
                               // },
                               keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'),
+                                ),
+                              ],
+                              maxLength: 4,
                               decoration: InputDecoration(
-                                hintText: '9',
+                                hintText: '9.54',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -484,8 +546,15 @@ class _ResultScreenState extends State<ResultScreen> {
                               //   return null;
                               // },
                               keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'),
+                                ),
+                              ],
+                              maxLength: 4,
                               decoration: InputDecoration(
-                                hintText: '9',
+                                hintText: '9.54',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),

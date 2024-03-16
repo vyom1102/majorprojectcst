@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:quickalert/quickalert.dart';
@@ -15,6 +16,38 @@ class _CoursesScreenState extends State<CoursesScreen> {
 
   String selectedButton = '';
   String _selectedImage='';
+  DateTime selectedDate = DateTime.now();
+  DateTime joiningDate = DateTime.now();
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (picked != null && picked != selectedDate){
+      setState(() {
+        selectedDate = picked;
+      });
+    }
+  }
+
+  Future <void> _joiningDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: joiningDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (picked != null && picked != joiningDate) {
+      setState(() {
+        joiningDate = picked;
+      });
+    }
+  }
 
   Future<void> _pickImage() async {
     final picker = ImagePicker();
@@ -110,8 +143,14 @@ class _CoursesScreenState extends State<CoursesScreen> {
                                   }
                                   return null;
                                 },
+                                keyboardType: TextInputType.number,
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],
+                                maxLength: 11,
                                 decoration: InputDecoration(
-                                  hintText: 'ABC',
+                                  hintText: '79879667878',
+                                  counterText: '',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -274,6 +313,103 @@ class _CoursesScreenState extends State<CoursesScreen> {
                                 height: 20,
                               ),
 
+                              Text('Course started from',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              SizedBox(height: 5),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: TextFormField(
+                                      readOnly: true, // Disable manual editing
+                                      onTap: () => _selectDate(context),
+                                      decoration: InputDecoration(
+                                        hintText: 'Select a date',
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                        ),
+                                        hintStyle: TextStyle(
+                                          color: Colors.white.withOpacity(0.5),
+                                        ),
+                                        contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 20.0,
+                                          horizontal: 15.0,
+                                        ),
+                                        border: OutlineInputBorder(),
+                                        fillColor: Color(0xff141318),
+                                        filled: true,
+                                      ),
+                                      style: TextStyle(color: Colors.white),
+                                      controller: TextEditingController(
+                                        text: "${selectedDate.toLocal()}".split(' ')[0],
+                                      ),
+                                    ),
+                                  ),
+                                  IconButton(
+                                    icon: Icon(Icons.calendar_today),
+                                    onPressed: () => _selectDate(context),
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+
+                              Text('Course ended on',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              SizedBox(height: 5),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: TextFormField(
+                                      readOnly: true, // Disable manual editing
+                                      onTap: () => _joiningDate(context),
+                                      decoration: InputDecoration(
+                                        hintText: 'Select a date',
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                        ),
+                                        hintStyle: TextStyle(
+                                          color: Colors.white.withOpacity(0.5),
+                                        ),
+                                        contentPadding: const EdgeInsets.symmetric(
+                                          vertical: 20.0,
+                                          horizontal: 15.0,
+                                        ),
+                                        border: OutlineInputBorder(),
+                                        fillColor: Color(0xff141318),
+                                        filled: true,
+                                      ),
+                                      style: TextStyle(color: Colors.white),
+                                      controller: TextEditingController(
+                                        text: "${joiningDate.toLocal()}".split(' ')[0],
+                                      ),
+                                    ),
+                                  ),
+                                  IconButton(
+                                    icon: Icon(Icons.calendar_today),
+                                    onPressed: () =>
+                                        _joiningDate(context),
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+
                               Text('Online/Offline',
                                   style: TextStyle(
                                       fontSize: 14.0,
@@ -415,10 +551,11 @@ class _CoursesScreenState extends State<CoursesScreen> {
                                     );
                                   } else {
                                     _studentHigherDetail();
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => CoursesScreen()),
-                                    );
+                                    Navigator.pop(context);
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(builder: (context) => CoursesScreen()),
+                                    // );
                                   }
 
                                 },

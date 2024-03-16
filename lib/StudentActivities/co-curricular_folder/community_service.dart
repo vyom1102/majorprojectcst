@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
@@ -245,11 +246,19 @@ class _CommunityServiceScreenState extends State<CommunityServiceScreen> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
+                                }else if (value.length != 11) {
+                                  return 'Please enter a valid enrollment no.';
                                 }
                                 return null;
                               },
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              maxLength: 11,
                               decoration: InputDecoration(
-                                hintText: 'ABC',
+                                hintText: '79879667878',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -633,11 +642,19 @@ class _CommunityServiceScreenState extends State<CommunityServiceScreen> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
+                                }else if (value.length != 11) {
+                                  return 'Please enter a valid enrollment no.';
                                 }
                                 return null;
                               },
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              maxLength: 11,
                               decoration: InputDecoration(
-                                hintText: 'ABC',
+                                hintText: '79879667878',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),

@@ -223,7 +223,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
                               ],
                               maxLength: 11,
                               decoration: InputDecoration(
-                                hintText: '0909090',
+                                hintText: '79879667878',
                                 counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
@@ -294,8 +294,13 @@ class _TrainingScreenState extends State<TrainingScreen> {
                                 return null;
                               },
                               keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              maxLength: 2,
                               decoration: InputDecoration(
                                 hintText: '2',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -573,7 +578,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: 'Manager',
+                                hintText: 'Project Manager',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
