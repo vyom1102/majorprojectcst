@@ -2568,14 +2568,14 @@ class _studentDataSheetState extends State<studentDataSheet> {
 
                                 ElevatedButton(
                                   onPressed: () {
-                                    if (Form.of(context)!.validate()) {
-                                      _saveStudentData();
+
                                       // If all fields are valid, navigate to the next screen
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
+                                      _pageController.animateToPage(
+                                        1,
+                                        duration: Duration(milliseconds: 500),
+                                        curve: Curves.easeInOut,
                                       );
-                                    }
+
                                   },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Color(0xFF13E9DC),

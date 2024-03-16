@@ -588,10 +588,7 @@ class _ResultScreenState extends State<ResultScreen> {
                                 } else {
                                   _studentHigherDetail();
                                   Navigator.pop(context);
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(builder: (context) => ResultScreen()),
-                                  // );
+
                                 }
                               },
                               style: ElevatedButton.styleFrom(
