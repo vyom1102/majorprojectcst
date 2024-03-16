@@ -1931,6 +1931,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/student_main_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
@@ -2022,11 +2023,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
 
   Future<void> _saveStudentData() async {
     try {
+      String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
       await _studentRef.child('id').child(_rollNumberController.text).set({
         'fullName': _fullNameController.text,
         'emailAddress': _emailAddressController.text,
         'rollNumber': _rollNumberController.text,
-        'dateOfBirth': selectedDate.toLocal().toString(),
+        'dateOfBirth': formattedSelectedDate,
         'permanentAddress': _permanentAddressController.text,
         'jeeRank': _jeeRankController.text,
         'mobileNumber': _mobileNumberController.text,

@@ -321,8 +321,16 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                   }
                                   return null;
                                 },
+                                keyboardType: TextInputType.number,
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.allow(
+                                    RegExp(r'^\d*\.?\d*$'),
+                                  ),
+                                ],
+                                maxLength: 4,
                                 decoration: InputDecoration(
-                                  hintText: '15lpa',
+                                  hintText: '15',
+                                  counterText: '',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -427,13 +435,25 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                       title: 'Oops...',
                                       text: 'Please fill in all the required fields.',
                                     );
-                                  } else {
+                                  } else if(_studentnameController.text.length != 11) {
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.warning,
+                                      text: 'Please enter a valid Enrollment No.',
+                                    );
+                                  }
+                                  else {
                                     _studentHigherDetail();
                                     Navigator.pop(context);
                                     // Navigator.push(
                                     //   context,
                                     //   MaterialPageRoute(builder: (context) => PlacementScreen()),
                                     // );
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.success,
+                                      text: 'Saved Successfully!',
+                                    );
                                   }
                                 },
                                 style: ElevatedButton.styleFrom(

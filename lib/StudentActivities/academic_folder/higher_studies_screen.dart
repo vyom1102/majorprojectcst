@@ -290,7 +290,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                 height: 20,
                               ),
 
-                              Text('Proof of Higher Studies(Copy of Id Card/ Admission Letter',
+                              Text('Proof of Higher Studies(Copy of Id Card/ Admission Letter)',
                                 style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               Padding(
@@ -437,7 +437,7 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                 height: 20,
                               ),
 
-                              Text('Duration of Course',
+                              Text('Duration of Course (in year)',
                                   style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
@@ -451,8 +451,16 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                   }
                                   return null;
                                 },
+                                keyboardType: TextInputType.number,
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.allow(
+                                    RegExp(r'^\d*\.?\d*$'),
+                                  ),
+                                ],
+                                maxLength: 3,
                                 decoration: InputDecoration(
-                                  hintText: '2 Year',
+                                  hintText: '2',
+                                  counterText: '',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -556,12 +564,24 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                       title: 'Oops...',
                                       text: 'Please fill in all the required fields.',
                                     );
+                                  }else if(_studentnameController.text.length != 11) {
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.warning,
+                                      text: 'Please enter a valid Enrollment No.',
+                                    );
                                   } else {
                                     _studentHigherDetail();
                                     // If all fields are valid, navigate to the next screen
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => HigherStudiesScreen()),
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(builder: (context) => HigherStudiesScreen()),
+                                    // );
+                                    Navigator.pop(context);
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.success,
+                                      text: 'Saved Successfully!',
                                     );
                                   }
                                 },

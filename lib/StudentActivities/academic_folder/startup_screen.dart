@@ -322,7 +322,7 @@ class _StartupScreenState extends State<StartupScreen> {
                                   return null;
                                 },
                                 decoration: InputDecoration(
-                                  hintText: '2 Months',
+                                  hintText: 'Abc',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -405,42 +405,26 @@ class _StartupScreenState extends State<StartupScreen> {
                                       title: 'Oops...',
                                       text: 'Please fill in all the required fields.',
                                     );
-                                  } else {
-                                    _saveStartupData();
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => StartupScreen()),
+                                  } else if(_studentnameController.text.length != 11) {
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.warning,
+                                      text: 'Please enter a valid Enrollment No.',
                                     );
                                   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                  else {
+                                    _saveStartupData();
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(builder: (context) => StartupScreen()),
+                                    // );
+                                    Navigator.pop(context);
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.success,
+                                      text: 'Saved Successfully!',
+                                    );
+                                  }
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xFF13E9DC),
