@@ -1658,9 +1658,28 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                                     type: QuickAlertType.error,
                                     title: 'Oops...',
                                     text: 'Please fill in all the required fields.',);}
+                                    else if(_memberNameController.text.length != 11) {
+                                      QuickAlert.show(
+                                        context: context,
+                                        type: QuickAlertType.warning,
+                                        text: 'Please enter a valid Enrollment No.',
+                                      );
+                                    }
+                                    else if(_whatsappNumberController.text.length != 10){
+                                      QuickAlert.show(
+                                        context: context,
+                                        type: QuickAlertType.warning,
+                                        text: 'Please enter a valid Phone No.',
+                                      );
+                                    }
                                     else {
                                     _saveCompiStudentData();
-                                  Navigator.pop(context);}
+                                  Navigator.pop(context);
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.success,
+                                      text: 'Saved Successfully!',
+                                    );}
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xFF13E9DC),

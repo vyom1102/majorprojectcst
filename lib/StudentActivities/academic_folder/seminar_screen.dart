@@ -342,8 +342,16 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                   }
                                   return null;
                                 },
+                                keyboardType: TextInputType.number,
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.allow(
+                                    RegExp(r'^\d*\.?\d*$'),
+                                  ),
+                                ],
+                                maxLength: 3,
                                 decoration: InputDecoration(
-                                  hintText: '2 Months',
+                                  hintText: '2',
+                                  counterText: '',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),
@@ -411,13 +419,25 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                       title: 'Oops...',
                                       text: 'Please fill in all the required fields.',
                                     );
-                                  } else {
+                                  } else if(_studentnameController.text.length != 11) {
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.warning,
+                                      text: 'Please enter a valid Enrollment No.',
+                                    );
+                                  }
+                                  else {
                                     _saveSeminarData();
                                     Navigator.pop(context);
                                     // Navigator.push(
                                     //   context,
                                     //   MaterialPageRoute(builder: (context) => SeminarScreen()),
                                     // );
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.success,
+                                      text: 'Saved Successfully!',
+                                    );
                                   }
                                 },
                                 style: ElevatedButton.styleFrom(

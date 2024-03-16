@@ -25,6 +25,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
   String _storedNickname = '';
   String selectedYearofAdmission ='';
   List<String> years = List.generate(4, (index) => (1 + index).toString());
+  String? _selectedTrainingMode;
 
   Future<void> _selectDurationFromDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -197,13 +198,25 @@ class _TrainingScreenState extends State<TrainingScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-
+                            Row(
+                              children: [
+                                Text('Enrollment number of Student  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                Text(
+                                  '*', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
+                            // Text('Enrollment number of Student  ',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             //training title
-                            Text('Enrollment number of Student',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _studentnameController,
@@ -243,11 +256,25 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Training/Project Title',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+
+                            Row(
+                              children: [
+                                Text('Training/Project Title  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                Text(
+                                  '*', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
+                            // Text('Training/Project Title',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _projectTitleController,
@@ -279,11 +306,24 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //team size
-                            Text('Team Size',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            Row(
+                              children: [
+                                Text('Team Size  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                Text(
+                                  '*', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
+                            // Text('Team Size',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _teamSizeController,
@@ -321,11 +361,24 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //Duration
-                            Text('Duration of Internship/Course(in months)',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            Row(
+                              children: [
+                                Text('Duration of Internship/Course(in months)  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                Text(
+                                  '*', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
+                            // Text('Duration of Internship/Course(in months)',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _totalDurationController,
@@ -335,8 +388,16 @@ class _TrainingScreenState extends State<TrainingScreen> {
                                 }
                                 return null;
                               },
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.allow(
+                                  RegExp(r'^\d*\.?\d*$'),
+                                ),
+                              ],
+                              maxLength: 3,
                               decoration: InputDecoration(
-                                hintText: '2 months',
+                                hintText: '2',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -357,11 +418,24 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //Duration From Date
-                            Text('Duration from date',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            Row(
+                              children: [
+                                Text('Duration from date  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                Text(
+                                  '*', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
+                            // Text('Duration from date',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             Row(
                               children: [
@@ -406,11 +480,24 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //duration To Date
-                            Text('To Date',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            Row(
+                              children: [
+                                Text('To Date  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                Text(
+                                  '*', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
+                            // Text('To Date',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             Row(
                               children: [
@@ -456,11 +543,24 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //Platform/Technology Used
-                            Text('Platform/Technology Used',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            Row(
+                              children: [
+                                Text('Platform/Technology Used  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                Text(
+                                  '*', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
+                            // Text('Platform/Technology Used',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _platformUsedController,
@@ -492,11 +592,24 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //Research/Application based
-                            Text('Research/Application based',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            Row(
+                              children: [
+                                Text('Research/Application based  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                Text(
+                                  '*', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
+                            // Text('Research/Application based',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _researchApplicationController,
@@ -527,11 +640,24 @@ class _TrainingScreenState extends State<TrainingScreen> {
                               height: 20,
                             ),
 
-                            Text('Guide/Mentor Name',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            Row(
+                              children: [
+                                Text('Guide/Mentor Name  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                Text(
+                                  '*', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
+                            // Text('Guide/Mentor Name',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _guideNameController,
@@ -563,11 +689,24 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
 
-                            Text('Designation of Guide/Mentor',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            Row(
+                              children: [
+                                Text('Designation of Guide/Mentor  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                Text(
+                                  '*', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
+                            // Text('Designation of Guide/Mentor',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _guideDesignationController,
@@ -817,14 +956,38 @@ class _TrainingScreenState extends State<TrainingScreen> {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white)),
                             SizedBox(height: 5),
-                            TextFormField(
-                              controller: _trainingModeController,
+                            // TextFormField(
+                            //   controller: _trainingModeController,
+                            //   validator: (value) {
+                            //     if (value == null || value.isEmpty) {
+                            //       return 'This field is required';
+                            //     }
+                            //     return null;
+                            //   },
+                            DropdownButtonFormField<String>(
+                              value: _selectedTrainingMode,
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  _selectedTrainingMode = newValue;
+                                  _trainingModeController.text = newValue ?? '';
+                                });
+                              },
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'This field is required';
                                 }
                                 return null;
                               },
+                              items: <String>['Online', 'Offline', 'Hybrid'].map((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value,
+                                    style: TextStyle(
+                                      color: _selectedTrainingMode == value ? Colors.white : Colors.black,
+                                    ),),
+
+                                );
+                              }).toList(),
                               decoration: InputDecoration(
                                 hintText: 'Online',
                                 enabledBorder: OutlineInputBorder(
@@ -841,7 +1004,8 @@ class _TrainingScreenState extends State<TrainingScreen> {
                                 fillColor: Color(0xff141318),
                                 filled: true,
                               ),
-                              style: TextStyle(color: Colors.white),),
+                              style: TextStyle(color: Colors.white),
+                              dropdownColor: Colors.grey,),
                             SizedBox(
                               height: 20,
                             ),
@@ -942,13 +1106,25 @@ class _TrainingScreenState extends State<TrainingScreen> {
                                     title: 'Oops...',
                                     text: 'Please fill in all the required fields.',
                                   );
-                                } else {
+                                }else if(_studentnameController.text.length != 11) {
+                                      QuickAlert.show(
+                                        context: context,
+                                        type: QuickAlertType.warning,
+                                        text: 'Please enter a valid Enrollment No.',
+                                      );
+                                    }
+                                    else {
                                   _saveInternStudentData();
                                   Navigator.pop(context);
                                   // Navigator.push(
                                   //   context,
                                   //   MaterialPageRoute(builder: (context) => TrainingScreen()),
                                   // );
+                                  QuickAlert.show(
+                                    context: context,
+                                    type: QuickAlertType.success,
+                                    text: 'Saved Successfully!',
+                                  );
                                 }
                               },
                               style: ElevatedButton.styleFrom(

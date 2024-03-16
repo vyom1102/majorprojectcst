@@ -110,11 +110,22 @@ class _ResultScreenState extends State<ResultScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Enrollment number of Student',
-                                style: TextStyle(
+                            Row(
+                              children: [
+                                Text(
+                                  'Enrollment number of Student  ',
+                                  style: TextStyle(
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Text(
+                                  '*', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _studentnameController,
@@ -150,11 +161,19 @@ class _ResultScreenState extends State<ResultScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Semester 1 GPA',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            Row(
+                              children: [
+                                Text('Semester 1 GPA  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                Text(
+                                  '*', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
                             SizedBox(height: 5),
                             TextField(
                               controller: _sem1Controller,
@@ -531,11 +550,19 @@ class _ResultScreenState extends State<ResultScreen> {
                               height: 20,
                             ),
 
-                            Text('Overall GPA',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            Row(
+                              children: [
+                                Text('Overall GPA  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                Text(
+                                  '*', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
                             SizedBox(height: 5),
                             TextField(
                               controller: _overallController,
@@ -585,9 +612,21 @@ class _ResultScreenState extends State<ResultScreen> {
                                     title: 'Oops...',
                                     text: 'Please fill in all the required fields.',
                                   );
-                                } else {
+                                } else if(_studentnameController.text.length != 11) {
+                                  QuickAlert.show(
+                                    context: context,
+                                    type: QuickAlertType.warning,
+                                    text: 'Please enter a valid Enrollment No.',
+                                  );
+                                }
+                                else {
                                   _studentHigherDetail();
                                   Navigator.pop(context);
+                                  QuickAlert.show(
+                                    context: context,
+                                    type: QuickAlertType.success,
+                                    text: 'Saved Successfully!',
+                                  );
 
                                 }
                               },
