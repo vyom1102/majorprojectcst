@@ -14,6 +14,7 @@ class ResultScreen extends StatefulWidget {
 class _ResultScreenState extends State<ResultScreen> {
   final DatabaseReference _studentResult =
   FirebaseDatabase.instance.ref().child('StudentData').child('Academic').child('studentResult');
+  String? _selectedTrainingMode;
 
   String selectedButton = '';
 
@@ -27,6 +28,7 @@ class _ResultScreenState extends State<ResultScreen> {
   final TextEditingController _sem8Controller = TextEditingController();
   final TextEditingController _overallController = TextEditingController();
   final TextEditingController _studentnameController = TextEditingController();
+  final TextEditingController _batch = TextEditingController();
 
   // Future<void> _studentHigherDetail() async {
   //   try {
@@ -52,7 +54,8 @@ class _ResultScreenState extends State<ResultScreen> {
   Future<void> _studentHigherDetail() async {
     try {
       await _studentResult.child('id').child(_studentnameController.text).set({
-        'enrollmentNumber': int.tryParse(_studentnameController.text) ?? 0,
+        'enrollmentNumber': int.parse(_studentnameController.text) ?? 0,
+        'batch': _batch.text,
         'sem1': double.tryParse(_sem1Controller.text) ?? 0,
         'sem2': double.tryParse(_sem2Controller.text) ?? 0,
         'sem3': double.tryParse(_sem3Controller.text) ?? 0,
@@ -158,6 +161,73 @@ class _ResultScreenState extends State<ResultScreen> {
                                 filled: true,
                               ),
                               style: TextStyle(color: Colors.white),),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              children: [
+                                Text('Batch',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                Text(
+                                  ' *', // Red star indicating mandatory field
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 5),
+                            // TextFormField(
+                            //   controller: _trainingModeController,
+                            //   validator: (value) {
+                            //     if (value == null || value.isEmpty) {
+                            //       return 'This field is required';
+                            //     }
+                            //     return null;
+                            //   },
+                            DropdownButtonFormField<String>(
+                              value: _selectedTrainingMode,
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  _selectedTrainingMode = newValue;
+                                  _batch.text = newValue ?? '';
+                                });
+                              },
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'This field is required';
+                                }
+                                return null;
+                              },
+                              items: <String>['2020', '2021', '2022','2023','2024','2025','2026','2027'].map((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value,
+                                    style: TextStyle(
+                                      color: _selectedTrainingMode == value ? Colors.white : Colors.black,
+                                    ),),
+
+                                );
+                              }).toList(),
+                              decoration: InputDecoration(
+                                hintText: '2020-2024',
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                ),
+                                hintStyle: GoogleFonts.kufam(
+                                    color: Colors.white.withOpacity(0.5)),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0, horizontal: 15.0),
+                                border: OutlineInputBorder(),
+                                fillColor: Color(0xff141318),
+                                filled: true,
+                              ),
+                              style: TextStyle(color: Colors.white),
+                              dropdownColor: Colors.grey,),
                             SizedBox(
                               height: 20,
                             ),
@@ -604,6 +674,7 @@ class _ResultScreenState extends State<ResultScreen> {
                             ElevatedButton(
                               onPressed: () {
                                 if (_sem1Controller.text.isEmpty ||
+                                    _batch.text.isEmpty ||
                                     _overallController.text.isEmpty ||
                                     _studentnameController.text.isEmpty) {
                                   QuickAlert.show(

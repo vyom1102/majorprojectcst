@@ -231,6 +231,7 @@ import 'package:google_fonts/google_fonts.dart';
 class StudentResult {
   final int id;
   final int enrollmentNumber;
+  final String batch;
   final double sem1;
   final double sem2;
   final double sem3;
@@ -244,6 +245,7 @@ class StudentResult {
   StudentResult({
     required this.id,
     required this.enrollmentNumber,
+    required this.batch,
     required this.sem1,
     required this.sem2,
     required this.sem3,
@@ -269,6 +271,7 @@ class _StudentResultListState extends State<StudentResultList> {
   List<StudentResult> filteredStudents = [];
 
   TextEditingController _searchController = TextEditingController();
+  String _selectedYear = '2024';
 
   @override
   void initState() {
@@ -287,6 +290,7 @@ class _StudentResultListState extends State<StudentResultList> {
             fetchedStudents.add(StudentResult(
               id: int.parse(key.toString()),
               enrollmentNumber: int.parse(value['enrollmentNumber'].toString()),
+              batch: value['batch'] ?? '',
               sem1: double.parse(value['sem1'].toString()),
               sem2: double.parse(value['sem2'].toString()),
               sem3: double.parse(value['sem3'].toString()),
@@ -334,6 +338,7 @@ class _StudentResultListState extends State<StudentResultList> {
             children: [
               // Text('ID: ${student.id}'),
               Text('Enrollment Number: ${student.enrollmentNumber}'),
+              Text('Batch: ${student.batch}'),
               Text('Sem 1: ${student.sem1}'),
               Text('Sem 2: ${student.sem2}'),
               Text('Sem 3: ${student.sem3}'),
@@ -389,6 +394,38 @@ class _StudentResultListState extends State<StudentResultList> {
                         color: Color(0xff0CECDA)),
                   ),
                 ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Row(
+                  children: [
+                    SizedBox(width: 10),
+                    Text(
+                      'Select Year: ',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    DropdownButton<String>(
+                      dropdownColor: Colors.black,
+                      value: _selectedYear,
+                      items: <String>['2021','2022', '2023', '2024', '2025']
+                          .map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value,style: TextStyle(color: Color(0xff0CECDA),),),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          _selectedYear = newValue!;
+                          // Filter students by selected year
+                          filteredStudents = students
+                              .where((student) => student.batch.contains(_selectedYear))
+                              .toList();
+                        });
+                      },
+                    ),
+                  ],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
