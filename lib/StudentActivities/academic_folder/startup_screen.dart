@@ -115,11 +115,32 @@ class _StartupScreenState extends State<StartupScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Enrollment number of Student',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Enrollment number of Student  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Enrollment number of Student',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _studentnameController,
@@ -155,11 +176,33 @@ class _StartupScreenState extends State<StartupScreen> {
                               SizedBox(
                                 height: 20,
                               ),
-                              Text('Company Name',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Company Name  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Company Name',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _companyNameController,
@@ -189,11 +232,33 @@ class _StartupScreenState extends State<StartupScreen> {
                               SizedBox(
                                 height: 20,
                               ),
-                              Text('Company Profile',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Company Profile  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Company Profile',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _companyProfileController,
@@ -224,11 +289,32 @@ class _StartupScreenState extends State<StartupScreen> {
                                 height: 20,
                               ),
 
-                              Text('Designation in company',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Designation in company  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Designation in company',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _designationController,
@@ -259,11 +345,32 @@ class _StartupScreenState extends State<StartupScreen> {
                                 height: 20,
                               ),
 
-                              Text('Date of Incorporation',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Date of Incorporation  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Date of Incorporation',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               Row(
                                 children: [
@@ -307,11 +414,32 @@ class _StartupScreenState extends State<StartupScreen> {
                                 height: 20,
                               ),
 
-                              Text('Place/Location',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Place/Location  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Place/Location',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _placeController,
@@ -342,8 +470,29 @@ class _StartupScreenState extends State<StartupScreen> {
                                 height: 20,
                               ),
 
-                              Text('Attach the proof (Copy of Company Registration No./Letter',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Attach the proof (Copy of Company Registration No./Letter  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Attach the proof (Copy of Company Registration No./Letter',
+                              //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               Padding(
                                 padding: const EdgeInsets.all(0.0),

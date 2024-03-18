@@ -220,11 +220,33 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               //   height: 20,
                               // ),
                               //Project ID
-                              Text('Project ID',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Project ID  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Project ID',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _projectIDController,
@@ -256,11 +278,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //Branch
-                              Text('Branch',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Branch  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Branch',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _branchController,
@@ -292,11 +335,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //Prospective Project Guide
-                              Text('Prospective Project Guide',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Prospective Project Guide  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Prospective Project Guide',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _guideController,
@@ -328,11 +392,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //Prospective Project Co-Guide Manager
-                              Text('Prospective Project Co-Guide',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Prospective Project Co-Guide  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Prospective Project Co-Guide',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _coGuideController,
@@ -364,11 +449,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //Project Title
-                              Text('Project Title',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Project Title  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Project Title',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _titleController,
@@ -400,11 +506,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //Project's Domain
-                              Text('Project\'s Domain',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Project\'s Domain  ' ,
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Project\'s Domain',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _domainController,
@@ -436,11 +563,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 1 name
-                              Text('Member 1 Name',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 1 Name  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 1 Name',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _memberNameController,
@@ -472,11 +620,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 1 enroll
-                              Text('Member 1 Enrollment no.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 1 Enrollment no.  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 1 Enrollment no.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _enrollmentController,
@@ -514,11 +683,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 1 email
-                              Text('Member 1 Email',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 1 Email  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 1 Email',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _emailController,
@@ -550,11 +740,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 1 whatsapp no.
-                              Text('Member 1 Whatsapp No.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 1 Whatsapp No.  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 1 Whatsapp No.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _whatsappNumberController,
@@ -592,11 +803,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 1 group name
-                              Text('Member 1 Group',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 1 Group  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 1 Group',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _groupController,
@@ -628,11 +860,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 2 name
-                              Text('Member 2 Name',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 2 Name',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 2 Name',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _memberName2Controller,
@@ -664,11 +910,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 2 enroll
-                              Text('Member 2 Enrollment no.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 2 Enrollment no.',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 2 Enrollment no.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _enrollment2Controller,
@@ -706,11 +966,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 2 email
-                              Text('Member 2 Email',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 2 Email',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 2 Email',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _email2Controller,
@@ -742,11 +1016,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 2 whatsapp no.
-                              Text('Member 2 Whatsapp No.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 2 Whatsapp No.',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 2 Whatsapp No.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _whatsappNumber2Controller,
@@ -784,11 +1072,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 2 group name
-                              Text('Member 2 Group',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 2 Group',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 2 Group',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _group2Controller,
@@ -820,11 +1122,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 3 name
-                              Text('Member 3 Name',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 3 Name',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 3 Name',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _memberName3Controller,
@@ -856,11 +1172,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 3 enroll
-                              Text('Member 3 Enrollment no.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 3 Enrollment no.',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 3 Enrollment no.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _enrollment3Controller,
@@ -898,11 +1228,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 3 email
-                              Text('Member 3 Email',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 3 Email',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 3 Email',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _email3Controller,
@@ -934,11 +1278,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 3 whatsapp no.
-                              Text('Member 3 Whatsapp No.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 3 Whatsapp No.',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 3 Whatsapp No.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _whatsappNumber3Controller,
@@ -976,11 +1334,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 3 group name
-                              Text('Member 3 Group',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 3 Group',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 3 Group',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _group3Controller,
@@ -1012,11 +1384,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 4 name
-                              Text('Member 4 Name',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 4 Name',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 4 Name',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _memberName4Controller,
@@ -1048,11 +1434,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 4 enroll
-                              Text('Member 4 Enrollment no.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 4 Enrollment no.',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 4 Enrollment no.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _enrollment4Controller,
@@ -1090,11 +1490,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 4 email
-                              Text('Member 4 Email',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 4 Email',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 4 Email',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _email4Controller,
@@ -1126,11 +1540,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 4 whatsapp no.
-                              Text('Member 4 Whatsapp No.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 4 Whatsapp No.',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 4 Whatsapp No.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _whatsappNumber4Controller,
@@ -1168,11 +1596,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 4 group name
-                              Text('Member 4 Group',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 4 Group',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 4 Group',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _group4Controller,
@@ -1204,11 +1646,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 5 name
-                              Text('Member 5 Name',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 5 Name',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 5 Name',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _memberName5Controller,
@@ -1240,11 +1696,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 5 enroll
-                              Text('Member 5 Enrollment no.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 5 Enrollment no.',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 5 Enrollment no.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _enrollment5Controller,
@@ -1282,11 +1752,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 5 email
-                              Text('Member 5 Email',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 5 Email',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 5 Email',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _email5Controller,
@@ -1318,11 +1802,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 5 whatsapp no.
-                              Text('Member 5 Whatsapp No.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 5 Whatsapp No.',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 5 Whatsapp No.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _whatsappNumber5Controller,
@@ -1360,11 +1858,25 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //member 5 group name
-                              Text('Member 5 Group',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Member 5 Group  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              // Text('Member 5 Group',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _group5Controller,
@@ -1396,11 +1908,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //Software based Project
-                              Text('Hardware/Software based Project',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Hardware/Software based Project  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Hardware/Software based Project',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _hardwareSoftwareController,
@@ -1432,11 +1965,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //Software based Project
-                              Text('Other members(junior/other department) only for hardware projects',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Other members(junior/other department) only for hardware projects  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Other members(junior/other department) only for hardware projects',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _otherMemberController,
@@ -1467,11 +2021,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                                 height: 20,
                               ),
 
-                              Text('Have you participated in any national or international competition for this project problem?',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Have you participated in any national or international competition for this project problem?  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Have you participated in any national or international competition for this project problem?',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _participationController,
@@ -1502,11 +2077,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                                 height: 20,
                               ),
 
-                              Text('Name of national or international competition',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Name of national or international competition  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Name of national or international competition',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _nameOfCompController,
@@ -1538,11 +2134,32 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               ),
 
                               //Date of participation
-                              Text('Date of participation',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Date of participation  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Date of participation',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               Row(
                                 children: [
@@ -1586,8 +2203,29 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                                 height: 20,
                               ),
 
-                              Text('Upload proof of participation',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Upload proof of participation  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Upload proof of participation',
+                              //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               Padding(
                                 padding: const EdgeInsets.all(0.0),

@@ -122,11 +122,32 @@ class _PlacementScreenState extends State<PlacementScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Enrollment number of Student',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Enrollment number of Student  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Enrollment number of Student',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _studentnameController,
@@ -163,8 +184,29 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                 height: 20,
                               ),
 
-                              Text('Batch',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Batch  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Batch',
+                              //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
                               Padding(
                                 padding: const EdgeInsets.all(0),
@@ -202,11 +244,32 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                 height: 20,
                               ),
 
-                              Text('Placement/Startup/Entreprenuer',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Placement/Startup/Entreprenuer  ' ,
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Placement/Startup/Entreprenuer',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _categoriesController,
@@ -237,11 +300,32 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                 height: 20,
                               ),
 
-                              Text('Campus Placement/Off Campus Placement',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Campus Placement/Off Campus Placement  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Campus Placement/Off Campus Placement',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _placementController,
@@ -272,11 +356,32 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                 height: 20,
                               ),
 
-                              Text('Company Name',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Company Name  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Company Name',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _companyNameController,
@@ -307,11 +412,32 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                 height: 20,
                               ),
 
-                              Text('Package (CTC)',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Package (CTC)  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Package (CTC)',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _packageController,
@@ -350,11 +476,32 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                 height: 20,
                               ),
 
-                              Text('Position',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Position  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Position',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _positionController,
@@ -385,11 +532,32 @@ class _PlacementScreenState extends State<PlacementScreen> {
                                 height: 20,
                               ),
 
-                              Text('Current Location',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text:'Current Location  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Current Location',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                 controller: _locationController,
