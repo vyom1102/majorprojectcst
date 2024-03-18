@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class Student {
   final String id;
@@ -124,7 +125,7 @@ class _StudentListState extends State<StudentList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('ID: ${student.id}'),
+              // Text('ID: ${student.id}'),
               Text('Full Name: ${student.fullName}'),
               Text('Mobile Number: ${student.mobileNumber}'),
               Text('Mother Name: ${student.motherName}'),
@@ -141,7 +142,7 @@ class _StudentListState extends State<StudentList> {
               Text('Father Occupation: ${student.fatherOccupation}'),
               Text('Father Office Address: ${student.fatherOfficeAddress}'),
               Text('Father Phone Number: ${student.fatherPhoneNumber}'),
-              Text('Image: ${student.image}'),
+              // Text('Image: ${student.image}'),
             ],
           ),
           actions: [
@@ -245,6 +246,8 @@ class _StudentListState extends State<StudentList> {
                 },
               ),
             ),
+
+
           ],
         ),
     ]
