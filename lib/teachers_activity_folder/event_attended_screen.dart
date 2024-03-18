@@ -277,8 +277,8 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
             child: Image.asset(
               'images/bottom_container.png',
               fit: BoxFit.cover,
-              height: 200,
-              width: MediaQuery.of(context).size.width, // Adjust the height as needed
+              height: MediaQuery.sizeOf(context).height*0.185,
+              width: MediaQuery.of(context).size.width,
             ),
           ),
           Column(
@@ -1441,39 +1441,43 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
               ElevatedButton(
                 onPressed: () {
                   if (_fullNameController.text.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => EventAttendedScreen(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => EventAttendedScreen(),
+                    //   ),
+                    // );
+                    Navigator.pop(context);
                     _saveTeacherData();
                   }
                   if (_fullName2Controller.text.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => EventAttendedScreen(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => EventAttendedScreen(),
+                    //   ),
+                    // );
+                    Navigator.pop(context);
                     _saveTeacher2Data();
                   }
                   if (_fullName3Controller.text.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => EventAttendedScreen(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => EventAttendedScreen(),
+                    //   ),
+                    // );
+                    Navigator.pop(context);
                     _saveTeacher3Data();
                   }
                   if (_fullName4Controller.text.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => EventAttendedScreen(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => EventAttendedScreen(),
+                    //   ),
+                    // );
+                    Navigator.pop(context);
                     _saveTeacher4Data();
                   }
                 },

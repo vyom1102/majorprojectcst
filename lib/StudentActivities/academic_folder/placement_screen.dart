@@ -20,7 +20,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
 
   String selectedButton = '';
   String selectedYear ='';
-  List<String> years = List.generate(25, (index) => (2000 + index).toString());
+  List<String> years = List.generate(25, (index) => (2020 + index).toString());
   TextEditingController _yearController = TextEditingController();
 
   void showYearPicker(BuildContext context) {

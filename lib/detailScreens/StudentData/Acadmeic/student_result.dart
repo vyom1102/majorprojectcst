@@ -655,7 +655,7 @@ class _StudentResultListState extends State<StudentResultList> {
                   children: [
                     SizedBox(width: 10),
                     Text(
-                      'Select Year Range: ',
+                      'Select Batch: ',
                       style: TextStyle(color: Colors.white),
                     ),
                     DropdownButton<String>(

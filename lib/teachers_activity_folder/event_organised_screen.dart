@@ -277,8 +277,8 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
             child: Image.asset(
               'images/bottom_container.png',
               fit: BoxFit.cover,
-              height: 200,
-              width: MediaQuery.of(context).size.width, // Adjust the height as needed
+              height: MediaQuery.sizeOf(context).height*0.185,
+              width: MediaQuery.of(context).size.width,
             ),
           ),
           Column(

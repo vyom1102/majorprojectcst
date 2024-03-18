@@ -88,7 +88,7 @@ class _CourseCompletedScreenState extends State<CourseCompletedScreen> {
               child: Image.asset(
                 'images/bottom_container.png',
                 fit: BoxFit.cover,
-                height: 200,
+                height: MediaQuery.sizeOf(context).height*0.185,
                 width: MediaQuery.sizeOf(context)
                     .width, // Adjust the height as needed
               ),

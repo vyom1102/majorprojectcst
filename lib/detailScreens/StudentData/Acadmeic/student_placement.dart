@@ -46,6 +46,9 @@ class _StudentPlacementListState extends State<StudentPlacementList> {
 
   TextEditingController _searchController = TextEditingController();
   String _selectedYear = '2024'; // Default selected year
+  List<String> years = ['2020-2024','2021-2025', '2022-2026', '2023-2027', '2024-2028'];
+  String _selectedYearRange = '2020-2024';
+
 
   @override
   void initState() {
@@ -164,38 +167,77 @@ class _StudentPlacementListState extends State<StudentPlacementList> {
                     ),
                   ],
                 ),
+                // Padding(
+                //   padding: const EdgeInsets.all(2.0),
+                //   child: Row(
+                //     children: [
+                //       SizedBox(width: 10),
+                //       Text(
+                //         'Select Year: ',
+                //         style: TextStyle(color: Colors.white),
+                //       ),
+                //       DropdownButton<String>(
+                //         dropdownColor: Colors.black,
+                //         value: _selectedYear,
+                //         items: <String>['2020','2021','2022', '2023', '2024', '2025']
+                //             .map((String value) {
+                //           return DropdownMenuItem<String>(
+                //             value: value,
+                //             child: Text(value,style: TextStyle(color: Color(0xff0CECDA),),),
+                //           );
+                //         }).toList(),
+                //         onChanged: (String? newValue) {
+                //           setState(() {
+                //             _selectedYear = newValue!;
+                //             // Filter students by selected year
+                //             filteredStudents = students
+                //                 .where((student) => student.batch.contains(_selectedYear))
+                //                 .toList();
+                //           });
+                //         },
+                //       ),
+                //     ],
+                //   ),
+                // ),
                 Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: Row(
                     children: [
                       SizedBox(width: 10),
                       Text(
-                        'Select Year: ',
+                        'Select Batch: ',
                         style: TextStyle(color: Colors.white),
                       ),
                       DropdownButton<String>(
                         dropdownColor: Colors.black,
-                        value: _selectedYear,
-                        items: <String>['2021','2022', '2023', '2024', '2025']
-                            .map((String value) {
+                        value: _selectedYearRange,
+                        items: years.map((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
-                            child: Text(value,style: TextStyle(color: Color(0xff0CECDA),),),
+                            child: Text(
+                              value,
+                              style: TextStyle(color: Color(0xff0CECDA)),
+                            ),
                           );
                         }).toList(),
                         onChanged: (String? newValue) {
                           setState(() {
-                            _selectedYear = newValue!;
-                            // Filter students by selected year
-                            filteredStudents = students
-                                .where((student) => student.batch.contains(_selectedYear))
-                                .toList();
+                            _selectedYearRange = newValue!;
+                            // Filter students by selected year range
+                            final startYear = int.parse(_selectedYearRange.split('-')[0]);
+                            final endYear = int.parse(_selectedYearRange.split('-')[1]);
+                            filteredStudents = students.where((student) {
+                              final batchYear = int.parse(student.batch);
+                              return batchYear == startYear;
+                            }).toList();
                           });
                         },
                       ),
                     ],
                   ),
                 ),
+
+
 
 
                 Padding(
