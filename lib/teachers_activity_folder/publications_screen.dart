@@ -32,7 +32,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
   String selectedMonthOfPapers = '';
   String selectedYearOfBooks = '';
   String selectedMonthOfBooks = '';
-  List<String> years = List.generate(25, (index) => (2000 + index).toString());
+  List<String> years = List.generate(25, (index) => (2010 + index).toString());
   List<String> months = DateFormat().dateSymbols.MONTHS; // Get month names
    String storedname ='' ;
 
@@ -51,7 +51,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
       context: context,
       builder: (BuildContext builder) {
         return Container(
-          height: 200,
+          height: MediaQuery.sizeOf(context).height*0.285,
           child: ListWheelScrollView(
             itemExtent: 40,
             children: years.map((String year) {
@@ -82,7 +82,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
       context: context,
       builder: (BuildContext builder) {
         return Container(
-          height: 200,
+          height: MediaQuery.sizeOf(context).height*0.285,
           child: ListWheelScrollView(
             itemExtent: 40,
             children: months.map((String month) {
@@ -247,7 +247,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
               child: Image.asset(
                 'images/bottom_container.png',
                 fit: BoxFit.cover,
-                height: 200,
+                height: MediaQuery.sizeOf(context).height*0.185,
                 width: MediaQuery.sizeOf(context)
                     .width, // Adjust the height as needed
               ),

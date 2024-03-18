@@ -405,8 +405,8 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
   }
   Future<Map<String, String>> getUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String name = prefs.getString('student_name') ?? 'Your Name';
-    String email = prefs.getString('student_email') ?? 'your.email@example.com';
+    String name = prefs.getString('teacher_name') ?? 'Your Name';
+    String email = prefs.getString('teacher_email') ?? 'your.email@example.com';
     return {'name': name, 'email': email};
   }
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
