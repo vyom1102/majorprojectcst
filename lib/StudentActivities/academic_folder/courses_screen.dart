@@ -80,7 +80,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
     }
   }
 
-  TextEditingController _imageController = TextEditingController();
+  final TextEditingController _imageController = TextEditingController();
   final TextEditingController _courseNameController = TextEditingController();
   final TextEditingController _instructorOrOrganizationController = TextEditingController();
   final TextEditingController _specializationController = TextEditingController();
@@ -711,7 +711,7 @@ class _CoursesScreenState extends State<CoursesScreen> {
                                 text: TextSpan(
                                   children: [
                                     TextSpan(
-                                      text: 'Upload certificate  ',
+                                      text: 'Upload certificate(Google drive link)  ',
                                       style: TextStyle(
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.bold,
@@ -731,53 +731,84 @@ class _CoursesScreenState extends State<CoursesScreen> {
                               // Text('Upload certificate',
                               //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,
                               //       fontSize: 14,color: Colors.white),),
+                              // SizedBox(height: 5),
+                              // Text('Course learning outcome',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
-                              Padding(
-                                padding: const EdgeInsets.all(0.0),
-                                child:
-                                Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children:[
-                                      Stack(
-                                          children:[ TextField(
-                                            controller: _imageController,
-                                            readOnly: true,
-                                            decoration: InputDecoration(
-                                              hintText: 'Browse',
-                                              suffixIcon: IconButton(
-                                                icon: Icon(Icons.add, size: 25.0,),
-                                                onPressed: () {
-                                                  _pickImage();
-                                                },),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                              ),
-                                              hintStyle: GoogleFonts.kufam(
-                                                  color: Colors.white.withOpacity(0.5)),
-                                              contentPadding: const EdgeInsets.symmetric(
-                                                  vertical: 20.0, horizontal: 15.0),
-                                              border: OutlineInputBorder(),
-                                              fillColor: Color(0xff141318),
-                                              filled: true,
-                                            ),
-                                            style: TextStyle(color: Colors.white),
-
-                                          ),
-                                          ]
-                                        //     if (_selectedImage != null)
-                                        // Image.file(
-                                        //   File(_selectedImage),
-                                        //   height: 100,
-                                        //   width: 100,
-
-                                      ),]
+                              TextFormField(
+                                controller: _imageController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'This field is required';
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  hintText: 'Abc',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
+                                  hintStyle: GoogleFonts.kufam(
+                                      color: Colors.white.withOpacity(0.5)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 20.0, horizontal: 15.0),
+                                  border: OutlineInputBorder(),
+                                  fillColor: Color(0xff141318),
+                                  filled: true,
                                 ),
+                                style: TextStyle(color: Colors.white),
                               ),
+                              // Padding(
+                              //   padding: const EdgeInsets.all(0.0),
+                              //   child:
+                              //   Column(
+                              //       crossAxisAlignment: CrossAxisAlignment.start,
+                              //       children:[
+                              //         Stack(
+                              //             children:[
+                              //               TextField(
+                              //               controller: _imageController,
+                              //               readOnly: true,
+                              //               decoration: InputDecoration(
+                              //                 hintText: 'Browse',
+                              //                 suffixIcon: IconButton(
+                              //                   icon: Icon(Icons.add, size: 25.0,),
+                              //                   onPressed: () {
+                              //                     _pickImage();
+                              //                   },),
+                              //                 enabledBorder: OutlineInputBorder(
+                              //                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              //                 ),
+                              //                 focusedBorder: OutlineInputBorder(
+                              //                   borderSide: BorderSide(color: Color(0xff0CECDA)),
+                              //                 ),
+                              //                 hintStyle: GoogleFonts.kufam(
+                              //                     color: Colors.white.withOpacity(0.5)),
+                              //                 contentPadding: const EdgeInsets.symmetric(
+                              //                     vertical: 20.0, horizontal: 15.0),
+                              //                 border: OutlineInputBorder(),
+                              //                 fillColor: Color(0xff141318),
+                              //                 filled: true,
+                              //               ),
+                              //               style: TextStyle(color: Colors.white),
+                              //
+                              //             ),
+                              //             ]
+                              //           //     if (_selectedImage != null)
+                              //           // Image.file(
+                              //           //   File(_selectedImage),
+                              //           //   height: 100,
+                              //           //   width: 100,
+                              //         ),]
+                              //   ),
+                              // ),
                               SizedBox(height: 20),
-
 
                               ElevatedButton(
                                 onPressed: () {

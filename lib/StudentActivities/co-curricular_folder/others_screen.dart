@@ -236,11 +236,32 @@ class _OthersScreenState extends State<OthersScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Enrollment number of Student',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Enrollment number of Student  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Enrollment number of Student',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _studentnameController,
@@ -348,11 +369,32 @@ class _OthersScreenState extends State<OthersScreen> {
                             //   height: 20,
                             // ),
 
-                            Text('Event name',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Event name  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Event name',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _eventNameController,
@@ -383,11 +425,32 @@ class _OthersScreenState extends State<OthersScreen> {
                               height: 20,
                             ),
 
-                            Text('Details about event organized',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Details about event organized  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Details about event organized',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _detailsController,
@@ -418,11 +481,32 @@ class _OthersScreenState extends State<OthersScreen> {
                               height: 20,
                             ),
 
-                            Text('Event held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Event held from  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  // TextSpan(
+                                  //   text: '*',
+                                  //   style: TextStyle(
+                                  //     color: Colors.red,
+                                  //     fontWeight: FontWeight.bold,
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
+                            ),
+                            // Text('Event held from',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             Row(
                               children: [
@@ -466,11 +550,32 @@ class _OthersScreenState extends State<OthersScreen> {
                               height: 20,
                             ),
 
-                            Text('Event held to',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Event held to  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  // TextSpan(
+                                  //   text: '*',
+                                  //   style: TextStyle(
+                                  //     color: Colors.red,
+                                  //     fontWeight: FontWeight.bold,
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
+                            ),
+                            // Text('Event held to',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             Row(
                               children: [
@@ -515,11 +620,32 @@ class _OthersScreenState extends State<OthersScreen> {
                               height: 20,
                             ),
 
-                            Text('Duration of Event',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Duration of Event  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  // TextSpan(
+                                  //   text: '*',
+                                  //   style: TextStyle(
+                                  //     color: Colors.red,
+                                  //     fontWeight: FontWeight.bold,
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
+                            ),
+                            // Text('Duration of Event',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _durationController,
@@ -530,7 +656,7 @@ class _OthersScreenState extends State<OthersScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: '2 Months',
+                                hintText: '2 Days',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -550,11 +676,32 @@ class _OthersScreenState extends State<OthersScreen> {
                               height: 20,
                             ),
 
-                            Text('Address of the Place where event held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Address of the Place where event held  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Address of the Place where event held',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _addressController,
@@ -581,9 +728,9 @@ class _OthersScreenState extends State<OthersScreen> {
                                 filled: true,
                               ),
                               style: TextStyle(color: Colors.white),),
-                            SizedBox(
-                              height: 20,
-                            ),
+                            // SizedBox(
+                            //   height: 20,
+                            // ),
                             // Add more text fields as needed
                           ],
                         ),),
@@ -632,11 +779,32 @@ class _OthersScreenState extends State<OthersScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Enrollment number of Student',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Enrollment number of Student  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Enrollment number of Student',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _student2nameController,
@@ -655,6 +823,7 @@ class _OthersScreenState extends State<OthersScreen> {
                               maxLength: 11,
                               decoration: InputDecoration(
                                 hintText: '79879667878',
+                                counterText: '',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -673,11 +842,32 @@ class _OthersScreenState extends State<OthersScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Name of the organization',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Name of the organization  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Name of the organization',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _name2Controller,
@@ -743,11 +933,32 @@ class _OthersScreenState extends State<OthersScreen> {
                             //   height: 20,
                             // ),
 
-                            Text('Event name',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Event name  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Event name',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _eventName2Controller,
@@ -778,11 +989,32 @@ class _OthersScreenState extends State<OthersScreen> {
                               height: 20,
                             ),
 
-                            Text('Details about participation in event in brief',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Details about participation in event in brief  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Details about participation in event in brief',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _details2Controller,
@@ -813,11 +1045,32 @@ class _OthersScreenState extends State<OthersScreen> {
                               height: 20,
                             ),
 
-                            Text('Event held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Event held from  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  // TextSpan(
+                                  //   text: '*',
+                                  //   style: TextStyle(
+                                  //     color: Colors.red,
+                                  //     fontWeight: FontWeight.bold,
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
+                            ),
+                            // Text('Event held from',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             Row(
                               children: [
@@ -861,11 +1114,32 @@ class _OthersScreenState extends State<OthersScreen> {
                               height: 20,
                             ),
 
-                            Text('Event held to',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Event held to  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  // TextSpan(
+                                  //   text: '*',
+                                  //   style: TextStyle(
+                                  //     color: Colors.red,
+                                  //     fontWeight: FontWeight.bold,
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
+                            ),
+                            // Text('Event held to',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             Row(
                               children: [
@@ -910,11 +1184,32 @@ class _OthersScreenState extends State<OthersScreen> {
                               height: 20,
                             ),
 
-                            Text('Duration of Event',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Duration of Event  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  // TextSpan(
+                                  //   text: '*',
+                                  //   style: TextStyle(
+                                  //     color: Colors.red,
+                                  //     fontWeight: FontWeight.bold,
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
+                            ),
+                            // Text('Duration of Event',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _duration2Controller,
@@ -925,7 +1220,7 @@ class _OthersScreenState extends State<OthersScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: '2 Months',
+                                hintText: '2 Days',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -945,11 +1240,32 @@ class _OthersScreenState extends State<OthersScreen> {
                               height: 20,
                             ),
 
-                            Text('Individual/Group',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Individual/Group  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Individual/Group',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _indiOrGroupController,
@@ -980,11 +1296,32 @@ class _OthersScreenState extends State<OthersScreen> {
                               height: 20,
                             ),
 
-                            Text('Achievements(if any)',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Achievements(if any)  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Achievements(if any)',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _achievementsController,
@@ -1015,11 +1352,32 @@ class _OthersScreenState extends State<OthersScreen> {
                               height: 20,
                             ),
 
-                            Text('Address of the Place where event held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Address of the Place where event held  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Address of the Place where event held',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _address2Controller,
@@ -1062,7 +1420,6 @@ class _OthersScreenState extends State<OthersScreen> {
                 onPressed: () {
                   if (_eventNameController.text.isEmpty ||
                       _detailsController.text.isEmpty ||
-                      _durationController.text.isEmpty ||
                       _addressController.text.isEmpty ||
                       _studentnameController.text.isEmpty) {
                     QuickAlert.show(
@@ -1084,7 +1441,6 @@ class _OthersScreenState extends State<OthersScreen> {
                   if (_name2Controller.text.isEmpty ||
                       _eventName2Controller.text.isEmpty ||
                       _details2Controller.text.isEmpty ||
-                      _duration2Controller.text.isEmpty ||
                       _indiOrGroupController.text.isEmpty ||
                       _achievementsController.text.isEmpty ||
                       _address2Controller.text.isEmpty ||

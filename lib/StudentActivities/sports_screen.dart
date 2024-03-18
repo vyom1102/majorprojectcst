@@ -299,11 +299,32 @@ class _SportsScreenState extends State<SportsScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Enrollment number of Student',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Enrollment number of Student  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Enrollment number of Student',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _studentnameController,
@@ -341,11 +362,32 @@ class _SportsScreenState extends State<SportsScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Name of the Event',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Name of the Event  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Name of the Event',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _nameController,
@@ -376,11 +418,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Details about event',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Details about event  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Details about event',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _detailsController,
@@ -411,11 +474,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Event held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Event held from  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Event held from',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             Row(
                               children: [
@@ -459,11 +543,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Event held to',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Event held to  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Event held to',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             Row(
                               children: [
@@ -508,11 +613,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Duration of Event',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Duration of Event  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Duration of Event',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _durationController,
@@ -523,7 +649,7 @@ class _SportsScreenState extends State<SportsScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: '2 Months',
+                                hintText: '2 Days',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -543,11 +669,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Individual/Group',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Individual/Group  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Individual/Group',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _indiOrGroupController,
@@ -578,11 +725,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Achievements(if any)',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Achievements(if any)  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Achievements(if any)',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _achievementsController,
@@ -613,11 +781,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Address of the Place where event held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text:'Address of the Place where event held  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Address of the Place where event held',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _addressController,
@@ -644,10 +833,9 @@ class _SportsScreenState extends State<SportsScreen> {
                                 filled: true,
                               ),
                               style: TextStyle(color: Colors.white),),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            // Add more text fields as needed
+                            // SizedBox(
+                            //   height: 20,
+                            // ),
                           ],
                         ),),
                     ],
@@ -695,11 +883,32 @@ class _SportsScreenState extends State<SportsScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Enrollment number of Student',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text:'Enrollment number of Student  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Enrollment number of Student',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _student2nameController,
@@ -737,11 +946,32 @@ class _SportsScreenState extends State<SportsScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Name of the Event',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text:'Name of the Event  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Name of the Event',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _name2Controller,
@@ -772,11 +1002,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Details about event',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text:'Details about event  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Details about event',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _details2Controller,
@@ -807,11 +1058,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Event held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text:'Event held from  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Event held from',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             Row(
                               children: [
@@ -855,11 +1127,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Event held to',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text:'Event held to  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Event held to',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             Row(
                               children: [
@@ -904,11 +1197,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Duration of Event',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text:'Duration of Event  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Duration of Event',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _duration2Controller,
@@ -919,7 +1233,7 @@ class _SportsScreenState extends State<SportsScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: '2 Months',
+                                hintText: '2 Days',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -939,11 +1253,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Individual/Group',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text:'Individual/Group  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Individual/Group',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _indiOrGroup2Controller,
@@ -974,11 +1309,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Achievements(if any)',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text:'Achievements(if any)  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Achievements(if any)',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _achievements2Controller,
@@ -1009,11 +1365,32 @@ class _SportsScreenState extends State<SportsScreen> {
                               height: 20,
                             ),
 
-                            Text('Address of the Place where event held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text:'Address of the Place where event held  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Address of the Place where event held',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _address2Controller,
