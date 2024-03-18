@@ -198,19 +198,25 @@ class _TrainingScreenState extends State<TrainingScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              children: [
-                                Text('Enrollment number of Student  ',
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'Enrollment number of Student  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
                                     style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                Text(
-                                  '*', // Red star indicating mandatory field
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                              ],
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
+
                             // Text('Enrollment number of Student  ',
                             //     style: TextStyle(
                             //         fontSize: 14.0,
@@ -257,18 +263,23 @@ class _TrainingScreenState extends State<TrainingScreen> {
                               height: 20,
                             ),
 
-                            Row(
-                              children: [
-                                Text('Training/Project Title  ',
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'Training/Project Title  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
                                     style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                Text(
-                                  '*', // Red star indicating mandatory field
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                              ],
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             // Text('Training/Project Title',
                             //     style: TextStyle(
@@ -306,19 +317,25 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //team size
-                            Row(
-                              children: [
-                                Text('Team Size  ',
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'Team Size  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
                                     style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                Text(
-                                  '*', // Red star indicating mandatory field
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                              ],
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
+
                             // Text('Team Size',
                             //     style: TextStyle(
                             //         fontSize: 14.0,
@@ -361,18 +378,23 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //Duration
-                            Row(
-                              children: [
-                                Text('Duration of Internship/Course(in months)  ',
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'Duration of Internship/Course(in months)  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
                                     style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                Text(
-                                  '*', // Red star indicating mandatory field
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                              ],
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             // Text('Duration of Internship/Course(in months)',
                             //     style: TextStyle(
@@ -418,18 +440,23 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //Duration From Date
-                            Row(
-                              children: [
-                                Text('Duration from date  ',
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'Duration from date  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
                                     style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                Text(
-                                  '*', // Red star indicating mandatory field
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                              ],
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             // Text('Duration from date',
                             //     style: TextStyle(
@@ -480,18 +507,23 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //duration To Date
-                            Row(
-                              children: [
-                                Text('To Date  ',
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'To Date  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
                                     style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                Text(
-                                  '*', // Red star indicating mandatory field
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                              ],
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             // Text('To Date',
                             //     style: TextStyle(
@@ -543,19 +575,25 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //Platform/Technology Used
-                            Row(
-                              children: [
-                                Text('Platform/Technology Used  ',
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'Platform/Technology Used  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
                                     style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                Text(
-                                  '*', // Red star indicating mandatory field
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                              ],
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
+
                             // Text('Platform/Technology Used',
                             //     style: TextStyle(
                             //         fontSize: 14.0,
@@ -592,18 +630,26 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //Research/Application based
-                            Row(
-                              children: [
-                                Text('Research/Application based  ',
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Research/Application based  ',
                                     style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                Text(
-                                  '*', // Red star indicating mandatory field
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                              ],
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             // Text('Research/Application based',
                             //     style: TextStyle(
@@ -738,11 +784,29 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //name of company
-                            Text('Name of the Company/Course/Organization/University/Any other',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text: 'Name of the Company/Course/Organization/University/Any other  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Name of the Company/Course/Organization/University/Any other',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _companyNameController,
@@ -774,11 +838,29 @@ class _TrainingScreenState extends State<TrainingScreen> {
                             ),
 
                             //company address
-                            Text('Company Address/University Address (Place/Location)',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text: 'Company Address/University Address (Place/Location)  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Company Address/University Address (Place/Location)',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _companyAddressController,
@@ -809,12 +891,29 @@ class _TrainingScreenState extends State<TrainingScreen> {
                               height: 20,
                             ),
 
-
-                            Text('Sector',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'Sector  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Sector',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _sectorController,
@@ -845,11 +944,29 @@ class _TrainingScreenState extends State<TrainingScreen> {
                               height: 20,
                             ),
 
-                            Text('Scale',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'Scale  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Scale',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _scaleController,
@@ -880,11 +997,29 @@ class _TrainingScreenState extends State<TrainingScreen> {
                               height: 20,
                             ),
 
-                            Text('Incorporation Status',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'Incorporation Status  ',
+                              style: TextStyle(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Incorporation Status',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _incorporationStatusController,
@@ -915,11 +1050,29 @@ class _TrainingScreenState extends State<TrainingScreen> {
                               height: 20,
                             ),
 
-                            Text('Products/Service based(In which company deals)',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'Products/Service based(In which company deals)  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Products/Service based(In which company deals)',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _productServiceController,
@@ -950,11 +1103,29 @@ class _TrainingScreenState extends State<TrainingScreen> {
                               height: 20,
                             ),
 
-                            Text('Mode of Training',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'Mode of Training  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Mode of Training',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             // TextFormField(
                             //   controller: _trainingModeController,
@@ -1010,11 +1181,29 @@ class _TrainingScreenState extends State<TrainingScreen> {
                               height: 20,
                             ),
 
-                            Text('Company Website Link/Course Link',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'Company Website Link/Course Link  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Company Website Link/Course Link',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _companyLinkController,
@@ -1045,11 +1234,29 @@ class _TrainingScreenState extends State<TrainingScreen> {
                               height: 20,
                             ),
 
-                            Text('Stipend Amount',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(text:'Stipend Amount  ',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Stipend Amount',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _stipendAmountController,
