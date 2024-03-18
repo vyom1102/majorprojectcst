@@ -1937,6 +1937,8 @@ import 'package:majorproject/student_main_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:majorproject/resources/add_data.dart';
+import 'package:majorproject/resources/utils.dart';
 // import 'package:firebase_core/firebase_core.dart';
 
 
@@ -1946,6 +1948,7 @@ class studentDataSheet extends StatefulWidget {
 }
 
 class _studentDataSheetState extends State<studentDataSheet> {
+  Uint8List? _image;
 
   final DatabaseReference _studentRef =
   FirebaseDatabase.instance.ref().child('student');
@@ -1959,6 +1962,13 @@ class _studentDataSheetState extends State<studentDataSheet> {
   int _currentPage = 0;
 
   DateTime selectedDate = DateTime.now();
+
+  void selectImage() async{
+    Uint8List img = await pickImage(ImageSource.gallery);
+    setState(() {
+      _image = img;
+    });
+  }
 
 
 
@@ -1975,6 +1985,15 @@ class _studentDataSheetState extends State<studentDataSheet> {
         selectedDate = picked;
       });
     }
+  }
+
+
+  void saveProfile() async{
+
+    String name  = _fullNameController.text;
+
+    String resp = await StoreData().saveData(name: name, file: _image!);
+
   }
 
 
