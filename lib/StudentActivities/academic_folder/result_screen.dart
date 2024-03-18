@@ -113,21 +113,26 @@ class _ResultScreenState extends State<ResultScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              children: [
-                                Text(
-                                  'Enrollment number of Student  ',
-                                  style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Enrollment number of Student  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  '*', // Red star indicating mandatory field
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                              ],
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             SizedBox(height: 5),
                             TextFormField(
@@ -164,18 +169,26 @@ class _ResultScreenState extends State<ResultScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Row(
-                              children: [
-                                Text('Batch',
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Batch  ',
                                     style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                Text(
-                                  ' *', // Red star indicating mandatory field
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                              ],
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             SizedBox(height: 5),
                             // TextFormField(
@@ -231,18 +244,26 @@ class _ResultScreenState extends State<ResultScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Row(
-                              children: [
-                                Text('Semester 1 GPA  ',
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Semester 1 GPA  ',
                                     style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                Text(
-                                  '*', // Red star indicating mandatory field
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                              ],
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             SizedBox(height: 5),
                             TextField(
@@ -620,18 +641,26 @@ class _ResultScreenState extends State<ResultScreen> {
                               height: 20,
                             ),
 
-                            Row(
-                              children: [
-                                Text('Overall GPA  ',
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Overall GPA  ',
                                     style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                Text(
-                                  '*', // Red star indicating mandatory field
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                              ],
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             SizedBox(height: 5),
                             TextField(
