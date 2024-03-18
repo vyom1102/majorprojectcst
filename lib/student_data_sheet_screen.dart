@@ -1955,6 +1955,9 @@ class _studentDataSheetState extends State<studentDataSheet> {
 
   final DatabaseReference _studentRef =
   FirebaseDatabase.instance.ref().child('student');
+  final DatabaseReference _studentRefer =
+  FirebaseDatabase.instance.ref().child('studentphoto');
+
   final ImagePicker imagePicker = ImagePicker();
 
   String _selectedImage='';
@@ -2055,7 +2058,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
         'permanentAddress': _permanentAddressController.text,
         'jeeRank': _jeeRankController.text,
         'mobileNumber': _mobileNumberController.text,
-        'image': _imageController.text,
+        // 'image': _selectedImage,
         'year': _yearController.text,
         'fatherName': _fatherNameController.text,
         'fatherOccupation': _fatherOccupationController.text,
@@ -2073,7 +2076,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
     }
   }
 
-  Future<void> _uploadImageAndSaveData(StudentStartup student) async {
+  Future<void> _uploadImageAndSaveData(StudentImage student) async {
     final pickedFile = await imagePicker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       File imageFile = File(pickedFile.path);
@@ -2086,7 +2089,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
         String imageUrl = await storageRef.getDownloadURL();
 
         // Save the imageUrl field in Firebase Realtime Database
-        await _studentRef.update({'image': imageUrl});
+        await _studentRefer.child(_rollNumberController.text).set({'image': imageUrl});
 
         // Update the imageUrl field locally
         setState(() {
@@ -2577,7 +2580,8 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children:[
                                         Stack(
-                                            children:[ TextField(
+                                            children:[ 
+                                              TextField(
                                               controller: _imageController,
                                               readOnly: true,
                                               decoration: InputDecoration(
@@ -3011,14 +3015,10 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                         context,
                                         MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
                                       );
-                                      final student = StudentStartup(
+                                      final student = StudentImage(
                                         id: 'id',
                                         enrollmentNumber: 'your_enrollment_number',
-                                        companyName: 'your_company_name',
-                                        companyProfile: 'your_company_profile',
-                                        startingDate: 'your_starting_date',
-                                        designation: 'your_designation',
-                                        location: 'your_location',
+
                                       );
                                       await _uploadImageAndSaveData(student);
                                       _saveStudentData(); // Not sure what this function does, remove or use it as needed
@@ -3050,4 +3050,19 @@ class _studentDataSheetState extends State<studentDataSheet> {
           ]),
     );
   }
+}
+
+class StudentImage {
+  final String id;
+
+  final String enrollmentNumber;
+
+   String imageUrl;
+
+  StudentImage({
+    required this.id,
+    required this.enrollmentNumber,
+     this.imageUrl='',
+
+  });
 }
