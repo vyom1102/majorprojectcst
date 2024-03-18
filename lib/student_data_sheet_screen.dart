@@ -1927,7 +1927,9 @@
 //
 //
 //
+import 'dart:io' show File;
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -1939,6 +1941,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:majorproject/resources/add_data.dart';
 import 'package:majorproject/resources/utils.dart';
+import 'detailScreens/StudentData/Acadmeic/student_startup.dart';
 // import 'package:firebase_core/firebase_core.dart';
 
 
@@ -1952,10 +1955,11 @@ class _studentDataSheetState extends State<studentDataSheet> {
 
   final DatabaseReference _studentRef =
   FirebaseDatabase.instance.ref().child('student');
+  final ImagePicker imagePicker = ImagePicker();
 
   String _selectedImage='';
   String selectedYearofAdmission ='';
-  List<String> years = List.generate(25, (index) => (2000 + index).toString());
+  List<String> years = List.generate(25, (index) => (2018 + index).toString());
 
 
   PageController _pageController = PageController(initialPage: 0);
@@ -2002,7 +2006,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
       context: context,
       builder: (BuildContext builder) {
         return Container(
-          height: 200,
+          height: MediaQuery.sizeOf(context).height*0.285,
           child: ListWheelScrollView(
             itemExtent: 40,
             children: years.map((String year) {
@@ -2066,6 +2070,31 @@ class _studentDataSheetState extends State<studentDataSheet> {
     } catch (error) {
       // Handle the error
       print('Error saving data: $error');
+    }
+  }
+
+  Future<void> _uploadImageAndSaveData(StudentStartup student) async {
+    final pickedFile = await imagePicker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      File imageFile = File(pickedFile.path);
+      try {
+        // Upload image to Firebase Storage
+        Reference storageRef = FirebaseStorage.instance.ref().child('images').child(student.enrollmentNumber);
+        await storageRef.putFile(imageFile);
+
+        // Get the download URL of the uploaded image
+        String imageUrl = await storageRef.getDownloadURL();
+
+        // Save the imageUrl field in Firebase Realtime Database
+        await _studentRef.update({'image': imageUrl});
+
+        // Update the imageUrl field locally
+        setState(() {
+          student.imageUrl = imageUrl;
+        });
+      } catch (error) {
+        print('Error uploading image: $error');
+      }
     }
   }
   Future<void> _saveStudentNameEmail() async {
@@ -2555,8 +2584,24 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                                 hintText: 'Browse',
                                                 suffixIcon: IconButton(
                                                   icon: Icon(Icons.add, size: 25.0,),
-                                                  onPressed: () {
-                                                    _pickImage();
+                                                  onPressed: () async{
+                                                    final pickedFile = await imagePicker.pickImage(source: ImageSource.gallery);
+                                                    if(pickedFile != null){
+                                                      setState(() {
+                                                        _selectedImage = pickedFile.path;
+                                                      });
+                                                      // final student = StudentStartup(
+                                                      //   id: 'id',
+                                                      //   enrollmentNumber: 'your_enrollment_number',
+                                                      //   companyName: 'your_company_name',
+                                                      //   companyProfile: 'your_company_profile',
+                                                      //   startingDate: 'your_starting_date',
+                                                      //   designation: 'your_designation',
+                                                      //   location: 'your_location',
+                                                      // );
+                                                      //await _uploadImageAndSaveData(student);
+                                                    }
+                                                    //_pickImage();
                                                   },),
                                                 enabledBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
@@ -2575,6 +2620,13 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                               style: TextStyle(color: Colors.white),
 
                                             ),
+                                              if(_selectedImage != null)
+                                                Image.file(
+                                                    File(_selectedImage),
+                                                  height:  100,
+                                                    width: 100,
+                                                ),
+
                                             ]
                                           //     if (_selectedImage != null)
                                           // Image.file(
@@ -2959,6 +3011,16 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                         context,
                                         MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
                                       );
+                                      final student = StudentStartup(
+                                        id: 'id',
+                                        enrollmentNumber: 'your_enrollment_number',
+                                        companyName: 'your_company_name',
+                                        companyProfile: 'your_company_profile',
+                                        startingDate: 'your_starting_date',
+                                        designation: 'your_designation',
+                                        location: 'your_location',
+                                      );
+                                      await _uploadImageAndSaveData(student);
                                       _saveStudentData(); // Not sure what this function does, remove or use it as needed
                                     },
                                     style: ElevatedButton.styleFrom(
