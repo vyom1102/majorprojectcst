@@ -300,7 +300,8 @@ class _StudentListState extends State<StudentList> {
                   if (filteredStudents[index].rollNumber.isNotEmpty) {
                     imageUrl = "https://firebasestorage.googleapis.com/v0/b/insightacademia-747dc.appspot.com/o/images%2F${filteredStudents[index].rollNumber}?alt=media";
                   } else {
-                    imageUrl = "https://firebasestorage.googleapis.com/v0/b/insightacademia-747dc.appspot.com/o/images%2F68606038386?alt=media&token=68a834a5-8c04-4d64-ae7b-f7967f828705";
+                    // gs://insightacademia-747dc.appspot.com/images/profilepic.jpg
+                    imageUrl = "https://firebasestorage.googleapis.com/v0/b/insightacademia-747dc.appspot.com/images%2Fprofilepic.jpg?alt=media";
                   }
 
                   return Card(
