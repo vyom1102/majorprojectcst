@@ -215,48 +215,125 @@ class _StudentListState extends State<StudentList> {
               ),
             ),
 
+            // Expanded(
+            //   child: ListView.builder(
+            //     itemCount: filteredStudents.length,
+            //     itemBuilder: (context, index) {
+            //       return Container(
+            //         height: MediaQuery.sizeOf(context).height*0.135,
+            //         child: Card(
+            //
+            //           child: ListTile(
+            //             leading: CircleAvatar(
+            //               radius: 40,
+            //               backgroundImage: NetworkImage(
+            //                 // filteredStudents[index].image,
+            //                 // _membersRefer.child(filteredStudents[index].rollNumber) as String
+            //
+            //                   "https://firebasestorage.googleapis.com/v0/b/insightacademia-747dc.appspot.com/o/images%2F68606038386?alt=media&token=68a834a5-8c04-4d64-ae7b-f7967f828705"
+            //
+            //
+            //               ),
+            //             ),
+            //             title:Padding(
+            //               padding: const EdgeInsets.only(top: 10.0),
+            //               child: Text('${filteredStudents[index].fullName.toUpperCase()}'),
+            //             ),
+            //             subtitle: Column(
+            //               crossAxisAlignment: CrossAxisAlignment.start,
+            //               children: [
+            //                 Text('Enrollment No: ${filteredStudents[index].rollNumber}'),
+            //
+            //                 Text('Contact Number: ${filteredStudents[index].mobileNumber}'),
+            //                 Text('Email: ${filteredStudents[index].emailAddress}'),
+            //               ],
+            //             ),
+            //             onTap: () {
+            //               _showDetailsDialog(filteredStudents[index]);
+            //             },
+            //           ),
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // ),
+            // Expanded(
+            //   child: ListView.builder(
+            //     itemCount: filteredStudents.length,
+            //     itemBuilder: (context, index) {
+            //       return Card(
+            //         child: ListTile(
+            //           leading: CircleAvatar(
+            //             radius: 30,
+            //             backgroundImage: NetworkImage(
+            //                 "https://firebasestorage.googleapis.com/v0/b/insightacademia-747dc.appspot.com/o/images%2F68606038386?alt=media&token=68a834a5-8c04-4d64-ae7b-f7967f828705"
+            //             ),
+            //           ),
+            //           title: Padding(
+            //             padding: const EdgeInsets.only(top: 10.0),
+            //             child: Text(
+            //               '${filteredStudents[index].fullName.toUpperCase()}',
+            //               style: TextStyle(fontWeight: FontWeight.bold),
+            //             ),
+            //           ),
+            //           subtitle: Column(
+            //             crossAxisAlignment: CrossAxisAlignment.start,
+            //             children: [
+            //               Text('Enrollment No: ${filteredStudents[index].rollNumber}'),
+            //               Text('Contact Number: ${filteredStudents[index].mobileNumber}'),
+            //               Text('Email: ${filteredStudents[index].emailAddress}'),
+            //             ],
+            //           ),
+            //           onTap: () {
+            //             _showDetailsDialog(filteredStudents[index]);
+            //           },
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // ),
             Expanded(
               child: ListView.builder(
                 itemCount: filteredStudents.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    height: MediaQuery.sizeOf(context).height*0.135,
-                    child: Card(
+                  String imageUrl;
+                  if (filteredStudents[index].rollNumber.isNotEmpty) {
+                    imageUrl = "https://firebasestorage.googleapis.com/v0/b/insightacademia-747dc.appspot.com/o/images%2F${filteredStudents[index].rollNumber}?alt=media";
+                  } else {
+                    imageUrl = "https://firebasestorage.googleapis.com/v0/b/insightacademia-747dc.appspot.com/o/images%2F68606038386?alt=media&token=68a834a5-8c04-4d64-ae7b-f7967f828705";
+                  }
 
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          radius: 40,
-                          backgroundImage: NetworkImage(
-                            // filteredStudents[index].image,
-                            // _membersRefer.child(filteredStudents[index].rollNumber) as String
-
-                              "https://firebasestorage.googleapis.com/v0/b/insightacademia-747dc.appspot.com/o/images%2Fyour_enrollment_number?alt=media&token=0c5d14ee-c1f6-48d8-b260-3f6f9dd57372"
-
-
-                          ),
-                        ),
-                        title:Padding(
-                          padding: const EdgeInsets.only(top: 10.0),
-                          child: Text('${filteredStudents[index].fullName.toUpperCase()}'),
-                        ),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Enrollment No: ${filteredStudents[index].rollNumber}'),
-
-                            Text('Contact Number: ${filteredStudents[index].mobileNumber}'),
-                            Text('Email: ${filteredStudents[index].emailAddress}'),
-                          ],
-                        ),
-                        onTap: () {
-                          _showDetailsDialog(filteredStudents[index]);
-                        },
+                  return Card(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 30,
+                        backgroundImage: NetworkImage(imageUrl),
                       ),
+                      title: Padding(
+                        padding: const EdgeInsets.only(top: 10.0),
+                        child: Text(
+                          '${filteredStudents[index].fullName.toUpperCase()}',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Enrollment No: ${filteredStudents[index].rollNumber}'),
+                          Text('Contact Number: ${filteredStudents[index].mobileNumber}'),
+                          Text('Email: ${filteredStudents[index].emailAddress}'),
+                        ],
+                      ),
+                      onTap: () {
+                        _showDetailsDialog(filteredStudents[index]);
+                      },
                     ),
                   );
                 },
               ),
             ),
+
+
 
 
           ],

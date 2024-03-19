@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:quickalert/quickalert.dart';
 
 class CoursesScreen extends StatefulWidget {
@@ -63,6 +64,8 @@ class _CoursesScreenState extends State<CoursesScreen> {
   }
   Future<void> _studentHigherDetail() async {
     try {
+      String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+      String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate);
       await _studentCourse.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
         'certificate' : _imageController.text,
@@ -71,6 +74,8 @@ class _CoursesScreenState extends State<CoursesScreen> {
         'specialization' : _specializationController.text,
         'duration' : _durationController.text,
         'onlineoffline' : _onlineController.text,
+        'startingDate' : formattedSelectedDate,
+        'endingDate' : formattedJoiningDate,
         'courseLearning' : _courseLearningController.text,
       });
 
