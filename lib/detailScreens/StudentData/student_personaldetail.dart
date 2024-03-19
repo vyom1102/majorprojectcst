@@ -55,16 +55,20 @@ class StudentList extends StatefulWidget {
 class _StudentListState extends State<StudentList> {
   final databaseReference = FirebaseDatabase.instance.ref();
   late DatabaseReference _membersRef;
+  // late DatabaseReference _membersRefer;
 
   List<Student> students = [];
   List<Student> filteredStudents = [];
+  // List<Student> filterimage =[];
 
   TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _membersRef = FirebaseDatabase.instance.reference().child('student/id');
+    _membersRef = FirebaseDatabase.instance.ref().child('student/id');
+    // _membersRefer = FirebaseDatabase.instance.ref().child('studentphoto');
+
     fetchStudents();
   }
 
@@ -198,7 +202,7 @@ class _StudentListState extends State<StudentList> {
               child: TextField(
                 controller: _searchController,
                 decoration: InputDecoration(
-                  labelText: 'Search by Enrollment Number',
+                  labelText: 'Search by Enrollment No or Name',
                   prefixIcon: Icon(Icons.search),
                   filled: true,
                   fillColor: Colors.white,
@@ -216,13 +220,20 @@ class _StudentListState extends State<StudentList> {
                 itemCount: filteredStudents.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    height: 100,
+                    height: MediaQuery.sizeOf(context).height*0.135,
                     child: Card(
 
                       child: ListTile(
-                        leading: CircleAvatar( // Display photo on the left side
+                        leading: CircleAvatar(
                           radius: 40,
-                          backgroundImage: AssetImage('path_to_image'), // Provide the path to the image
+                          backgroundImage: NetworkImage(
+                            // filteredStudents[index].image,
+                            // _membersRefer.child(filteredStudents[index].rollNumber) as String
+
+                              "https://firebasestorage.googleapis.com/v0/b/insightacademia-747dc.appspot.com/o/images%2Fyour_enrollment_number?alt=media&token=0c5d14ee-c1f6-48d8-b260-3f6f9dd57372"
+
+
+                          ),
                         ),
                         title:Padding(
                           padding: const EdgeInsets.only(top: 10.0),
@@ -231,7 +242,7 @@ class _StudentListState extends State<StudentList> {
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('ID: ${filteredStudents[index].rollNumber}'),
+                            Text('Enrollment No: ${filteredStudents[index].rollNumber}'),
 
                             Text('Contact Number: ${filteredStudents[index].mobileNumber}'),
                             Text('Email: ${filteredStudents[index].emailAddress}'),

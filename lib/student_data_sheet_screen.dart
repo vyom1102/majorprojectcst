@@ -3017,7 +3017,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                       );
                                       final student = StudentImage(
                                         id: 'id',
-                                        enrollmentNumber: 'your_enrollment_number',
+                                        enrollmentNumber: _rollNumberController.text,
 
                                       );
                                       await _uploadImageAndSaveData(student);
