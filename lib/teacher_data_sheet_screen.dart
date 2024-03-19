@@ -531,8 +531,11 @@
 //
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:majorproject/teacher_main_screen.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class TeacherDataSheet extends StatefulWidget {
@@ -543,6 +546,7 @@ class TeacherDataSheet extends StatefulWidget {
 class _TeacherDataSheetState extends State<TeacherDataSheet> {
   DateTime selectedDate = DateTime.now();
   DateTime joiningDate = DateTime.now();
+  String? _selectedTrainingMode;
   final DatabaseReference _teacherRef =
   FirebaseDatabase.instance.ref().child('teachers');
 
@@ -665,11 +669,30 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Full Name',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(text:'Full Name  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Full Name',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
                           TextFormField(
                             controller: _fullNameController,
@@ -699,11 +722,29 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text('Email Address',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(text:'Email Address  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Email Address',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
                           TextField(
                             controller: _emailAddressController,
@@ -728,16 +769,41 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text('Employee Id',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(text:'Employee Id  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Employee Id',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
                           TextField(
                             controller: _employeeIdController,
+                            keyboardType: TextInputType.number,
+                            inputFormatters: <TextInputFormatter>[
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
+                            maxLength: 11,
                             decoration: InputDecoration(
                               hintText: '98753',
+                              counterText: '',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                               ),
@@ -757,11 +823,29 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text('Date of Birth',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(text:'Date of Birth  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Date of Birth',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
 
                           Row(
@@ -807,11 +891,29 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                             height: 20,
                           ),
 
-                          Text('Date of Joining',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(text:'Date of Joining  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Date of Joining',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
 
                           Row(
@@ -855,11 +957,30 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text('Permanent Address',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(text:'Permanent Address  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Permanent Address',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
                           TextField(
                             controller: _permanentAddressController,
@@ -884,11 +1005,30 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text('Father/Husband Name',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(text:'Father/Husband Name  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Father/Husband Name',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
                           TextField(
                             controller: _fatherHusbandNameController,
@@ -913,11 +1053,30 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text('Highest Qualification',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(text:'Highest Qualification  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Highest Qualification',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
                           TextField(
                             controller: _highestQualificationController,
@@ -942,16 +1101,40 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text('Mobile No.',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(text:'Mobile No.  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Mobile No.',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
                           TextField(
                             controller: _mobileNumberController,
+                            keyboardType: TextInputType.number,
+                            inputFormatters: <TextInputFormatter>[
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
+                            maxLength: 10,
                             decoration: InputDecoration(
                               hintText: '98765XXXXX',
+                              counterText: '',
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                               ),
@@ -971,11 +1154,30 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text('Current Designation',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(text:'Current Designation  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Current Designation',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
                           TextField(
                             controller: _currentDesignationController,
@@ -999,14 +1201,56 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                           ),
 
                           SizedBox(height: 20),
-                          Text('Department',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(text:'Department  ',
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Department',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
-                          TextField(
-                            controller: _departmentController,
+                          // TextField(
+                          //   controller: _departmentController,
+                          DropdownButtonFormField<String>(
+                            value: _selectedTrainingMode,
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                _selectedTrainingMode = newValue;
+                                _departmentController.text = newValue ?? '';
+                              });
+                            },
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'This field is required';
+                              }
+                              return null;
+                            },
+                            items: <String>['CSE', 'CST'].map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value,
+                                  style: TextStyle(
+                                    color: _selectedTrainingMode == value ? Colors.white : Colors.black,
+                                  ),),
+
+                              );
+                            }).toList(),
                             decoration: InputDecoration(
                               hintText: 'CST/CSE',
                               enabledBorder: OutlineInputBorder(
@@ -1024,7 +1268,7 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                               filled: true,
                             ),
                             style: TextStyle(color: Colors.white),
-                          ),
+                            dropdownColor: Colors.grey,),
 
                           SizedBox(height: 20),
 
@@ -1055,11 +1299,60 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
                               await saveTeacherName(_fullNameController.text);
                               await saveTeacherEmail(_emailAddressController.text);
 
+                              // _fullNameController = TextEditingController();
+                              // final TextEditingController _emailAddressController = TextEditingController();
+                              // final TextEditingController _employeeIdController = TextEditingController();
+                              // final TextEditingController _permanentAddressController =
+                              // TextEditingController();
+                              // final TextEditingController _fatherHusbandNameController =
+                              // TextEditingController();
+                              // final TextEditingController _highestQualificationController =
+                              // TextEditingController();
+                              // final TextEditingController _mobileNumberController = TextEditingController();
+                              // final TextEditingController _currentDesignationController =
+                              // TextEditingController();
+                              // final TextEditingController _departmentController = TextEditingController();
+
                               // Navigate to the teacher selection screen
-                              Navigator.push(
+                              if (_fullNameController.text.isEmpty ||
+                                  _emailAddressController.text.isEmpty ||
+                                  _employeeIdController.text.isEmpty ||
+                                  _permanentAddressController.text.isEmpty ||
+                                  _fatherHusbandNameController.text.isEmpty ||
+                                  _highestQualificationController.text.isEmpty ||
+                                  _mobileNumberController.text.isEmpty ||
+                                  _currentDesignationController.text.isEmpty ||
+                                  _departmentController.text.isEmpty ) {
+                                QuickAlert.show(
+                                  context: context,
+                                  type: QuickAlertType.error,
+                                  title: 'Oops...',
+                                  text: 'Please fill in all the required fields.',
+                                );
+                              }
+                              else if(_employeeIdController.text.length != 11) {
+                                QuickAlert.show(
+                                  context: context,
+                                  type: QuickAlertType.warning,
+                                  text: 'Please enter a valid Employee Id',
+                                );
+                              }
+                              else if(_mobileNumberController.text.length != 10) {
+                                QuickAlert.show(
+                                  context: context,
+                                  type: QuickAlertType.warning,
+                                  text: 'Please enter a valid Phone No.',
+                                );
+                              }
+                              else{Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) => TeacherSelectionScreen()),
                               );
+                              QuickAlert.show(
+                                context: context,
+                                type: QuickAlertType.success,
+                                text: 'Saved Successfully!',
+                              );}
 
                               // Save other teacher data if needed
                               _saveTeacherData();

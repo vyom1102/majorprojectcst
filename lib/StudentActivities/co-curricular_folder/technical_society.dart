@@ -364,13 +364,13 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                                       color: Colors.white,
                                     ),
                                   ),
-                                  TextSpan(
-                                    text: '*',
-                                    style: TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
+                                  // TextSpan(
+                                  //   text: '*',
+                                  //   style: TextStyle(
+                                  //     color: Colors.red,
+                                  //     fontWeight: FontWeight.bold,
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                             ),
@@ -664,7 +664,7 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                               text: TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: 'Duration of Event',
+                                    text: 'Duration of Event  ',
                                     style: TextStyle(
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold,
@@ -696,7 +696,7 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: '2 Months',
+                                hintText: '2 Days',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -716,11 +716,32 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                               height: 20,
                             ),
 
-                            Text('Address of the Place where event held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Address of the Place where event held  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Address of the Place where event held',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _addressController,
@@ -798,11 +819,33 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Enrollment number of Student',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Enrollment number of Student  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Enrollment number of Student',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _student2nameController,
@@ -840,11 +883,33 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Name of the Society',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Name of the Society  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Name of the Society',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _name2Controller,
@@ -875,11 +940,32 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                               height: 20,
                             ),
 
-                            Text('Role in the society',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Role in the society',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  // TextSpan(
+                                  //   text: '*',
+                                  //   style: TextStyle(
+                                  //     color: Colors.red,
+                                  //     fontWeight: FontWeight.bold,
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
+                            ),
+                            // Text('Role in the society',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _roll2Controller,
@@ -910,11 +996,32 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                               height: 20,
                             ),
 
-                            Text('Event name',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Event name  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Event name',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _eventName2Controller,
@@ -945,11 +1052,32 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                               height: 20,
                             ),
 
-                            Text('Details about participation in event in brief',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Details about participation in event in brief  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Details about participation in event in brief',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _details2Controller,
@@ -980,11 +1108,32 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                               height: 20,
                             ),
 
-                            Text('Event held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Event held from  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Event held from',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             Row(
                               children: [
@@ -1028,11 +1177,32 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                               height: 20,
                             ),
 
-                            Text('Event held to',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Event held to  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Event held to',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             Row(
                               children: [
@@ -1077,11 +1247,32 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                               height: 20,
                             ),
 
-                            Text('Duration of Event',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Duration of Event  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Duration of Event',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _duration2Controller,
@@ -1092,7 +1283,7 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                                 return null;
                               },
                               decoration: InputDecoration(
-                                hintText: '2 Months',
+                                hintText: '2 Days',
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                 ),
@@ -1112,11 +1303,32 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                               height: 20,
                             ),
 
-                            Text('Individual/Group',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Individual/Group  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Individual/Group',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _indiOrGroupController,
@@ -1147,11 +1359,32 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                               height: 20,
                             ),
 
-                            Text('Achievements(if any)',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Achievements(if any)  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Achievements(if any)',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _achievementsController,
@@ -1182,11 +1415,32 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                               height: 20,
                             ),
 
-                            Text('Address of the Place where event held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Address of the Place where event held  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Address of the Place where event held',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _address2Controller,
@@ -1227,6 +1481,14 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
+                  // if (WorkshopOrganizedHeldFromDate == DateTime.now()) {
+                  //   // Show alert to the user
+                  //   QuickAlert.show(
+                  //     context: context,
+                  //     type: QuickAlertType.warning,
+                  //     text: 'Please select a date other than today.',
+                  //   );// Return to prevent further execution
+                  // }
                   if (_nameController.text.isEmpty ||
                       _eventNameController.text.isEmpty ||
                       _detailsController.text.isEmpty ||
@@ -1253,6 +1515,7 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                       _eventName2Controller.text.isEmpty ||
                       _details2Controller.text.isEmpty ||
                       _duration2Controller.text.isEmpty ||
+                      _achievementsController.text.isEmpty ||
                       _indiOrGroupController.text.isEmpty ||
                       _address2Controller.text.isEmpty ||
                       _student2nameController.text.isEmpty) {
