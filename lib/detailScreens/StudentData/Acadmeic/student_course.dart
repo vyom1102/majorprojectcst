@@ -12,6 +12,8 @@ class StudentCourse {
   final String instructorName;
   final String specialization;
   final String duration;
+  final String startingDate;
+  final String endingDate;
   final String onlineOffline;
   final String certificate;
   final String courseLearning;
@@ -25,6 +27,8 @@ class StudentCourse {
     required this.instructorName,
     required this.specialization,
     required this.duration,
+    required this.startingDate,
+    required this.endingDate,
     required this.onlineOffline,
     required this.certificate,
     required this.courseLearning,
@@ -45,6 +49,7 @@ class _StudentCourseListState extends State<StudentCourseList> {
   List<StudentCourse> filteredStudents = [];
 
   TextEditingController _searchController = TextEditingController();
+  String _selectedYear = '2024';
 
   @override
   void initState() {
@@ -67,6 +72,8 @@ class _StudentCourseListState extends State<StudentCourseList> {
               instructorName: value['instructorName'] ?? '',
               specialization: value['specialization'] ?? '',
               duration: value['duration'] ?? '',
+              startingDate: value['startingDate'] ?? '',
+              endingDate: value['endingDate'] ?? '',
               onlineOffline: value['onlineoffline'] ?? '',
               certificate: value['certificate'] ?? '',
               courseLearning: value['courseLearning'] ?? '',
@@ -112,6 +119,8 @@ class _StudentCourseListState extends State<StudentCourseList> {
               Text('Instructor Name: ${student.instructorName}'),
               Text('Specialization: ${student.specialization}'),
               Text('Duration: ${student.duration}'),
+              Text('Starting Date: ${student.startingDate}'),
+              Text('Ending Date: ${student.endingDate}'),
               Text('Online Offline: ${student.onlineOffline}'),
               Text('Certificate: ${student.certificate}'),
               Text('Course Learning: ${student.courseLearning}'),
@@ -164,6 +173,38 @@ class _StudentCourseListState extends State<StudentCourseList> {
                           color: Color(0xff0CECDA)),
                     ),
                   ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Row(
+                    children: [
+                      SizedBox(width: 10),
+                      Text(
+                        'Select Year: ',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      DropdownButton<String>(
+                        dropdownColor: Colors.black,
+                        value: _selectedYear,
+                        items: <String>['2021','2022', '2023', '2024', '2025']
+                            .map((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value,style: TextStyle(color: Color(0xff0CECDA),),),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _selectedYear = newValue!;
+                            // Filter students by selected year
+                            filteredStudents = students
+                                .where((student) => student.startingDate.contains(_selectedYear))
+                                .toList();
+                          });
+                        },
+                      ),
+                    ],
+                  ),
                 ),
 
                 Padding(
