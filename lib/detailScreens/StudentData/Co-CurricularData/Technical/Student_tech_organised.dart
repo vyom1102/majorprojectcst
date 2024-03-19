@@ -345,7 +345,7 @@ class _StudentTechOrganisedListState extends State<StudentTechOrganisedList> {
             child: Image.asset(
               'images/bottom_container.png',
               fit: BoxFit.cover,
-              height: 200,
+              height: MediaQuery.sizeOf(context).height*0.285,
               width: MediaQuery.of(context).size.width,
             ),
           ),
@@ -377,7 +377,7 @@ class _StudentTechOrganisedListState extends State<StudentTechOrganisedList> {
                     DropdownButton<String>(
                       dropdownColor: Colors.black,
                       value: _selectedYear,
-                      items: <String>['2021','2022', '2023', '2024', '2025']
+                      items: <String>['2020','2021','2022', '2023', '2024', '2025']
                           .map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,

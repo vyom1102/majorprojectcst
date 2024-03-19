@@ -37,7 +37,7 @@ class _CurricularActivityScreenState extends State<CurricularActivityScreen> {
             child: Image.asset(
               'images/bottom_container.png',
               fit: BoxFit.cover,
-              height: 150,
+              height: MediaQuery.sizeOf(context).height*0.185,
               width: MediaQuery.sizeOf(context)
                   .width, // Adjust the height as needed
             ),

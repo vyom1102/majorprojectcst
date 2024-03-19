@@ -236,7 +236,7 @@ class _SportsScreenState extends State<SportsScreen> {
             child: Image.asset(
               'images/bottom_container.png',
               fit: BoxFit.cover,
-              height: 200,
+              height: MediaQuery.sizeOf(context).height*0.185,
               width: MediaQuery.of(context).size.width, // Adjust the height as needed
             ),
           ),

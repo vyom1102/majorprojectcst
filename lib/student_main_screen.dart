@@ -434,7 +434,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
             child: Image.asset(
               'images/bottom_container.png',
               fit: BoxFit.cover,
-              height: MediaQuery.sizeOf(context).height*0.25,
+              height: MediaQuery.sizeOf(context).height*0.185,
               width: MediaQuery.sizeOf(context)
                   .width, // Adjust the height as needed
             ),
@@ -635,7 +635,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                     style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                 ),
 
-                SizedBox(height: MediaQuery.sizeOf(context).height * 0.08),
+                SizedBox(height: MediaQuery.sizeOf(context).height * 0.11),
 
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(

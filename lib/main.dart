@@ -197,7 +197,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Image.asset(
               'images/bottom_container.png',
               fit: BoxFit.cover,
-              height: 200,
+              height: MediaQuery.sizeOf(context).height*0.185,
             ),
           ),
           Padding(

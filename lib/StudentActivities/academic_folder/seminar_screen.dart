@@ -94,7 +94,7 @@ class _SeminarScreenState extends State<SeminarScreen> {
               child: Image.asset(
                 'images/bottom_container.png',
                 fit: BoxFit.cover,
-                height: 200,
+                height: MediaQuery.sizeOf(context).height*0.185,
                 width: MediaQuery.sizeOf(context)
                     .width, // Adjust the height as needed
               ),
@@ -104,7 +104,7 @@ class _SeminarScreenState extends State<SeminarScreen> {
               child: Column(
                   children: [
                     SizedBox(
-                      height: 70,
+                      height: MediaQuery.sizeOf(context).height*0.085,
                     ),
                     Text(
                       'Seminar',

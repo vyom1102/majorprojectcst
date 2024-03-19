@@ -151,7 +151,7 @@ class _StudentCulEventOrganisedListState
             child: Image.asset(
               'images/bottom_container.png',
               fit: BoxFit.cover,
-              height: 200,
+              height: MediaQuery.sizeOf(context).height*0.285,
               width: MediaQuery.of(context).size.width,
             ),
           ),

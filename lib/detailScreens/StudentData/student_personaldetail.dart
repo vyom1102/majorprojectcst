@@ -172,7 +172,7 @@ class _StudentListState extends State<StudentList> {
             child: Image.asset(
               'images/bottom_container.png',
               fit: BoxFit.cover,
-              height: 200,
+              height: MediaQuery.sizeOf(context).height*0.285,
               width: MediaQuery.sizeOf(context)
                   .width, // Adjust the height as needed
             ),
