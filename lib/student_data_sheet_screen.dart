@@ -1938,6 +1938,8 @@ import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/student_main_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:majorproject/resources/add_data.dart';
 import 'package:majorproject/resources/utils.dart';
@@ -2265,10 +2267,32 @@ class _studentDataSheetState extends State<studentDataSheet> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  // controller: _fullNameController,
-                                  'Full Name',
-                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Full Name  ',
+                                        style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '*',
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                // Text(
+                                //   // controller: _fullNameController,
+                                //   'Full Name',
+                                //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,
+                                //       color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextFormField(
                                   controller: _fullNameController,
@@ -2299,8 +2323,30 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
 
-                                Text('Email Address',
-                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Email Address  ',
+                                        style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '*',
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                // Text('Email Address',
+                                //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,
+                                //       color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextFormField(
                                   controller: _emailAddressController,
@@ -2332,8 +2378,30 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
 
-                                Text('Enrollment No.',
-                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Enrollment No.  ',
+                                        style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '*',
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                // Text('Enrollment No.',
+                                //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,
+                                //       color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextFormField(
                                   controller: _rollNumberController,
@@ -2373,8 +2441,30 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
 
-                                Text('Date of Birth',
-                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Date of Birth  ',
+                                        style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '*',
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                // Text('Date of Birth',
+                                //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,
+                                //       color: Colors.white),),
                                 SizedBox(height: 5),
                                 Row(
                                   children: [
@@ -2418,8 +2508,30 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
 
-                                Text('Address',
-                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Address  ',
+                                        style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '*',
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                // Text('Address',
+                                //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,
+                                //       color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextFormField(
                                   controller: _permanentAddressController,
@@ -2451,8 +2563,30 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
 
-                                Text('Year of admission',
-                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Year of admission  ',
+                                        style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '*',
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                // Text('Year of admission',
+                                //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,
+                                //       color: Colors.white),),
                                 SizedBox(height: 5),
                                 Padding(
                                   padding: const EdgeInsets.all(0),
@@ -2490,8 +2624,30 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
 
-                                Text('JEE Rank',
-                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'JEE Rank  ',
+                                        style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '*',
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                // Text('JEE Rank',
+                                //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,
+                                //       color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextFormField(
                                   controller: _jeeRankController,
@@ -2529,8 +2685,30 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
 
-                                Text('Mobile No.',
-                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Mobile No.  ',
+                                        style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '*',
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                // Text('Mobile No.',
+                                //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,
+                                //       color: Colors.white),),
                                 SizedBox(height: 5),
                                 TextFormField(
                                   controller: _mobileNumberController,
@@ -2570,8 +2748,30 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   height: 20,
                                 ),
 
-                                Text('Upload Photograph',
-                                  style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Upload Photograph  ',
+                                        style: TextStyle(
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '*',
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                // Text('Upload Photograph',
+                                //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,
+                                //       color: Colors.white),),
                                 SizedBox(height: 5),
                                 Padding(
                                   padding: const EdgeInsets.all(0.0),
@@ -2686,8 +2886,29 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     style: GoogleFonts.kufam(fontWeight: FontWeight.w700,fontSize: 16,color: Colors.white),),
                                   SizedBox(height: 5),
 
-                                  Text('Father’s Name',
-                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  RichText(
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: 'Father’s Name  ',
+                                          style: TextStyle(
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: '*',
+                                          style: TextStyle(
+                                            color: Colors.red,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  // Text('Father’s Name',
+                                  //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                   SizedBox(height: 5),
                                   TextFormField(
                                     controller: _fatherNameController,
@@ -2718,8 +2939,29 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     height: 20,
                                   ),
 
-                                  Text('Occupation',
-                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  RichText(
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: 'Occupation  ',
+                                          style: TextStyle(
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: '*',
+                                          style: TextStyle(
+                                            color: Colors.red,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  // Text('Occupation',
+                                  //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                   SizedBox(height: 5),
                                   TextFormField(
                                     controller:_fatherOccupationController ,
@@ -2751,8 +2993,29 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     height: 20,
                                   ),
 
-                                  Text('Office Address',
-                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  RichText(
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: 'Office Address  ' ,
+                                          style: TextStyle(
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: '*',
+                                          style: TextStyle(
+                                            color: Colors.red,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  // Text('Office Address',
+                                  //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                   SizedBox(height: 5),
                                   TextFormField(
                                     controller: _fatherOfficeAddressController,
@@ -2784,8 +3047,29 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     height: 20,
                                   ),
 
-                                  Text('Official Phone No.',
-                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  RichText(
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: 'Official Phone No.  ',
+                                          style: TextStyle(
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: '*',
+                                          style: TextStyle(
+                                            color: Colors.red,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  // Text('Official Phone No.',
+                                  //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                   SizedBox(height: 5),
                                   TextFormField(
                                     controller: _fatherPhoneNumberController,
@@ -2804,6 +3088,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     maxLength: 10,
                                     decoration: InputDecoration(
                                       hintText: '98765XXXX',
+                                      counterText:'',
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                       ),
@@ -2827,8 +3112,29 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     style: GoogleFonts.kufam(fontWeight: FontWeight.w700,fontSize: 16,color: Colors.white),),
                                   SizedBox(height: 5),
 
-                                  Text('Mother’s Name',
-                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  RichText(
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: 'Mother’s Name  ',
+                                          style: TextStyle(
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: '*',
+                                          style: TextStyle(
+                                            color: Colors.red,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  // Text('Mother’s Name',
+                                  //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                   SizedBox(height: 5),
                                   TextFormField(
                                     controller: _motherNameController,
@@ -2860,8 +3166,29 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     height: 20,
                                   ),
 
-                                  Text('Occupation',
-                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  RichText(
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: 'Occupation  ',
+                                          style: TextStyle(
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: '*',
+                                          style: TextStyle(
+                                            color: Colors.red,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  // Text('Occupation',
+                                  //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                   SizedBox(height: 5),
                                   TextFormField(
                                     controller: _motherOccupationController,
@@ -2893,8 +3220,29 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     height: 20,
                                   ),
 
-                                  Text('Office Address',
-                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  RichText(
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: 'Office Address  ',
+                                          style: TextStyle(
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: '*',
+                                          style: TextStyle(
+                                            color: Colors.red,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  // Text('Office Address',
+                                  //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                                   SizedBox(height: 5),
                                   TextFormField(
                                     controller: _motherOfficeAddressController,
@@ -2926,8 +3274,30 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     height: 20,
                                   ),
 
-                                  Text('Official Phone No.',
-                                    style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                                  RichText(
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: 'Official Phone No.  ',
+                                          style: TextStyle(
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: '*',
+                                          style: TextStyle(
+                                            color: Colors.red,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  // Text('Official Phone No.',
+                                  //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,
+                                  //       color: Colors.white),),
                                   SizedBox(height: 5),
                                   TextFormField(
                                     controller: _motherPhoneNumberController,
@@ -2946,6 +3316,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                     maxLength: 10,
                                     decoration: InputDecoration(
                                       hintText: '98765XXXXX',
+                                        counterText: '',
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                       ),
@@ -3010,18 +3381,93 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   // ),
                                   ElevatedButton(
                                     onPressed: () async {
-                                      await _saveStudentNameEmail(); // Save student's name and email
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
-                                      );
-                                      final student = StudentImage(
-                                        id: 'id',
-                                        enrollmentNumber: _rollNumberController.text,
 
-                                      );
-                                      await _uploadImageAndSaveData(student);
-                                      _saveStudentData(); // Not sure what this function does, remove or use it as needed
+                                      // final TextEditingController _fullNameController = TextEditingController();
+                                      // final TextEditingController _emailAddressController = TextEditingController();
+                                      // final TextEditingController _rollNumberController = TextEditingController();
+                                      // final TextEditingController _permanentAddressController = TextEditingController();
+                                      // final TextEditingController _jeeRankController = TextEditingController();
+                                      // final TextEditingController _mobileNumberController = TextEditingController();
+                                      // TextEditingController _imageController = TextEditingController();
+                                      // TextEditingController _yearController = TextEditingController();
+                                      //
+                                      // final TextEditingController _fatherNameController = TextEditingController();
+                                      // final TextEditingController _fatherOccupationController = TextEditingController();
+                                      // final TextEditingController _fatherOfficeAddressController = TextEditingController();
+                                      // final TextEditingController _fatherPhoneNumberController = TextEditingController();
+                                      //
+                                      // final TextEditingController _motherNameController = TextEditingController();
+                                      // final TextEditingController _motherOccupationController = TextEditingController();
+                                      // final TextEditingController _motherOfficeAddressController = TextEditingController();
+                                      // final TextEditingController _motherPhoneNumberController = TextEditingController();
+
+                                      if(_fullNameController.text.isEmpty ||
+                                          _emailAddressController.text.isEmpty ||
+                                          _rollNumberController.text.isEmpty ||
+                                          _permanentAddressController.text.isEmpty ||
+                                          _jeeRankController.text.isEmpty ||
+                                          _mobileNumberController.text.isEmpty ||
+                                          _fatherNameController.text.isEmpty ||
+                                          _fatherOccupationController.text.isEmpty ||
+                                          _fatherOfficeAddressController.text.isEmpty ||
+                                          _fatherPhoneNumberController.text.isEmpty ||
+                                          _motherNameController.text.isEmpty ||
+                                          _motherOccupationController.text.isEmpty ||
+                                          _motherOfficeAddressController.text.isEmpty ||
+                                          _motherPhoneNumberController.text.isEmpty){
+                                        QuickAlert.show(
+                                          context: context,
+                                          type: QuickAlertType.error,
+                                          title: 'Oops...',
+                                          text: 'Please fill in all the required fields.',
+                                        );
+                                      }else if(_rollNumberController.text.length != 11) {
+                                        QuickAlert.show(
+                                          context: context,
+                                          type: QuickAlertType.warning,
+                                          text: 'Please enter a valid Enrollment No.',
+                                        );
+                                      }else if(_mobileNumberController.text.length != 10){
+                                        QuickAlert.show(
+                                          context: context,
+                                          type: QuickAlertType.warning,
+                                          text: 'Please enter a valid Phone No. in Student\'s detail',
+                                        );
+                                      }else if(_fatherPhoneNumberController.text.length != 10){
+                                        QuickAlert.show(
+                                          context: context,
+                                          type: QuickAlertType.warning,
+                                          text: 'Please enter a valid Phone No. in Father\'s detail',
+                                        );
+                                      }else if(_motherPhoneNumberController.text.length != 10){
+                                        QuickAlert.show(
+                                          context: context,
+                                          type: QuickAlertType.warning,
+                                          text: 'Please enter a valid Phone No. in Mother\'s detail',
+                                        );
+                                      }
+                                      else{
+                                        QuickAlert.show(
+                                          context: context,
+                                          type: QuickAlertType.success,
+                                          text: 'Saved Successfully!',
+                                        );
+                                        await _saveStudentNameEmail();
+                                        // Save student's name and email
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
+                                        );
+                                        final student = StudentImage(
+                                          id: 'id',
+                                          enrollmentNumber: _rollNumberController.text,
+
+                                        );
+                                        await _uploadImageAndSaveData(student);
+                                        _saveStudentData(); // Not sure what this function does, remove or use it as needed
+
+                                      }
+
                                     },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Color(0xFF13E9DC),
