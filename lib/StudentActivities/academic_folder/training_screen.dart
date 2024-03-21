@@ -1289,6 +1289,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
 
                             ElevatedButton(
                               onPressed: () {
+
                                     if (_studentnameController.text.isEmpty ||
                                     // _yearController.text.isEmpty ||
                                     _projectTitleController.text.isEmpty ||
