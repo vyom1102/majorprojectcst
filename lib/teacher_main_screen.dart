@@ -723,7 +723,7 @@ class _TeacherSelectionScreenState extends State<TeacherSelectionScreen> {
                         style: TextStyle(color: Colors.black),
                       ),
                       currentAccountPicture: CircleAvatar(
-                        backgroundImage: AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
+                        backgroundImage: AssetImage('images/mait25logoo.jpg'),
                       ),
                       decoration: BoxDecoration(
                         color: Colors.grey, // Set the header background color to grey

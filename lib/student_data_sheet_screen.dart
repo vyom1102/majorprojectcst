@@ -3454,17 +3454,18 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                         );
                                         await _saveStudentNameEmail();
                                         // Save student's name and email
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
-                                        );
+
                                         final student = StudentImage(
                                           id: 'id',
                                           enrollmentNumber: _rollNumberController.text,
 
                                         );
                                         await _uploadImageAndSaveData(student);
-                                        _saveStudentData(); // Not sure what this function does, remove or use it as needed
+                                        _saveStudentData();
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => StudentSelectionScreen()),
+                                        );
 
                                       }
 
