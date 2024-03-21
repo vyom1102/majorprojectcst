@@ -1446,13 +1446,19 @@ class _SportsScreenState extends State<SportsScreen> {
                       text: 'Please fill in all the required fields.',
                     );
                   } else {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => StudentSelectionScreen(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => StudentSelectionScreen(),
+                    //   ),
+                    // );
+                    Navigator.pop(context);
                     _saveStudentData();
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.success,
+                      text: 'Saved Successfully!',
+                    );
                   }
                   if (_student2nameController.text.isEmpty ||
                       _name2Controller.text.isEmpty ||
@@ -1468,13 +1474,19 @@ class _SportsScreenState extends State<SportsScreen> {
                       text: 'Please fill in all the required fields.',
                     );
                   } else {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => StudentSelectionScreen(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => StudentSelectionScreen(),
+                    //   ),
+                    // );
+                    Navigator.pop(context);
                     _save2StudentData();
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.success,
+                      text: 'Saved Successfully!',
+                    );
                   }
                 },
                 style: ElevatedButton.styleFrom(

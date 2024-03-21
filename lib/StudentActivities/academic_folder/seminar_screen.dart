@@ -468,16 +468,16 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                   }
                                   return null;
                                 },
-                                keyboardType: TextInputType.number,
-                                inputFormatters: <TextInputFormatter>[
-                                  FilteringTextInputFormatter.allow(
-                                    RegExp(r'^\d*\.?\d*$'),
-                                  ),
-                                ],
-                                maxLength: 3,
+                                // keyboardType: TextInputType.number,
+                                // inputFormatters: <TextInputFormatter>[
+                                //   FilteringTextInputFormatter.allow(
+                                //     RegExp(r'^\d*\.?\d*$'),
+                                //   ),
+                                // ],
+                                // maxLength: 3,
                                 decoration: InputDecoration(
                                   hintText: '2',
-                                  counterText: '',
+                                  // counterText: '',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                                   ),

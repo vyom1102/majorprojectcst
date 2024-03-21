@@ -1437,6 +1437,11 @@ class _OthersScreenState extends State<OthersScreen> {
                     //   ),
                     // );
                     _saveStudentResultData();
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.success,
+                      text: 'Saved Successfully!',
+                    );
                   }
                   if (_name2Controller.text.isEmpty ||
                       _eventName2Controller.text.isEmpty ||
@@ -1460,6 +1465,11 @@ class _OthersScreenState extends State<OthersScreen> {
                     //   ),
                     // );
                     _saveStudent2ResultData();
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.success,
+                      text: 'Saved Successfully!',
+                    );
                   }
                   // Navigator.push(
                   //   context,

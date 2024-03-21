@@ -1501,6 +1501,11 @@ class _CulturalSocietyScreenState extends State<CulturalSocietyScreen> {
                     //   ),
                     // );
                     _saveStudentResultData();
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.success,
+                      text: 'Saved Successfully!',
+                    );
                   }
                   if (_name2Controller.text.isEmpty ||
                       _eventName2Controller.text.isEmpty ||
@@ -1518,6 +1523,7 @@ class _CulturalSocietyScreenState extends State<CulturalSocietyScreen> {
                     );
                   } else {
                     Navigator.pop(context);
+
                     // Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
@@ -1525,6 +1531,11 @@ class _CulturalSocietyScreenState extends State<CulturalSocietyScreen> {
                     //   ),
                     // );
                     _saveStudent2ResultData();
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.success,
+                      text: 'Saved Successfully!',
+                    );
                   }
                   // Navigator.push(
                   //   context,

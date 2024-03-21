@@ -2139,12 +2139,18 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                         text: 'Please fill in all the required fields.',
                       );
                     } else {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => NCCandNSSActivityScreen(),
-                        ),
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => NCCandNSSActivityScreen(),
+                      //   ),
+                      // );
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        text: 'Saved Successfully!',
                       );
+                      Navigator.pop(context);
                       _save3StudentData();
                     }
                     // Navigator.push(

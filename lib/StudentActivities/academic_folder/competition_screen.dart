@@ -23,7 +23,7 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
   DateTime selectedDate = DateTime.now();
   DateTime joiningDate = DateTime.now();
 
-  TextEditingController _imageController = TextEditingController();
+
 
   Future<void> _pickImage() async {
     final picker = ImagePicker();
@@ -141,6 +141,7 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
   final TextEditingController _otherMemberController = TextEditingController();
   final TextEditingController _participationController = TextEditingController();
   final TextEditingController _nameOfCompController = TextEditingController();
+  final TextEditingController _imageController = TextEditingController();
   //final TextEditingController _studentnameController = TextEditingController();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -2207,7 +2208,7 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                                 text: TextSpan(
                                   children: [
                                     TextSpan(
-                                      text:'Upload proof of participation  ',
+                                      text:'Upload proof of participation (Google drive link)',
                                       style: TextStyle(
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.bold,
@@ -2227,50 +2228,75 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                               // Text('Upload proof of participation',
                               //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
-                              Padding(
-                                padding: const EdgeInsets.all(0.0),
-                                child:
-                                Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children:[
-                                      Stack(
-                                          children:[ TextField(
-                                            controller: _imageController,
-                                            readOnly: true,
-                                            decoration: InputDecoration(
-                                              hintText: 'Browse',
-                                              suffixIcon: IconButton(
-                                                icon: Icon(Icons.add, size: 25.0,),
-                                                onPressed: () {
-                                                  _pickImage();
-                                                },),
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                              ),
-                                              hintStyle: GoogleFonts.kufam(
-                                                  color: Colors.white.withOpacity(0.5)),
-                                              contentPadding: const EdgeInsets.symmetric(
-                                                  vertical: 20.0, horizontal: 15.0),
-                                              border: OutlineInputBorder(),
-                                              fillColor: Color(0xff141318),
-                                              filled: true,
-                                            ),
-                                            style: TextStyle(color: Colors.white),
-
-                                          ),
-                                          ]
-                                        //     if (_selectedImage != null)
-                                        // Image.file(
-                                        //   File(_selectedImage),
-                                        //   height: 100,
-                                        //   width: 100,
-
-                                      ),]
+                              // Padding(
+                              //   padding: const EdgeInsets.all(0.0),
+                              //   child:
+                              //   Column(
+                              //       crossAxisAlignment: CrossAxisAlignment.start,
+                              //       children:[
+                              //         Stack(
+                              //             children:[ TextField(
+                              //               controller: _imageController,
+                              //               readOnly: true,
+                              //               decoration: InputDecoration(
+                              //                 hintText: 'Browse',
+                              //                 suffixIcon: IconButton(
+                              //                   icon: Icon(Icons.add, size: 25.0,),
+                              //                   onPressed: () {
+                              //                     _pickImage();
+                              //                   },),
+                              //                 enabledBorder: OutlineInputBorder(
+                              //                   borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                              //                 ),
+                              //                 focusedBorder: OutlineInputBorder(
+                              //                   borderSide: BorderSide(color: Color(0xff0CECDA)),
+                              //                 ),
+                              //                 hintStyle: GoogleFonts.kufam(
+                              //                     color: Colors.white.withOpacity(0.5)),
+                              //                 contentPadding: const EdgeInsets.symmetric(
+                              //                     vertical: 20.0, horizontal: 15.0),
+                              //                 border: OutlineInputBorder(),
+                              //                 fillColor: Color(0xff141318),
+                              //                 filled: true,
+                              //               ),
+                              //               style: TextStyle(color: Colors.white),
+                              //
+                              //             ),
+                              //             ]
+                              //           //     if (_selectedImage != null)
+                              //           // Image.file(
+                              //           //   File(_selectedImage),
+                              //           //   height: 100,
+                              //           //   width: 100,
+                              //
+                              //         ),]
+                              //   ),
+                              // ),
+                              TextFormField(
+                                controller: _imageController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'This field is required';
+                                  }
+                                  return null;
+                                },
+                                decoration: InputDecoration(
+                                  hintText: 'Abc',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xff0CECDA)),
+                                  ),
+                                  hintStyle: GoogleFonts.kufam(
+                                      color: Colors.white.withOpacity(0.5)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 20.0, horizontal: 15.0),
+                                  border: OutlineInputBorder(),
+                                  fillColor: Color(0xff141318),
+                                  filled: true,
                                 ),
-                              ),
+                                style: TextStyle(color: Colors.white),),
                               SizedBox(height: 20),
 
                               ElevatedButton(
@@ -2289,16 +2315,36 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                                     _hardwareSoftwareController.text.isEmpty ||
                                     _otherMemberController.text.isEmpty ||
                                     _participationController.text.isEmpty ||
-                                    _nameOfCompController.text.isEmpty)
+                                    _nameOfCompController.text.isEmpty||
+                                        _imageController.text.isEmpty)
                                     {
                                     QuickAlert.show(
                                     context: context,
                                     type: QuickAlertType.error,
                                     title: 'Oops...',
                                     text: 'Please fill in all the required fields.',);}
+                                    else if(_enrollmentController.text.length != 11) {
+                                      QuickAlert.show(
+                                        context: context,
+                                        type: QuickAlertType.warning,
+                                        text: 'Please enter a valid Enrollment No.',
+                                      );
+                                    }
+                                    else if(_whatsappNumberController.text.length != 11) {
+                                      QuickAlert.show(
+                                        context: context,
+                                        type: QuickAlertType.warning,
+                                        text: 'Please enter a valid Enrollment No.',
+                                      );
+                                    }
                                     else {
                                     _saveCompiStudentData();
                                   Navigator.pop(context);}
+                                    QuickAlert.show(
+                                      context: context,
+                                      type: QuickAlertType.success,
+                                      text: 'Saved Successfully!',
+                                    );
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Color(0xFF13E9DC),

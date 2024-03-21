@@ -1481,6 +1481,44 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
+
+    // bool form1Valid = _nameController.text.isEmpty &&
+    // _eventNameController.text.isEmpty &&
+    // _detailsController.text.isEmpty &&
+    // _durationController.text.isEmpty &&
+    // _addressController.text.isEmpty &&
+    // _studentnameController.text.isEmpty;
+    //
+    // bool form2Valid = _name2Controller.text.isEmpty &&
+    // _eventName2Controller.text.isEmpty &&
+    // _details2Controller.text.isEmpty &&
+    // _duration2Controller.text.isEmpty &&
+    // _achievementsController.text.isNotEmpty &&
+    // _indiOrGroupController.text.isNotEmpty &&
+    // _address2Controller.text.isNotEmpty &&
+    // _student2nameController.text.isNotEmpty;
+    //
+    // if (!form1Valid && !form2Valid) {
+    // QuickAlert.show(
+    // context: context,
+    // type: QuickAlertType.error,
+    // title: 'Oops...',
+    // text: 'Please fill in all the required fields in both forms.',
+    // );
+    // } else if (!form1Valid) {
+    // QuickAlert.show(
+    // context: context,
+    // type: QuickAlertType.error,
+    // title: 'Oops...',
+    // text: 'Please fill in all the required fields in form 1.',
+    // );
+    // } else if (!form2Valid) {
+    // QuickAlert.show(
+    // context: context,
+    // type: QuickAlertType.error,
+    // title: 'Oops...',
+    // text: 'Please fill in all the required fields in form 2.',
+    // );
                   // if (WorkshopOrganizedHeldFromDate == DateTime.now()) {
                   //   // Show alert to the user
                   //   QuickAlert.show(
@@ -1510,6 +1548,11 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                     //   ),
                     // );
                     _saveStudentResultData();
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.success,
+                      text: 'Saved Successfully!',
+                    );
                   }
                   if (_name2Controller.text.isEmpty ||
                       _eventName2Controller.text.isEmpty ||
@@ -1534,6 +1577,11 @@ class _TechnicalSocietyScreenState extends State<TechnicalSocietyScreen> {
                     //   ),
                     // );
                     _saveStudent2ResultData();
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.success,
+                      text: 'Saved Successfully!',
+                    );
                   }
                   // Navigator.push(
                   //   context,

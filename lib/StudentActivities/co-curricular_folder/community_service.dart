@@ -1496,13 +1496,19 @@ class _CommunityServiceScreenState extends State<CommunityServiceScreen> {
                       text: 'Please fill in all the required fields.',
                     );
                   } else {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CommunityServiceScreen(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => CommunityServiceScreen(),
+                    //   ),
+                    // );
+                    Navigator.pop(context);
                     _saveStudentResultData();
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.success,
+                      text: 'Saved Successfully!',
+                    );
                   }
                   if (_name2Controller.text.isEmpty ||
                       _eventName2Controller.text.isEmpty ||
@@ -1519,13 +1525,19 @@ class _CommunityServiceScreenState extends State<CommunityServiceScreen> {
                       text: 'Please fill in all the required fields.',
                     );
                   } else {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CommunityServiceScreen(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => CommunityServiceScreen(),
+                    //   ),
+                    // );
+                    Navigator.pop(context);
                     _saveStudent2ResultData();
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.success,
+                      text: 'Saved Successfully!',
+                    );
                   }
                   // Navigator.push(
                   //   context,
