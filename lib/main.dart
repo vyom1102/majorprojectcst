@@ -10,6 +10,7 @@ import 'package:majorproject/student_data_sheet_screen.dart';
 import 'package:majorproject/teacher_data_sheet_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'student_main_screen.dart';
+import 'change_password.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
@@ -169,6 +170,8 @@ class _LoginScreenState extends State<LoginScreen> {
     prefs.setString('email', email);
     prefs.setString('password', password);
   }
+  bool _isObscure = true;
+  bool _isPasswordEmpty = true;
 
   String getUserRoleFromEmail(String email) {
 
@@ -236,10 +239,33 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(height: 10),
+                // TextField(
+                //   style: TextStyle(color: Colors.white),
+                //   controller: passwordController,
+                //   obscureText: true,
+                //   decoration: InputDecoration(
+                //     hintText: 'Password',
+                //     focusedBorder: UnderlineInputBorder(
+                //       borderSide: BorderSide(color: Color(0xff535353)),
+                //     ),
+                //     enabledBorder: UnderlineInputBorder(
+                //       borderSide: BorderSide(color: Color(0xff535353)),
+                //     ),
+                //     hintStyle: GoogleFonts.kufam(color: Colors.white.withOpacity(0.5)),
+                //     fillColor: Color(0xff141318),
+                //     filled: true,
+                //     prefixIcon: Image.asset('images/password.png', height: 10, width: 10,scale: 3,),
+                //   ),
+                // ),
                 TextField(
                   style: TextStyle(color: Colors.white),
+                  obscureText: _isObscure,
+                  onChanged: (value) {
+                    setState(() {
+                      _isPasswordEmpty = value.isEmpty; // Update password empty state
+                    });
+                  },
                   controller: passwordController,
-                  obscureText: true,
                   decoration: InputDecoration(
                     hintText: 'Password',
                     focusedBorder: UnderlineInputBorder(
@@ -251,26 +277,84 @@ class _LoginScreenState extends State<LoginScreen> {
                     hintStyle: GoogleFonts.kufam(color: Colors.white.withOpacity(0.5)),
                     fillColor: Color(0xff141318),
                     filled: true,
-                    prefixIcon: Image.asset('images/password.png', height: 10, width: 10,scale: 3,),
+                    prefixIcon: Image.asset(
+                      'images/password.png',
+                      height: 10,
+                      width: 10,
+                      scale: 3,
+                    ),
+                    suffixIcon: _isPasswordEmpty
+                        ? null // Hide suffix icon if password field is empty
+                        : IconButton(
+                      icon: Icon(
+                        _isObscure ? Icons.visibility_off : Icons.visibility,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _isObscure = !_isObscure;
+                        });
+                      },
+                    ),
                   ),
                 ),
                 SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    signInUser(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF13E9DC),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
+                // ElevatedButton(
+                //   onPressed: () {
+                //     signInUser(context);
+                //   },
+                //   style: ElevatedButton.styleFrom(
+                //     backgroundColor: Color(0xFF13E9DC),
+                //     shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(20.0),
+                //     ),
+                //     minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                //   ),
+                //   child: Text(
+                //     'Log In ',
+                //     style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
+                //   ),
+                // ),
+                Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        signInUser(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF13E9DC),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                      ),
+                      child: Text(
+                        'Log In ',
+                        style: GoogleFonts.kufam(fontSize: 18, color: Colors.black, fontWeight: FontWeight.w500),
+                      ),
                     ),
-                    minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
-                  ),
-                  child: Text(
-                    'Log In ',
-                    style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
-                  ),
-                ),
+                    SizedBox(height: 10), // Add some space between the buttons
+                    TextButton(
+                      onPressed: () {
+                        // Navigate to the forget password screen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ForgetPasswordScreen()),
+                        );
+                      },
+                      child: Text(
+                        'Change Password',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+
+                  ],
+                )
+
               ],
             ),
           ),

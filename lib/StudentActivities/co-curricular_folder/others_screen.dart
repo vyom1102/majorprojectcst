@@ -201,6 +201,7 @@ class _OthersScreenState extends State<OthersScreen> {
                         onPressed: () {
                           setState(() {
                             _showWorkshopOrganizedTextField = !_showWorkshopOrganizedTextField;
+                            _showConferenceOrganizedTextField = false;
                           });
                         },
                         icon: Icon(
@@ -744,6 +745,7 @@ class _OthersScreenState extends State<OthersScreen> {
                         onPressed: () {
                           setState(() {
                             _showConferenceOrganizedTextField = !_showConferenceOrganizedTextField;
+                            _showWorkshopOrganizedTextField = false;
                           });
                         },
                         icon: Icon(
@@ -1416,60 +1418,78 @@ class _OthersScreenState extends State<OthersScreen> {
                   ],
                 ),
               ),
+    // bool _showWorkshopOrganizedTextField = false; // Variable to toggle visibility of text fields
+    // bool _showConferenceOrganizedTextField = false;
               ElevatedButton(
                 onPressed: () {
-                  if (_eventNameController.text.isEmpty ||
-                      _detailsController.text.isEmpty ||
-                      _addressController.text.isEmpty ||
-                      _studentnameController.text.isEmpty) {
-                    QuickAlert.show(
-                      context: context,
-                      type: QuickAlertType.error,
-                      title: 'Oops...',
-                      text: 'Please fill in all the required fields.',
-                    );
-                  } else {
-                    Navigator.pop(context);
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => OthersScreen(),
-                    //   ),
-                    // );
-                    _saveStudentResultData();
-                    QuickAlert.show(
-                      context: context,
-                      type: QuickAlertType.success,
-                      text: 'Saved Successfully!',
-                    );
+                  if(_showWorkshopOrganizedTextField) {
+                    if (_eventNameController.text.isEmpty ||
+                        _detailsController.text.isEmpty ||
+                        _addressController.text.isEmpty ||
+                        _studentnameController.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in Event Organized',
+                      );
+                    } else if(_studentnameController.text.length != 11){
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.warning,
+                        text: 'Please enter a valid Enrollment No. in Event Organized.',
+                      );
+                    }else {
+                      Navigator.pop(context);
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => OthersScreen(),
+                      //   ),
+                      // );
+                      _saveStudentResultData();
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        text: 'Saved Successfully!',
+                      );
+                    }
                   }
-                  if (_name2Controller.text.isEmpty ||
-                      _eventName2Controller.text.isEmpty ||
-                      _details2Controller.text.isEmpty ||
-                      _indiOrGroupController.text.isEmpty ||
-                      _achievementsController.text.isEmpty ||
-                      _address2Controller.text.isEmpty ||
-                      _student2nameController.text.isEmpty) {
-                    QuickAlert.show(
-                      context: context,
-                      type: QuickAlertType.error,
-                      title: 'Oops...',
-                      text: 'Please fill in all the required fields.',
-                    );
-                  } else {
-                    Navigator.pop(context);
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => OthersScreen(),
-                    //   ),
-                    // );
-                    _saveStudent2ResultData();
-                    QuickAlert.show(
-                      context: context,
-                      type: QuickAlertType.success,
-                      text: 'Saved Successfully!',
-                    );
+                  if(_showConferenceOrganizedTextField) {
+                    if (_name2Controller.text.isEmpty ||
+                        _eventName2Controller.text.isEmpty ||
+                        _details2Controller.text.isEmpty ||
+                        _indiOrGroupController.text.isEmpty ||
+                        _achievementsController.text.isEmpty ||
+                        _address2Controller.text.isEmpty ||
+                        _student2nameController.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in Event Participation.',
+                      );
+                    } else if(_student2nameController.text.length != 11){
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.warning,
+                        text: 'Please enter a valid Enrollment No. in Event Organized.',
+                      );
+                    }else {
+                      Navigator.pop(context);
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => OthersScreen(),
+                      //   ),
+                      // );
+                      _saveStudent2ResultData();
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        text: 'Saved Successfully!',
+                      );
+                    }
                   }
                   // Navigator.push(
                   //   context,

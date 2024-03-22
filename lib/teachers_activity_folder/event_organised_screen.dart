@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
@@ -305,6 +307,9 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                         onPressed: () {
                           setState(() {
                             _showWorkshopOrganizedTextField = !_showWorkshopOrganizedTextField;
+                            _showConferenceOrganizedTextField = false;
+                            _showSeminarOrganizedTextField = false;
+                            _showFDPOrganizedTextField = false;
                           });
                         },
                         icon: Icon(
@@ -340,14 +345,35 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Name of the faculty member',
-                            style: TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Name of the faculty member  ',
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
+                          // Text(
+                          //   'Name of the faculty member',
+                          //   style: TextStyle(
+                          //     fontSize: 14.0,
+                          //     fontWeight: FontWeight.bold,
+                          //     color: Colors.white,
+                          //   ),
+                          // ),
                           SizedBox(height: 5),
 
                           TextFormField(
@@ -386,11 +412,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text('Details of the workshop organized',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Details of the workshop organized  ',
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Details of the workshop organized',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
                           TextFormField(
                             controller: _detailsController,
@@ -420,11 +467,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text('Workshop held from',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Workshop held from  ',
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Workshop held from',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
 
                           Row(
@@ -468,11 +536,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text('Workshop held to',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Workshop held to  ',
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Workshop held to',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
 
                           Row(
@@ -517,11 +606,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text('Duration of workshop',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Duration of workshop  ',
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Duration of workshop',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
                           TextField(
                             controller: _durationController,
@@ -550,11 +660,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text('Address of the place where workshop held',
-                              style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Address of the place where workshop held  ',
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '*',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          // Text('Address of the place where workshop held',
+                          //     style: TextStyle(
+                          //         fontSize: 14.0,
+                          //         fontWeight: FontWeight.bold,
+                          //         color: Colors.white)),
                           SizedBox(height: 5),
                           TextField(
                             controller: _addressController,
@@ -589,6 +720,9 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                         onPressed: () {
                           setState(() {
                             _showConferenceOrganizedTextField = !_showConferenceOrganizedTextField;
+                            _showWorkshopOrganizedTextField = false;
+                            _showSeminarOrganizedTextField = false;
+                            _showFDPOrganizedTextField = false;
                           });
                         },
                         icon: Icon(
@@ -623,14 +757,35 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Name of the Faculty Member',
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Name of the Faculty Member  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
+                            // Text(
+                            //   'Name of the Faculty Member',
+                            //   style: TextStyle(
+                            //     fontSize: 14.0,
+                            //     fontWeight: FontWeight.bold,
+                            //     color: Colors.white,
+                            //   ),
+                            // ),
                             SizedBox(height: 5),
 
                             TextFormField(
@@ -669,11 +824,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Details of the Conference organized',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Details of the Conference organized  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Details of the Conference organized',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _details2Controller,
@@ -703,11 +879,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Conference held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Conference held from  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Conference held from',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -751,11 +948,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Conference held to',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Conference held to  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Conference held to',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -800,11 +1018,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Duration of Conference',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Duration of Conference  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Duration of Conference',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _duration2Controller,
@@ -833,11 +1072,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Address of the place where conference held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Address of the place where conference held  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Address of the place where conference held',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _address2Controller,
@@ -873,6 +1133,9 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                         onPressed: () {
                           setState(() {
                             _showSeminarOrganizedTextField = !_showSeminarOrganizedTextField;
+                            _showWorkshopOrganizedTextField = false;
+                            _showConferenceOrganizedTextField = false;
+                            _showFDPOrganizedTextField = false;
                           });
                         },
                         icon: Icon(
@@ -907,14 +1170,35 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Name of the Faculty Member',
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Name of the Faculty Member  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
+                            // Text(
+                            //   'Name of the Faculty Member',
+                            //   style: TextStyle(
+                            //     fontSize: 14.0,
+                            //     fontWeight: FontWeight.bold,
+                            //     color: Colors.white,
+                            //   ),
+                            // ),
                             SizedBox(height: 5),
 
                             TextFormField(
@@ -953,11 +1237,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Details of the Seminar organized',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Details of the Seminar organized  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Details of the Seminar organized',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _details3Controller,
@@ -987,11 +1292,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Seminar held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Seminar held from  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Seminar held from',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -1035,11 +1361,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Seminar held to',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Seminar held to  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Seminar held to',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -1084,11 +1431,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Duration of Seminar',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Duration of Seminar  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Duration of Seminar',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _duration3Controller,
@@ -1117,11 +1485,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Address of the place where seminar held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Address of the place where seminar held  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Address of the place where seminar held',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _address3Controller,
@@ -1157,6 +1546,9 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                         onPressed: () {
                           setState(() {
                             _showFDPOrganizedTextField = !_showFDPOrganizedTextField;
+                            _showWorkshopOrganizedTextField = false;
+                            _showConferenceOrganizedTextField = false;
+                            _showSeminarOrganizedTextField = false;
                           });
                         },
                         icon: Icon(
@@ -1191,14 +1583,35 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Name of the Faculty Member',
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Name of the Faculty Member  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
+                            // Text(
+                            //   'Name of the Faculty Member',
+                            //   style: TextStyle(
+                            //     fontSize: 14.0,
+                            //     fontWeight: FontWeight.bold,
+                            //     color: Colors.white,
+                            //   ),
+                            // ),
                             SizedBox(height: 5),
 
                             TextFormField(
@@ -1237,11 +1650,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Details of the FDP organized',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Details of the FDP organized  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Details of the FDP organized',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _details4Controller,
@@ -1271,11 +1705,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('FDP held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'FDP held from  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('FDP held from',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -1319,11 +1774,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('FDP held to',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'FDP held to  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('FDP held to',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -1368,11 +1844,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Duration of FDP',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Duration of FDP  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Duration of FDP',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _duration4Controller,
@@ -1401,11 +1898,32 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Address of the place where FDP held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Address of the place where FDP held  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Address of the place where FDP held',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _address4Controller,
@@ -1438,42 +1956,130 @@ class _EventOrganisedScreenState extends State<EventOrganisedScreen> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {
-                  if (_fullNameController.text.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => EventOrganisedScreen(),
-                      ),
-                    );
-                    _saveTeacherData();
+              onPressed: () {
+                  // if (_fullNameController.text.isNotEmpty) {
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => EventOrganisedScreen(),
+                  //     ),
+                  //   );
+                  //   _saveTeacherData();
+                  // }
+                  if (_showWorkshopOrganizedTextField) {
+                    if (_fullNameController.text.isEmpty ||
+                        _detailsController.text.isEmpty ||
+                        _addressController.text.isEmpty ||
+                        _durationController.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in Workshop Organized.',
+                      );
+                    } else {
+                      Navigator.pop(context);
+                      _saveTeacherData();
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        // title: 'Workshop Attended Details',
+                        text: 'Saved Successfully!',
+                      );
+                    }
                   }
-                  if (_fullName2Controller.text.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => EventOrganisedScreen(),
-                      ),
-                    );
-                    _saveTeacher2Data();
+                  // if (_fullName2Controller.text.isNotEmpty) {
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => EventOrganisedScreen(),
+                  //     ),
+                  //   );
+                  //   _saveTeacher2Data();
+                  // }
+                  if (_showConferenceOrganizedTextField) {
+                    if (_fullName2Controller.text.isEmpty ||
+                        _details2Controller.text.isEmpty ||
+                        _address2Controller.text.isEmpty ||
+                        _duration2Controller.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in Conference Organized.',
+                      );
+                    } else {
+                      Navigator.pop(context);
+                      _saveTeacher2Data();
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        // title: 'Workshop Attended Details',
+                        text: 'Saved Successfully!',
+                      );
+                    }
                   }
-                  if (_fullName3Controller.text.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => EventOrganisedScreen(),
-                      ),
-                    );
-                    _saveTeacher3Data();
+                  // if (_fullName3Controller.text.isNotEmpty) {
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => EventOrganisedScreen(),
+                  //     ),
+                  //   );
+                  //   _saveTeacher3Data();
+                  // }
+                  if (_showSeminarOrganizedTextField) {
+                    if (_fullName3Controller.text.isEmpty ||
+                        _details3Controller.text.isEmpty ||
+                        _address3Controller.text.isEmpty ||
+                        _duration3Controller.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in Seminar Organized.',
+                      );
+                    } else {
+                      Navigator.pop(context);
+                      _saveTeacher3Data();
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        // title: 'Workshop Attended Details',
+                        text: 'Saved Successfully!',
+                      );
+                    }
                   }
-                  if (_fullName4Controller.text.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => EventOrganisedScreen(),
-                      ),
-                    );
-                    _saveTeacher4Data();
+                  // if (_fullName4Controller.text.isNotEmpty) {
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => EventOrganisedScreen(),
+                  //     ),
+                  //   );
+                  //   _saveTeacher4Data();
+                  // }
+                  if (_showFDPOrganizedTextField) {
+                    if (_fullName4Controller.text.isEmpty ||
+                        _details4Controller.text.isEmpty ||
+                        _address4Controller.text.isEmpty ||
+                        _duration4Controller.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in FDP Organized.',
+                      );
+                    } else {
+                      Navigator.pop(context);
+                      _saveTeacher4Data();
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        // title: 'Workshop Attended Details',
+                        text: 'Saved Successfully!',
+                      );
+                    }
                   }
                 },
                 style: ElevatedButton.styleFrom(

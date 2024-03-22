@@ -264,6 +264,7 @@ class _SportsScreenState extends State<SportsScreen> {
                         onPressed: () {
                           setState(() {
                             _showWorkshopOrganizedTextField = !_showWorkshopOrganizedTextField;
+                            _showConferenceOrganizedTextField = false;
                           });
                         },
                         icon: Icon(
@@ -272,7 +273,7 @@ class _SportsScreenState extends State<SportsScreen> {
                           size: 18,
                         ),
                         label: Text(
-                          _showWorkshopOrganizedTextField ? 'Intercollege' : 'Intercollege',
+                          _showWorkshopOrganizedTextField ? 'InterCollege' : 'InterCollege',
                           style: GoogleFonts.kufam(
                             fontSize: 16,
                             color: Colors.white,
@@ -848,6 +849,7 @@ class _SportsScreenState extends State<SportsScreen> {
                         onPressed: () {
                           setState(() {
                             _showConferenceOrganizedTextField = !_showConferenceOrganizedTextField;
+                            _showWorkshopOrganizedTextField = false;
                           });
                         },
                         icon: Icon(
@@ -856,7 +858,7 @@ class _SportsScreenState extends State<SportsScreen> {
                           size: 18,
                         ),
                         label: Text(
-                          _showConferenceOrganizedTextField ? 'Intracollege' : 'Intracollege',
+                          _showConferenceOrganizedTextField ? 'IntraCollege' : 'IntraCollege',
                           style: GoogleFonts.kufam(
                             fontSize: 16,
                             color: Colors.white,
@@ -1432,61 +1434,77 @@ class _SportsScreenState extends State<SportsScreen> {
 
               ElevatedButton(
                 onPressed: () {
-                  if (_studentnameController.text.isEmpty ||
-                      _nameController.text.isEmpty ||
-                      _detailsController.text.isEmpty ||
-                      _durationController.text.isEmpty ||
-                      _indiOrGroupController.text.isEmpty ||
-                      _achievementsController.text.isEmpty ||
-                      _addressController.text.isEmpty) {
-                    QuickAlert.show(
-                      context: context,
-                      type: QuickAlertType.error,
-                      title: 'Oops...',
-                      text: 'Please fill in all the required fields.',
-                    );
-                  } else {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => StudentSelectionScreen(),
-                    //   ),
-                    // );
-                    Navigator.pop(context);
-                    _saveStudentData();
-                    QuickAlert.show(
-                      context: context,
-                      type: QuickAlertType.success,
-                      text: 'Saved Successfully!',
-                    );
+                  if(_showWorkshopOrganizedTextField) {
+                    if (_studentnameController.text.isEmpty ||
+                        _nameController.text.isEmpty ||
+                        _detailsController.text.isEmpty ||
+                        _durationController.text.isEmpty ||
+                        _indiOrGroupController.text.isEmpty ||
+                        _achievementsController.text.isEmpty ||
+                        _addressController.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in InterCollege.',
+                      );
+                    } else if(_studentnameController.text.length != 11){
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.warning,
+                        text: 'Please enter a valid Enrollment No. in InterCollege.',
+                      );
+                    }else {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => StudentSelectionScreen(),
+                      //   ),
+                      // );
+                      Navigator.pop(context);
+                      _saveStudentData();
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        text: 'Saved Successfully!',
+                      );
+                    }
                   }
-                  if (_student2nameController.text.isEmpty ||
-                      _name2Controller.text.isEmpty ||
-                      _details2Controller.text.isEmpty ||
-                      _duration2Controller.text.isEmpty ||
-                      _indiOrGroup2Controller.text.isEmpty ||
-                      _achievements2Controller.text.isEmpty ||
-                      _address2Controller.text.isEmpty) {
-                    QuickAlert.show(
-                      context: context,
-                      type: QuickAlertType.error,
-                      title: 'Oops...',
-                      text: 'Please fill in all the required fields.',
-                    );
-                  } else {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => StudentSelectionScreen(),
-                    //   ),
-                    // );
-                    Navigator.pop(context);
-                    _save2StudentData();
-                    QuickAlert.show(
-                      context: context,
-                      type: QuickAlertType.success,
-                      text: 'Saved Successfully!',
-                    );
+                  if(_showConferenceOrganizedTextField) {
+                    if (_student2nameController.text.isEmpty ||
+                        _name2Controller.text.isEmpty ||
+                        _details2Controller.text.isEmpty ||
+                        _duration2Controller.text.isEmpty ||
+                        _indiOrGroup2Controller.text.isEmpty ||
+                        _achievements2Controller.text.isEmpty ||
+                        _address2Controller.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in IntraCollege.',
+                      );
+                    } else if(_student2nameController.text.length != 11){
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.warning,
+                        text: 'Please enter a valid Enrollment No. in IntraCollege.',
+                      );
+                    }else {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => StudentSelectionScreen(),
+                      //   ),
+                      // );
+                      Navigator.pop(context);
+                      _save2StudentData();
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        text: 'Saved Successfully!',
+                      );
+                    }
                   }
                 },
                 style: ElevatedButton.styleFrom(

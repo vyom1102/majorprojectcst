@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
 // import 'package:majorproject/student_data_sheet_screen.dart';
@@ -305,6 +307,9 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                         onPressed: () {
                           setState(() {
                             _showWorkshopAttendedTextField = !_showWorkshopAttendedTextField;
+                            _showConferenceAttendedTextField = false;
+                            _showSeminarAttendedTextField=false;
+                            _showFDPAttendedTextField = false;
                           });
                         },
                         icon: Icon(
@@ -339,14 +344,35 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Name of the faculty member',
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Name of the faculty member  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
+                            // Text(
+                            //   'Name of the faculty member',
+                            //   style: TextStyle(
+                            //     fontSize: 14.0,
+                            //     fontWeight: FontWeight.bold,
+                            //     color: Colors.white,
+                            //   ),
+                            // ),
                             SizedBox(height: 5),
 
                             TextFormField(
@@ -385,11 +411,33 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Details of the workshop attended',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Details of the workshop attended  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Details of the workshop attended',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _detailsController,
@@ -419,11 +467,33 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Workshop held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Workshop held from ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Workshop held from',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -467,11 +537,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Workshop held to',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Workshop held to ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Workshop held to',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -516,11 +607,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Duration of workshop',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Duration of workshop ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Duration of workshop',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _durationController,
@@ -549,11 +661,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Address of the place where workshop held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Address of the place where workshop held  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Address of the place where workshop held',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _addressController,
@@ -589,6 +722,9 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                         onPressed: () {
                           setState(() {
                             _showConferenceAttendedTextField = !_showConferenceAttendedTextField;
+                            _showWorkshopAttendedTextField = false;
+                            _showSeminarAttendedTextField = false;
+                            _showFDPAttendedTextField = false;
                           });
                         },
                         icon: Icon(
@@ -623,14 +759,35 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Name of the Faculty Member',
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Name of the Faculty Member  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
+                            // Text(
+                            //   'Name of the Faculty Member',
+                            //   style: TextStyle(
+                            //     fontSize: 14.0,
+                            //     fontWeight: FontWeight.bold,
+                            //     color: Colors.white,
+                            //   ),
+                            // ),
                             SizedBox(height: 5),
 
                             TextFormField(
@@ -669,11 +826,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Details of the Conference attended',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Details of the Conference attended  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Details of the Conference attended',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _details2Controller,
@@ -703,11 +881,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Conference held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Conference held from  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Conference held from',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -751,11 +950,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Conference held to',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Conference held to  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Conference held to',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -800,11 +1020,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Duration of Conference',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Duration of Conference  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Duration of Conference',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _duration2Controller,
@@ -833,11 +1074,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Address of the place where conference held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Address of the place where conference held  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Address of the place where conference held',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _address2Controller,
@@ -873,6 +1135,9 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                         onPressed: () {
                           setState(() {
                             _showSeminarAttendedTextField = !_showSeminarAttendedTextField;
+                            _showWorkshopAttendedTextField = false;
+                            _showConferenceAttendedTextField = false;
+                            _showFDPAttendedTextField = false;
                           });
                         },
                         icon: Icon(
@@ -907,14 +1172,35 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Name of the Faculty Member',
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Name of the Faculty Member  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
+                            // Text(
+                            //   'Name of the Faculty Member',
+                            //   style: TextStyle(
+                            //     fontSize: 14.0,
+                            //     fontWeight: FontWeight.bold,
+                            //     color: Colors.white,
+                            //   ),
+                            // ),
                             SizedBox(height: 5),
 
                             TextFormField(
@@ -953,11 +1239,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Details of the Seminar attended',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Details of the Seminar attended  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Details of the Seminar attended',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _details3Controller,
@@ -987,11 +1294,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Seminar held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Seminar held from  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Seminar held from',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -1035,11 +1363,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Seminar held to',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Seminar held to  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Seminar held to',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -1084,11 +1433,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Duration of Seminar',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Duration of Seminar  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Duration of Seminar',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _duration3Controller,
@@ -1117,11 +1487,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Address of the place where seminar held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Address of the place where seminar held  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Address of the place where seminar held',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _address3Controller,
@@ -1157,6 +1548,10 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                         onPressed: () {
                           setState(() {
                             _showFDPAttendedTextField = !_showFDPAttendedTextField;
+                            _showWorkshopAttendedTextField = false; // Variable to toggle visibility of text fields
+                            _showConferenceAttendedTextField = false; // Variable to toggle visibility of text fields
+                            _showSeminarAttendedTextField = false; // Variable to toggle visibility of text fields
+
                           });
                         },
                         icon: Icon(
@@ -1191,14 +1586,35 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Name of the Faculty Member',
-                              style: TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Name of the Faculty Member  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
+                            // Text(
+                            //   'Name of the Faculty Member',
+                            //   style: TextStyle(
+                            //     fontSize: 14.0,
+                            //     fontWeight: FontWeight.bold,
+                            //     color: Colors.white,
+                            //   ),
+                            // ),
                             SizedBox(height: 5),
 
                             TextFormField(
@@ -1237,11 +1653,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Details of the FDP attended',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Details of the FDP attended  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Details of the FDP attended',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextFormField(
                               controller: _details4Controller,
@@ -1271,11 +1708,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('FDP held from',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'FDP held from  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('FDP held from',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -1319,11 +1777,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('FDP held to',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'FDP held to  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('FDP held to',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
 
                             Row(
@@ -1368,11 +1847,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Duration of FDP',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Duration of FDP  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Duration of FDP',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _duration4Controller,
@@ -1401,11 +1901,32 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Address of the place where FDP held',
-                                style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white)),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Address of the place where FDP held  ',
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '*',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            // Text('Address of the place where FDP held',
+                            //     style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white)),
                             SizedBox(height: 5),
                             TextField(
                               controller: _address4Controller,
@@ -1440,45 +1961,201 @@ class _EventAttendedScreenState extends State<EventAttendedScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  if (_fullNameController.text.isNotEmpty) {
+                  // if (_fullNameController.text.isNotEmpty) {
                     // Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
                     //     builder: (context) => EventAttendedScreen(),
                     //   ),
                     // );
-                    Navigator.pop(context);
-                    _saveTeacherData();
+                  if (_showWorkshopAttendedTextField) {
+                    if (_fullNameController.text.isEmpty ||
+                        _detailsController.text.isEmpty ||
+                        _addressController.text.isEmpty ||
+                        _durationController.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in Workshop Attended.',
+                      );
+                    } else {
+                      Navigator.pop(context);
+                      _saveTeacherData();
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        // title: 'Workshop Attended Details',
+                        text: 'Saved Successfully!',
+                      );
+                    }
                   }
-                  if (_fullName2Controller.text.isNotEmpty) {
+                  // if (_showWorkshopAttendedTextField && (
+                  //   _fullNameController.text.isEmpty ||
+                  //     _detailsController.text.isEmpty ||
+                  //     _addressController.text.isEmpty ||
+                  //     _durationController.text.isEmpty)) {
+                  //       QuickAlert.show(
+                  //       context: context,
+                  //       type: QuickAlertType.error,
+                  //       title: 'Oops...',
+                  //       text: 'Please fill in all the required fields.',
+                  //   );
+                  // }
+                  // else{
+                  //   Navigator.pop(context);
+                  //   _saveTeacherData();
+                  //   QuickAlert.show(
+                  //       context: context,
+                  //       type: QuickAlertType.success,
+                  //       text: 'Saved Successfully!',);
+                  // }
+                  // if (_fullName2Controller.text.isNotEmpty) {
                     // Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
                     //     builder: (context) => EventAttendedScreen(),
                     //   ),
                     // );
-                    Navigator.pop(context);
-                    _saveTeacher2Data();
+                  if (_showConferenceAttendedTextField) {
+                    if (_fullName2Controller.text.isEmpty ||
+                        _details2Controller.text.isEmpty ||
+                        _address2Controller.text.isEmpty ||
+                        _duration2Controller.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in Conference Attended.',
+                      );
+                    } else {
+                      Navigator.pop(context);
+                      _saveTeacher2Data();
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        // title: 'Conference Attended Details',
+                        text: 'Saved Successfully!',
+                      );
+                    }
                   }
-                  if (_fullName3Controller.text.isNotEmpty) {
+                  // if (_showConferenceAttendedTextField && (
+                  //     _fullName2Controller.text.isEmpty ||
+                  //     _details2Controller.text.isEmpty ||
+                  //     _address2Controller.text.isEmpty ||
+                  //     _duration2Controller.text.isEmpty)) {
+                  //   QuickAlert.show(
+                  //     context: context,
+                  //     type: QuickAlertType.error,
+                  //     title: 'Oops...',
+                  //     text: 'Please fill in all the required fields.',
+                  //   );
+                  // }
+                  // else{
+                  //   Navigator.pop(context);
+                  //   _saveTeacher2Data();
+                  // QuickAlert.show(
+                  // context: context,
+                  // type: QuickAlertType.success,
+                  // text: 'Saved Successfully!',);
+                  // }
+                  // if (_fullName3Controller.text.isNotEmpty) {
                     // Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
                     //     builder: (context) => EventAttendedScreen(),
                     //   ),
                     // );
-                    Navigator.pop(context);
-                    _saveTeacher3Data();
+                  if (_showSeminarAttendedTextField) {
+                    if (_fullName3Controller.text.isEmpty ||
+                        _details3Controller.text.isEmpty ||
+                        _address3Controller.text.isEmpty ||
+                        _duration3Controller.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in Seminar Attended.',
+                      );
+                    } else {
+                      Navigator.pop(context);
+                      _saveTeacher3Data();
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        // title: 'Seminar Attended Details',
+                        text: 'Saved Successfully!',
+                      );
+                    }
                   }
-                  if (_fullName4Controller.text.isNotEmpty) {
+                  // if (_showSeminarAttendedTextField && (
+                  //     _fullName3Controller.text.isEmpty ||
+                  //     _details3Controller.text.isEmpty ||
+                  //     _address3Controller.text.isEmpty ||
+                  //     _duration3Controller.text.isEmpty)) {
+                  //   QuickAlert.show(
+                  //     context: context,
+                  //     type: QuickAlertType.error,
+                  //     title: 'Oops...',
+                  //     text: 'Please fill in all the required fields.',
+                  //   );
+                  // }
+                  // else{
+                  //   Navigator.pop(context);
+                  //   _saveTeacher3Data();
+                  //   QuickAlert.show(
+                  //   context: context,
+                  //   type: QuickAlertType.success,
+                  //   text: 'Saved Successfully!',);
+                  // }
+                  // if (_fullName4Controller.text.isNotEmpty) {
                     // Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
                     //     builder: (context) => EventAttendedScreen(),
                     //   ),
                     // );
-                    Navigator.pop(context);
-                    _saveTeacher4Data();
+                  // if (_showFDPAttendedTextField && (
+                  //     _fullName4Controller.text.isEmpty ||
+                  //     _details4Controller.text.isEmpty ||
+                  //     _address4Controller.text.isEmpty ||
+                  //     _duration4Controller.text.isEmpty)) {
+                  //   QuickAlert.show(
+                  //     context: context,
+                  //     type: QuickAlertType.error,
+                  //     title: 'Oops...',
+                  //     text: 'Please fill in all the required fields.',
+                  //   );
+                  // }
+                  // else{
+                  //   Navigator.pop(context);
+                  //   _saveTeacher4Data();
+                  //   QuickAlert.show(
+                  //   context: context,
+                  //   type: QuickAlertType.success,
+                  //   text: 'Saved Successfully!',);
+                  // }
+                  if (_showFDPAttendedTextField) {
+                    if (_fullName4Controller.text.isEmpty ||
+                        _details4Controller.text.isEmpty ||
+                        _address4Controller.text.isEmpty ||
+                        _duration4Controller.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in FDP Attended.',
+                      );
+                    } else {
+                      Navigator.pop(context);
+                      _saveTeacher4Data();
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.success,
+                        // title: 'FDP Attended Details',
+                        text: 'Saved Successfully!',
+                      );
+                    }
                   }
                 },
                 style: ElevatedButton.styleFrom(
