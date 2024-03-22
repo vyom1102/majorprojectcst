@@ -417,8 +417,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String name = prefs.getString('student_name') ?? 'Your Name';
     String email = prefs.getString('student_email') ?? 'your.email@example.com';
-    String enrollmentNo = prefs.getString('student_enrollmentNO')??"Roll Number";
-    return { 'name' : name, 'email': email,'enrollmentNo':enrollmentNo};
+    return {'name': name, 'email': email};
   }
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -703,7 +702,23 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-
+              // UserAccountsDrawerHeader(
+              //   accountName: Text(
+              //     'Your Name',
+              //     style: TextStyle(color: Colors.black),
+              //   ),
+              //   accountEmail: Text(
+              //     'your.email@example.com',
+              //     style: TextStyle(color: Colors.black),
+              //   ),
+              //   currentAccountPicture: CircleAvatar(
+              //     backgroundImage:
+              //         AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
+              //   ),
+              //   decoration: BoxDecoration(
+              //     color: Colors.grey, // Set the header background color to grey
+              //   ),
+              // ),
               FutureBuilder<Map<String, String>>(
                 future: getUserData(), // Fetch user data asynchronously
                 builder: (context, snapshot) {
@@ -714,7 +729,6 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                   } else {
                     String name = snapshot.data?['name'] ?? 'Your Name';
                     String email = snapshot.data?['email'] ?? 'your.email@example.com';
-                    String enroll = snapshot.data?['enrollmentNo']??"Roll Number";
                     return UserAccountsDrawerHeader(
                       accountName: Text(
                         name,
@@ -724,13 +738,8 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                         email,
                         style: TextStyle(color: Colors.black),
                       ),
-                      // currentAccountPicture: CircleAvatar(
-                      //   backgroundImage: AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
-                      // ),
                       currentAccountPicture: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                          "https://firebasestorage.googleapis.com/v0/b/insightacademia-747dc.appspot.com/o/images%2F${enroll}?alt=media",
-                        ),
+                        backgroundImage: AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
                       ),
                       decoration: BoxDecoration(
                         color: Colors.grey, // Set the header background color to grey
