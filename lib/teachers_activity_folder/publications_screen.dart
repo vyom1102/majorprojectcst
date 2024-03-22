@@ -5,6 +5,8 @@ import 'package:intl/intl.dart';
 import 'package:majorproject/academic_activity_screen.dart';
 import 'package:majorproject/main.dart';
 import 'package:majorproject/teacher_main_screen.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:majorproject/teacher_data_sheet_screen.dart';
 // import 'package:majorproject/teacher_main_screen.dart';
@@ -277,6 +279,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                           onPressed: () {
                             setState(() {
                               _showPapersPublishedTextField = !_showPapersPublishedTextField;
+                              _showBooksPublishedTextField = false;
                             });
                           },
                           icon: Icon(
@@ -312,11 +315,32 @@ class _PublicationScreenState extends State<PublicationScreen> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Name of the Faculty Member',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Name of the Faculty Member  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Name of the Faculty Member',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                  controller: _fullNameController,
@@ -346,11 +370,32 @@ class _PublicationScreenState extends State<PublicationScreen> {
                               SizedBox(
                                 height: 20,
                               ),
-                              Text('Title of the Research Paper',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Title of the Research Paper  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Title of the Research Paper',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                  controller: _titleOfPaperController,
@@ -381,11 +426,32 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                 height: 20,
                               ),
 
-                              Text('Name of the journal',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Name of the journal  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Name of the journal',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                  controller: _journalNameController,
@@ -411,14 +477,35 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                 height: 20,
                               ),
 
-                              Text(
-                                'Month',
-                                style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Month  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
+                              // Text(
+                              //   'Month',
+                              //   style: TextStyle(
+                              //     fontSize: 14.0,
+                              //     fontWeight: FontWeight.bold,
+                              //     color: Colors.white,
+                              //   ),
+                              // ),
                               SizedBox(height: 5),
                               GestureDetector(
                                 onTap: () {
@@ -451,8 +538,29 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                 height: 20,
                               ),
 
-                              Text('Year',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Year  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Year',
+                              //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
 
                               Padding(
@@ -491,11 +599,32 @@ class _PublicationScreenState extends State<PublicationScreen> {
                               SizedBox(
                                 height: 20,
                               ),
-                              Text('ISSN/ISBN No.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'ISSN/ISBN No.  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('ISSN/ISBN No.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                  controller: _isbnNoController,
@@ -530,6 +659,7 @@ class _PublicationScreenState extends State<PublicationScreen> {
                           onPressed: () {
                             setState(() {
                               _showBooksPublishedTextField = !_showBooksPublishedTextField;
+                              _showPapersPublishedTextField=false;
                             });
                           },
                           icon: Icon(
@@ -565,11 +695,32 @@ class _PublicationScreenState extends State<PublicationScreen> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Book/ Book Chapter',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Book/ Book Chapter  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Book/ Book Chapter',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                  controller: _bookNameController,
@@ -599,11 +750,32 @@ class _PublicationScreenState extends State<PublicationScreen> {
                               SizedBox(
                                 height: 20,
                               ),
-                              Text('Publication type',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Publication type  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Publication type',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextFormField(
                                  controller: _publicationtypeController,
@@ -634,11 +806,32 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                 height: 20,
                               ),
 
-                              Text('Author',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Author  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Author',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                  controller: _authorNameController,
@@ -664,11 +857,32 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                 height: 20,
                               ),
 
-                              Text('Details of publication',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Details of publication  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Details of publication',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                  controller: _detailsOfPublicationController,
@@ -694,11 +908,32 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                 height: 20,
                               ),
 
-                              Text('Volume and Issue no.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Volume and Issue no.  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Volume and Issue no.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _volumeandIssuenoController,
@@ -724,11 +959,32 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                 height: 20,
                               ),
 
-                              Text('Page Nos.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Page Nos.  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Page Nos.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _pageNoController,
@@ -754,14 +1010,35 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                 height: 20,
                               ),
 
-                              Text(
-                                'Month',
-                                style: TextStyle(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Month  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
+                              // Text(
+                              //   'Month',
+                              //   style: TextStyle(
+                              //     fontSize: 14.0,
+                              //     fontWeight: FontWeight.bold,
+                              //     color: Colors.white,
+                              //   ),
+                              // ),
                               SizedBox(height: 5),
                               GestureDetector(
                                 onTap: () {
@@ -794,8 +1071,30 @@ class _PublicationScreenState extends State<PublicationScreen> {
                                 height: 20,
                               ),
 
-                              Text('Year',
-                                style: GoogleFonts.kufam(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.white),),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Year  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('Year',
+                              //   style: GoogleFonts.kufam(fontWeight: FontWeight.w500,
+                              //       fontSize: 14,color: Colors.white),),
                               SizedBox(height: 5),
 
                               Padding(
@@ -834,11 +1133,32 @@ class _PublicationScreenState extends State<PublicationScreen> {
                               SizedBox(
                                 height: 20,
                               ),
-                              Text('ISSN/ISBN No.',
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'ISSN/ISBN No.  ',
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '*',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              // Text('ISSN/ISBN No.',
+                              //     style: TextStyle(
+                              //         fontSize: 14.0,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white)),
                               SizedBox(height: 5),
                               TextField(
                                 controller: _isbnNoBookController,
@@ -872,24 +1192,73 @@ class _PublicationScreenState extends State<PublicationScreen> {
 
                     ),
                   ),
+
                   ElevatedButton(
                     onPressed: () {
-                      if(_fullNameController.text.isNotEmpty ) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => TeacherSelectionScreen()),
-                        );
-                        _saveTeacherData();
+                      if (_showPapersPublishedTextField) {
+                        if (_fullNameController.text.isEmpty ||
+                            _titleOfPaperController.text.isEmpty ||
+                            _journalNameController.text.isEmpty ||
+                            _isbnNoController.text.isEmpty) {
+                          QuickAlert.show(
+                            context: context,
+                            type: QuickAlertType.error,
+                            title: 'Oops...',
+                            text: 'Please fill in all the required fields in Research Papers Published.',
+                          );
+                        } else {
+                          Navigator.pop(context);
+                          _saveTeacherData();
+                          QuickAlert.show(
+                            context: context,
+                            type: QuickAlertType.success,
+                            // title: 'Workshop Attended Details',
+                            text: 'Saved Successfully!',
+                          );
+                        }
                       }
-                      if(_authorNameController.text.isNotEmpty){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => TeacherSelectionScreen()),
-                        );
-                        _saveTeacherBookPublishedData();
+                      // if(_fullNameController.text.isNotEmpty ) {
+                      //   // Navigator.push(
+                      //   //   context,
+                      //   //   MaterialPageRoute(
+                      //   //       builder: (context) => TeacherSelectionScreen()),
+                      //   // );
+                      //   Navigator.pop(context);
+                      //   _saveTeacherData();
+                      // }
+                      if (_showBooksPublishedTextField) {
+                        if (_bookNameController.text.isEmpty ||
+                            _publicationtypeController.text.isEmpty ||
+                            _authorNameController.text.isEmpty ||
+                            _detailsOfPublicationController.text.isEmpty ||
+                            _volumeandIssuenoController.text.isEmpty ||
+                            _pageNoController.text.isEmpty ||
+                            _isbnNoBookController.text.isEmpty ) {
+                          QuickAlert.show(
+                            context: context,
+                            type: QuickAlertType.error,
+                            title: 'Oops...',
+                            text: 'Please fill in all the required fields in Books Published.',
+                          );
+                        } else {
+                          Navigator.pop(context);
+                          _saveTeacherBookPublishedData();
+                          QuickAlert.show(
+                            context: context,
+                            type: QuickAlertType.success,
+                            // title: 'Workshop Attended Details',
+                            text: 'Saved Successfully!',
+                          );
+                        }
                       }
+                      // if(_authorNameController.text.isNotEmpty){
+                      //   Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => TeacherSelectionScreen()),
+                      //   );
+                      //   _saveTeacherBookPublishedData();
+                      // }
                       // _saveTeacherData();
                     },
                     style: ElevatedButton.styleFrom(

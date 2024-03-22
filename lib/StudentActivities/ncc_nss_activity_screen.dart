@@ -256,6 +256,8 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                         onPressed: () {
                           setState(() {
                             _showFemaleTextField = !_showFemaleTextField;
+                            _showMaleTextField = false; // Variable to toggle visibility of text fields
+                            _showCoTextField = false;
                           });
                         },
                         icon: Icon(
@@ -842,6 +844,8 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                         onPressed: () {
                           setState(() {
                             _showMaleTextField = !_showMaleTextField;
+                            _showFemaleTextField = false; // Variable to toggle visibility of text fields
+                            _showCoTextField = false;
                           });
                         },
                         icon: Icon(
@@ -1498,6 +1502,8 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                         onPressed: () {
                           setState(() {
                             _showCoTextField = !_showCoTextField;
+                            _showFemaleTextField = false; // Variable to toggle visibility of text fields
+                            _showMaleTextField = false;
                           });
                         },
                         icon: Icon(
@@ -2083,49 +2089,68 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  if (_nameController.text.isEmpty ||
-                      _eventNameController.text.isEmpty ||
-                      _detailsController.text.isEmpty ||
-                      _durationController.text.isEmpty ||
-                      _addressController.text.isEmpty ||
-                      _studentnameController.text.isEmpty) {
-                    QuickAlert.show(
-                      context: context,
-                      type: QuickAlertType.error,
-                      title: 'Oops...',
-                      text: 'Please fill in all the required fields.',
-                    );
-                  } else {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => NCCandNSSActivityScreen(),
-                      ),
-                    );
-                    _saveStudentData();
+                  if(_showFemaleTextField) {
+                    if (_nameController.text.isEmpty ||
+                        _eventNameController.text.isEmpty ||
+                        _detailsController.text.isEmpty ||
+                        _durationController.text.isEmpty ||
+                        _addressController.text.isEmpty ||
+                        _studentnameController.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in Female.',
+                      );
+                    } else if(_student2nameController.text.length != 11){
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.warning,
+                        text: 'Please enter a valid Enrollment No. in Female.',
+                      );
+                    }else {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => NCCandNSSActivityScreen(),
+                      //   ),
+                      // );
+                      Navigator.pop(context);
+                      _saveStudentData();
+                    }
                   }
-                  if (_name2Controller.text.isEmpty ||
-                      _eventName2Controller.text.isEmpty ||
-                      _details2Controller.text.isEmpty ||
-                      _duration2Controller.text.isEmpty ||
-                      _address2Controller.text.isEmpty ||
-                      _student2nameController.text.isEmpty) {
-                    QuickAlert.show(
-                      context: context,
-                      type: QuickAlertType.error,
-                      title: 'Oops...',
-                      text: 'Please fill in all the required fields.',
-                    );
-                  } else {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => NCCandNSSActivityScreen(),
-                      ),
-                    );
-                    _save2StudentData();
+                  if(_showMaleTextField ){
+                    if (_name2Controller.text.isEmpty ||
+                        _eventName2Controller.text.isEmpty ||
+                        _details2Controller.text.isEmpty ||
+                        _duration2Controller.text.isEmpty ||
+                        _address2Controller.text.isEmpty ||
+                        _student2nameController.text.isEmpty) {
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.error,
+                        title: 'Oops...',
+                        text: 'Please fill in all the required fields in Male.',
+                      );
+                    } else if(_student2nameController.text.length != 11){
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.warning,
+                        text: 'Please enter a valid Enrollment No. in Male.',
+                      );
+                    }else {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => NCCandNSSActivityScreen(),
+                      //   ),
+                      // );
+                      Navigator.pop(context);
+                      _save2StudentData();
+                    }
                   }
-                  onPressed: () {
+                  // onPressed: () {
+                  if(_showCoTextField) {
                     if (_name3Controller.text.isEmpty ||
                         _eventName3Controller.text.isEmpty ||
                         _details3Controller.text.isEmpty ||
@@ -2136,9 +2161,15 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                         context: context,
                         type: QuickAlertType.error,
                         title: 'Oops...',
-                        text: 'Please fill in all the required fields.',
+                        text: 'Please fill in all the required fields in Co.',
                       );
-                    } else {
+                    } else if(_student2nameController.text.length != 11){
+                      QuickAlert.show(
+                        context: context,
+                        type: QuickAlertType.warning,
+                        text: 'Please enter a valid Enrollment No. in Co.',
+                      );
+                    }else {
                       // Navigator.push(
                       //   context,
                       //   MaterialPageRoute(
@@ -2158,7 +2189,8 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                     //   MaterialPageRoute(builder: (context) => NCCandNSSActivityScreen()),
                     // );
                     // _saveTeacherData();
-                  };
+                  }
+
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF13E9DC),
