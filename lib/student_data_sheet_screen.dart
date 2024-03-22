@@ -2105,11 +2105,14 @@ class _studentDataSheetState extends State<studentDataSheet> {
   Future<void> _saveStudentNameEmail() async {
     String fullName = _fullNameController.text;
     String emailAddress = _emailAddressController.text;
+    String enrollmentNo = _rollNumberController.text;
 
     // Save student's name and email using SharedPreferences
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('student_name', fullName);
     await prefs.setString('student_email', emailAddress);
+    await prefs.setString('student_enrollmentNO', enrollmentNo);
+    print(prefs);
   }
 
 
