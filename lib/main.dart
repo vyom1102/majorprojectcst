@@ -128,6 +128,16 @@ class _LoginScreenState extends State<LoginScreen> {
       return; // Exit the method if email is invalid
     }
 
+    if (!isValidPassword(password)) {
+      QuickAlert.show(
+        context: context,
+        type: QuickAlertType.warning,
+        text: 'Incorrect Password, Please try again!',
+      );
+      return; // Exit the method if password is invalid
+    }
+
+
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
@@ -169,6 +179,11 @@ class _LoginScreenState extends State<LoginScreen> {
         //   MaterialPageRoute(builder: (context) => AdminHome()),
         // );
       }
+      QuickAlert.show(
+        context: context,
+        type: QuickAlertType.success,
+        text: 'Login Successfully!',
+      );
     } catch (e) {
 
       print(e.toString());
@@ -375,12 +390,29 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
+// bool isValidEmail(String email) {
+//   String emailPattern1 = r'^[\w-\.]+@student\.com$';
+//   String emailPattern2 = r'^[\w-\.]+@teacher\.com$';
+//   String emailPattern3 = r'^[\w-\.]+@admin\.com$';
+//   RegExp regex = RegExp(emailPattern);
+//   return regex.hasMatch(email);
+// }
 bool isValidEmail(String email) {
-  // Implement your email validation logic here
-  // For example, you can use a regular expression
-  // to check if the email matches a certain pattern
-  // This is just a simple example, you may need to adjust it
-  String emailPattern = r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$';
-  RegExp regex = RegExp(emailPattern);
-  return regex.hasMatch(email);
+  String studentPattern = 'demo@student.com';
+  String teacherPattern = 'demo@teacher.com';
+  String adminPattern = 'demo@admin.com';
+
+  RegExp studentRegex = RegExp(studentPattern);
+  RegExp teacherRegex = RegExp(teacherPattern);
+  RegExp adminRegex = RegExp(adminPattern);
+
+  return studentRegex.hasMatch(email) ||
+      teacherRegex.hasMatch(email) ||
+      adminRegex.hasMatch(email);
+}
+
+bool isValidPassword(String password) {
+  String allowedPassword = 'demo12';
+
+  return password == allowedPassword;
 }
