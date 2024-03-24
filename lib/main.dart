@@ -9,6 +9,8 @@ import 'package:majorproject/firebase_options.dart';
 import 'package:majorproject/student_data_sheet_screen.dart';
 import 'package:majorproject/teacher_data_sheet_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'student_main_screen.dart';
 import 'change_password.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -116,6 +118,15 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> signInUser(BuildContext context) async {
     String email = emailController.text;
     String password = passwordController.text;
+
+    if (!isValidEmail(email)) {
+      QuickAlert.show(
+        context: context,
+        type: QuickAlertType.warning,
+        text: 'Please enter a valid Email',
+      );
+      return; // Exit the method if email is invalid
+    }
 
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -362,4 +373,14 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+}
+
+bool isValidEmail(String email) {
+  // Implement your email validation logic here
+  // For example, you can use a regular expression
+  // to check if the email matches a certain pattern
+  // This is just a simple example, you may need to adjust it
+  String emailPattern = r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$';
+  RegExp regex = RegExp(emailPattern);
+  return regex.hasMatch(email);
 }
