@@ -119,23 +119,23 @@ class _LoginScreenState extends State<LoginScreen> {
     String email = emailController.text;
     String password = passwordController.text;
 
-    if (!isValidEmail(email)) {
-      QuickAlert.show(
-        context: context,
-        type: QuickAlertType.warning,
-        text: 'Please enter a valid Email',
-      );
-      return; // Exit the method if email is invalid
-    }
-
-    if (!isValidPassword(password)) {
-      QuickAlert.show(
-        context: context,
-        type: QuickAlertType.warning,
-        text: 'Incorrect Password, Please try again!',
-      );
-      return; // Exit the method if password is invalid
-    }
+    // if (!isValidEmail(email)) {
+    //   QuickAlert.show(
+    //     context: context,
+    //     type: QuickAlertType.warning,
+    //     text: 'Please enter a valid Email',
+    //   );
+    //   return; // Exit the method if email is invalid
+    // }
+    //
+    // if (!isValidPassword(password)) {
+    //   QuickAlert.show(
+    //     context: context,
+    //     type: QuickAlertType.warning,
+    //     text: 'Incorrect Password, Please try again!',
+    //   );
+    //   return; // Exit the method if password is invalid
+    // }
 
 
     try {
@@ -187,8 +187,13 @@ class _LoginScreenState extends State<LoginScreen> {
     } catch (e) {
 
       print(e.toString());
+      QuickAlert.show(
+              context: context,
+              type: QuickAlertType.warning,
+              text: 'Incorrect Email or Password, Please try again!',
+            );
 
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
     }
   }
   Future<void> saveCredentials(String email, String password) async {
@@ -360,22 +365,26 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     SizedBox(height: 10), // Add some space between the buttons
-                    TextButton(
-                      onPressed: () {
-                        // Navigate to the forget password screen
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ForgetPasswordScreen()),
-                        );
-                      },
-                      child: Text(
-                        'Change Password',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                    Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            // Navigate to the forget password screen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ForgetPasswordScreen()),
+                            );
+                          },
+                          child: Text(
+                            'Change Password',
+                            style: TextStyle(
+                              color: Color(0xFF13E9DC),
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
 
                   ],
@@ -397,22 +406,22 @@ class _LoginScreenState extends State<LoginScreen> {
 //   RegExp regex = RegExp(emailPattern);
 //   return regex.hasMatch(email);
 // }
-bool isValidEmail(String email) {
-  String studentPattern = 'demo@student.com';
-  String teacherPattern = 'demo@teacher.com';
-  String adminPattern = 'demo@admin.com';
-
-  RegExp studentRegex = RegExp(studentPattern);
-  RegExp teacherRegex = RegExp(teacherPattern);
-  RegExp adminRegex = RegExp(adminPattern);
-
-  return studentRegex.hasMatch(email) ||
-      teacherRegex.hasMatch(email) ||
-      adminRegex.hasMatch(email);
-}
-
-bool isValidPassword(String password) {
-  String allowedPassword = 'demo12';
-
-  return password == allowedPassword;
-}
+// bool isValidEmail(String email) {
+//   String studentPattern = 'demo@student.com';
+//   String teacherPattern = 'demo@teacher.com';
+//   String adminPattern = 'demo@admin.com';
+//
+//   RegExp studentRegex = RegExp(studentPattern);
+//   RegExp teacherRegex = RegExp(teacherPattern);
+//   RegExp adminRegex = RegExp(adminPattern);
+//
+//   return studentRegex.hasMatch(email) ||
+//       teacherRegex.hasMatch(email) ||
+//       adminRegex.hasMatch(email);
+// }
+//
+// bool isValidPassword(String password) {
+//   String allowedPassword = 'demo12';
+//
+//   return password == allowedPassword;
+// }
