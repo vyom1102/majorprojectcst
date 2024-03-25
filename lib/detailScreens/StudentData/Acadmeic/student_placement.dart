@@ -109,13 +109,13 @@ class _StudentPlacementListState extends State<StudentPlacementList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('ID: ${student.id}'),
+              // Text('ID: ${student.id}'),
               Text('Enrollment Number: ${student.enrollmentNumber}'),
               Text('Batch: ${student.batch}'),
               Text('Campus Placement: ${student.campusPlacement}'),
               Text('Company Name: ${student.companyName}'),
               Text('Package: ${student.package}'),
-              Text('postion: ${student.postion}'),
+              Text('Position: ${student.postion}'),
               Text('Location: ${student.location}'),
             ],
           ),
@@ -162,43 +162,12 @@ class _StudentPlacementListState extends State<StudentPlacementList> {
                       'Student\'s Placement Details',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
-                          fontSize: 26,
+                          fontSize: 22,
                           color: Color(0xff0CECDA)),
                     ),
                   ],
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.all(2.0),
-                //   child: Row(
-                //     children: [
-                //       SizedBox(width: 10),
-                //       Text(
-                //         'Select Year: ',
-                //         style: TextStyle(color: Colors.white),
-                //       ),
-                //       DropdownButton<String>(
-                //         dropdownColor: Colors.black,
-                //         value: _selectedYear,
-                //         items: <String>['2020','2021','2022', '2023', '2024', '2025']
-                //             .map((String value) {
-                //           return DropdownMenuItem<String>(
-                //             value: value,
-                //             child: Text(value,style: TextStyle(color: Color(0xff0CECDA),),),
-                //           );
-                //         }).toList(),
-                //         onChanged: (String? newValue) {
-                //           setState(() {
-                //             _selectedYear = newValue!;
-                //             // Filter students by selected year
-                //             filteredStudents = students
-                //                 .where((student) => student.batch.contains(_selectedYear))
-                //                 .toList();
-                //           });
-                //         },
-                //       ),
-                //     ],
-                //   ),
-                // ),
+
                 Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: Row(

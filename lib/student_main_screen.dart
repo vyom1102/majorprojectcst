@@ -417,7 +417,8 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String name = prefs.getString('student_name') ?? 'Your Name';
     String email = prefs.getString('student_email') ?? 'your.email@example.com';
-    return {'name': name, 'email': email};
+    String enrollmentNo = prefs.getString('student_enrollmentNO')??"Roll Number";
+    return { 'name' : name, 'email': email,'enrollmentNo':enrollmentNo};
   }
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -729,6 +730,7 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                   } else {
                     String name = snapshot.data?['name'] ?? 'Your Name';
                     String email = snapshot.data?['email'] ?? 'your.email@example.com';
+                    String enroll = snapshot.data?['enrollmentNo']??"Roll Number";
                     return UserAccountsDrawerHeader(
                       accountName: Text(
                         name,
@@ -739,7 +741,9 @@ class _StudentSelectionScreenState extends State<StudentSelectionScreen> {
                         style: TextStyle(color: Colors.black),
                       ),
                       currentAccountPicture: CircleAvatar(
-                        backgroundImage: AssetImage('images/CSE_MAIT_FULL_LOGO_TEST1.png'),
+                        backgroundImage: NetworkImage(
+                          "https://firebasestorage.googleapis.com/v0/b/insightacademia-747dc.appspot.com/o/images%2F${enroll}?alt=media",
+                        ),
                       ),
                       decoration: BoxDecoration(
                         color: Colors.grey, // Set the header background color to grey

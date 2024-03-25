@@ -2102,7 +2102,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                         title: 'Oops...',
                         text: 'Please fill in all the required fields in Female.',
                       );
-                    } else if(_student2nameController.text.length != 11){
+                    } else if(_studentnameController.text.length != 11){
                       QuickAlert.show(
                         context: context,
                         type: QuickAlertType.warning,
@@ -2163,7 +2163,7 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                         title: 'Oops...',
                         text: 'Please fill in all the required fields in Co.',
                       );
-                    } else if(_student2nameController.text.length != 11){
+                    } else if(_student3nameController.text.length != 11){
                       QuickAlert.show(
                         context: context,
                         type: QuickAlertType.warning,
@@ -2176,14 +2176,14 @@ class _NCCandNSSActivityScreenState extends State<NCCandNSSActivityScreen> {
                       //     builder: (context) => NCCandNSSActivityScreen(),
                       //   ),
                       // );
-                      QuickAlert.show(
-                        context: context,
-                        type: QuickAlertType.success,
-                        text: 'Saved Successfully!',
-                      );
                       Navigator.pop(context);
                       _save3StudentData();
                     }
+                    QuickAlert.show(
+                      context: context,
+                      type: QuickAlertType.success,
+                      text: 'Saved Successfully!',
+                    );
                     // Navigator.push(
                     //   context,
                     //   MaterialPageRoute(builder: (context) => NCCandNSSActivityScreen()),

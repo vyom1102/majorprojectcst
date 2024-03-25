@@ -100,10 +100,10 @@ class _TeacherPaperListState extends State<TeacherPaperList> {
             children: [
               Text('ID: ${student.id}'),
               Text('Name: ${student.name}'),
-              Text('ISBN: ${student.isbn}'),
+              Text('ISBN No: ${student.isbn}'),
               Text('Journal Name: ${student.journalName}'),
               Text('Month: ${student.month}'),
-              Text('Tile Of Paper: ${student.tileOfPaper}'),
+              Text('Title Of Paper: ${student.tileOfPaper}'),
               Text('Year: ${student.year}'),
             ],
           ),

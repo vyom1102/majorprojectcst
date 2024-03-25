@@ -1,538 +1,9 @@
-//
-// import 'package:flutter/material.dart';
-// import 'package:firebase_database/firebase_database.dart';
-// import 'package:google_fonts/google_fonts.dart';
-// import 'package:majorproject/teacher_main_screen.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
-//
-// class TeacherDataSheet extends StatefulWidget {
-//   @override
-//   _TeacherDataSheetState createState() => _TeacherDataSheetState();
-// }
-//
-// class _TeacherDataSheetState extends State<TeacherDataSheet> {
-//   DateTime selectedDate = DateTime.now();
-//   DateTime joiningDate = DateTime.now();
-//   final DatabaseReference _teacherRef =
-//   FirebaseDatabase.instance.ref().child('teachers');
-//
-//   Future<void> _selectDate(BuildContext context) async {
-//     final DateTime? picked = await showDatePicker(
-//       context: context,
-//       initialDate: selectedDate,
-//       firstDate: DateTime(1900),
-//       lastDate: DateTime.now(),
-//     );
-//
-//     if (picked != null && picked != selectedDate){
-//       setState(() {
-//         selectedDate = picked;
-//       });
-//     }
-//   }
-//
-//   Future <void> _joiningDate(BuildContext context) async {
-//     final DateTime? picked = await showDatePicker(
-//       context: context,
-//       initialDate: joiningDate,
-//       firstDate: DateTime(1900),
-//       lastDate: DateTime.now(),
-//     );
-//
-//     if (picked != null && picked != joiningDate) {
-//       setState(() {
-//         joiningDate = picked;
-//       });
-//     }
-//   }
-//
-//   Future<void> _saveTeacherData() async {
-//     try {
-//       SharedPreferences prefs = await SharedPreferences.getInstance();
-//       await _teacherRef.child('id').child(_employeeIdController.text).set({
-//         'fullName': _fullNameController.text,
-//         'emailAddress': _emailAddressController.text,
-//         'employeeId': _employeeIdController.text,
-//         'dateOfBirth': selectedDate.toLocal().toString(),
-//         'joiningDate': joiningDate.toLocal().toString(),
-//         'permanentAddress': _permanentAddressController.text,
-//         'fatherHusbandName': _fatherHusbandNameController.text,
-//         'highestQualification': _highestQualificationController.text,
-//         'mobileNumber': _mobileNumberController.text,
-//         'currentDesignation': _currentDesignationController.text,
-//         'department': _departmentController.text,
-//       });
-//       await prefs.setString('fullName', _fullNameController.text);
-//       String? storedFullName = prefs.getString('fullName');
-//       print('Stored Full Name: $storedFullName');
-//
-//     } catch (error) {
-//       // Handle the error
-//       print('Error saving data: $error');
-//     }
-//   }
-//
-//   final TextEditingController _fullNameController = TextEditingController();
-//   final TextEditingController _emailAddressController = TextEditingController();
-//   final TextEditingController _employeeIdController = TextEditingController();
-//   final TextEditingController _permanentAddressController =
-//   TextEditingController();
-//   final TextEditingController _fatherHusbandNameController =
-//   TextEditingController();
-//   final TextEditingController _highestQualificationController =
-//   TextEditingController();
-//   final TextEditingController _mobileNumberController = TextEditingController();
-//   final TextEditingController _currentDesignationController =
-//   TextEditingController();
-//   final TextEditingController _departmentController = TextEditingController();
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Color(0xff141318),
-//       body: Stack(
-//         children: [
-//           Positioned(
-//             top: 0,
-//             left: 0,
-//             right: 0,
-//             child: Image.asset(
-//               'images/bottom_container.png',
-//               fit: BoxFit.cover,
-//               height: 150,
-//               width: MediaQuery.of(context).size.width,
-//             ),
-//           ),
-//           Column(
-//               children: [
-//                 SizedBox(
-//                   height: 70,
-//                 ),
-//                 Text(
-//                   'Teacher\'s Data Sheet',
-//                   style: GoogleFonts.kufam(
-//                       fontWeight: FontWeight.w600,
-//                       fontSize: 26,
-//                       color: Color(0xff0CECDA)),
-//                 ),
-//                 SizedBox(
-//                   height: 50,
-//                 ),
-//                 Expanded(
-//                   child: ListView(children: [
-//                     Container(
-//                       padding: EdgeInsets.all(16.0),
-//                       child: Column(
-//                         crossAxisAlignment: CrossAxisAlignment.start,
-//                         children: [
-//                           Text('Full Name',
-//                               style: TextStyle(
-//                                   fontSize: 14.0,
-//                                   fontWeight: FontWeight.bold,
-//                                   color: Colors.white)),
-//                           SizedBox(height: 5),
-//                           TextFormField(
-//                             controller: _fullNameController,
-//                             validator: (value) {
-//                               if (value == null || value.isEmpty) {
-//                                 return 'This field is required';
-//                               }
-//                               return null;
-//                             },
-//                             decoration: InputDecoration(
-//                               hintText: 'Shreya',
-//                               enabledBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-//                               ),
-//                               focusedBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
-//                               ),
-//                               hintStyle: GoogleFonts.kufam(
-//                                   color: Colors.white.withOpacity(0.5)),
-//                               contentPadding: const EdgeInsets.symmetric(
-//                                   vertical: 20.0, horizontal: 15.0),
-//                               border: OutlineInputBorder(),
-//                               fillColor: Color(0xff141318),
-//                               filled: true,
-//                             ),
-//                             style: TextStyle(color: Colors.white),),
-//                           SizedBox(
-//                             height: 20,
-//                           ),
-//                           Text('Email Address',
-//                               style: TextStyle(
-//                                   fontSize: 14.0,
-//                                   fontWeight: FontWeight.bold,
-//                                   color: Colors.white)),
-//                           SizedBox(height: 5),
-//                           TextField(
-//                             controller: _emailAddressController,
-//                             decoration: InputDecoration(
-//                               hintText: 'shreya@gmail.com',
-//                               enabledBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-//                               ),
-//                               focusedBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
-//                               ),
-//                               hintStyle: GoogleFonts.kufam(
-//                                   color: Colors.white.withOpacity(0.5)),
-//                               contentPadding: const EdgeInsets.symmetric(
-//                                   vertical: 20.0, horizontal: 15.0),
-//                               border: OutlineInputBorder(),
-//                               fillColor: Color(0xff141318),
-//                               filled: true,
-//                             ),
-//                             style: TextStyle(color: Colors.white),
-//                           ),
-//                           SizedBox(
-//                             height: 20,
-//                           ),
-//                           Text('Employee Id',
-//                               style: TextStyle(
-//                                   fontSize: 14.0,
-//                                   fontWeight: FontWeight.bold,
-//                                   color: Colors.white)),
-//                           SizedBox(height: 5),
-//                           TextField(
-//                             controller: _employeeIdController,
-//                             decoration: InputDecoration(
-//                               hintText: '98753',
-//                               enabledBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-//                               ),
-//                               focusedBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
-//                               ),
-//                               hintStyle: GoogleFonts.kufam(
-//                                   color: Colors.white.withOpacity(0.5)),
-//                               contentPadding: const EdgeInsets.symmetric(
-//                                   vertical: 20.0, horizontal: 15.0),
-//                               border: OutlineInputBorder(),
-//                               fillColor: Color(0xff141318),
-//                               filled: true,
-//                             ),
-//                             style: TextStyle(color: Colors.white),
-//                           ),
-//                           SizedBox(
-//                             height: 20,
-//                           ),
-//                           Text('Date of Birth',
-//                               style: TextStyle(
-//                                   fontSize: 14.0,
-//                                   fontWeight: FontWeight.bold,
-//                                   color: Colors.white)),
-//                           SizedBox(height: 5),
-//
-//                           Row(
-//                             children: [
-//                               Expanded(
-//                                 child: TextFormField(
-//                                   readOnly: true, // Disable manual editing
-//                                   onTap: () => _selectDate(context),
-//                                   decoration: InputDecoration(
-//                                     hintText: 'Select a date',
-//                                     enabledBorder: OutlineInputBorder(
-//                                       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-//                                     ),
-//                                     focusedBorder: OutlineInputBorder(
-//                                       borderSide: BorderSide(color: Color(0xff0CECDA)),
-//                                     ),
-//                                     hintStyle: TextStyle(
-//                                       color: Colors.white.withOpacity(0.5),
-//                                     ),
-//                                     contentPadding: const EdgeInsets.symmetric(
-//                                       vertical: 20.0,
-//                                       horizontal: 15.0,
-//                                     ),
-//                                     border: OutlineInputBorder(),
-//                                     fillColor: Color(0xff141318),
-//                                     filled: true,
-//                                   ),
-//                                   style: TextStyle(color: Colors.white),
-//                                   controller: TextEditingController(
-//                                     text: "${selectedDate.toLocal()}".split(' ')[0],
-//                                   ),
-//                                 ),
-//                               ),
-//                               IconButton(
-//                                 icon: Icon(Icons.calendar_today),
-//                                 onPressed: () => _selectDate(context),
-//                                 color: Colors.white,
-//                               ),
-//                             ],
-//                           ),
-//
-//                           SizedBox(
-//                             height: 20,
-//                           ),
-//
-//                           Text('Date of Joining',
-//                               style: TextStyle(
-//                                   fontSize: 14.0,
-//                                   fontWeight: FontWeight.bold,
-//                                   color: Colors.white)),
-//                           SizedBox(height: 5),
-//
-//                           Row(
-//                             children: [
-//                               Expanded(
-//                                 child: TextFormField(
-//                                   readOnly: true, // Disable manual editing
-//                                   onTap: () => _joiningDate(context),
-//                                   decoration: InputDecoration(
-//                                     hintText: 'Select a date',
-//                                     enabledBorder: OutlineInputBorder(
-//                                       borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-//                                     ),
-//                                     focusedBorder: OutlineInputBorder(
-//                                       borderSide: BorderSide(color: Color(0xff0CECDA)),
-//                                     ),
-//                                     hintStyle: TextStyle(
-//                                       color: Colors.white.withOpacity(0.5),
-//                                     ),
-//                                     contentPadding: const EdgeInsets.symmetric(
-//                                       vertical: 20.0,
-//                                       horizontal: 15.0,
-//                                     ),
-//                                     border: OutlineInputBorder(),
-//                                     fillColor: Color(0xff141318),
-//                                     filled: true,
-//                                   ),
-//                                   style: TextStyle(color: Colors.white),
-//                                   controller: TextEditingController(
-//                                     text: "${joiningDate.toLocal()}".split(' ')[0],
-//                                   ),
-//                                 ),
-//                               ),
-//                               IconButton(
-//                                 icon: Icon(Icons.calendar_today),
-//                                 onPressed: () => _joiningDate(context),
-//                                 color: Colors.white,
-//                               ),
-//                             ],
-//                           ),
-//                           SizedBox(
-//                             height: 20,
-//                           ),
-//                           Text('Permanent Address',
-//                               style: TextStyle(
-//                                   fontSize: 14.0,
-//                                   fontWeight: FontWeight.bold,
-//                                   color: Colors.white)),
-//                           SizedBox(height: 5),
-//                           TextField(
-//                             controller: _permanentAddressController,
-//                             decoration: InputDecoration(
-//                               hintText: 'Enter permanent address',
-//                               enabledBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-//                               ),
-//                               focusedBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
-//                               ),
-//                               hintStyle: GoogleFonts.kufam(
-//                                   color: Colors.white.withOpacity(0.5)),
-//                               contentPadding: const EdgeInsets.symmetric(
-//                                   vertical: 20.0, horizontal: 15.0),
-//                               border: OutlineInputBorder(),
-//                               fillColor: Color(0xff141318),
-//                               filled: true,
-//                             ),
-//                             style: TextStyle(color: Colors.white),
-//                           ),
-//                           SizedBox(
-//                             height: 20,
-//                           ),
-//                           Text('Father/Husband Name',
-//                               style: TextStyle(
-//                                   fontSize: 14.0,
-//                                   fontWeight: FontWeight.bold,
-//                                   color: Colors.white)),
-//                           SizedBox(height: 5),
-//                           TextField(
-//                             controller: _fatherHusbandNameController,
-//                             decoration: InputDecoration(
-//                               hintText: 'Enter Name',
-//                               enabledBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-//                               ),
-//                               focusedBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
-//                               ),
-//                               hintStyle: GoogleFonts.kufam(
-//                                   color: Colors.white.withOpacity(0.5)),
-//                               contentPadding: const EdgeInsets.symmetric(
-//                                   vertical: 20.0, horizontal: 15.0),
-//                               border: OutlineInputBorder(),
-//                               fillColor: Color(0xff141318),
-//                               filled: true,
-//                             ),
-//                             style: TextStyle(color: Colors.white),
-//                           ),
-//                           SizedBox(
-//                             height: 20,
-//                           ),
-//                           Text('Highest Qualification',
-//                               style: TextStyle(
-//                                   fontSize: 14.0,
-//                                   fontWeight: FontWeight.bold,
-//                                   color: Colors.white)),
-//                           SizedBox(height: 5),
-//                           TextField(
-//                             controller: _highestQualificationController,
-//                             decoration: InputDecoration(
-//                               hintText: 'Diploma/Degree',
-//                               enabledBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-//                               ),
-//                               focusedBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
-//                               ),
-//                               hintStyle: GoogleFonts.kufam(
-//                                   color: Colors.white.withOpacity(0.5)),
-//                               contentPadding: const EdgeInsets.symmetric(
-//                                   vertical: 20.0, horizontal: 15.0),
-//                               border: OutlineInputBorder(),
-//                               fillColor: Color(0xff141318),
-//                               filled: true,
-//                             ),
-//                             style: TextStyle(color: Colors.white),
-//                           ),
-//                           SizedBox(
-//                             height: 20,
-//                           ),
-//                           Text('Mobile No.',
-//                               style: TextStyle(
-//                                   fontSize: 14.0,
-//                                   fontWeight: FontWeight.bold,
-//                                   color: Colors.white)),
-//                           SizedBox(height: 5),
-//                           TextField(
-//                             controller: _mobileNumberController,
-//                             decoration: InputDecoration(
-//                               hintText: '98765XXXXX',
-//                               enabledBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-//                               ),
-//                               focusedBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
-//                               ),
-//                               hintStyle: GoogleFonts.kufam(
-//                                   color: Colors.white.withOpacity(0.5)),
-//                               contentPadding: const EdgeInsets.symmetric(
-//                                   vertical: 20.0, horizontal: 15.0),
-//                               border: OutlineInputBorder(),
-//                               fillColor: Color(0xff141318),
-//                               filled: true,
-//                             ),
-//                             style: TextStyle(color: Colors.white),
-//                           ),
-//                           SizedBox(
-//                             height: 20,
-//                           ),
-//                           Text('Current Designation',
-//                               style: TextStyle(
-//                                   fontSize: 14.0,
-//                                   fontWeight: FontWeight.bold,
-//                                   color: Colors.white)),
-//                           SizedBox(height: 5),
-//                           TextField(
-//                             controller: _currentDesignationController,
-//                             decoration: InputDecoration(
-//                               hintText: 'Enter Designation',
-//                               enabledBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-//                               ),
-//                               focusedBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
-//                               ),
-//                               hintStyle: GoogleFonts.kufam(
-//                                   color: Colors.white.withOpacity(0.5)),
-//                               contentPadding: const EdgeInsets.symmetric(
-//                                   vertical: 20.0, horizontal: 15.0),
-//                               border: OutlineInputBorder(),
-//                               fillColor: Color(0xff141318),
-//                               filled: true,
-//                             ),
-//                             style: TextStyle(color: Colors.white),
-//                           ),
-//
-//                           SizedBox(height: 20),
-//                           Text('Department',
-//                               style: TextStyle(
-//                                   fontSize: 14.0,
-//                                   fontWeight: FontWeight.bold,
-//                                   color: Colors.white)),
-//                           SizedBox(height: 5),
-//                           TextField(
-//                             controller: _departmentController,
-//                             decoration: InputDecoration(
-//                               hintText: 'CST/CSE',
-//                               enabledBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-//                               ),
-//                               focusedBorder: OutlineInputBorder(
-//                                 borderSide: BorderSide(color: Color(0xff0CECDA)),
-//                               ),
-//                               hintStyle: GoogleFonts.kufam(
-//                                   color: Colors.white.withOpacity(0.5)),
-//                               contentPadding: const EdgeInsets.symmetric(
-//                                   vertical: 20.0, horizontal: 15.0),
-//                               border: OutlineInputBorder(),
-//                               fillColor: Color(0xff141318),
-//                               filled: true,
-//                             ),
-//                             style: TextStyle(color: Colors.white),
-//                           ),
-//
-//                           SizedBox(height: 20),
-//
-//                           ElevatedButton(
-//                             onPressed: () {
-//                               Navigator.push(
-//                                 context,
-//                                 MaterialPageRoute(builder: (context) => TeacherSelectionScreen()),
-//                               );
-//                                _saveTeacherData();
-//
-//                             },
-//                             style: ElevatedButton.styleFrom(
-//                               backgroundColor: Color(0xFF13E9DC),
-//                               shape: RoundedRectangleBorder(
-//                                 borderRadius: BorderRadius.circular(20.0),
-//                               ),
-//                               minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
-//                             ),
-//                             child: Text(
-//                               'Next',
-//                               style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
-//                             ),
-//                           ),
-//                         ],
-//                       ),
-//                     ),
-//
-//                         ],
-//                       ),
-//                     ),
-//                   ]),
-//
-//
-//               ],
-//             ),
-//
-//           );
-//
-//
-//   }
-// }
-//
-//
+
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:majorproject/teacher_main_screen.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
@@ -548,7 +19,7 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
   DateTime joiningDate = DateTime.now();
   String? _selectedTrainingMode;
   final DatabaseReference _teacherRef =
-  FirebaseDatabase.instance.ref().child('teachers');
+      FirebaseDatabase.instance.ref().child('teachers');
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -558,14 +29,14 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
       lastDate: DateTime.now(),
     );
 
-    if (picked != null && picked != selectedDate){
+    if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
       });
     }
   }
 
-  Future <void> _joiningDate(BuildContext context) async {
+  Future<void> _joiningDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: joiningDate,
@@ -579,6 +50,7 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
       });
     }
   }
+
   Future<void> saveTeacherEmail(String email) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('teacher_email', email);
@@ -589,16 +61,18 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
     await prefs.setString('teacher_name', name);
   }
 
-
   Future<void> _saveTeacherData() async {
     try {
+      String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+      String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate);
+
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await _teacherRef.child('id').child(_employeeIdController.text).set({
         'fullName': _fullNameController.text,
         'emailAddress': _emailAddressController.text,
         'employeeId': _employeeIdController.text,
-        'dateOfBirth': selectedDate.toLocal().toString(),
-        'joiningDate': joiningDate.toLocal().toString(),
+        'dateOfBirth': formattedSelectedDate,
+        'joiningDate': formattedJoiningDate,
         'permanentAddress': _permanentAddressController.text,
         'fatherHusbandName': _fatherHusbandNameController.text,
         'highestQualification': _highestQualificationController.text,
@@ -609,7 +83,6 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
       await prefs.setString('fullName', _fullNameController.text);
       String? storedFullName = prefs.getString('fullName');
       print('Stored Full Name: $storedFullName');
-
     } catch (error) {
       // Handle the error
       print('Error saving data: $error');
@@ -620,14 +93,14 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
   final TextEditingController _emailAddressController = TextEditingController();
   final TextEditingController _employeeIdController = TextEditingController();
   final TextEditingController _permanentAddressController =
-  TextEditingController();
+      TextEditingController();
   final TextEditingController _fatherHusbandNameController =
-  TextEditingController();
+      TextEditingController();
   final TextEditingController _highestQualificationController =
-  TextEditingController();
+      TextEditingController();
   final TextEditingController _mobileNumberController = TextEditingController();
   final TextEditingController _currentDesignationController =
-  TextEditingController();
+      TextEditingController();
   final TextEditingController _departmentController = TextEditingController();
 
   @override
@@ -647,744 +120,785 @@ class _TeacherDataSheetState extends State<TeacherDataSheet> {
               width: MediaQuery.of(context).size.width,
             ),
           ),
-          Column(
-              children: [
-                SizedBox(
-                  height: 70,
-                ),
-                Text(
-                  'Teacher\'s Data Sheet',
-                  style: GoogleFonts.kufam(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 26,
-                      color: Color(0xff0CECDA)),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Expanded(
-                  child: ListView(children: [
-                    Container(
-                      padding: EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(text:'Full Name  ',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                TextSpan(
-                                  text: '*',
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          // Text('Full Name',
-                          //     style: TextStyle(
-                          //         fontSize: 14.0,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white)),
-                          SizedBox(height: 5),
-                          TextFormField(
-                            controller: _fullNameController,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'This field is required';
-                              }
-                              return null;
-                            },
-                            decoration: InputDecoration(
-                              hintText: 'Shreya',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                              ),
-                              hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0, horizontal: 15.0),
-                              border: OutlineInputBorder(),
-                              fillColor: Color(0xff141318),
-                              filled: true,
-                            ),
-                            style: TextStyle(color: Colors.white),),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(text:'Email Address  ',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                TextSpan(
-                                  text: '*',
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          // Text('Email Address',
-                          //     style: TextStyle(
-                          //         fontSize: 14.0,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white)),
-                          SizedBox(height: 5),
-                          TextField(
-                            controller: _emailAddressController,
-                            decoration: InputDecoration(
-                              hintText: 'shreya@gmail.com',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                              ),
-                              hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0, horizontal: 15.0),
-                              border: OutlineInputBorder(),
-                              fillColor: Color(0xff141318),
-                              filled: true,
-                            ),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(text:'Employee Id  ',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                TextSpan(
-                                  text: '*',
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          // Text('Employee Id',
-                          //     style: TextStyle(
-                          //         fontSize: 14.0,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white)),
-                          SizedBox(height: 5),
-                          TextField(
-                            controller: _employeeIdController,
-                            keyboardType: TextInputType.number,
-                            inputFormatters: <TextInputFormatter>[
-                              FilteringTextInputFormatter.digitsOnly
-                            ],
-                            maxLength: 11,
-                            decoration: InputDecoration(
-                              hintText: '98753',
-                              counterText: '',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                              ),
-                              hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0, horizontal: 15.0),
-                              border: OutlineInputBorder(),
-                              fillColor: Color(0xff141318),
-                              filled: true,
-                            ),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(text:'Date of Birth  ',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                TextSpan(
-                                  text: '*',
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          // Text('Date of Birth',
-                          //     style: TextStyle(
-                          //         fontSize: 14.0,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white)),
-                          SizedBox(height: 5),
-
-                          Row(
+          Column(children: [
+            SizedBox(
+              height: 70,
+            ),
+            Text(
+              'Teacher\'s Data Sheet',
+              style: GoogleFonts.kufam(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 26,
+                  color: Color(0xff0CECDA)),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Expanded(
+              child: ListView(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        RichText(
+                          text: TextSpan(
                             children: [
-                              Expanded(
-                                child: TextFormField(
-                                  readOnly: true, // Disable manual editing
-                                  onTap: () => _selectDate(context),
-                                  decoration: InputDecoration(
-                                    hintText: 'Select a date',
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                    ),
-                                    hintStyle: TextStyle(
-                                      color: Colors.white.withOpacity(0.5),
-                                    ),
-                                    contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0,
-                                      horizontal: 15.0,
-                                    ),
-                                    border: OutlineInputBorder(),
-                                    fillColor: Color(0xff141318),
-                                    filled: true,
-                                  ),
-                                  style: TextStyle(color: Colors.white),
-                                  controller: TextEditingController(
-                                    text: "${selectedDate.toLocal()}".split(' ')[0],
-                                  ),
+                              TextSpan(
+                                  text: 'Full Name  ',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              ),
-                              IconButton(
-                                icon: Icon(Icons.calendar_today),
-                                onPressed: () => _selectDate(context),
-                                color: Colors.white,
                               ),
                             ],
                           ),
-
-                          SizedBox(
-                            height: 20,
-                          ),
-
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(text:'Date of Joining  ',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                TextSpan(
-                                  text: '*',
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
+                        ),
+                        // Text('Full Name',
+                        //     style: TextStyle(
+                        //         fontSize: 14.0,
+                        //         fontWeight: FontWeight.bold,
+                        //         color: Colors.white)),
+                        SizedBox(height: 5),
+                        TextFormField(
+                          controller: _fullNameController,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'This field is required';
+                            }
+                            return null;
+                          },
+                          decoration: InputDecoration(
+                            hintText: 'Shreya',
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color(
+                                      0xff535353)), // Color when not focused
                             ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            ),
+                            hintStyle: GoogleFonts.kufam(
+                                color: Colors.white.withOpacity(0.5)),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 20.0, horizontal: 15.0),
+                            border: OutlineInputBorder(),
+                            fillColor: Color(0xff141318),
+                            filled: true,
                           ),
-                          // Text('Date of Joining',
-                          //     style: TextStyle(
-                          //         fontSize: 14.0,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white)),
-                          SizedBox(height: 5),
-
-                          Row(
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        RichText(
+                          text: TextSpan(
                             children: [
-                              Expanded(
-                                child: TextFormField(
-                                  readOnly: true, // Disable manual editing
-                                  onTap: () => _joiningDate(context),
-                                  decoration: InputDecoration(
-                                    hintText: 'Select a date',
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Color(0xff0CECDA)),
-                                    ),
-                                    hintStyle: TextStyle(
-                                      color: Colors.white.withOpacity(0.5),
-                                    ),
-                                    contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 20.0,
-                                      horizontal: 15.0,
-                                    ),
-                                    border: OutlineInputBorder(),
-                                    fillColor: Color(0xff141318),
-                                    filled: true,
-                                  ),
-                                  style: TextStyle(color: Colors.white),
-                                  controller: TextEditingController(
-                                    text: "${joiningDate.toLocal()}".split(' ')[0],
-                                  ),
+                              TextSpan(
+                                  text: 'Email Address  ',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              ),
-                              IconButton(
-                                icon: Icon(Icons.calendar_today),
-                                onPressed: () => _joiningDate(context),
-                                color: Colors.white,
                               ),
                             ],
                           ),
-                          SizedBox(
-                            height: 20,
+                        ),
+                        // Text('Email Address',
+                        //     style: TextStyle(
+                        //         fontSize: 14.0,
+                        //         fontWeight: FontWeight.bold,
+                        //         color: Colors.white)),
+                        SizedBox(height: 5),
+                        TextField(
+                          controller: _emailAddressController,
+                          decoration: InputDecoration(
+                            hintText: 'shreya@gmail.com',
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color(
+                                      0xff535353)), // Color when not focused
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            ),
+                            hintStyle: GoogleFonts.kufam(
+                                color: Colors.white.withOpacity(0.5)),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 20.0, horizontal: 15.0),
+                            border: OutlineInputBorder(),
+                            fillColor: Color(0xff141318),
+                            filled: true,
                           ),
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
 
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(text:'Permanent Address  ',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                TextSpan(
-                                  text: '*',
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: 'Employee Id  ',
                                   style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              ],
-                            ),
-                          ),
-                          // Text('Permanent Address',
-                          //     style: TextStyle(
-                          //         fontSize: 14.0,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white)),
-                          SizedBox(height: 5),
-                          TextField(
-                            controller: _permanentAddressController,
-                            decoration: InputDecoration(
-                              hintText: 'Enter permanent address',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                              ),
-                              hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0, horizontal: 15.0),
-                              border: OutlineInputBorder(),
-                              fillColor: Color(0xff141318),
-                              filled: true,
-                            ),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(text:'Father/Husband Name  ',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                TextSpan(
-                                  text: '*',
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          // Text('Father/Husband Name',
-                          //     style: TextStyle(
-                          //         fontSize: 14.0,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white)),
-                          SizedBox(height: 5),
-                          TextField(
-                            controller: _fatherHusbandNameController,
-                            decoration: InputDecoration(
-                              hintText: 'Enter Name',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                              ),
-                              hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0, horizontal: 15.0),
-                              border: OutlineInputBorder(),
-                              fillColor: Color(0xff141318),
-                              filled: true,
-                            ),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(text:'Highest Qualification  ',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                TextSpan(
-                                  text: '*',
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          // Text('Highest Qualification',
-                          //     style: TextStyle(
-                          //         fontSize: 14.0,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white)),
-                          SizedBox(height: 5),
-                          TextField(
-                            controller: _highestQualificationController,
-                            decoration: InputDecoration(
-                              hintText: 'Diploma/Degree',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                              ),
-                              hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0, horizontal: 15.0),
-                              border: OutlineInputBorder(),
-                              fillColor: Color(0xff141318),
-                              filled: true,
-                            ),
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(text:'Mobile No.  ',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                TextSpan(
-                                  text: '*',
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          // Text('Mobile No.',
-                          //     style: TextStyle(
-                          //         fontSize: 14.0,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white)),
-                          SizedBox(height: 5),
-                          TextField(
-                            controller: _mobileNumberController,
-                            keyboardType: TextInputType.number,
-                            inputFormatters: <TextInputFormatter>[
-                              FilteringTextInputFormatter.digitsOnly
                             ],
-                            maxLength: 10,
-                            decoration: InputDecoration(
-                              hintText: '98765XXXXX',
-                              counterText: '',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                              ),
-                              hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0, horizontal: 15.0),
-                              border: OutlineInputBorder(),
-                              fillColor: Color(0xff141318),
-                              filled: true,
+                          ),
+                        ),
+                        // Text('Employee Id',
+                        //     style: TextStyle(
+                        //         fontSize: 14.0,
+                        //         fontWeight: FontWeight.bold,
+                        //         color: Colors.white)),
+                        SizedBox(height: 5),
+                        TextField(
+                          controller: _employeeIdController,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
+                          maxLength: 10,
+                          decoration: InputDecoration(
+                            hintText: '98753',
+                            counterText: '',
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color(
+                                      0xff535353)), // Color when not focused
                             ),
-                            style: TextStyle(color: Colors.white),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            ),
+                            hintStyle: GoogleFonts.kufam(
+                                color: Colors.white.withOpacity(0.5)),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 20.0, horizontal: 15.0),
+                            border: OutlineInputBorder(),
+                            fillColor: Color(0xff141318),
+                            filled: true,
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(text:'Current Designation  ',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                TextSpan(
-                                  text: '*',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: 'Date of Birth  ',
                                   style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              ],
-                            ),
-                          ),
-                          // Text('Current Designation',
-                          //     style: TextStyle(
-                          //         fontSize: 14.0,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white)),
-                          SizedBox(height: 5),
-                          TextField(
-                            controller: _currentDesignationController,
-                            decoration: InputDecoration(
-                              hintText: 'Enter Designation',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                              ),
-                              hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0, horizontal: 15.0),
-                              border: OutlineInputBorder(),
-                              fillColor: Color(0xff141318),
-                              filled: true,
-                            ),
-                            style: TextStyle(color: Colors.white),
+                            ],
                           ),
+                        ),
+                        // Text('Date of Birth',
+                        //     style: TextStyle(
+                        //         fontSize: 14.0,
+                        //         fontWeight: FontWeight.bold,
+                        //         color: Colors.white)),
+                        SizedBox(height: 5),
 
-                          SizedBox(height: 20),
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(text:'Department  ',
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
-                                TextSpan(
-                                  text: '*',
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontWeight: FontWeight.bold,
+                        Row(
+                          children: [
+                            Expanded(
+                              child: TextFormField(
+                                readOnly: true, // Disable manual editing
+                                onTap: () => _selectDate(context),
+                                decoration: InputDecoration(
+                                  hintText: 'Select a date',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Color(
+                                            0xff535353)), // Color when not focused
                                   ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Color(0xff0CECDA)),
+                                  ),
+                                  hintStyle: TextStyle(
+                                    color: Colors.white.withOpacity(0.5),
+                                  ),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0,
+                                    horizontal: 15.0,
+                                  ),
+                                  border: OutlineInputBorder(),
+                                  fillColor: Color(0xff141318),
+                                  filled: true,
                                 ),
-                              ],
+                                style: TextStyle(color: Colors.white),
+                                controller: TextEditingController(
+                                  text:
+                                      "${selectedDate.toLocal()}".split(' ')[0],
+                                ),
+                              ),
                             ),
-                          ),
-                          // Text('Department',
-                          //     style: TextStyle(
-                          //         fontSize: 14.0,
-                          //         fontWeight: FontWeight.bold,
-                          //         color: Colors.white)),
-                          SizedBox(height: 5),
-                          // TextField(
-                          //   controller: _departmentController,
-                          DropdownButtonFormField<String>(
-                            value: _selectedTrainingMode,
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                _selectedTrainingMode = newValue;
-                                _departmentController.text = newValue ?? '';
-                              });
-                            },
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'This field is required';
-                              }
-                              return null;
-                            },
-                            items: <String>['CSE', 'CST'].map((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value,
-                                  style: TextStyle(
-                                    color: _selectedTrainingMode == value ? Colors.white : Colors.black,
-                                  ),),
+                            IconButton(
+                              icon: Icon(Icons.calendar_today),
+                              onPressed: () => _selectDate(context),
+                              color: Colors.white,
+                            ),
+                          ],
+                        ),
 
+                        SizedBox(
+                          height: 20,
+                        ),
+
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: 'Date of Joining  ',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        // Text('Date of Joining',
+                        //     style: TextStyle(
+                        //         fontSize: 14.0,
+                        //         fontWeight: FontWeight.bold,
+                        //         color: Colors.white)),
+                        SizedBox(height: 5),
+
+                        Row(
+                          children: [
+                            Expanded(
+                              child: TextFormField(
+                                readOnly: true, // Disable manual editing
+                                onTap: () => _joiningDate(context),
+                                decoration: InputDecoration(
+                                  hintText: 'Select a date',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Color(
+                                            0xff535353)), // Color when not focused
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Color(0xff0CECDA)),
+                                  ),
+                                  hintStyle: TextStyle(
+                                    color: Colors.white.withOpacity(0.5),
+                                  ),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 20.0,
+                                    horizontal: 15.0,
+                                  ),
+                                  border: OutlineInputBorder(),
+                                  fillColor: Color(0xff141318),
+                                  filled: true,
+                                ),
+                                style: TextStyle(color: Colors.white),
+                                controller: TextEditingController(
+                                  text:
+                                      "${joiningDate.toLocal()}".split(' ')[0],
+                                ),
+                              ),
+                            ),
+                            IconButton(
+                              icon: Icon(Icons.calendar_today),
+                              onPressed: () => _joiningDate(context),
+                              color: Colors.white,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: 'Permanent Address  ',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        // Text('Permanent Address',
+                        //     style: TextStyle(
+                        //         fontSize: 14.0,
+                        //         fontWeight: FontWeight.bold,
+                        //         color: Colors.white)),
+                        SizedBox(height: 5),
+                        TextField(
+                          controller: _permanentAddressController,
+                          decoration: InputDecoration(
+                            hintText: 'Enter permanent address',
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color(
+                                      0xff535353)), // Color when not focused
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            ),
+                            hintStyle: GoogleFonts.kufam(
+                                color: Colors.white.withOpacity(0.5)),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 20.0, horizontal: 15.0),
+                            border: OutlineInputBorder(),
+                            fillColor: Color(0xff141318),
+                            filled: true,
+                          ),
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: 'Father/Husband Name  ',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        // Text('Father/Husband Name',
+                        //     style: TextStyle(
+                        //         fontSize: 14.0,
+                        //         fontWeight: FontWeight.bold,
+                        //         color: Colors.white)),
+                        SizedBox(height: 5),
+                        TextField(
+                          controller: _fatherHusbandNameController,
+                          decoration: InputDecoration(
+                            hintText: 'Enter Name',
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color(
+                                      0xff535353)), // Color when not focused
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            ),
+                            hintStyle: GoogleFonts.kufam(
+                                color: Colors.white.withOpacity(0.5)),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 20.0, horizontal: 15.0),
+                            border: OutlineInputBorder(),
+                            fillColor: Color(0xff141318),
+                            filled: true,
+                          ),
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: 'Highest Qualification  ',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        // Text('Highest Qualification',
+                        //     style: TextStyle(
+                        //         fontSize: 14.0,
+                        //         fontWeight: FontWeight.bold,
+                        //         color: Colors.white)),
+                        SizedBox(height: 5),
+                        TextField(
+                          controller: _highestQualificationController,
+                          decoration: InputDecoration(
+                            hintText: 'Diploma/Degree',
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color(
+                                      0xff535353)), // Color when not focused
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            ),
+                            hintStyle: GoogleFonts.kufam(
+                                color: Colors.white.withOpacity(0.5)),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 20.0, horizontal: 15.0),
+                            border: OutlineInputBorder(),
+                            fillColor: Color(0xff141318),
+                            filled: true,
+                          ),
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: 'Mobile No.  ',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        // Text('Mobile No.',
+                        //     style: TextStyle(
+                        //         fontSize: 14.0,
+                        //         fontWeight: FontWeight.bold,
+                        //         color: Colors.white)),
+                        SizedBox(height: 5),
+                        TextField(
+                          controller: _mobileNumberController,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
+                          maxLength: 10,
+                          decoration: InputDecoration(
+                            hintText: '98765XXXXX',
+                            counterText: '',
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color(
+                                      0xff535353)), // Color when not focused
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            ),
+                            hintStyle: GoogleFonts.kufam(
+                                color: Colors.white.withOpacity(0.5)),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 20.0, horizontal: 15.0),
+                            border: OutlineInputBorder(),
+                            fillColor: Color(0xff141318),
+                            filled: true,
+                          ),
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: 'Current Designation  ',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        // Text('Current Designation',
+                        //     style: TextStyle(
+                        //         fontSize: 14.0,
+                        //         fontWeight: FontWeight.bold,
+                        //         color: Colors.white)),
+                        SizedBox(height: 5),
+                        TextField(
+                          controller: _currentDesignationController,
+                          decoration: InputDecoration(
+                            hintText: 'Enter Designation',
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color(
+                                      0xff535353)), // Color when not focused
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            ),
+                            hintStyle: GoogleFonts.kufam(
+                                color: Colors.white.withOpacity(0.5)),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 20.0, horizontal: 15.0),
+                            border: OutlineInputBorder(),
+                            fillColor: Color(0xff141318),
+                            filled: true,
+                          ),
+                          style: TextStyle(color: Colors.white),
+                        ),
+
+                        SizedBox(height: 20),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: 'Department  ',
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        // Text('Department',
+                        //     style: TextStyle(
+                        //         fontSize: 14.0,
+                        //         fontWeight: FontWeight.bold,
+                        //         color: Colors.white)),
+                        SizedBox(height: 5),
+                        // TextField(
+                        //   controller: _departmentController,
+                        DropdownButtonFormField<String>(
+                          value: _selectedTrainingMode,
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              _selectedTrainingMode = newValue;
+                              _departmentController.text = newValue ?? '';
+                            });
+                          },
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'This field is required';
+                            }
+                            return null;
+                          },
+                          items: <String>['CSE', 'CST'].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(
+                                value,
+                                style: TextStyle(
+                                  color: _selectedTrainingMode == value
+                                      ? Colors.white
+                                      : Colors.black,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                          decoration: InputDecoration(
+                            hintText: 'CST/CSE',
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color(
+                                      0xff535353)), // Color when not focused
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xff0CECDA)),
+                            ),
+                            hintStyle: GoogleFonts.kufam(
+                                color: Colors.white.withOpacity(0.5)),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 20.0, horizontal: 15.0),
+                            border: OutlineInputBorder(),
+                            fillColor: Color(0xff141318),
+                            filled: true,
+                          ),
+                          style: TextStyle(color: Colors.white),
+                          dropdownColor: Colors.grey,
+                        ),
+
+                        SizedBox(height: 20),
+
+                        // ElevatedButton(
+                        //   onPressed: () {
+                        //     Navigator.push(
+                        //       context,
+                        //       MaterialPageRoute(builder: (context) => TeacherSelectionScreen()),
+                        //     );
+                        //      _saveTeacherData();
+                        //
+                        //   },
+                        //   style: ElevatedButton.styleFrom(
+                        //     backgroundColor: Color(0xFF13E9DC),
+                        //     shape: RoundedRectangleBorder(
+                        //       borderRadius: BorderRadius.circular(20.0),
+                        //     ),
+                        //     minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                        //   ),
+                        //   child: Text(
+                        //     'Next',
+                        //     style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
+                        //   ),
+                        // ),
+                        ElevatedButton(
+                          onPressed: () async {
+                            // Save teacher name and email
+                            await saveTeacherName(_fullNameController.text);
+                            await saveTeacherEmail(
+                                _emailAddressController.text);
+
+                            // _fullNameController = TextEditingController();
+                            // final TextEditingController _emailAddressController = TextEditingController();
+                            // final TextEditingController _employeeIdController = TextEditingController();
+                            // final TextEditingController _permanentAddressController =
+                            // TextEditingController();
+                            // final TextEditingController _fatherHusbandNameController =
+                            // TextEditingController();
+                            // final TextEditingController _highestQualificationController =
+                            // TextEditingController();
+                            // final TextEditingController _mobileNumberController = TextEditingController();
+                            // final TextEditingController _currentDesignationController =
+                            // TextEditingController();
+                            // final TextEditingController _departmentController = TextEditingController();
+
+                            // Navigate to the teacher selection screen
+                            if (_fullNameController.text.isEmpty ||
+                                _emailAddressController.text.isEmpty ||
+                                _employeeIdController.text.isEmpty ||
+                                _permanentAddressController.text.isEmpty ||
+                                _fatherHusbandNameController.text.isEmpty ||
+                                _highestQualificationController.text.isEmpty ||
+                                _mobileNumberController.text.isEmpty ||
+                                _currentDesignationController.text.isEmpty ||
+                                _departmentController.text.isEmpty) {
+                              QuickAlert.show(
+                                context: context,
+                                type: QuickAlertType.error,
+                                title: 'Oops...',
+                                text: 'Please fill in all the required fields.',
                               );
-                            }).toList(),
-                            decoration: InputDecoration(
-                              hintText: 'CST/CSE',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff535353)), // Color when not focused
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff0CECDA)),
-                              ),
-                              hintStyle: GoogleFonts.kufam(
-                                  color: Colors.white.withOpacity(0.5)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  vertical: 20.0, horizontal: 15.0),
-                              border: OutlineInputBorder(),
-                              fillColor: Color(0xff141318),
-                              filled: true,
-                            ),
-                            style: TextStyle(color: Colors.white),
-                            dropdownColor: Colors.grey,),
-
-                          SizedBox(height: 20),
-
-                          // ElevatedButton(
-                          //   onPressed: () {
-                          //     Navigator.push(
-                          //       context,
-                          //       MaterialPageRoute(builder: (context) => TeacherSelectionScreen()),
-                          //     );
-                          //      _saveTeacherData();
-                          //
-                          //   },
-                          //   style: ElevatedButton.styleFrom(
-                          //     backgroundColor: Color(0xFF13E9DC),
-                          //     shape: RoundedRectangleBorder(
-                          //       borderRadius: BorderRadius.circular(20.0),
-                          //     ),
-                          //     minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
-                          //   ),
-                          //   child: Text(
-                          //     'Next',
-                          //     style: GoogleFonts.kufam(fontSize: 18,color: Colors.black,fontWeight: FontWeight.w500),
-                          //   ),
-                          // ),
-                          ElevatedButton(
-                            onPressed: () async {
-                              // Save teacher name and email
-                              await saveTeacherName(_fullNameController.text);
-                              await saveTeacherEmail(_emailAddressController.text);
-
-                              // _fullNameController = TextEditingController();
-                              // final TextEditingController _emailAddressController = TextEditingController();
-                              // final TextEditingController _employeeIdController = TextEditingController();
-                              // final TextEditingController _permanentAddressController =
-                              // TextEditingController();
-                              // final TextEditingController _fatherHusbandNameController =
-                              // TextEditingController();
-                              // final TextEditingController _highestQualificationController =
-                              // TextEditingController();
-                              // final TextEditingController _mobileNumberController = TextEditingController();
-                              // final TextEditingController _currentDesignationController =
-                              // TextEditingController();
-                              // final TextEditingController _departmentController = TextEditingController();
-
-                              // Navigate to the teacher selection screen
-                              if (_fullNameController.text.isEmpty ||
-                                  _emailAddressController.text.isEmpty ||
-                                  _employeeIdController.text.isEmpty ||
-                                  _permanentAddressController.text.isEmpty ||
-                                  _fatherHusbandNameController.text.isEmpty ||
-                                  _highestQualificationController.text.isEmpty ||
-                                  _mobileNumberController.text.isEmpty ||
-                                  _currentDesignationController.text.isEmpty ||
-                                  _departmentController.text.isEmpty ) {
-                                QuickAlert.show(
-                                  context: context,
-                                  type: QuickAlertType.error,
-                                  title: 'Oops...',
-                                  text: 'Please fill in all the required fields.',
-                                );
-                              }
-                              else if(_employeeIdController.text.length != 11) {
-                                QuickAlert.show(
-                                  context: context,
-                                  type: QuickAlertType.warning,
-                                  text: 'Please enter a valid Employee Id',
-                                );
-                              }
-                              else if(_mobileNumberController.text.length != 10) {
-                                QuickAlert.show(
-                                  context: context,
-                                  type: QuickAlertType.warning,
-                                  text: 'Please enter a valid Phone No.',
-                                );
-                              }
-                              else{Navigator.push(
+                            } else if (_employeeIdController.text.length !=
+                                10) {
+                              QuickAlert.show(
+                                context: context,
+                                type: QuickAlertType.warning,
+                                text: 'Please enter a valid Employee Id',
+                              );
+                            } else if (_mobileNumberController.text.length !=
+                                10) {
+                              QuickAlert.show(
+                                context: context,
+                                type: QuickAlertType.warning,
+                                text: 'Please enter a valid Phone No.',
+                              );
+                            } else {
+                              Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => TeacherSelectionScreen()),
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        TeacherSelectionScreen()),
                               );
                               QuickAlert.show(
                                 context: context,
                                 type: QuickAlertType.success,
                                 text: 'Saved Successfully!',
-                              );}
-
+                              );
                               // Save other teacher data if needed
                               _saveTeacherData();
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF13E9DC),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                              minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 48.0),
+                            }
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF13E9DC),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
                             ),
-                            child: Text(
-                              'Save',
-                              style: GoogleFonts.kufam(fontSize: 18, color: Colors.black, fontWeight: FontWeight.w500),
-                            ),
+                            minimumSize: Size(
+                                0.9 * MediaQuery.of(context).size.width, 48.0),
                           ),
-                        ],
-                      ),
+                          child: Text(
+                            'Save',
+                            style: GoogleFonts.kufam(
+                                fontSize: 18,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      ],
                     ),
-
-                  ],
                   ),
-                ),
-              ]),
-
-
+                ],
+              ),
+            ),
+          ]),
         ],
       ),
-
     );
-
-
   }
 }
-
