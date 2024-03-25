@@ -9,6 +9,8 @@ import 'package:majorproject/firebase_options.dart';
 import 'package:majorproject/student_data_sheet_screen.dart';
 import 'package:majorproject/teacher_data_sheet_screen.dart';
 import 'package:majorproject/teacher_main_screen.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'student_main_screen.dart';
 import 'change_password.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -117,6 +119,25 @@ class _LoginScreenState extends State<LoginScreen> {
     String email = emailController.text;
     String password = passwordController.text;
 
+    // if (!isValidEmail(email)) {
+    //   QuickAlert.show(
+    //     context: context,
+    //     type: QuickAlertType.warning,
+    //     text: 'Please enter a valid Email',
+    //   );
+    //   return; // Exit the method if email is invalid
+    // }
+    //
+    // if (!isValidPassword(password)) {
+    //   QuickAlert.show(
+    //     context: context,
+    //     type: QuickAlertType.warning,
+    //     text: 'Incorrect Password, Please try again!',
+    //   );
+    //   return; // Exit the method if password is invalid
+    // }
+
+
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
@@ -158,11 +179,21 @@ class _LoginScreenState extends State<LoginScreen> {
         //   MaterialPageRoute(builder: (context) => AdminHome()),
         // );
       }
+      QuickAlert.show(
+        context: context,
+        type: QuickAlertType.success,
+        text: 'Login Successfully!',
+      );
     } catch (e) {
 
       print(e.toString());
+      QuickAlert.show(
+              context: context,
+              type: QuickAlertType.warning,
+              text: 'Incorrect Email or Password, Please try again!',
+            );
 
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
     }
   }
   Future<void> saveCredentials(String email, String password) async {
@@ -334,22 +365,26 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     SizedBox(height: 10), // Add some space between the buttons
-                    TextButton(
-                      onPressed: () {
-                        // Navigate to the forget password screen
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ForgetPasswordScreen()),
-                        );
-                      },
-                      child: Text(
-                        'Change Password',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                    Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            // Navigate to the forget password screen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ForgetPasswordScreen()),
+                            );
+                          },
+                          child: Text(
+                            'Change Password',
+                            style: TextStyle(
+                              color: Color(0xFF13E9DC),
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
 
                   ],
@@ -363,3 +398,30 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
+// bool isValidEmail(String email) {
+//   String emailPattern1 = r'^[\w-\.]+@student\.com$';
+//   String emailPattern2 = r'^[\w-\.]+@teacher\.com$';
+//   String emailPattern3 = r'^[\w-\.]+@admin\.com$';
+//   RegExp regex = RegExp(emailPattern);
+//   return regex.hasMatch(email);
+// }
+// bool isValidEmail(String email) {
+//   String studentPattern = 'demo@student.com';
+//   String teacherPattern = 'demo@teacher.com';
+//   String adminPattern = 'demo@admin.com';
+//
+//   RegExp studentRegex = RegExp(studentPattern);
+//   RegExp teacherRegex = RegExp(teacherPattern);
+//   RegExp adminRegex = RegExp(adminPattern);
+//
+//   return studentRegex.hasMatch(email) ||
+//       teacherRegex.hasMatch(email) ||
+//       adminRegex.hasMatch(email);
+// }
+//
+// bool isValidPassword(String password) {
+//   String allowedPassword = 'demo12';
+//
+//   return password == allowedPassword;
+// }

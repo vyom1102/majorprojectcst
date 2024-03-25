@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class StudentCourse {
@@ -121,8 +122,36 @@ class _StudentCourseListState extends State<StudentCourseList> {
               Text('Duration: ${student.duration}'),
               Text('Starting Date: ${student.startingDate}'),
               Text('Ending Date: ${student.endingDate}'),
-              Text('Online Offline: ${student.onlineOffline}'),
-              Text('Certificate: ${student.certificate}'),
+              Text('Mode: ${student.onlineOffline}'),
+              // Text('Certificate: ${student.certificate}'),
+          Row(
+              children: [
+              Text('Certificate: '),
+          GestureDetector(
+            onTap: () {
+              Clipboard.setData(ClipboardData(text: '${student.certificate}'));
+
+            },
+            child: Row(
+              children: [
+                Text(
+                  '${student.certificate}',
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    color: Colors.blue, // Change the color to indicate it's clickable
+                  ),
+                ),
+                SizedBox(width: 5), // Add some space between the text and the icon
+                Icon(
+                  Icons.content_copy, // Use the copy icon
+                  color: Colors.blue, // Match the color with the text
+                  size: 20, // Adjust the size as needed
+                ),
+              ],
+            ),
+          ),
+              ],
+          ),
               Text('Course Learning: ${student.courseLearning}'),
             ],
           ),
