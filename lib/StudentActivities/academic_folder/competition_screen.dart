@@ -2330,11 +2330,11 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                                         text: 'Please enter a valid Enrollment No.',
                                       );
                                     }
-                                    else if(_whatsappNumberController.text.length != 11) {
+                                    else if(_whatsappNumberController.text.length != 10) {
                                       QuickAlert.show(
                                         context: context,
                                         type: QuickAlertType.warning,
-                                        text: 'Please enter a valid Enrollment No.',
+                                        text: 'Please enter a valid Phone No.',
                                       );
                                     }
                                     else {
