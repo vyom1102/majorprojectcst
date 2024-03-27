@@ -2037,17 +2037,17 @@ class _studentDataSheetState extends State<studentDataSheet> {
     );
   }
 
-  Future<void> _pickImage() async {
-    final picker = ImagePicker();
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-
-    if (pickedFile != null) {
-      setState(() {
-        _selectedImage = pickedFile.path;
-        _imageController.text = _selectedImage;
-      });
-    }
-  }
+  // Future<void> _pickImage() async {
+  //   final picker = ImagePicker();
+  //   final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+  //
+  //   if (pickedFile != null) {
+  //     setState(() {
+  //       _selectedImage = pickedFile.path;
+  //       _imageController.text = _selectedImage;
+  //     });
+  //   }
+  // }
 
   Future<void> _saveStudentData() async {
     try {
@@ -2755,7 +2755,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   text: TextSpan(
                                     children: [
                                       TextSpan(
-                                        text: 'Upload Photograph  ',
+                                        text: 'Upload Photograph(upto 200 kbs)  ',
                                         style: TextStyle(
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.bold,
@@ -2827,12 +2827,12 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                               style: TextStyle(color: Colors.white),
 
                                             ),
-                                              if(_selectedImage != null)
-                                                Image.file(
-                                                    File(_selectedImage),
-                                                  height:  100,
-                                                    width: 100,
-                                                ),
+                                              // if(_selectedImage != null)
+                                              //   Image.file(
+                                              //       File(_selectedImage),
+                                              //     height:  100,
+                                              //       width: 100,
+                                              //   ),
 
                                             ]
                                           //     if (_selectedImage != null)
@@ -3385,25 +3385,6 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                   ElevatedButton(
                                     onPressed: () async {
 
-                                      // final TextEditingController _fullNameController = TextEditingController();
-                                      // final TextEditingController _emailAddressController = TextEditingController();
-                                      // final TextEditingController _rollNumberController = TextEditingController();
-                                      // final TextEditingController _permanentAddressController = TextEditingController();
-                                      // final TextEditingController _jeeRankController = TextEditingController();
-                                      // final TextEditingController _mobileNumberController = TextEditingController();
-                                      // TextEditingController _imageController = TextEditingController();
-                                      // TextEditingController _yearController = TextEditingController();
-                                      //
-                                      // final TextEditingController _fatherNameController = TextEditingController();
-                                      // final TextEditingController _fatherOccupationController = TextEditingController();
-                                      // final TextEditingController _fatherOfficeAddressController = TextEditingController();
-                                      // final TextEditingController _fatherPhoneNumberController = TextEditingController();
-                                      //
-                                      // final TextEditingController _motherNameController = TextEditingController();
-                                      // final TextEditingController _motherOccupationController = TextEditingController();
-                                      // final TextEditingController _motherOfficeAddressController = TextEditingController();
-                                      // final TextEditingController _motherPhoneNumberController = TextEditingController();
-
                                       if(_fullNameController.text.isEmpty ||
                                           _emailAddressController.text.isEmpty ||
                                           _rollNumberController.text.isEmpty ||
@@ -3417,7 +3398,8 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                           _motherNameController.text.isEmpty ||
                                           _motherOccupationController.text.isEmpty ||
                                           _motherOfficeAddressController.text.isEmpty ||
-                                          _motherPhoneNumberController.text.isEmpty){
+                                          _motherPhoneNumberController.text.isEmpty||
+                                          _image == null){
                                         QuickAlert.show(
                                           context: context,
                                           type: QuickAlertType.error,

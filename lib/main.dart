@@ -182,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
       QuickAlert.show(
         context: context,
         type: QuickAlertType.success,
-        text: 'Login Successfully!',
+        text: 'Login Successful!',
       );
     } catch (e) {
 
