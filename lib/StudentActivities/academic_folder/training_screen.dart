@@ -20,8 +20,10 @@ class _TrainingScreenState extends State<TrainingScreen> {
   final DatabaseReference _studentTran =
   FirebaseDatabase.instance.ref().child('StudentData').child('Academic').child('studenttraining');
   String selectedButton = '';
-  DateTime durationFromDate = DateTime.now();
-  DateTime durationToDate = DateTime.now();
+  // DateTime durationFromDate = DateTime.now();
+  DateTime? durationFromDate;
+  // DateTime durationToDate = DateTime.now();
+  DateTime? durationToDate;
   String _storedNickname = '';
   String selectedYearofAdmission ='';
   List<String> years = List.generate(4, (index) => (1 + index).toString());
@@ -30,7 +32,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
   Future<void> _selectDurationFromDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: durationFromDate,
+      initialDate: durationFromDate ?? DateTime.now(),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
@@ -43,8 +45,21 @@ class _TrainingScreenState extends State<TrainingScreen> {
   }
 
   Future<void> _saveInternStudentData() async {
-    String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(durationFromDate);
-    String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(durationToDate);
+    // String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(durationFromDate);
+    String? formattedSelectedDate; // Declare formattedSelectedDate as nullable
+
+    // Check if selectedDate is not null before formatting it
+    if (durationFromDate != null) {
+      formattedSelectedDate = DateFormat('yyyy-MM-dd').format(durationFromDate!);
+    }
+
+    // String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(durationToDate);
+    String? formattedJoiningDate; // Declare formattedSelectedDate as nullable
+
+    // Check if selectedDate is not null before formatting it
+    if (durationToDate != null) {
+      formattedJoiningDate = DateFormat('yyyy-MM-dd').format(durationToDate!);
+    }
     try {
       await _studentTran.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
@@ -77,7 +92,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
   Future <void> _selectdurationToDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: durationToDate,
+      initialDate: durationToDate ?? DateTime.now(),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
@@ -491,7 +506,8 @@ class _TrainingScreenState extends State<TrainingScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${durationFromDate.toLocal()}".split(' ')[0],
+                                      // text: "${durationFromDate.toLocal()}".split(' ')[0],
+                                      text: durationFromDate != null ? "${durationFromDate!.toLocal()}".split(' ')[0] : null,
                                     ),
                                   ),
                                 ),
@@ -558,7 +574,8 @@ class _TrainingScreenState extends State<TrainingScreen> {
                                     ),
                                     style: TextStyle(color: Colors.white),
                                     controller: TextEditingController(
-                                      text: "${durationToDate.toLocal()}".split(' ')[0],
+                                      // text: "${durationToDate.toLocal()}".split(' ')[0],
+                                      text: durationToDate != null ? "${durationToDate!.toLocal()}".split(' ')[0] : null,
                                     ),
                                   ),
                                 ),
@@ -1307,7 +1324,9 @@ class _TrainingScreenState extends State<TrainingScreen> {
                                     _productServiceController.text.isEmpty ||
                                     _trainingModeController.text.isEmpty ||
                                     _companyLinkController.text.isEmpty ||
-                                    _stipendAmountController.text.isEmpty) {
+                                    _stipendAmountController.text.isEmpty||
+                                        durationFromDate==null||
+                                    durationToDate==null) {
                                   QuickAlert.show(
                                     context: context,
                                     type: QuickAlertType.error,
