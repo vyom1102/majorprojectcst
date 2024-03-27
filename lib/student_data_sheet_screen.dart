@@ -3407,7 +3407,8 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                           _motherOccupationController.text.isEmpty ||
                                           _motherOfficeAddressController.text.isEmpty ||
                                           _motherPhoneNumberController.text.isEmpty||
-                                          _image == null){
+                                          _image == null||
+                                          selectedDate == null){
                                         QuickAlert.show(
                                           context: context,
                                           type: QuickAlertType.error,
