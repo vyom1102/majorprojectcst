@@ -1970,7 +1970,7 @@ class _studentDataSheetState extends State<studentDataSheet> {
   PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 0;
 
-  DateTime selectedDate = DateTime.now();
+
 
   void selectImage() async{
     Uint8List img = await pickImage(ImageSource.gallery);
@@ -1979,12 +1979,13 @@ class _studentDataSheetState extends State<studentDataSheet> {
     });
   }
 
-
+  // DateTime selectedDate = DateTime.now();
+  DateTime? selectedDate;
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: selectedDate,
+      initialDate: selectedDate ?? DateTime.now(),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
@@ -2051,7 +2052,13 @@ class _studentDataSheetState extends State<studentDataSheet> {
 
   Future<void> _saveStudentData() async {
     try {
-      String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+      String? formattedSelectedDate; // Declare formattedSelectedDate as nullable
+
+      // Check if selectedDate is not null before formatting it
+      if (selectedDate != null) {
+        formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate!);
+      }
+      // String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
       await _studentRef.child('id').child(_rollNumberController.text).set({
         'fullName': _fullNameController.text,
         'emailAddress': _emailAddressController.text,
@@ -2496,7 +2503,8 @@ class _studentDataSheetState extends State<studentDataSheet> {
                                         ),
                                         style: TextStyle(color: Colors.white),
                                         controller: TextEditingController(
-                                          text: "${selectedDate.toLocal()}".split(' ')[0],
+                                          // text: "${selectedDate.toLocal()}".split(' ')[0],
+                                          text: selectedDate != null ? "${selectedDate!.toLocal()}".split(' ')[0] : null,
                                         ),
                                       ),
                                     ),
