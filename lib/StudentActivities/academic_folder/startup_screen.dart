@@ -18,7 +18,8 @@ class _StartupScreenState extends State<StartupScreen> {
   FirebaseDatabase.instance.ref().child('StudentData').child('Academic').child('studentStartup');
   String selectedButton = '';
   String _selectedImage='';
-  DateTime selectedDate = DateTime.now();
+  // DateTime selectedDate = DateTime.now();
+  DateTime? selectedDate;
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -48,7 +49,12 @@ class _StartupScreenState extends State<StartupScreen> {
   }
   Future<void> _saveStartupData() async {
     try {
-      String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+      // String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+      String? formattedSelectedDate; // Declare formattedSelectedDate as nullable
+
+      if (selectedDate != null) {
+        formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate!);
+      }
       await _studentTran.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
         'companyName' : _companyNameController.text,
@@ -399,7 +405,8 @@ class _StartupScreenState extends State<StartupScreen> {
                                       ),
                                       style: TextStyle(color: Colors.white),
                                       controller: TextEditingController(
-                                        text: "${selectedDate.toLocal()}".split(' ')[0],
+                                        // text: "${selectedDate.toLocal()}".split(' ')[0],
+                                        text: selectedDate != null ? "${selectedDate!.toLocal()}".split(' ')[0] : null,
                                       ),
                                     ),
                                   ),
@@ -572,7 +579,8 @@ class _StartupScreenState extends State<StartupScreen> {
                                       _companyProfileController.text.isEmpty ||
                                       _designationController.text.isEmpty ||
                                       _placeController.text.isEmpty ||
-                                      _studentnameController.text.isEmpty) {
+                                      _studentnameController.text.isEmpty ||
+                                  selectedDate==null) {
                                     QuickAlert.show(
                                       context: context,
                                       type: QuickAlertType.error,

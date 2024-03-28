@@ -23,8 +23,10 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
 
   String selectedButton = '';
   String _selectedImage='';
-  DateTime selectedDate = DateTime.now();
-  DateTime joiningDate = DateTime.now();
+  // DateTime selectedDate = DateTime.now();
+  DateTime? selectedDate;
+  // DateTime joiningDate = DateTime.now();
+  DateTime? joiningDate;
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -71,9 +73,20 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
 
   Future<void> _studentHigherDetail() async {
     try {
-      String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
-      String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate);
+      // String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+      // String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate);
 
+      String? formattedSelectedDate;
+
+      if (selectedDate != null) {
+        formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate!);
+      }
+
+      String? formattedJoiningDate;
+
+      if (joiningDate != null) {
+        formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate!);
+      }
 
       await _studentHigher.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
@@ -524,7 +537,8 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                       ),
                                       style: TextStyle(color: Colors.white),
                                       controller: TextEditingController(
-                                        text: "${selectedDate.toLocal()}".split(' ')[0],
+                                        // text: "${selectedDate.toLocal()}".split(' ')[0],
+                                        text: selectedDate != null ? "${selectedDate!.toLocal()}".split(' ')[0] : null,
                                       ),
                                     ),
                                   ),
@@ -594,7 +608,8 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                       ),
                                       style: TextStyle(color: Colors.white),
                                       controller: TextEditingController(
-                                        text: "${joiningDate.toLocal()}".split(' ')[0],
+                                        // text: "${joiningDate.toLocal()}".split(' ')[0],
+                                        text: joiningDate != null ? "${joiningDate!.toLocal()}".split(' ')[0] : null,
                                       ),
                                     ),
                                   ),
@@ -793,7 +808,9 @@ class _HigherStudiesScreenState  extends State<HigherStudiesScreen> {
                                       _ppoController.text.isEmpty ||
                                       _ppoDetailsController.text.isEmpty ||
                                       _studentnameController.text.isEmpty ||
-                                      _imageController.text.isEmpty) {
+                                      _imageController.text.isEmpty ||
+                                      selectedDate==null||
+                                      joiningDate==null) {
                                     QuickAlert.show(
                                       context: context,
                                       type: QuickAlertType.error,

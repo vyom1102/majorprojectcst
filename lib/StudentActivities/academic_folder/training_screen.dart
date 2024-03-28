@@ -32,7 +32,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
   Future<void> _selectDurationFromDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: durationFromDate ?? DateTime.now(),
+      initialDate: durationFromDate,
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
@@ -92,7 +92,7 @@ class _TrainingScreenState extends State<TrainingScreen> {
   Future <void> _selectdurationToDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: durationToDate ?? DateTime.now(),
+      initialDate: durationToDate,
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );

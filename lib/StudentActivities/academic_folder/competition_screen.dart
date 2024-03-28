@@ -20,8 +20,9 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
 
   String selectedButton = '';
   String _selectedImage='';
-  DateTime selectedDate = DateTime.now();
-  DateTime joiningDate = DateTime.now();
+  // DateTime selectedDate = DateTime.now();
+  DateTime? selectedDate;
+  // DateTime joiningDate = DateTime.now();
 
 
 
@@ -53,7 +54,12 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
   }
   Future<void> _saveCompiStudentData() async {
     try {
-      String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+      // String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+      String? formattedSelectedDate;
+
+      if (selectedDate != null) {
+        formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate!);
+      }
       await _studentCompi.child('id').child(_enrollmentController.text).set({
         'projectID' : _projectIDController.text,
         'branch' : _branchController.text,
@@ -2189,7 +2195,8 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                                       ),
                                       style: TextStyle(color: Colors.white),
                                       controller: TextEditingController(
-                                        text: "${selectedDate.toLocal()}".split(' ')[0],
+                                        // text: "${selectedDate.toLocal()}".split(' ')[0],
+                                        text: selectedDate != null ? "${selectedDate!.toLocal()}".split(' ')[0] : null,
                                       ),
                                     ),
                                   ),
@@ -2316,7 +2323,8 @@ class _CompetitionScreenState extends State<CompetitionScreen> {
                                     _otherMemberController.text.isEmpty ||
                                     _participationController.text.isEmpty ||
                                     _nameOfCompController.text.isEmpty||
-                                        _imageController.text.isEmpty)
+                                        _imageController.text.isEmpty||
+                                    selectedDate==null)
                                     {
                                     QuickAlert.show(
                                     context: context,

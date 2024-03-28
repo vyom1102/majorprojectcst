@@ -20,9 +20,10 @@ class _SeminarScreenState extends State<SeminarScreen> {
   FirebaseDatabase.instance.ref().child('StudentData').child('Academic').child('studentSeminar');
 
   String selectedButton = '';
-  DateTime selectedDate = DateTime.now();
-  DateTime joiningDate = DateTime.now();
-
+  // DateTime selectedDate = DateTime.now();
+  DateTime? selectedDate;
+  // DateTime joiningDate = DateTime.now();
+  DateTime? joiningDate;
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -39,8 +40,20 @@ class _SeminarScreenState extends State<SeminarScreen> {
   }
   Future<void> _saveSeminarData() async {
     try {
-      String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
-      String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate);
+      // String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+      // String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate);
+
+      String? formattedSelectedDate;
+
+      if (selectedDate != null) {
+        formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate!);
+      }
+
+      String? formattedJoiningDate;
+
+      if (joiningDate != null) {
+        formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate!);
+      }
 
       await _studentTran.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
@@ -348,7 +361,8 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                       ),
                                       style: TextStyle(color: Colors.white),
                                       controller: TextEditingController(
-                                        text: "${selectedDate.toLocal()}".split(' ')[0],
+                                        // text: "${selectedDate.toLocal()}".split(' ')[0],
+                                        text: selectedDate != null ? "${selectedDate!.toLocal()}".split(' ')[0] : null,
                                       ),
                                     ),
                                   ),
@@ -417,7 +431,8 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                       ),
                                       style: TextStyle(color: Colors.white),
                                       controller: TextEditingController(
-                                        text: "${joiningDate.toLocal()}".split(' ')[0],
+                                        // text: "${joiningDate.toLocal()}".split(' ')[0],
+                                        text: joiningDate != null ? "${joiningDate!.toLocal()}".split(' ')[0] : null,
                                       ),
                                     ),
                                   ),
@@ -559,7 +574,9 @@ class _SeminarScreenState extends State<SeminarScreen> {
                                       _nameController.text.isEmpty ||
                                       _detailsController.text.isEmpty ||
                                       _durationController.text.isEmpty ||
-                                      _addressController.text.isEmpty) {
+                                      _addressController.text.isEmpty ||
+                                      selectedDate==null||
+                                      joiningDate==null ) {
                                     QuickAlert.show(
                                       context: context,
                                       type: QuickAlertType.error,

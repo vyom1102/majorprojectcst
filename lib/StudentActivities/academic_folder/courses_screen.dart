@@ -17,8 +17,10 @@ class _CoursesScreenState extends State<CoursesScreen> {
 
   String selectedButton = '';
   String _selectedImage='';
-  DateTime selectedDate = DateTime.now();
-  DateTime joiningDate = DateTime.now();
+  // DateTime selectedDate = DateTime.now();
+  DateTime? selectedDate;
+  // DateTime joiningDate = DateTime.now();
+  DateTime? joiningDate;
   String? _selectedTrainingMode;
 
   Future<void> _selectDate(BuildContext context) async {
@@ -64,8 +66,20 @@ class _CoursesScreenState extends State<CoursesScreen> {
   }
   Future<void> _studentHigherDetail() async {
     try {
-      String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
-      String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate);
+      // String formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+      String? formattedSelectedDate; // Declare formattedSelectedDate as nullable
+
+      if (selectedDate != null) {
+        formattedSelectedDate = DateFormat('yyyy-MM-dd').format(selectedDate!);
+      }
+
+      // String formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate);
+
+      String? formattedJoiningDate; // Declare formattedSelectedDate as nullable
+
+      if (joiningDate != null) {
+        formattedJoiningDate = DateFormat('yyyy-MM-dd').format(joiningDate!);
+      }
       await _studentCourse.child('id').child(_studentnameController.text).set({
         'enrollmentNumber': _studentnameController.text,
         'certificate' : _imageController.text,
@@ -488,7 +502,8 @@ class _CoursesScreenState extends State<CoursesScreen> {
                                       ),
                                       style: TextStyle(color: Colors.white),
                                       controller: TextEditingController(
-                                        text: "${selectedDate.toLocal()}".split(' ')[0],
+                                        // text: "${selectedDate.toLocal()}".split(' ')[0],
+                                        text: selectedDate != null ? "${selectedDate!.toLocal()}".split(' ')[0] : null,
                                       ),
                                     ),
                                   ),
@@ -557,7 +572,8 @@ class _CoursesScreenState extends State<CoursesScreen> {
                                       ),
                                       style: TextStyle(color: Colors.white),
                                       controller: TextEditingController(
-                                        text: "${joiningDate.toLocal()}".split(' ')[0],
+                                        // text: "${joiningDate.toLocal()}".split(' ')[0],
+                                        text: joiningDate != null ? "${joiningDate!.toLocal()}".split(' ')[0] : null,
                                       ),
                                     ),
                                   ),
@@ -824,7 +840,9 @@ class _CoursesScreenState extends State<CoursesScreen> {
                                       _durationController.text.isEmpty ||
                                       _onlineController.text.isEmpty ||
                                       _courseLearningController.text.isEmpty ||
-                                      _studentnameController.text.isEmpty) {
+                                      _studentnameController.text.isEmpty||
+                                  selectedDate==null||
+                                  joiningDate==null) {
                                     QuickAlert.show(
                                       context: context,
                                       type: QuickAlertType.error,
