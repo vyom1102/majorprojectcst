@@ -161,7 +161,7 @@ class _StudentFEStudiesListState extends State<StudentFEStudiesList> {
                   children: [
                     SizedBox(width: 10,),
                     Text(
-                      'Female Student Details',
+                      'Female Student NCC Details',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,

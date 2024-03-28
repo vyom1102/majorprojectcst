@@ -161,7 +161,7 @@ class _StudentCOStudiesListState extends State<StudentCOStudiesList> {
                   children: [
                     SizedBox(width: 10,),
                     Text(
-                      'CO Student Details',
+                      'CO-ED NCC Details',
                       style: GoogleFonts.kufam(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,
